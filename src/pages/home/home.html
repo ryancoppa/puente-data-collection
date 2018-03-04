@@ -1,0 +1,166 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="signout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <!--Title -->
+    <ion-item-divider color="primary-light">
+      Add Survey
+    </ion-item-divider>
+
+    <!-- Survey-Item First Name -->
+    <ion-item>
+      <ion-input type="text" placeholder="First Name" [(ngModel)]="newSurvey.fname"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item Last Name -->
+    <ion-item>
+      <ion-input type="text" placeholder="Last Name" [(ngModel)]="newSurvey.lname"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item Age -->
+    <ion-item>
+      <ion-input type="text" placeholder="Age" [(ngModel)]="newSurvey.age"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item Sex -->
+    <ion-item>
+      <ion-input type="text" placeholder="Sex"[(ngModel)]="newSurvey.sex"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item marriageStatus -->
+    <ion-item>
+      <ion-input type="text" placeholder="marriageStatus" [(ngModel)]="newSurvey.marriageStatus"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item occupation -->
+    <ion-item>
+      <ion-input type="text" placeholder="occupation" [(ngModel)]="newSurvey.occupation"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item phoneNumber -->
+    <ion-item>
+      <ion-input type="text" placeholder="phoneNumber" [(ngModel)]="newSurvey.phoneNumber"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item publicPrivateInsurance -->
+    <ion-item>
+      <ion-input type="text" placeholder="publicPrivateInsurance" [(ngModel)]="newSurvey.publicPrivateInsurance"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item memberProgresando -->
+    <ion-item>
+      <ion-input type="text" placeholder="memberProgresando" [(ngModel)]="newSurvey.memberProgresando"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item memberOfAssociation -->
+    <ion-item>
+      <ion-input type="text" placeholder="memberOfAssociation" [(ngModel)]="newSurvey.memberOfAssociation"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item nameOfAssociation -->
+    <ion-item>
+      <ion-input type="text" placeholder="nameOfAssociation" [(ngModel)]="newSurvey.nameOfAssociation"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item familyHistoryDiabetes -->
+    <ion-item>
+      <ion-input type="text" placeholder="familyHistoryDiabetes" [(ngModel)]="newSurvey.familyHistoryDiabetes"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item familyHIstoryCardiacDisease -->
+    <ion-item>
+      <ion-input type="text" placeholder="familyHIstoryCardiacDisease" [(ngModel)]="newSurvey.familyHIstoryCardiacDisease"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item familyHistoryofAlcoholism -->
+    <ion-item>
+      <ion-input type="text" placeholder="familyHistoryofAlcoholism" [(ngModel)]="newSurvey.familyHistoryofAlcoholism"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item familyHistoryofBreastCancer -->
+    <ion-item>
+      <ion-input type="text" placeholder="familyHistoryofBreastCancer" [(ngModel)]="newSurvey.familyHistoryofBreastCancer"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item familyHistoryofProstateCancer -->
+    <ion-item>
+      <ion-input type="text" placeholder="familyHistoryofProstateCancer" [(ngModel)]="newSurvey.familyHistoryofProstateCancer"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item familyHistoryofMentalDisease -->
+    <ion-item>
+      <ion-input type="text" placeholder="familyHistoryofMentalDisease" [(ngModel)]="newSurvey.familyHistoryofMentalDisease"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item diabetesDiagnosis -->
+    <ion-item>
+      <ion-input type="text" placeholder="diabetesDiagnosis" [(ngModel)]="newSurvey.diabetesDiagnosis"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item cardiacproblems -->
+    <ion-item>
+      <ion-input type="text" placeholder="cardiacproblems" [(ngModel)]="newSurvey.cardiacproblems"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item numberofAlchoholDrinks -->
+    <ion-item>
+      <ion-input type="text" placeholder="numberofAlchoholDrinks" [(ngModel)]="newSurvey.numberofAlchoholDrinks"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item sexualHealth_Diseasesaproblem -->
+    <ion-item>
+      <ion-input type="text" placeholder="sexualHealth_Diseasesaproblem" [(ngModel)]="newSurvey.sexualHealth_Diseasesaproblem"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item sexualHealth_Teenagepregnancyaproblem -->
+    <ion-item>
+      <ion-input type="text" placeholder="sexualHealth_Teenagepregnancyaproblem" [(ngModel)]="newSurvey.sexualHealth_Teenagepregnancyaproblem"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item waterAccess -->
+    <ion-item>
+      <ion-input type="text" placeholder="waterAccess" [(ngModel)]="newSurvey.waterAccess"></ion-input>
+    </ion-item>
+
+    <!-- Survey-Item waterQuality -->
+    <ion-item>
+      <ion-input type="text" placeholder="waterQuality" [(ngModel)]="newSurvey.waterQuality"></ion-input>
+    </ion-item>
+<!--THIS IS WHERE SURVEY CUTS -->  
+
+<!--         Divider               -->
+    <!-- Survey-Item Name -->
+    <ion-item no-lines>
+      <button ion-button icon-left color="accent" (click)="postSurveyConfirm()">
+        <ion-icon name="checkmark-circle"></ion-icon>Submit
+      </button>
+    </ion-item>
+
+<!--         Divider               -->
+    <ion-item-divider color="primary-light">
+      Current Surveys
+    </ion-item-divider>
+
+    <ion-item *ngFor="let surveyPoint of surveyPoints">
+      <h2>{{ surveyPoint.get('fname') }}</h2>
+      <p>{{ surveyPoint.get('lname') }}</p>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="$event.waitFor(listPoints())">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
