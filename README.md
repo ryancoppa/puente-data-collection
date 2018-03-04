@@ -1,4 +1,4 @@
- # Ionic Parse Server
+ # Puente Ionic-Parse Surveying Application 
 
 ![](https://img.shields.io/badge/build-success-brightgreen.svg)
 
@@ -10,9 +10,7 @@
 
 # About this starter
 
-This is a simple starter for integrating Ionic 3, Angular 2+ and Parse Server. It provides a small PoC (Proof of Concept) app for adding/removing scores and uses signin/signout based on Parse Server. You can just use it as the foundation for your next big app.
-
-You can also find this starter in the Ionic Market, just click [here](https://market.ionicframework.com/starters/ionic-parse-server).
+This is a PoC Surveying Application for integrating Ionic 3, Angular 2+ and Parse Server. 
 
 ## Some screenshots
 
@@ -128,94 +126,9 @@ Parse offer a backend to store data, push notifications, social media integratio
 - **Storage**: No restricted time limits and no file storage restrictions. Control over backup, restore and database indexes
 - **Ideal for**: General purpose applications
 
-## How to use this starter?
-
-1. Install Ionic
-
-  ```
-  $ npm install -g ionic cordova
-  ```
-  
-2. Install and run Parse Server
-
-  ```
-  $ npm install -g parse-server mongodb-runner
-  $ mongodb-runner start
-  $ parse-server --appId APPLICATION_ID --masterKey MASTER_KEY --databaseURI mongodb://localhost/test
-  ```
-  
-  > You can use any arbitrary string as your application id and master key. These will be used by your clients to authenticate with the Parse Server. The application id and the parse url can be changed in `src/app/app.constant.ts`.
-
-3. Fork this repository and clone it
-  
-  ```
-  $ git clone https://github.com/<your-user>/ionic-parse-server
-  ```
-  
-4. Navigate into the folder  
-
-  ```
-  $ cd ionic-parse-server
-  ```
-  
-5. Install NPM dependencies
-
-  ```
-  $ npm install
-  ```
-  
-6. Run the project
-
-  ```
-  $ ionic serve
-  ```
-  
-7. Navigate to `http://localhost:8100` in your browser
-
-## Or if you only want to add Parse Server to your project
-
-1. Go to the project directory:
-
-```
-cd my-project
-```
-
-2. Install Parse SDK by running the following command
-
-```
-npm install parse --save
-```
-
-3. Import `Parse`
-
-```js
-import { Parse } from 'parse';
-```
-
-4. Declare your `parseAppId` and `parseServerUrl`
-
-```js
-private parseAppId: string = 'APPLICATION_ID';
-private parseServerUrl: string = 'http://localhost:1337/parse';
-```
-
-5. Initialize it on the constructor
-
-```js
-constructor() {
-  this.parseInitialize();
-}
-
-private parseInitialize() {
-  Parse.initialize(this.parseAppId);
-  Parse.serverURL = this.parseServerUrl;
-}
-```
-**That's all!** Just create a provider, import Parse and start writing code
-
 # Contribution
 
 - Report issues
 - Open pull request with improvements
 - Spread the word
-- Reach out to me directly at <mauriurraco@gmail.com>
+- Reach out to me directly at <hpbala@umich.edu>
