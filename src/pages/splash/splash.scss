@@ -6,17 +6,20 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background-color: black;
         }
         //5 = Desarollo Internacional
         //1 = Puente
         #Layer_0_Image {
-            height: 80%;
+            height: 50%;
+            width: 50%;
+
 
             .cls-1 {
                 //Desarollo Internacional
                 opacity: 0;
                 //transform: rotate3d(1, 1, 0, 50deg);
-                animation: 1s 0.8s ease fadeInAndSpin;
+                animation: 2.5s 1s ease fadeInAndSpin;
                 animation-fill-mode: forwards;
             }
 
