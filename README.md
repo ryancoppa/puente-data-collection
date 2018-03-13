@@ -1,4 +1,4 @@
- # Puente Ionic-Parse Surveying Application 
+ # Ionic-Parse Surveying Application 
 
 ![](https://img.shields.io/badge/build-success-brightgreen.svg)
 
@@ -16,7 +16,7 @@ This is a PoC Surveying Application for integrating Ionic 3, Angular 2+ and Pars
 
 <p align="center">
   <img src="https://github.com/murraco/ionic-parse-server/blob/master/signin.png" width="40%" />
-  <img src="https://github.com/murraco/ionic-parse-server/blob/master/home.png" width="40%" />
+  <img src="https://github.com/hopetambala/puente-parse-ionic/blob/master/home.png" width="40%" />
 </p>
 
 # File structure
