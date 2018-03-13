@@ -88,8 +88,11 @@ export class HomePage {
   public postSurveyConfirm() {
     this.parseProvider.addSurveyResults(this.newSurvey).then((surveyPoint) => {
       this.surveyPoints.push(surveyPoint);
-      this.newSurvey.fname = null;
-      this.newSurvey.lname = null;
+      for (var key in this.newSurvey){
+        this.newSurvey[key] = null;
+      }
+      //this.newSurvey.fname = null;
+      //this.newSurvey.lname = null;
     }, (error) => {
       console.log(error);
       alert('Error Confirming.');
