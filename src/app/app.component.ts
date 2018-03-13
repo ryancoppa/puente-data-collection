@@ -7,6 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SigninPage } from '../pages/signin/signin';
 import { HomePage } from '../pages/home/home';
 import { Splash } from '../pages/splash/splash';
+import { AboutPage } from '../pages/about/about';
 
 @Component({
   template: '<ion-nav [root]="rootPage"></ion-nav>'
@@ -14,6 +15,7 @@ import { Splash } from '../pages/splash/splash';
 export class MyApp {
   rootPage: any = SigninPage;
   //rootPage: any = HomePage;
+  //rootPage: any = AboutPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, modalCtrl: ModalController) {
     platform.ready().then(() => {

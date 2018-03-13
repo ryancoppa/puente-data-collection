@@ -13,8 +13,16 @@ page-signin {
             //animation: 2.5s 1s ease fadeInAndSpin;
             animation-fill-mode: forwards;
         }
+
+    }
+
+    .fillin {
+      background-color: black;
+      .text{
+        color: #f9c55c;
+      }
     }
     .background {
-        background-color: black
+        background-color: black;
     }
 }

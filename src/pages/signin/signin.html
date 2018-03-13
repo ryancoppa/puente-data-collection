@@ -2,20 +2,20 @@
   <ion-content padding class="background">
     <p class="logo">
       <!-- <img src="http://placehold.it/300x200"/> -->
-      <img src="../assets/images/puente.png" />
+      <img src="assets/images/puente.png" />
     </p>
 
     <form (submit)="doSignin()">
       <ion-list inset padding>
 
-        <ion-item>
-          <ion-label stacked>Username</ion-label>
-          <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
+        <ion-item class="fillin">
+          <ion-label floating>Username</ion-label>
+          <ion-input class='text' type="text" [(ngModel)]="username" name="username"></ion-input>
         </ion-item>
 
-        <ion-item>
-          <ion-label stacked>Password</ion-label>
-          <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+        <ion-item class="fillin">
+          <ion-label floating>Password</ion-label>
+          <ion-input class='text' type="password" [(ngModel)]="password" name="password"></ion-input>
         </ion-item>
 
         <div padding>
