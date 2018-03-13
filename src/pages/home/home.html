@@ -136,19 +136,19 @@
     <ion-item>
       <ion-input type="text" placeholder="waterQuality" [(ngModel)]="newSurvey.waterQuality"></ion-input>
     </ion-item>
-<!--THIS IS WHERE SURVEY CUTS -->  
+<!--THIS IS WHERE SURVEY CUTS -->
 
 <!--         Divider               -->
     <!-- Survey-Item Name -->
     <ion-item no-lines>
-      <button ion-button icon-left color="accent" (click)="postSurveyConfirm()">
+      <button ion-button icon-left full round color="accent" (click)="postSurveyConfirm()">
         <ion-icon name="checkmark-circle"></ion-icon>Submit
       </button>
     </ion-item>
 
 <!--         Divider               -->
     <ion-item-divider color="primary-light">
-      Current Surveys
+      Completed Surveys
     </ion-item-divider>
 
     <ion-item *ngFor="let surveyPoint of surveyPoints">
