@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://ionicframework.com/docs/api/components/item/Item/ -->
+<html lang="en" class="gr__ionicframework_com"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style data-visibility="">ionic-button,ionic-newsletter-signup{visibility:hidden}</style><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    
+    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="./Item - Ionic API Documentation - Ionic Framework_files/css" rel="stylesheet">
+<link href="./Item - Ionic API Documentation - Ionic Framework_files/styles.css" rel="stylesheet">
+
+
+
+
+
+  <title>Item - Ionic API Documentation -  Ionic Framework</title>
+
+
+<meta name="author" content="Drifty">
+<meta name="description" content="Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards">
+<meta name="keywords" content="html5,javascript,mobile,drifty,ionic,hybrid,phonegap,cordova,native,ios,android,angularjs">
+<link rel="canonical" href="https://ionicframework.com/docs/api/components/item/Item/">
+
+<!-- Social: Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ionicframework">
+<meta name="twitter:creator" content="ionicframework">
+<meta name="twitter:title" content="Ionic Framework">
+<meta name="twitter:description" content="Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards">
+<meta name="twitter:image:src" content="https://ionicframework.com/img/meta/ionic-framework-og.png">
+
+<!-- Social: Facebook / Open Graph -->
+<meta property="fb:app_id" content="1321836767955949">
+<meta property="og:url" content="https://ionicframework.com/docs/api/components/item/Item/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ionic Framework">
+<meta property="og:image" content="https://ionicframework.com/img/meta/ionic-framework-og.png">
+<meta property="og:description" content="Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards">
+<meta property="og:site_name" content="Ionic Framework">
+<meta property="article:publisher" content="https://www.facebook.com/ionicframework">
+
+<link rel="apple-touch-icon" sizes="57x57" href="https://ionicframework.com/img/meta/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://ionicframework.com/img/meta/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://ionicframework.com/img/meta/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://ionicframework.com/img/meta/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://ionicframework.com/img/meta/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://ionicframework.com/img/meta/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://ionicframework.com/img/meta/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://ionicframework.com/img/meta/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://ionicframework.com/img/meta/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="https://ionicframework.com/img/meta/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="https://ionicframework.com/img/meta/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://ionicframework.com/img/meta/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="https://ionicframework.com/img/meta/favicon-192x192.png" sizes="192x192">
+<link rel="manifest" href="https://ionicframework.com/manifest.json">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/img/meta/ms-icon-70x70.png">
+<meta name="msapplication-TileImage" content="/img/meta/ms-icon-144x144.png">
+<meta name="theme-color" content="#4c8fff">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+  <script type="text/javascript" async="" src="./Item - Ionic API Documentation - Ionic Framework_files/3af7413247f5067b13df320689ad04c045f97e14.2.js.download"></script><script type="text/javascript" async="" src="./Item - Ionic API Documentation - Ionic Framework_files/i.js.download"></script><script type="text/javascript" async="" src="./Item - Ionic API Documentation - Ionic Framework_files/insight.min.js.download"></script><script type="text/javascript" async="" src="./Item - Ionic API Documentation - Ionic Framework_files/ga.js.download"></script><script async="" src="./Item - Ionic API Documentation - Ionic Framework_files/branch-latest.min.js.download"></script><script src="./Item - Ionic API Documentation - Ionic Framework_files/ionic-site-components.egtgfe6c.js.download" data-path="/stencil/ionic-site-components/" data-core="ionic-site-components.egtgfe6c.js"></script></head>
+  <body id="docs-page-item" class="v2 docs fluid page-item ng-scope" data-spy="scroll" data-offset="100" data-target="#components-index" ng-app="IonicSite" data-gr-c-s-loaded="true">
+    <noscript>
+      &lt;iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKMGCBC"
+              style="display:none;visibility:hidden"
+              height="0" 
+              width="0" &gt;&lt;/iframe&gt;
+    </noscript>
+    <!-- <div id="snap-bar">
+      <img src="/img/net-neutrality-loading.png" width="16" class="loading"/>
+      Speak up for a free and open internet. 
+      <a href="https://www.battleforthenet.com" target="_blank">
+        <b>Act now to save Net Neutrality</b>
+        <i class="ion-md-arrow-forward"></i>
+      </a>
+    </div> -->
+    
+      <nav class="navbar navbar-default" id="">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" id="collapse-toggle" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="ion-md-more"></i>
+      </button>
+      <button type="button" class="sidebar-toggle collapsed" id="sidebar-toggle">
+        <span class="sr-only">Toggle sidebar</span>
+        <i class="ion-md-menu"></i>
+        <i class="ion-md-close"></i>
+      </button>
+      <a class="navbar-brand logo" href="https://ionicframework.com/">
+        <img src="./Item - Ionic API Documentation - Ionic Framework_files/ionic-docs-icon.png" id="ionic-docs-logo">
+        <img src="./Item - Ionic API Documentation - Ionic Framework_files/ionic-docs-icon-back.png" id="ionic-docs-back">
+      </a>
+      <a class="navbar-brand" href="https://ionicframework.com/docs/v2">
+        
+        <img src="./Item - Ionic API Documentation - Ionic Framework_files/ionic-docs-type.png" id="ionic-docs-text">
+        
+      </a>
+      
+      <ul class="version">
+        <li class="dropdown">
+          <a href="https://ionicframework.com/docs/api/components/item/Item/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="https://ionicframework.com/docs/api/components/item/Item/#" class="active">
+                Current Framework Docs <i class="ion-ios-checkmark"></i>
+              </a>
+            </li>
+            <li><a href="https://ionicframework.com/docs/v1">v1 Framework Docs</a></li>
+          </ul>
+        </li>
+      </ul>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      
+      <form class="navbar-form navbar-left ng-pristine ng-valid" id="header-search" role="search" data-searchpos="header">
+        <div class="form-group">
+          <input type="text" class="form-control search-input ng-pristine ng-untouched ng-valid ng-empty" placeholder="Search" data-searchpos="header" ng-model="searchTerm">
+        </div>
+      </form>
+      
+      <ul class="nav navbar-nav navbar-center">
+        <!-- <li class="dropdown">
+  <a href="#"
+     class="dropdown-toggle"
+     data-toggle="dropdown"
+     role="button"
+     aria-haspopup="true"
+     aria-expanded="false">
+    Open source
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a href="/framework" class="framework">
+        <strong>Ionic Framework</strong>
+        The popular open source SKD, built for developers.
+      </a>
+    </li>
+    <li>
+      <a href="https://ionicons.com/" class="ionicons">
+        <strong>Ionicons</strong>
+        Our 900+ open source system icon pack.
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://stenciljs.com" class="stencil">
+        <strong>Stencil <span class="tag">New</span></strong>
+        Resuable, web standards component generator.
+      </a>
+    </li>
+  </ul>
+</li> -->
+
+<li><a href="https://ionicframework.com/framework">
+  Framework</a></li>
+<li>
+  <a href="https://ionicframework.com/pro">Products</a></li>
+
+<!-- <li class="dropdown products">
+  <a href="/pro"
+     class="dropdown-toggle"
+     aria-haspopup="true"
+     aria-expanded="false">
+    Products
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a href="/pro" class="pro">
+        <strong>Ionic Pro</strong>
+        The premier product suite for serious app creators.
+      </a>
+    </li>
+    <li>
+      <a href="/pro/view" class="view">
+        <strong>View App</strong>
+        The live preview app for device testing &amp; sharing.
+      </a>
+    </li>
+    <li>
+      <a href="/pro/deploy" class="deploy">
+        <strong>Deploy</strong>
+        Push hot code updates live to production apps.
+      </a>
+    </li>
+    <li>
+      <a href="/pro/package" class="package">
+        <strong>Package</strong>
+        Compile and publish native binaries in the cloud.
+      </a>
+    </li>
+    <li>
+      <a href="/pro/monitor" class="monitor">
+        <strong>Monitor</strong>
+        Ionic app error monitoring and log tracking.
+      </a>
+    </li>
+  </ul>
+</li> -->
+
+<li class="dropdown developers">
+  <a href="https://ionicframework.com/docs/api/components/item/Item/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Developers</a>
+  <ul class="dropdown-menu">
+    <li class="split">
+      <ul>
+        <li class="title"><a href="https://ionicframework.com/docs">
+          <i class="ion-md-arrow-forward"></i>Framework Docs</a></li>
+        <li><a href="https://ionicframework.com/getting-started">Setup &amp; Installation</a></li>
+        <li><a href="https://ionicframework.com/docs/components/">UI Components</a></li>
+        <li><a href="https://ionicframework.com/docs/api/">API Reference</a></li>
+        <li><a href="https://ionicframework.com/docs/native/">Native Plugins</a></li>
+        <li><a href="https://ionicframework.com/docs/developer-resources/">Dev Resources</a></li>
+      </ul>
+      <ul>
+        <li class="title"><a href="https://ionicframework.com/docs/pro">
+          <i class="ion-md-arrow-forward"></i>Pro Docs</a></li>
+        <li><a href="https://ionicframework.com/docs/pro/beta-testing.html">View app</a></li>
+        <li><a href="https://ionicframework.com/docs/pro/package/">Package</a></li>
+        <li><a href="https://ionicframework.com/docs/pro/live-deploy/">Live Deploy</a></li>
+        <li><a href="https://ionicframework.com/docs/pro/error-monitoring.html">Monitoring</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="https://ionicframework.com/developers/" class="forward">
+        <i class="ion-md-arrow-forward"></i>Developer Center
+      </a>
+    </li>
+  </ul>
+</li>
+
+<li class="dropdown businesses">
+  <a href="https://ionicframework.com/docs/api/components/item/Item/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Businesses</a>
+  <ul class="dropdown-menu">
+    <!-- <li><a href="/customers" class=""></a></li> -->
+    <li><a href="https://ionicframework.com/resources" class="resources">Resource Center</a></li>
+    <li><a href="https://ionicframework.com/enterprise" class="enterprise">Enterprise</a></li>
+    <li><a href="https://ionicframework.com/demo" class="demo">Request a demo</a></li>
+    <li><a href="https://ionicframework.com/sales" class="sales">Contact Sales</a></li>
+    <li><a href="https://ionicframework.com/about" class="about">About Ionic</a></li>
+  </ul>
+</li>
+
+<li class="dropdown support">
+  <a href="https://ionicframework.com/docs/api/components/item/Item/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support</a>
+  <ul class="dropdown-menu">
+    <li><a href="https://forum.ionicframework.com/" class="forum">Community Forum</a></li>
+    <li><a href="https://ionicframework.com/support" class="support">Technical Support</a></li>
+    <li><a href="https://ionicframework.com/trusted-partners" class="trusted-partners">Trusted Partners</a></li>
+    <li><a href="https://ionicframework.com/contact" class="contact">Contact Us</a></li>
+  </ul>
+</li>
+
+<li class="dropdown ecosystem">
+  <a href="https://ionicframework.com/docs/api/components/item/Item/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ecosystem</a>
+  <ul class="dropdown-menu">
+    <li class="hide-gt-md"><a href="https://blog.ionicframework.com/" class="blog">Ionic Blog</a></li>
+    <!--<li><a href="" class="community">Community Hub</a></li> -->
+    <li><a href="https://market.ionicframework.com/" class="market">Ionic Market</a></li>
+    <!-- <li><a href="https://jobs.ionicframework.com" class="jobs">Job Board</a></li> -->
+    <li><a href="https://shop.ionicframework.com/" class="shop">Swag Shop</a></li>
+    <li class="divider"></li>
+    <li><a href="https://twitter.com/IonicFramework" class="twitter">Twitter</a></li>
+    <li><a href="http://ionicworldwide.herokuapp.com/" class="slack">Slack</a></li>
+    <li><a href="https://github.com/ionic-team/" class="github">GitHub</a></li>
+  </ul>
+</li>
+
+<li class="hide-lt-lg"><a href="https://blog.ionicframework.com/" class="blog">Blog</a></li>
+
+<li class="sm-hide">
+  <a href="https://ionicframework.com/pro/pricing">Pricing</a></li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="sm-hide">
+          <a href="https://apps.ionic.io/login" class="header-btn">Log in</a>
+        </li>
+        <li class="header-btn-white">
+          <a href="https://apps.ionic.io/signup">Sign up</a>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+    
+
+    <div class="docs-container ng-scope" ng-controller="APIDemoCtrl">
+  <nav class="side-nav affix-top" id="side-nav" data-spy="affix" data-offset-top="38">
+    <form class="form-group search ng-pristine ng-valid" role="search">
+      <input type="text" class="form-control search-input ng-pristine ng-untouched ng-valid ng-empty" placeholder="Search" data-searchpos="sidebar" ng-model="searchTerm">
+    </form>
+    
+      <form class="form-group api-select ng-pristine ng-valid">
+  <select name="version" id="version-toggle" onchange="window.location.href=this.options[this.selectedIndex].value">
+
+  <option value="/docs/nightly/api/">
+    nightly 
+  </option>
+
+  <option value="/docs/api/" selected="">
+    3.9.2 (latest)
+  </option>
+
+  <option value="/docs/3.8.0/api/">
+    3.8.0 
+  </option>
+
+  <option value="/docs/3.7.1/api/">
+    3.7.1 
+  </option>
+
+  <option value="/docs/3.7.0/api/">
+    3.7.0 
+  </option>
+
+  <option value="/docs/3.6.1/api/">
+    3.6.1 
+  </option>
+
+  <option value="/docs/3.6.0/api/">
+    3.6.0 
+  </option>
+
+  <option value="/docs/3.5.3/api/">
+    3.5.3 
+  </option>
+
+  <option value="/docs/3.5.0/api/">
+    3.5.0 
+  </option>
+
+  <option value="/docs/3.4.2/api/">
+    3.4.2 
+  </option>
+
+  <option value="/docs/3.4.0/api/">
+    3.4.0 
+  </option>
+
+  <option value="/docs/3.3.0/api/">
+    3.3.0 
+  </option>
+
+  <option value="/docs/3.2.0/api/">
+    3.2.0 
+  </option>
+
+  <option value="/docs/3.1.1/api/">
+    3.1.1 
+  </option>
+
+  <option value="/docs/3.1.0/api/">
+    3.1.0 
+  </option>
+
+  <option value="/docs/3.0.1/api/">
+    3.0.1 
+  </option>
+
+  <option value="/docs/3.0.0/api/">
+    3.0.0 
+  </option>
+
+  <option value="/docs/2.3.0/api/">
+    2.3.0 
+  </option>
+
+  <option value="/docs/2.2.0/api/">
+    2.2.0 
+  </option>
+
+  <option value="/docs/2.1.0/api/">
+    2.1.0 
+  </option>
+
+  <option value="/docs/2.0.1/api/">
+    2.0.1 
+  </option>
+
+  <option value="/docs/2.0.0/api/">
+    2.0.0 
+  </option>
+
+</select>
+
+</form>
+<ul ng-controller="DocsNavCtrl" class="ng-scope">
+  <li class="back-to-main">
+    <a href="https://ionicframework.com/docs/">Back to Main Docs</a>
+  </li>
+  
+  
+    
+
+  
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/action-sheet/ActionSheetController">ActionSheetController</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/alert/AlertController">AlertController</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/app/App">App</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/avatar/Avatar">Avatar</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/badge/Badge">Badge</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/button/Button">Button</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/checkbox/Checkbox">Checkbox</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/chip/Chip">Chip</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/grid/Col">Col</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/config/Config">Config</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/content/Content">Content</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/datetime/DateTime">DateTime</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/util/Events">Events</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/fab/FabButton">FabButton</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/fab/FabContainer">FabContainer</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/fab/FabList">FabList</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/toolbar/Footer">Footer</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/grid/Grid">Grid</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/tap-click/Haptic">Haptic</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/toolbar/Header">Header</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/show-hide-when/HideWhen">HideWhen</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/icon/Icon">Icon</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/img/Img">Img</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/infinite-scroll/InfiniteScroll">InfiniteScroll</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/input/Input">Input</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/util/IonicErrorHandler">IonicErrorHandler</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/IonicModule">IonicModule</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/navigation/IonicPage">IonicPage</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/IonicPageModule">IonicPageModule</a>
+</li>
+<li class="capitalize active">
+  <a href="https://ionicframework.com/docs/api/components/item/Item">Item</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/item/ItemOptions">ItemOptions</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/item/ItemReorder">ItemReorder</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/item/ItemSliding">ItemSliding</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/platform/Keyboard">Keyboard</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/label/Label">Label</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/list/List">List</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/loading/LoadingController">LoadingController</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/menu/Menu">Menu</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/menu/MenuClose">MenuClose</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/app/MenuController">MenuController</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/menu/MenuToggle">MenuToggle</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/modal/ModalController">ModalController</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/nav/Nav">Nav</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/toolbar/Navbar">Navbar</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/navigation/NavController">NavController</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/navigation/NavParams">NavParams</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/nav/NavPop">NavPop</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/nav/NavPush">NavPush</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/note/Note">Note</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/option/Option">Option</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/platform/Platform">Platform</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/platform/PlatformConfigToken">PlatformConfigToken</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/popover/PopoverController">PopoverController</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/radio/RadioButton">RadioButton</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/radio/RadioGroup">RadioGroup</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/range/Range">Range</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/refresher/Refresher">Refresher</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/config/registerModeConfigs">registerModeConfigs</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/grid/Row">Row</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/scroll/Scroll">Scroll</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/searchbar/Searchbar">Searchbar</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/segment/Segment">Segment</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/segment/SegmentButton">SegmentButton</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/select/Select">Select</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/show-hide-when/ShowWhen">ShowWhen</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/slides/Slide">Slide</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/slides/Slides">Slides</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/spinner/Spinner">Spinner</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/split-pane/SplitPane">SplitPane</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/tabs/Tab">Tab</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/tabs/Tabs">Tabs</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/thumbnail/Thumbnail">Thumbnail</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/toolbar/Title">Title</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/toast/ToastController">ToastController</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/toggle/Toggle">Toggle</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/toolbar/Toolbar">Toolbar</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/typography/Typography">Typography</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/navigation/ViewController">ViewController</a>
+</li>
+<li class="capitalize ">
+  <a href="https://ionicframework.com/docs/api/components/virtual-scroll/VirtualScroll">VirtualScroll</a>
+</li>
+
+
+
+</ul>
+
+    
+  </nav>
+  
+  <aside id="platform-preview" class="platform-preview">
+    <div class="platform-toggle">
+      <a ng-class="{active: iosActive}" ng-click="setPlatform(&#39;ios&#39;)" class="active" style="">iOS</a>
+      <a ng-class="{active: androidActive}" ng-click="setPlatform(&#39;android&#39;)">Android</a>
+      <a ng-class="{active: windowsActive}" ng-click="setPlatform(&#39;windows&#39;)">Windows</a>
+    </div>
+    <div id="demo-device-ios" ng-class="previewPlatform" ng-show="iosActive" class="ios" style="">
+      <iframe id="demo-ios" src="./Item - Ionic API Documentation - Ionic Framework_files/saved_resource.html" frameborder="0">
+      </iframe>
+    </div>
+    <div id="demo-device-android" ng-class="previewPlatform" ng-show="androidActive" class="ng-hide ios">
+      <iframe id="demo-android" src="./Item - Ionic API Documentation - Ionic Framework_files/saved_resource(1).html" frameborder="0">
+      </iframe>
+    </div>
+    <div id="demo-device-windows" ng-class="previewPlatform" ng-show="windowsActive" class="ng-hide ios">
+      <iframe id="demo-windows" src="./Item - Ionic API Documentation - Ionic Framework_files/saved_resource(2).html" frameborder="0">
+      </iframe>
+    </div>
+    
+      <a href="https://github.com/ionic-team/ionic/tree/master/demos/src/item">Demo source</a>
+    
+  </aside>
+  
+  <main>
+    <h1 class="api-title">
+<a class="anchor" name="item" href="https://ionicframework.com/docs/api/components/item/Item/#item"></a>
+
+Item
+</h1><h3><code>ion-list-header,ion-item,[ion-item],ion-item-divider</code></h3>
+
+
+
+
+
+
+
+
+<p><a class="improve-v2-docs" href="http://github.com/ionic-team/ionic/edit/master/src/components/item/item.ts#L8">
+Improve this doc
+</a></p>
+
+<p>An item can contain text, images, and anything else. Generally it is placed in a list with other
+items. It can easily be swiped, deleted, reordered, edited, and more. An item is only required to
+be in a <a href="https://ionicframework.com/docs/api/components/list/List">List</a> if manipulating the item via gestures is required. It requires an
+<a href="https://ionicframework.com/docs/api/components/item/ItemSliding">ItemSliding</a> wrapper element in order to be swiped.</p>
+<h2 id="common-usage">Common Usage</h2>
+<p>There are a few elements that are considered items, but not all of them are styled to look the same.
+The basic item can be written as an <code>&lt;ion-item&gt;</code> element or it can be added to any element by adding
+<code>ion-item</code> as an attribute. List headers and item dividers, although styled differently, are also items
+and can be written as <code>&lt;ion-list-header&gt;</code> and <code>&lt;ion-item-divider&gt;</code>, respectively.</p>
+<h3><a class="anchor" name="as-an-element" href="https://ionicframework.com/docs/api/components/item/Item/#as-an-element">As an Element</a></h3>
+
+<p>A basic item should be written as a <code>&lt;ion-item&gt;</code> element when it is not clickable.</p>
+<pre><code class="lang-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">ion-item</span>&gt;</span>
+  Item
+<span class="hljs-tag">&lt;/<span class="hljs-title">ion-item</span>&gt;</span>
+</code></pre>
+<p>A list header should be written as <code>&lt;ion-list-header&gt;</code>.</p>
+<pre><code class="lang-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">ion-list-header</span>&gt;</span>
+  List Header
+<span class="hljs-tag">&lt;/<span class="hljs-title">ion-list-header</span>&gt;</span>
+</code></pre>
+<p>An item divider should be written as <code>&lt;ion-item-divider&gt;</code>.</p>
+<pre><code class="lang-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">ion-item-divider</span>&gt;</span>
+  Item Divider
+<span class="hljs-tag">&lt;/<span class="hljs-title">ion-item-divider</span>&gt;</span>
+</code></pre>
+<h3><a class="anchor" name="as-an-attribute" href="https://ionicframework.com/docs/api/components/item/Item/#as-an-attribute">As an Attribute</a></h3>
+
+<p>The attribute <code>ion-item</code> should be added to a <code>&lt;button&gt;</code> when the item can be clicked or tapped. It
+should be added to an <code>&lt;a&gt;</code> element when the item needs to contain a <code>href</code>. It can be added as an
+attribute to any element to take on the item styling.</p>
+<pre><code class="lang-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">ion-item</span> (<span class="hljs-attribute">click</span>)=<span class="hljs-value">"buttonClick()"</span>&gt;</span>
+  Button Item
+<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">ion-item</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"https://www.ionicframework.com"</span>&gt;</span>
+  Anchor Item
+<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+</code></pre>
+<p>Note: do not add <code>ion-item</code> as an attribute to an <code>&lt;ion-list-header&gt;</code> or <code>&lt;ion-item-divider&gt;</code> element
+as they are already items and their styling will be changed to look like a basic item.</p>
+<h2 id="detail-arrows">Detail Arrows</h2>
+<p>By default, <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> elements with the <code>ion-item</code> attribute will display a right arrow icon
+on <code>ios</code> mode. To hide the right arrow icon on either of these elements, add the <code>detail-none</code> attribute
+to the item. To show the right arrow icon on an element that doesn't display it naturally, add the
+<code>detail-push</code> attribute to the item.</p>
+<pre><code class="lang-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">ion-item</span> <span class="hljs-attribute">detail-push</span>&gt;</span>
+  Item with Detail Arrow
+<span class="hljs-tag">&lt;/<span class="hljs-title">ion-item</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">ion-item</span> (<span class="hljs-attribute">click</span>)=<span class="hljs-value">"buttonClick()"</span>&gt;</span>
+  Button Item with Detail Arrow
+<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">ion-item</span> <span class="hljs-attribute">detail-none</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"https://www.ionicframework.com"</span>&gt;</span>
+  Anchor Item with no Detail Arrow
+<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+</code></pre>
+<p>This feature is not enabled by default for <code>md</code> and <code>wp</code> modes, but it can be enabled by setting the
+Sass variables <code>$item-md-detail-push-show</code> and <code>$item-wp-detail-push-show</code>, respectively, to <code>true</code>.
+It can also be disabled for ios by setting <code>$item-ios-detail-push-show</code> to <code>false</code>. See the
+<a href="https://ionicframework.com/docs/theming/overriding-ionic-variables/">theming documentation</a> for
+more information on overriding Sass variables.</p>
+<h2 id="item-placement">Item Placement</h2>
+<p>Items rely heavily on content projection to position content. The item grabs content based on the
+element or attribute and positions it that way. This logic makes it possible to write a complex
+item with simple, understandable markup without having to worry about styling and positioning
+the elements.</p>
+<p>The below chart details the attributes item looks for and where it will place the element with
+that attribute inside of the item:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>item-start</code></td>
+<td>Placed to the left of all other elements, outside of the inner item.</td>
+</tr>
+<tr>
+<td><code>item-end</code></td>
+<td>Placed to the right of all other elements, inside of the inner item, outside of the input wrapper.</td>
+</tr>
+<tr>
+<td><code>item-content</code></td>
+<td>Placed to the right of any <code>ion-label</code>, inside of the input wrapper.</td>
+</tr>
+</tbody>
+</table>
+<h3><a class="anchor" name="checkboxes-radios-and-toggles" href="https://ionicframework.com/docs/api/components/item/Item/#checkboxes-radios-and-toggles">Checkboxes, Radios and Toggles</a></h3>
+
+<p><a href="https://ionicframework.com/docs/api/components/checkbox/Checkbox">Checkboxes</a> are positioned in the same place as the <code>item-start</code> attribute.
+<a href="https://ionicframework.com/docs/api/components/radio/RadioButton">Radios</a> and <a href="https://ionicframework.com/docs/api/components/toggle/Toggle">Toggles</a> are positioned in the same place
+as the <code>item-end</code> attribute. All of these components can be positioned differently by adding the
+<code>item-start</code> or <code>item-end</code> attribute.</p>
+<h3><a class="anchor" name="content-and-inputs" href="https://ionicframework.com/docs/api/components/item/Item/#content-and-inputs">Content and Inputs</a></h3>
+
+<p>A <a href="https://ionicframework.com/docs/api/components/label/Label">Label</a> is placed inside of the item to the left of all content and inputs. The
+following components are all placed in the same position as the <code>item-content</code> attribute: <a href="https://ionicframework.com/docs/api/components/select/Select">Select</a>,
+<a href="https://ionicframework.com/docs/api/components/input/Input">Input</a>, <a href="https://ionicframework.com/docs/api/components/input/TextArea">TextArea</a>, <a href="https://ionicframework.com/docs/api/components/datetime/DateTime">DateTime</a>, and
+<a href="https://ionicframework.com/docs/api/components/range/Range">Range</a>.</p>
+<p>Any element directly placed inside of an <code>&lt;ion-item&gt;</code> that does not have one of the previously mentioned
+attributes and isn't one of the above elements will be placed inside of a <a href="https://ionicframework.com/docs/api/components/label/Label">Label</a>.</p>
+<h3><a class="anchor" name="text-alignment" href="https://ionicframework.com/docs/api/components/item/Item/#text-alignment">Text Alignment</a></h3>
+
+<p>By default, Items will align text to the left and add an ellipsis when the text is wider than the item.
+See the <a href="https://ionicframework.com/docs/theming/css-utilities/">Utility Attributes Documentation</a> for attributes that can
+be added to <code>ion-item</code> to transform the text.</p>
+
+<!-- @usage tag -->
+
+<h2><a class="anchor" name="usage" href="https://ionicframework.com/docs/api/components/item/Item/#usage">Usage</a></h2>
+
+<pre><code class="lang-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">ion-list</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-title">ion-list-header</span>&gt;</span>
+    Header
+  <span class="hljs-tag">&lt;/<span class="hljs-title">ion-list-header</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-title">ion-item</span>&gt;</span>
+    Item
+  <span class="hljs-tag">&lt;/<span class="hljs-title">ion-item</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-title">ion-item</span> <span class="hljs-attribute">detail-push</span>&gt;</span>
+    Item with Detail Arrow
+  <span class="hljs-tag">&lt;/<span class="hljs-title">ion-item</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">ion-item</span> (<span class="hljs-attribute">click</span>)=<span class="hljs-value">"buttonClick()"</span>&gt;</span>
+    Button Item
+  <span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-title">ion-item-divider</span>&gt;</span>
+    Item Divider
+  <span class="hljs-tag">&lt;/<span class="hljs-title">ion-item-divider</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">ion-item</span> <span class="hljs-attribute">detail-none</span> (<span class="hljs-attribute">click</span>)=<span class="hljs-value">"buttonClick()"</span>&gt;</span>
+    Button Item with no Detail Arrow
+  <span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">ion-item</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"https://www.ionicframework.com"</span>&gt;</span>
+    Anchor Item
+  <span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-title">ion-item</span> <span class="hljs-attribute">no-lines</span>&gt;</span>
+    Item with no border
+  <span class="hljs-tag">&lt;/<span class="hljs-title">ion-item</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-title">ion-item</span> <span class="hljs-attribute">text-wrap</span>&gt;</span>
+    Multiline text that should wrap when it is too long
+    to fit on one line in the item.
+  <span class="hljs-tag">&lt;/<span class="hljs-title">ion-item</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-title">ion-list</span>&gt;</span>
+</code></pre>
+
+<!-- @property tags -->
+
+<!-- instance methods on the class -->
+<h2><a class="anchor" name="advanced" href="https://ionicframework.com/docs/api/components/item/Item/#advanced">Advanced</a></h2>
+<pre><code class="lang-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">ion-list</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- List header with buttons on each side --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">ion-list-header</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">ion-button</span> <span class="hljs-attribute">item-start</span> (<span class="hljs-attribute">click</span>)=<span class="hljs-value">"buttonClick()"</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+    List Header
+    <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">ion-button</span> <span class="hljs-attribute">outline</span> <span class="hljs-attribute">item-end</span> (<span class="hljs-attribute">click</span>)=<span class="hljs-value">"buttonClick()"</span>&gt;</span>Outline<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">ion-list-header</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- Loops through and creates multiple items --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">ion-item</span> *<span class="hljs-attribute">ngFor</span>=<span class="hljs-value">"let item of items"</span>&gt;</span>
+    Item {{item}}
+  <span class="hljs-tag">&lt;/<span class="hljs-title">ion-item</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- Button item with an icon on the left --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">ion-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">ion-icon</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"star"</span> <span class="hljs-attribute">item-start</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">ion-icon</span>&gt;</span>
+    Button Item
+  <span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- Item with a label and content --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">ion-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">ion-label</span>&gt;</span>
+      Item Label
+    <span class="hljs-tag">&lt;/<span class="hljs-title">ion-label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">item-content</span>&gt;</span>
+      Item Content next to the label
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">ion-item</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- Item with left and right buttons --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">ion-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">ion-button</span> <span class="hljs-attribute">item-start</span> (<span class="hljs-attribute">click</span>)=<span class="hljs-value">"buttonClick()"</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+    Item
+    <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">ion-button</span> <span class="hljs-attribute">outline</span> <span class="hljs-attribute">item-end</span> (<span class="hljs-attribute">click</span>)=<span class="hljs-value">"buttonClick()"</span>&gt;</span>Outline<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">ion-item</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- Item divider with a right button --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">ion-item-divider</span>&gt;</span>
+    Item Divider
+    <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">ion-button</span> <span class="hljs-attribute">item-end</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">ion-item-divider</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- Disabled button item with left and right buttons --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">ion-item</span> <span class="hljs-attribute">disabled</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">ion-button</span> <span class="hljs-attribute">item-start</span> (<span class="hljs-attribute">click</span>)=<span class="hljs-value">"buttonClick()"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">ion-icon</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"home"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">ion-icon</span>&gt;</span>
+      Left Icon
+    <span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+    Disabled Button Item
+    <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">ion-button</span> <span class="hljs-attribute">outline</span> <span class="hljs-attribute">item-end</span> (<span class="hljs-attribute">click</span>)=<span class="hljs-value">"buttonClick()"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">ion-icon</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"star"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">ion-icon</span>&gt;</span>
+      Left Icon
+    <span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- Item with an avatar on the left and button on the right --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">ion-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">ion-avatar</span> <span class="hljs-attribute">item-start</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"img/my-avatar.png"</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">ion-avatar</span>&gt;</span>
+    Avatar Item
+    <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">ion-button</span> <span class="hljs-attribute">outline</span> <span class="hljs-attribute">item-end</span>&gt;</span>View<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">ion-item</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- Item with a thumbnail on the right --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">ion-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>Item<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>Item Paragraph<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">ion-thumbnail</span> <span class="hljs-attribute">item-end</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"img/my-thumbnail.png"</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">ion-thumbnail</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">ion-item</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- Sliding item --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">ion-item-sliding</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">ion-item</span>&gt;</span>
+      Item
+    <span class="hljs-tag">&lt;/<span class="hljs-title">ion-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">ion-item-options</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">ion-button</span> <span class="hljs-attribute">color</span>=<span class="hljs-value">"primary"</span> (<span class="hljs-attribute">click</span>)=<span class="hljs-value">"archive()"</span>&gt;</span>Archive<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">ion-item-options</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">ion-item-sliding</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-title">ion-list</span>&gt;</span>
+</code></pre>
+
+<h2 id="sass-variable-header"><a class="anchor" name="sass-variables" href="https://ionicframework.com/docs/api/components/item/Item/#sass-variables">Sass Variables</a></h2>
+<div id="sass-variables" ng-controller="SassToggleCtrl" class="ng-scope">
+  <div class="sass-platform-toggle">
+    
+      
+      
+      <a ng-init="setSassPlatform(&#39;ios&#39;)" ng-class="{ active: active === &#39;ios&#39; }" ng-click="setSassPlatform(&#39;ios&#39;)" class="active">iOS</a>
+      
+      
+      
+      <a ng-class="{ active: active === &#39;md&#39; }" ng-click="setSassPlatform(&#39;md&#39;)">Material Design</a>
+      
+      
+      
+      <a ng-class="{ active: active === &#39;wp&#39; }" ng-click="setSassPlatform(&#39;wp&#39;)">Windows Platform</a>
+      
+      
+    
+  </div>
+
+
+  
+  <table ng-show="active === &#39;ios&#39;" id="sass-ios" class="table param-table" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$item-ios-body-text-font-size</code></td>
+        
+          <td><code>1.7rem</code></td>
+        
+        <td><p>Font size of the item text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-paragraph-margin-top</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin top of the item paragraph</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-paragraph-margin-end</code></td>
+        
+          <td><code>0</code></td>
+        
+        <td><p>Margin end of the item paragraph</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-paragraph-margin-bottom</code></td>
+        
+          <td><code>2px</code></td>
+        
+        <td><p>Margin bottom of the item paragraph</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-paragraph-margin-start</code></td>
+        
+          <td><code>$item-ios-paragraph-margin-end</code></td>
+        
+        <td><p>Margin start of the item paragraph</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-paragraph-font-size</code></td>
+        
+          <td><code>1.4rem</code></td>
+        
+        <td><p>Font size of the item paragraph</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-paragraph-text-color</code></td>
+        
+          <td><code>#8e9093</code></td>
+        
+        <td><p>Color of the item paragraph</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-avatar-size</code></td>
+        
+          <td><code>36px</code></td>
+        
+        <td><p>Size of the avatar in the item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-avatar-border-radius</code></td>
+        
+          <td><code>50%</code></td>
+        
+        <td><p>Border radius of the avatar in the item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-thumbnail-size</code></td>
+        
+          <td><code>56px</code></td>
+        
+        <td><p>Size of the thumbnail in the item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-detail-push-show</code></td>
+        
+          <td><code>true</code></td>
+        
+        <td><p>Shows the detail arrow icon on an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-detail-push-color</code></td>
+        
+          <td><code>$list-ios-border-color</code></td>
+        
+        <td><p>Color of the detail arrow icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-detail-push-svg</code></td>
+        
+          <td><code>"&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 20'&gt;&lt;path d='M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z' fill='#{$item-ios-detail-push-color}'/&gt;&lt;/svg&gt;"</code></td>
+        
+        <td><p>Icon for the detail arrow</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-divider-background</code></td>
+        
+          <td><code>#f7f7f7</code></td>
+        
+        <td><p>Background for the divider</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-divider-color</code></td>
+        
+          <td><code>#222</code></td>
+        
+        <td><p>Color for the divider</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-ios-sliding-content-background</code></td>
+        
+          <td><code>$list-ios-background-color</code></td>
+        
+        <td><p>Background for the sliding content</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <table ng-show="active === &#39;md&#39;" id="sass-md" class="table param-table ng-hide" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$item-md-body-text-font-size</code></td>
+        
+          <td><code>1.4rem</code></td>
+        
+        <td><p>Font size of the item text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-md-body-text-line-height</code></td>
+        
+          <td><code>1.5</code></td>
+        
+        <td><p>line height of the item text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-md-paragraph-text-color</code></td>
+        
+          <td><code>#666</code></td>
+        
+        <td><p>Color of the item paragraph</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-md-font-size</code></td>
+        
+          <td><code>1.6rem</code></td>
+        
+        <td><p>Font size of the item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-md-avatar-size</code></td>
+        
+          <td><code>40px</code></td>
+        
+        <td><p>Size of the avatar in the item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-md-avatar-border-radius</code></td>
+        
+          <td><code>50%</code></td>
+        
+        <td><p>Border radius of the avatar in the item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-md-thumbnail-size</code></td>
+        
+          <td><code>80px</code></td>
+        
+        <td><p>Size of the thumbnail in the item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-md-detail-push-show</code></td>
+        
+          <td><code>false</code></td>
+        
+        <td><p>Shows the detail arrow icon on an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-md-detail-push-color</code></td>
+        
+          <td><code>$list-md-border-color</code></td>
+        
+        <td><p>Color of the detail arrow icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-md-detail-push-svg</code></td>
+        
+          <td><code>"&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 20'&gt;&lt;path d='M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z' fill='#{$item-md-detail-push-color}'/&gt;&lt;/svg&gt;"</code></td>
+        
+        <td><p>Icon for the detail arrow</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-md-divider-color</code></td>
+        
+          <td><code>#858585</code></td>
+        
+        <td><p>Color for the divider</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-md-divider-background</code></td>
+        
+          <td><code>#fff</code></td>
+        
+        <td><p>Background for the divider</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-md-divider-font-size</code></td>
+        
+          <td><code>$item-md-body-text-font-size</code></td>
+        
+        <td><p>Font size for the divider</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-md-divider-border-bottom</code></td>
+        
+          <td><code>1px solid $list-md-border-color</code></td>
+        
+        <td><p>Border bottom for the divider</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-md-sliding-content-background</code></td>
+        
+          <td><code>$list-md-background-color</code></td>
+        
+        <td><p>Background for the sliding content</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <table ng-show="active === &#39;wp&#39;" id="sass-wp" class="table param-table ng-hide" style="margin:0;">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><code>$item-wp-body-text-font-size</code></td>
+        
+          <td><code>1.4rem</code></td>
+        
+        <td><p>Font size of the item text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-body-text-line-height</code></td>
+        
+          <td><code>1.5</code></td>
+        
+        <td><p>line height of the item text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-body-background-color</code></td>
+        
+          <td><code>$list-wp-background-color</code></td>
+        
+        <td><p>Background color of the item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-body-text-color</code></td>
+        
+          <td><code>$list-wp-text-color</code></td>
+        
+        <td><p>Color of the item text</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-paragraph-text-color</code></td>
+        
+          <td><code>#666</code></td>
+        
+        <td><p>Color of the item paragraph</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-font-size</code></td>
+        
+          <td><code>1.6rem</code></td>
+        
+        <td><p>Font size of the item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-avatar-size</code></td>
+        
+          <td><code>40px</code></td>
+        
+        <td><p>Size of the avatar in the item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-avatar-border-radius</code></td>
+        
+          <td><code>50%</code></td>
+        
+        <td><p>Border radius of the avatar in the item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-thumbnail-size</code></td>
+        
+          <td><code>80px</code></td>
+        
+        <td><p>Size of the thumbnail in the item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-detail-push-show</code></td>
+        
+          <td><code>false</code></td>
+        
+        <td><p>Shows the detail arrow icon on an item</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-detail-push-color</code></td>
+        
+          <td><code>$input-wp-border-color</code></td>
+        
+        <td><p>Color of the detail arrow icon</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-detail-push-svg</code></td>
+        
+          <td><code>"&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 20'&gt;&lt;path d='M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z' fill='#{$item-wp-detail-push-color}'/&gt;&lt;/svg&gt;"</code></td>
+        
+        <td><p>Icon for the detail arrow</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-divider-color</code></td>
+        
+          <td><code>$list-wp-text-color</code></td>
+        
+        <td><p>Color for the divider</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-divider-background</code></td>
+        
+          <td><code>#fff</code></td>
+        
+        <td><p>Background for the divider</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-divider-border-bottom</code></td>
+        
+          <td><code>1px solid $list-wp-border-color</code></td>
+        
+        <td><p>Bodrer bottom for the divider</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-divider-font-size</code></td>
+        
+          <td><code>2rem</code></td>
+        
+        <td><p>Font size for the divider</p>
+</td>
+      </tr>
+      
+      <tr>
+        <td><code>$item-wp-sliding-content-background</code></td>
+        
+          <td><code>$list-wp-background-color</code></td>
+        
+        <td><p>Background for the sliding content</p>
+</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+</div>
+
+<!-- related link -->
+
+<h2><a class="anchor" name="related" href="https://ionicframework.com/docs/api/components/item/Item/#related">Related</a></h2>
+
+<p><a href="https://ionicframework.com/docs/components#lists">List Component Docs</a>,
+<a href="https://ionicframework.com/docs/api/components/list/List">List API Docs</a>,
+<a href="https://ionicframework.com/docs/api/components/item/ItemSliding">ItemSliding API Docs</a><!-- end content block --></p>
+
+<!-- end body block -->
+
+
+  </main>
+  
+</div>
+
+
+    
+
+    
+
+    
+
+    <div id="search-results">
+      <div id="results-api">
+        <h3>API</h3>
+        <ul></ul>
+      </div>
+      <div id="results-native">
+        <h3>Native</h3>
+        <ul></ul>
+      </div>
+      <div id="results-other">
+        <h3>General</h3>
+        <ul></ul>
+      </div>
+    </div>
+    <script async="" src="./Item - Ionic API Documentation - Ionic Framework_files/gtm.js.download"></script><script src="./Item - Ionic API Documentation - Ionic Framework_files/ionic-site.min.js.download"></script>
+<script type="text/javascript">
+  (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
+
+  // For the DevApp
+  branch.init('key_live_egwSa60sfZm1rIZp7QRMofjdFrjBL1M1', function(err, data) {
+      // callback to handle err or data
+  });
+</script>
+
+
+
+  
+
+<script type="text/javascript" id="">var _kmq=_kmq||[],_kmk=_kmk||"3af7413247f5067b13df320689ad04c045f97e14";function _kms(c){setTimeout(function(){var a=document,b=a.getElementsByTagName("script")[0];a=a.createElement("script");a.type="text/javascript";a.async=!0;a.src=c;b.parentNode.insertBefore(a,b)},1)}_kms("//i.kissmetrics.com/i.js");_kms("//scripts.kissmetrics.com/"+_kmk+".2.js");</script><script type="text/javascript" id="">_linkedin_data_partner_id="217314";</script><script type="text/javascript" id="">(function(){var b=document.getElementsByTagName("script")[0],a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";b.parentNode.insertBefore(a,b)})();</script>
+<noscript>
+&lt;img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=217314&amp;amp;fmt=gif"&gt;
+</noscript><script src="./Item - Ionic API Documentation - Ionic Framework_files/saved_resource" type="text/javascript"></script></body></html>

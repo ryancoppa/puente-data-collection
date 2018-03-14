@@ -2,13 +2,28 @@ page-signin {
 
     .logo {
         text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
         img {
             margin-top: 50px;
             margin-bottom: 20px;
             width: 50%;
+            //animation: 2.5s 1s ease fadeInAndSpin;
+            animation-fill-mode: forwards;
         }
+
     }
+
+    .fillin {
+      background-color: black;
+      .text{
+        color: #f9c55c;
+      }
+    }
+    
     .background {
-        background-color: black
+        background-color: black;
     }
 }

@@ -1,0 +1,75 @@
+.ios, .md, .wp {
+
+    page-splash {
+
+        .scroll-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+        //5 = Desarollo Internacional
+        //1 = Puente
+        #Layer_0_Image {
+            height: 50%;
+            width: 50%;
+
+
+            .cls-1 {
+                //Desarollo Internacional
+                opacity: 0;
+                //transform: rotate3d(1, 1, 0, 50deg);
+                animation: 2.5s 1s ease fadeInAndSpin;
+                animation-fill-mode: forwards;
+            }
+
+            .cls-4 {
+                opacity: 0;
+                //transform: rotate3d(1, 1, 0, 50deg);
+                animation: 1s 0.4s ease fadeInAndSpin;
+                animation-fill-mode: forwards;
+            }
+
+            .cls-3 {
+                opacity: 0;
+                //transform: rotate3d(1, 1, 0, 50deg);
+                animation: 1s 0.6s ease fadeInAndSpin;
+                animation-fill-mode: forwards;
+            }
+
+            .cls-2 {
+                opacity: 0;
+                //transform: rotate3d(1, 1, 0, 50deg);
+                animation: 1s 0.8s ease fadeInAndSpin;
+                animation-fill-mode: forwards;
+            }
+
+            .cls-5 {
+                //Puente Letters
+                opacity: 0;
+                animation: 2s 1.5s linear fadeIn;
+                animation-fill-mode: forwards;
+            }
+
+        }
+
+    }
+
+}
+
+@keyframes fadeInAndSpin {
+
+    100% {
+        opacity: 1;
+        //transform: rotate3d(1, 1, 0, 0deg);
+    }
+
+}
+
+@keyframes fadeIn {
+
+    100% {
+        opacity: 1;
+    }
+
+}
