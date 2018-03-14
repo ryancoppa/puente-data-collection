@@ -21,6 +21,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
 import { Splash } from '../pages/splash/splash';
+import { MapPage } from '../pages/map/map';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { Splash } from '../pages/splash/splash';
     TabsPage,
     SigninPage,
     SignupPage,
-    Splash
+    Splash,
+    MapPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { Splash } from '../pages/splash/splash';
     TabsPage,
     SigninPage,
     SignupPage,
-    Splash
+    Splash,
+    MapPage
   ],
   providers: [
     StatusBar,

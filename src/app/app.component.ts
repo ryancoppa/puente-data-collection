@@ -5,9 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 // Initial page
 import { SigninPage } from '../pages/signin/signin';
-import { HomePage } from '../pages/home/home';
+//import { HomePage } from '../pages/home/home';
 import { Splash } from '../pages/splash/splash';
-import { AboutPage } from '../pages/about/about';
+//import { AboutPage } from '../pages/about/about';
 
 @Component({
   template: '<ion-nav [root]="rootPage"></ion-nav>'
