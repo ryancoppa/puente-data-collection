@@ -8,6 +8,8 @@ import { MyApp } from './app.component';
 // Native imports
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Geolocation } from '@ionic-native/geolocation';
+
 
 // Providers
 import { ParseProvider } from '../providers/parse/parse';
@@ -56,7 +58,8 @@ import { MapPage } from '../pages/map/map';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     ParseProvider,
-    AuthProvider
+    AuthProvider,
+    Geolocation
   ]
 })
 export class AppModule { }
