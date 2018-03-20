@@ -16,7 +16,7 @@ export class ParseProvider {
     this.parseInitialize();
     console.log('Initiated Parse');
   }
-
+  //This is Retrieving Survey Results from Parse Server
   public getSurveyPoints(offset: number = 0, limit: number = 3): Promise<any> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -80,6 +80,10 @@ export class ParseProvider {
     surveyPoint.set('howCanWeFixIt', newSurvey.howCanWeFixIt);
     surveyPoint.set('dayConvenience', newSurvey.dayConvenience);
     surveyPoint.set('hourConvenience', newSurvey.hourConvenience);
+    //Latitude and longitude?
+    surveyPoint.set('latitude', newSurvey.latitude);
+    surveyPoint.set('longitude', newSurvey.longitude);
+
     surveyPoint.set('cheatMode', false);
 
 
@@ -94,7 +98,36 @@ export class ParseProvider {
       }
     });
   }
+  
+  //Sets up a New Assets
+  //Creates and or Updates Parse Class
+  public addAssetsResults(newAssets): Promise<any> {
+    const AssetData = Parse.Object.extend('AssetData');
 
+    let assetPoint = new AssetData();
+    assetPoint.set('physicalName', newAssets.physicalName);
+    assetPoint.set('physicalName', newAssets.humanName);
+    
+    assetPoint.set('physicalAsset', newAssets.physicalAsset);
+    assetPoint.set('humanAsset', newAssets.humanAsset);
+    //Latitude and longitude?
+    assetPoint.set('latitude', newAssets.latitude);
+    assetPoint.set('longitude', newAssets.longitude);
+
+    assetPoint.set('cheatMode', false);
+
+
+    return assetPoint.save(null, {
+      success: function (assetPoint) {
+        console.log(assetPoint);
+        return assetPoint;
+      },
+      error: function (assetPoint, error) {
+        console.log(error);
+        return error;
+      }
+    });
+  }
   private parseInitialize() {
     Parse.initialize(this.parseAppId);
     Parse.serverURL = this.parseServerUrl;

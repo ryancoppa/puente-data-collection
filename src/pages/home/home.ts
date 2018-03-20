@@ -4,6 +4,7 @@ import { App, NavController } from 'ionic-angular';
 // Providers
 import { ParseProvider } from '../../providers/parse/parse';
 import { AuthProvider } from '../../providers/auth/auth';
+import { Geolocation, GeolocationOptions } from '@ionic-native/geolocation';
 
 // Pages
 import { SigninPage } from '../signin/signin';
@@ -15,6 +16,8 @@ import { SigninPage } from '../signin/signin';
 
 // Declare Variables
 export class HomePage {
+  //Enables Options from Geolocation Import
+  options: GeolocationOptions;
   newSurvey =
   {
     fname: null,
@@ -55,11 +58,13 @@ export class HomePage {
     biggestProblemintheRegion: null,
     howCanWeFixIt: null,
     dayConvenience: null,
-    hourConvenience:null
+    hourConvenience:null,
+    latitude: null,
+    longitude: null
   };
   surveyPoints = []
 
-  constructor(private parseProvider: ParseProvider, private auth: AuthProvider, private navCtrl: NavController, private app: App) {
+  constructor(private parseProvider: ParseProvider, private auth: AuthProvider, private navCtrl: NavController, private app: App, private geolocation:Geolocation) {
     this.listPoints();
   }
 
@@ -67,6 +72,11 @@ export class HomePage {
     return this.auth.authenticated();
   }
 
+  ionViewDidEnter() {
+    //Gets User Position once user has entered homepage
+    this.getUserPosition();
+  
+  }
   //List
   // This Function is for the Buttom Part of the Survey
   public listPoints(): Promise<any> {
@@ -82,17 +92,32 @@ export class HomePage {
     });
   }
 
-  //Adds Element to parseServe
-  //Then adds element to arrary
-  //Then clears the Form Items
+  //This function gets the coordinates of the user
+  public getUserPosition() {
+    this.options = {
+      enableHighAccuracy : true
+    };
+    
+    this.geolocation.getCurrentPosition(this.options).then((resp) => {
+      let latitude = resp.coords.latitude;
+      let longitude = resp.coords.longitude;
+      
+      this.newSurvey.latitude = latitude;
+      this.newSurvey.longitude = longitude;
+      console.log(latitude,longitude)
+    }).catch((error) => {
+      console.log('Error getting location',error);
+    });
+  }
+  //Adds Element to parseServer (newSurvey)
+  //Then adds element to local array (surveyPoint)
+  //Then clears the Form/arrary (surveyPoint)
   public postSurveyConfirm() {
     this.parseProvider.addSurveyResults(this.newSurvey).then((surveyPoint) => {
       this.surveyPoints.push(surveyPoint);
       for (var key in this.newSurvey){
         this.newSurvey[key] = null;
       }
-      //this.newSurvey.fname = null;
-      //this.newSurvey.lname = null;
     }, (error) => {
       console.log(error);
       alert('Error Confirming.');
