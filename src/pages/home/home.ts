@@ -17,6 +17,7 @@ import { SigninPage } from '../signin/signin';
 // Declare Variables
 export class HomePage {
   //Enables Options from Geolocation Import
+  //
   options: GeolocationOptions;
   newSurvey =
   {
