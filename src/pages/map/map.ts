@@ -32,14 +32,23 @@ export class MapPage {
 
   ionViewWillEnter() {
     //this.loadmap();
-  }
-  ionViewDidEnter() {
-    this.loadmap();
     this.getUserPosition();
   }
+  ionViewDidLoad() {
+    //this.getUserPosition();
+    this.loadmap();
+    //this.getActiveUserPosition();
+    
+  }
+  ionViewDidEnter() {
+    //this.getUserPosition();
+    //this.getActiveUserPosition();
+  }
+  ionViewDidLeave() {
+    //this.removeMap();
+  }
 
-  //This function gets the coordinates of the user
-      
+  //This function gets the static coordinates of the user
   public getUserPosition() {
     this.options = {
       enableHighAccuracy : false,
@@ -60,6 +69,27 @@ export class MapPage {
       console.log('Error getting location',error);
     });
   }
+  
+  //This function gets the active coordinates of the user
+  //NOT WORKING
+  public getActiveUserPosition() {
+    this.options = {
+      enableHighAccuracy : false,
+      maximumAge: 30000,
+      timeout: 5000,
+          
+
+    };
+    
+    this.geolocation.watchPosition(this.options).subscribe(resp => {
+      let latitude = resp.coords.latitude;
+      let longitude = resp.coords.longitude;
+      
+      this.newAssets.latitude = latitude;
+      this.newAssets.longitude = longitude;
+      console.log(latitude,longitude);
+    });
+  }
   //Adds Results of Assets Forms to Parse Object
   //Pushes those results to the survey (via addAssetsResults)
   //Clears Survey
@@ -73,9 +103,10 @@ export class MapPage {
       console.log(error);
       alert('Error Confirming.');
     });
+    //this.getUserPosition();
   }
-  //loadmap() {
-    async loadmap() {
+  public loadmap() {
+  //async loadmap() {
     //create map
     this.map = leaflet.map("map").fitWorld();
     //create tilelayer
@@ -123,6 +154,9 @@ export class MapPage {
     })
 
     
+  }
+  public removeMap(){
+    this.map.remove();
   }
 
 }

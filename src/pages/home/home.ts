@@ -95,7 +95,7 @@ export class HomePage {
   //This function gets the coordinates of the user
   public getUserPosition() {
     this.options = {
-      enableHighAccuracy : true
+      enableHighAccuracy : false
     };
     
     this.geolocation.getCurrentPosition(this.options).then((resp) => {
@@ -122,6 +122,8 @@ export class HomePage {
       console.log(error);
       alert('Error Confirming.');
     });
+    //Update User Position?
+    this.getUserPosition();
   }
 
   public signout() {
