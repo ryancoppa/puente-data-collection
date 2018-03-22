@@ -51,7 +51,7 @@ export class MapPage {
   //This function gets the static coordinates of the user
   public getUserPosition() {
     this.options = {
-      enableHighAccuracy : false,
+      enableHighAccuracy : true,
       maximumAge: 30000,
       timeout: 5000,
           

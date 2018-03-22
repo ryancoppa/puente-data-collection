@@ -35,7 +35,8 @@
     "parse": "^1.9.2",
     "rxjs": "5.1.1",
     "sw-toolbox": "3.6.0",
-    "zone.js": "0.8.10"
+    "zone.js": "0.8.10",
+    "cordova-ios": "~4.5.4"
   },
   "devDependencies": {
     "@ionic/cli-plugin-ionic-angular": "1.1.2",
@@ -55,7 +56,8 @@
     },
     "platforms": [
       "android",
-      "browser"
+      "browser",
+      "ios"
     ]
   },
   "cordovaPlugins": [],
