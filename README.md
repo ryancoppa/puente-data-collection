@@ -8,9 +8,9 @@
 ![](https://img.shields.io/badge/angular_2+-✓-blue.svg)
 ![](https://img.shields.io/badge/parse_server-✓-blue.svg)
 
-# About this starter
+# About this project
 
-This is a Surveying Application for integrating Ionic 3, Angular 2+ and Parse Server. 
+This is a Surveying Mobile Application for integrating Ionic 3, Angular 2+ and Parse Server. It's being used for community development data collection and assessment in the Dominican Republic.
 
 # Libraries
 
@@ -122,6 +122,9 @@ Parse offer a backend to store data, push notifications, social media integratio
 - **Push**: Support push notifications for Android, iOS. Also users can manage Push Notifications campaigns
 - **Storage**: No restricted time limits and no file storage restrictions. Control over backup, restore and database indexes
 - **Ideal for**: General purpose applications
+
+# Known Issues
+- Geolocation only works with cellular data and cannot be used with a Wifi connection
 
 # Contribution
 
