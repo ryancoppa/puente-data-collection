@@ -10,7 +10,7 @@
 
 # About this project
 
-This is a Surveying Mobile Application for integrating Ionic 3, Angular 2+ and Parse Server. It's being used for community development data collection and assessment in the Dominican Republic.
+This is a Surveying Mobile Application that integrates Ionic 3, Angular 2+ and Parse Server. It's being used for community development data collection and assessment in the Dominican Republic.
 
 # Libraries
 
