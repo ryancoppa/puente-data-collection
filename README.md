@@ -1,4 +1,4 @@
- # Ionic-Parse Surveying Application 
+ # Puente Data Collection and Asset Identification Application 
 
 ![](https://img.shields.io/badge/build-success-brightgreen.svg)
 
@@ -10,9 +10,14 @@
 
 # About this starter
 
-This is a PoC Surveying Application for integrating Ionic 3, Angular 2+ and Parse Server. 
+This is a Surveying Application for integrating Ionic 3, Angular 2+ and Parse Server. 
 
-## Some screenshots
+# Libraries
+
+Uses ionic-native geolocation 
+
+
+## Some older screenshots
 
 <p align="center">
   <img src="https://github.com/murraco/ionic-parse-server/blob/master/signin.png" width="40%" />
@@ -22,7 +27,7 @@ This is a PoC Surveying Application for integrating Ionic 3, Angular 2+ and Pars
 # File structure
 
 ```
-ionic-parse-server/
+puente-data-collection/
 │
 ├── resources/
 │
@@ -43,22 +48,14 @@ ionic-parse-server/
 │   │   │   ├── about.html
 │   │   │   ├── about.ts
 │   │   │   └── about.scss
-│   │   │
-│   │   ├── account/
-│   │   │   ├── account.html
-│   │   │   ├── account.ts
-│   │   │   └── account.scss
-│   │   │
-│   │   │── contact/
-│   │   │   ├── contact.html
-│   │   │   ├── contact.ts
-│   │   │   └── contact.scss
-│   │   │
 │   │   │── home/
 │   │   │   ├── home.html
 │   │   │   ├── home.ts
 │   │   │   └── home.scss
-│   │   │
+│   │   │── map/
+│   │   │   ├── map.html
+│   │   │   ├── map.ts
+│   │   │   └── map.scss
 │   │   │── signin/
 │   │   │   ├── signin.html
 │   │   │   ├── signin.ts
