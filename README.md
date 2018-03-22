@@ -124,7 +124,7 @@ Parse offer a backend to store data, push notifications, social media integratio
 - **Ideal for**: General purpose applications
 
 # Known Issues
-- Geolocation only works with cellular data and cannot be used with a Wifi connection
+- Geolocation only works with cellular data and cannot be used with a Wifi connection. Issue seems to be with the apache cordova geolocation module
 
 # Contribution
 
