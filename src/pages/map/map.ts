@@ -1,18 +1,25 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+//import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 //Providers
 import { ParseProvider } from '../../providers/parse/parse';
-import { Geolocation, GeolocationOptions } from '@ionic-native/geolocation';
+//import { Geolocation, GeolocationOptions } from '@ionic-native/geolocation';
+import { Geolocation } from '@ionic-native/geolocation';
+
 import leaflet from 'leaflet';
+
+declare var google;
 
 @Component({
   selector: 'page-map',
   templateUrl: 'map.html'
 })
 export class MapPage {
-  @ViewChild('map') mapContainer: ElementRef;
-  options: GeolocationOptions;
+  //@ViewChild('map') mapContainer: ElementRef;
+  //options: GeolocationOptions;
+
+  map: any;
   newAssets =
   {
     physicalName: null,
@@ -24,20 +31,19 @@ export class MapPage {
     latitude: null,
     longitude: null
   };
+
   assetPoints = []
-  map: any;
-  constructor(private parseProvider: ParseProvider, public navCtrl: NavController, private geolocation:Geolocation) {
+
+  constructor(private parseProvider: ParseProvider, public navCtrl: NavController, public geolocation: Geolocation) {
 
   }
 
   ionViewWillEnter() {
     //this.loadmap();
-    this.getUserPosition();
+    //this.getUserPosition();
   }
   ionViewDidLoad() {
-    //this.getUserPosition();
-    this.loadmap();
-    //this.getActiveUserPosition();
+    this.initializeMap();
     
   }
   ionViewDidEnter() {
@@ -48,48 +54,50 @@ export class MapPage {
     //this.removeMap();
   }
 
-  //This function gets the static coordinates of the user
-  public getUserPosition() {
-    this.options = {
-      enableHighAccuracy : false,
-      maximumAge: 30000,
-      timeout: 5000,
-          
-
-    };
-    
-    this.geolocation.getCurrentPosition(this.options).then((resp) => {
-      let latitude = resp.coords.latitude;
-      let longitude = resp.coords.longitude;
-      
-      this.newAssets.latitude = latitude;
-      this.newAssets.longitude = longitude;
-      console.log(latitude,longitude)
+ //This function gets the static coordinates of the user
+ initializeMap() {
+ 
+    let locationOptions = {timeout: 10000, enableHighAccuracy: true};
+ 
+    this.geolocation.getCurrentPosition(locationOptions).then((position) => {
+ 
+        let options = {
+          center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+          zoom: 16,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+ 
+        /* Show our lcoation */
+        this.map = new google.maps.Map(document.getElementById("map_canvas"), options);
+ 
+        /* We can show our location only if map was previously initialized */
+        this.showMyLocation();
+ 
     }).catch((error) => {
-      console.log('Error getting location',error);
+      console.log('Error getting location', error);
     });
   }
-  
-  //This function gets the active coordinates of the user
-  //NOT WORKING
-  public getActiveUserPosition() {
-    this.options = {
-      enableHighAccuracy : false,
-      maximumAge: 30000,
-      timeout: 5000,
-          
+  /*
+   * This function will create and show a marker representing your location
+  */
+  showMyLocation(){
 
-    };
-    
-    this.geolocation.watchPosition(this.options).subscribe(resp => {
-      let latitude = resp.coords.latitude;
-      let longitude = resp.coords.longitude;
-      
-      this.newAssets.latitude = latitude;
-      this.newAssets.longitude = longitude;
-      console.log(latitude,longitude);
-    });
-  }
+      let marker = new google.maps.Marker({
+          map: this.map,
+          animation: google.maps.Animation.DROP,
+          position: this.map.getCenter()
+      });
+
+      let markerInfo = "<h4>You are here!</h4>";         
+
+      let infoModal = new google.maps.InfoWindow({
+          content: markerInfo
+      });
+
+      google.maps.event.addListener(marker, 'click', () => {
+          infoModal.open(this.map, marker);
+      });
+  } 
   //Adds Results of Assets Forms to Parse Object
   //Pushes those results to the survey (via addAssetsResults)
   //Clears Survey
@@ -105,6 +113,7 @@ export class MapPage {
     });
     //this.getUserPosition();
   }
+
   public loadmap() {
   //async loadmap() {
     //create map
