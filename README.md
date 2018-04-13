@@ -8,13 +8,13 @@
 ![](https://img.shields.io/badge/angular_2+-✓-blue.svg)
 ![](https://img.shields.io/badge/parse_server-✓-blue.svg)
 
-# About this project
+# About this Program
 
 This is a Surveying Mobile Application that integrates Ionic 3, Angular 2+ and Parse Server. It's being used for community development data collection and assessment in the Dominican Republic.
 
-# Libraries
+# Key Libraries
 
-Uses ionic-native geolocation 
+Uses ionic-native geolocation and google sdk
 
 
 ## Some older screenshots
