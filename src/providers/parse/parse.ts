@@ -11,6 +11,7 @@ import { ENV } from '../../app/app.constant';
 export class ParseProvider {
   private parseAppId: string = ENV.parseAppId;
   private parseServerUrl: string = ENV.parseServerUrl;
+  private parseJavascriptKey: string = ENV.parseJavascriptKey;
 
   constructor() {
     this.parseInitialize();
@@ -129,7 +130,7 @@ export class ParseProvider {
     });
   }
   private parseInitialize() {
-    Parse.initialize(this.parseAppId);
+    Parse.initialize(this.parseAppId,this.parseJavascriptKey);
     Parse.serverURL = this.parseServerUrl;
   }
 
