@@ -17,8 +17,9 @@ import { SigninPage } from '../signin/signin';
 // Declare Variables
 export class HomePage {
   //Enables Options from Geolocation Import
-  //
   options: GeolocationOptions;
+  
+  //Variables in Survey
   newSurvey =
   {
     fname: null,
@@ -63,6 +64,8 @@ export class HomePage {
     latitude: null,
     longitude: null
   };
+
+  //Array used to Display Results from Query
   surveyPoints = []
 
   constructor(private parseProvider: ParseProvider, private auth: AuthProvider, private navCtrl: NavController, private app: App, private geolocation:Geolocation) {
@@ -72,17 +75,22 @@ export class HomePage {
   ionViewCanEnter(): boolean {
     return this.auth.authenticated();
   }
-
   ionViewDidEnter() {
     //Gets User Position once user has entered homepage
     this.getUserPosition();
   
   }
+
   //List
-  // This Function is for the Buttom Part of the Survey
+  // This Function is for the Bottom Part of the Survey
   public listPoints(): Promise<any> {
+    //Creates a natural "skip" of certain results based on surveyPoints length
     let offset = this.surveyPoints.length;
+
+    //Limits the length of the searched results
     let limit = 10;
+
+    //Returns the query then displays those "result" by pushing into surveyPoints object
     return this.parseProvider.getSurveyPoints(offset, limit).then((result) => {
       for (let i = 0; i < result.length; i++) {
         let object = result[i];
@@ -110,6 +118,7 @@ export class HomePage {
       console.log('Error getting location',error);
     });
   }
+
   //Adds Element to parseServer (newSurvey)
   //Then adds element to local array (surveyPoint)
   //Then clears the Form/arrary (surveyPoint)
