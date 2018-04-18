@@ -11,22 +11,30 @@ import { ENV } from '../../app/app.constant';
 export class ParseProvider {
   private parseAppId: string = ENV.parseAppId;
   private parseServerUrl: string = ENV.parseServerUrl;
-  private parseJavascriptKey: string = ENV.parseJavascriptKey;
+  //private parseJavascriptKey: string = ENV.parseJavascriptKey;
 
   constructor() {
     this.parseInitialize();
     console.log('Initiated Parse');
   }
+
   //This is Retrieving Survey Results from Parse Server
   public getSurveyPoints(offset: number = 0, limit: number = 3): Promise<any> {
+    //Returns the resolve (the query) and if there's an error, rejects
     return new Promise((resolve, reject) => {
       setTimeout(() => {
+        //Creates local object based on "SurveyData" Object in Parse-Server
         const SurveyData = Parse.Object.extend('SurveyData');
 
-        //Above queries the SurveyData class
+        //Queries the SurveyData class from Parse Server
         let query = new Parse.Query(SurveyData);
+        
+        //You can skip the first results by setting skip
         query.skip(offset);
+
+        //You can limit the number of results by setting "limit"
         query.limit(limit);
+
         //Below searches what's in the surveyPoints array
         query.find().then((surveyPoints) => {
           resolve(surveyPoints);
@@ -36,7 +44,6 @@ export class ParseProvider {
       }, 500);
     });
   }
-
 
   //Sets up a New Survey
   //Creates and or Updates Parse Class
@@ -129,8 +136,11 @@ export class ParseProvider {
       }
     });
   }
+
+  //Initialize Parse Server
   private parseInitialize() {
-    Parse.initialize(this.parseAppId,this.parseJavascriptKey);
+    //Parse.initialize(this.parseAppId,this.parseJavascriptKey);
+    Parse.initialize(this.parseAppId);
     Parse.serverURL = this.parseServerUrl;
   }
 
