@@ -18,7 +18,7 @@ export class User {
 export class AuthProvider {
   private parseAppId: string = ENV.parseAppId;
   private parseServerUrl: string = ENV.parseServerUrl;
-  private parseJavascriptKey: string = ENV.parseJavascriptKey;
+  //private parseJavascriptKey: string = ENV.parseJavascriptKey;
 
   constructor() {
     this.parseInitialize();
@@ -103,7 +103,8 @@ export class AuthProvider {
   }
 
   private parseInitialize() {
-    Parse.initialize(this.parseAppId,this.parseJavascriptKey);
+    //Parse.initialize(this.parseAppId,this.parseJavascriptKey);
+    Parse.initialize(this.parseAppId);
     Parse.serverURL = this.parseServerUrl;
   }
 

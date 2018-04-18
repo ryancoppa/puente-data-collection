@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { App, NavController } from 'ionic-angular';
+import { App } from 'ionic-angular';
 
 // Providers
 import { ParseProvider } from '../../providers/parse/parse';
@@ -68,7 +68,7 @@ export class HomePage {
   //Array used to Display Results from Query
   surveyPoints = []
 
-  constructor(private parseProvider: ParseProvider, private auth: AuthProvider, private navCtrl: NavController, private app: App, private geolocation:Geolocation) {
+  constructor(private parseProvider: ParseProvider, private auth: AuthProvider,  private app: App, private geolocation:Geolocation) {
     this.listPoints();
   }
 
