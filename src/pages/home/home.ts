@@ -20,15 +20,14 @@ export class HomePage {
   options: GeolocationOptions;
   
   //Variables in Survey
-  newSurvey =
+  newSurveyOld =
   {
     fname: null,
     lname: null,
-    age: null,
+    dob: null,
     sex: null,
     marriageStatus: null,
     occupation: null,
-    phoneNumber: null,
     publicPrivateInsurance: null,
     memberProgresando: null,
     memberOfAssociation: null,
@@ -64,7 +63,46 @@ export class HomePage {
     latitude: null,
     longitude: null
   };
-
+  newSurvey =
+  {
+    fname: null,
+    lname: null,
+    dob: null,
+    sex: null,
+    marriageStatus: null,
+    numberofIndividualsLivingintheHouse: null,
+    numberofChildrenLivingintheHouse: null,
+    numberofChildrenLivinginHouseUndertheAgeof5: null,
+    occupation: null,
+    educationLevel: null,
+    telephoneNumber: null,
+    yearsLivedinthecommunity: null,
+    areyouamemberofthefollowingorganizations: null,
+    whatTypeofHealthinsuranceDoyouHave: null,
+    whatistheFrequencyofYourMedicalVisits: null,
+    doyouhaveafamilyhistory: null,
+    doyouhaveaDiagnosisfromadoctorforanyofthefollowing: null,
+    doyouseeaproblemwithsexuallytransmitteddiseasesinyourcommunity: null,
+    isTeenagepregnancyprevalentinyourcommunity: null,
+    howOftenDoyouhaveAccesstoWater: null,
+    typeofWaterdoyoudrink: null,
+    clinicAccess: null,
+    qualityClinicService: null,
+    doyouhaveaccesstoalatrine: null,
+    conditionoFloorinyourhouse: null,
+    conditionoRoofinyourhouse: null,
+    availableTrashManagementandDisposalServices: null,
+    trashDisposalLocation: null,
+    immediateCare: null,
+    biggestProblemintheimmediatecommunity: null,
+    biggestProblemintheregion: null,
+    howCanweaddressandimprovethesituation: null,
+    otherOrganizationsYouKnow: null,
+    dayMostConvenient: null,
+    hourMostConvenient: null,
+    latitude: null,
+    longitude: null
+  }
   //Array used to Display Results from Query
   surveyPoints = []
 

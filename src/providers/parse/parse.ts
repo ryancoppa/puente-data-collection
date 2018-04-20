@@ -53,6 +53,7 @@ export class ParseProvider {
     let surveyPoint = new SurveyData();
     surveyPoint.set('fname', newSurvey.fname);
     surveyPoint.set('lname', newSurvey.lname);
+    /*
     surveyPoint.set('age', parseInt(newSurvey.age));
     surveyPoint.set('sex', newSurvey.sex);
     surveyPoint.set('phonenumber', newSurvey.phonenumber);
@@ -88,6 +89,7 @@ export class ParseProvider {
     surveyPoint.set('howCanWeFixIt', newSurvey.howCanWeFixIt);
     surveyPoint.set('dayConvenience', newSurvey.dayConvenience);
     surveyPoint.set('hourConvenience', newSurvey.hourConvenience);
+    */
     //Latitude and longitude?
     surveyPoint.set('latitude', newSurvey.latitude);
     surveyPoint.set('longitude', newSurvey.longitude);
