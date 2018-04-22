@@ -52,48 +52,42 @@ export class ParseProvider {
 
     let surveyPoint = new SurveyData();
     surveyPoint.set('fname', newSurvey.fname);
-    surveyPoint.set('lname', newSurvey.lname);
-    /*
-    surveyPoint.set('age', parseInt(newSurvey.age));
-    surveyPoint.set('sex', newSurvey.sex);
-    surveyPoint.set('phonenumber', newSurvey.phonenumber);
-    surveyPoint.set('marriageStatus', newSurvey.marriageStatus);
-    surveyPoint.set('occupation', newSurvey.occupation);
-    surveyPoint.set('publicPrivateInsurance', newSurvey.publicPrivateInsurance);
-    surveyPoint.set('memberProgresando', newSurvey.memberProgresando);
-    surveyPoint.set('memberOfAssociation', newSurvey.memberOfAssociation);
-    surveyPoint.set('familyHistoryDiabetes', newSurvey.familyHistoryDiabetes);
-    surveyPoint.set('familyHIstoryCardiacDisease', newSurvey.familyHIstoryCardiacDisease);
-    surveyPoint.set('familyHistoryofAlcoholism', newSurvey.familyHistoryofAlcoholism);
-    surveyPoint.set('familyHistoryofBreastCancer', newSurvey.familyHistoryofBreastCancer);
-    surveyPoint.set('familyHistoryofProstateCancer', newSurvey.familyHistoryofProstateCancer);
-    surveyPoint.set('diabetesDiagnosis', newSurvey.diabetesDiagnosis);
-    surveyPoint.set('respiratoryproblems', newSurvey.respiratoryproblems);
-    surveyPoint.set('cardiacproblems', newSurvey.cardiacproblems);
-    surveyPoint.set('numberofAlchoholDrinks', newSurvey.numberofAlchoholDrinks);
-    surveyPoint.set('sexualHealth_Diseasesaproblem', newSurvey.sexualHealth_Diseasesaproblem);
-    surveyPoint.set('sexualHealth_Teenagepregnancyaproblem', newSurvey.sexualHealth_Teenagepregnancyaproblem);
-    surveyPoint.set('waterAccess', newSurvey.waterAccess);
-    surveyPoint.set('waterQuality', newSurvey.waterQuality);
-    surveyPoint.set('waterAccessfrequency', newSurvey.waterAccessfrequency);
-    surveyPoint.set('clinicAccess', newSurvey.clinicAccess);
-    surveyPoint.set('latrineAccess', newSurvey.latrineAccess);
-    surveyPoint.set('trashDisposalLocation', newSurvey.trashDisposalLocation);
-    surveyPoint.set('numberofpeoplelivingintheHouse', newSurvey.numberofpeoplelivingintheHouse);
-    surveyPoint.set('childrenUnder5LivinginHouse', newSurvey.childrenUnder5LivinginHouse);
-    surveyPoint.set('conditionofHouse_Roof', newSurvey.conditionofHouse_Roof);
-    surveyPoint.set('conditionofHouse_Floor', newSurvey.conditionofHouse_Floor);
-    surveyPoint.set('conditionofHouse_Walls', newSurvey.conditionofHouse_Walls);
-    surveyPoint.set('biggestProblemintheCommunity', newSurvey.biggestProblemintheCommunity);
-    surveyPoint.set('biggestProblemintheRegion', newSurvey.biggestProblemintheRegion);
-    surveyPoint.set('howCanWeFixIt', newSurvey.howCanWeFixIt);
-    surveyPoint.set('dayConvenience', newSurvey.dayConvenience);
-    surveyPoint.set('hourConvenience', newSurvey.hourConvenience);
-    */
-    //Latitude and longitude?
-    surveyPoint.set('latitude', newSurvey.latitude);
-    surveyPoint.set('longitude', newSurvey.longitude);
-
+    surveyPoint.set('lname' , newSurvey.lname);
+    surveyPoint.set('dob' , newSurvey.dob);
+    surveyPoint.set('sex' , newSurvey.sex);
+    surveyPoint.set('marriageStatus' , newSurvey.marriageStatus);
+    surveyPoint.set('numberofIndividualsLivingintheHouse' , newSurvey.numberofIndividualsLivingintheHouse);
+    surveyPoint.set('numberofChildrenLivingintheHouse' , newSurvey.numberofChildrenLivingintheHouse);
+    surveyPoint.set('numberofChildrenLivinginHouseUndertheAgeof5' , newSurvey.numberofChildrenLivinginHouseUndertheAgeof5);
+    surveyPoint.set('occupation' , newSurvey.occupation);
+    surveyPoint.set('educationLevel' , newSurvey.educationLevel);
+    surveyPoint.set('telephoneNumber' , newSurvey.telephoneNumber);
+    surveyPoint.set('yearsLivedinthecommunity' , newSurvey.yearsLivedinthecommunity);
+    surveyPoint.set('memberofthefollowingorganizations' , newSurvey.memberofthefollowingorganizations);
+    surveyPoint.set('typeofHealthinsuranceDoyouHave' , newSurvey.typeofHealthinsuranceDoyouHave);
+    surveyPoint.set('frequencyofYourMedicalVisits' , newSurvey.frequencyofYourMedicalVisits);
+    surveyPoint.set('familyhistory' , newSurvey.familyhistory);
+    surveyPoint.set('diagnosisfromadoctor' , newSurvey.diagnosisfromadoctor);
+    surveyPoint.set('sexuallytransmitteddiseasesinyourcommunity' , newSurvey.sexuallytransmitteddiseasesinyourcommunity);
+    surveyPoint.set('teenagePregnancyprevalentinyourcommunity' , newSurvey.teenagePregnancyprevalentinyourcommunity);
+    surveyPoint.set('waterAccess' , newSurvey.waterAccess);
+    surveyPoint.set('typeofWaterdoyoudrink' , newSurvey.typeofWaterdoyoudrink);
+    surveyPoint.set('clinicAccess' , newSurvey.clinicAccess);
+    surveyPoint.set('qualityClinicService' , newSurvey.qualityClinicService);
+    surveyPoint.set('latrineAccess' , newSurvey.latrineAccess);
+    surveyPoint.set('conditionoFloorinyourhouse' , newSurvey.conditionoFloorinyourhouse);
+    surveyPoint.set('conditionoRoofinyourhouse' , newSurvey.conditionoRoofinyourhouse);
+    surveyPoint.set('availableTrashManagementandDisposalServices' , newSurvey.availableTrashManagementandDisposalServices);
+    surveyPoint.set('trashDisposalLocation' , newSurvey.trashDisposalLocation);
+    surveyPoint.set('immediateCare' , newSurvey.immediateCare);
+    surveyPoint.set('biggestProblemintheimmediatecommunity' , newSurvey.biggestProblemintheimmediatecommunity);
+    surveyPoint.set('biggestProblemintheregion' , newSurvey.biggestProblemintheregion);
+    surveyPoint.set('howCanweaddressandimprovethesituation' , newSurvey.howCanweaddressandimprovethesituation);
+    surveyPoint.set('otherOrganizationsYouKnow' , newSurvey.otherOrganizationsYouKnow);
+    surveyPoint.set('dayMostConvenient' , newSurvey.dayMostConvenient);
+    surveyPoint.set('hourMostConvenient' , newSurvey.hourMostConvenient);
+    surveyPoint.set('latitude' , newSurvey.latitude);
+    surveyPoint.set('longitude' , newSurvey.longitude);
     surveyPoint.set('cheatMode', false);
 
 

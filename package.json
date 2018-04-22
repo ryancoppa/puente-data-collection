@@ -19,7 +19,6 @@
     "@ionic-native/status-bar": "3.7.0",
     "@ionic/app-scripts": "^3.1.9",
     "@ionic/storage": "2.0.1",
-    "cordova-android": "6.4.0",
     "cordova-browser": "^4.1.0",
     "cordova-ios": "~4.5.4",
     "cordova-plugin-console": "^1.1.0",
@@ -55,7 +54,6 @@
       }
     },
     "platforms": [
-      "android",
       "browser",
       "ios"
     ]
