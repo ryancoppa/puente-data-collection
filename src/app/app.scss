@@ -26,4 +26,10 @@
       left: 0;
     }
 
+    //Adds Text-wtrap to All ion-labels and ion-select popovers
+    ion-label{
+      //white-space:normal !important;
+      white-space: pre-line;
+    }
+
 }

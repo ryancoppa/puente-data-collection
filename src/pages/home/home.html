@@ -14,7 +14,7 @@
   <ion-list text-wrap overflow-scroll="true">
     <!--Title -->
     <ion-item-divider color="primary-light">
-      Add Survey
+      Demographics | Demografía
     </ion-item-divider>
 
     <ion-item>
@@ -46,7 +46,7 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Marriage Status | Estado civil</ion-label>
+      <ion-label >Marriage Status | Estado civil</ion-label>
       <ion-select  [(ngModel)]="newSurvey.marriageStatus" interface ='popover'>
           <ion-option  value="single"> Single | Solter@ </ion-option>
           <ion-option  value="married"> Married | Casad@ </ion-option>
@@ -102,6 +102,9 @@
     </ion-item> 
 
     <!--  Health  -->
+    <ion-item-divider color="primary-light">
+      Health | Salud
+    </ion-item-divider>
 
     <ion-item>
       <ion-label>What Type of Health insurance Do you Have? | Que clase de seguro social tiene?</ion-label>
@@ -161,6 +164,9 @@
     </ion-item>
 
     <!--  Accessibility -->
+    <ion-item-divider color="primary-light">
+      Accessibility | Acceso
+    </ion-item-divider>
     <ion-item>
       <ion-label>How often do you have access to water? | cuántas veces tiene acceso al agua </ion-label>
       <ion-select [(ngModel)]="newSurvey.waterAccess" interface ='popover'>
@@ -207,6 +213,9 @@
     </ion-item>
 
     <!-- Housing and Urban Infrastructure -->
+    <ion-item-divider color="primary-light">
+      Housing and Urban Infrastructure | Infraestructura
+    </ion-item-divider>
     <ion-item>
       <ion-label>What is the condition of the floor in your house? | Cual es la condición del piso  de su casa?</ion-label>
       <ion-select [(ngModel)]="newSurvey.conditionoFloorinyourhouse" interface ='popover'>
@@ -239,10 +248,13 @@
     </ion-item>
 
     <!-- Medical Mission -->
+    <ion-item-divider color="primary-light">
+      Medical Mission | Misión Médica
+    </ion-item-divider>
     <ion-item>
       <ion-label>Does anyone in your household need immediate care with the following?  | Aguien es su familia necesita de los siguientes cuidados?</ion-label>
-      <ion-select text-wrap [(ngModel)]="newSurvey.immediateCare" multiple="true"  interface ='popover'>
-        <ion-option value="cleftlip">Cleft lip repair | Reparacion de labios partidos</ion-option>
+      <ion-select  [(ngModel)]="newSurvey.immediateCare" multiple="true"  interface ='popover'>
+        <ion-option text-wrap value="cleftlip">Cleft lip repair | Reparacion de labios partidos</ion-option>
         <ion-option value="cleftpalate">Cleft palate repair | Reparacion de frenillo lingual</ion-option>
         <ion-option value="wart|cyst">Wart or cyst removal | Eliminacion de verrugas o quistes</ion-option>
         <ion-option value="tumor">Tumor | Tumor</ion-option>
@@ -264,6 +276,9 @@
     </ion-item>
 
     <!-- Feedback and Open-Ended -->
+    <ion-item-divider color="primary-light">
+      Feedback and Open-Ended | Notas
+    </ion-item-divider>
 
     <ion-item>
       <ion-label floating>What's the Biggest Problem in the immediate community? | Cual es el problema inmediato más grande en la comunidad?</ion-label>
@@ -281,6 +296,9 @@
     </ion-item>
 
   <!-- Organizational and Administrative -->
+  <ion-item-divider color="primary-light">
+    Organization and Administrative | Administrativo
+  </ion-item-divider>
 
     <ion-item>
       <ion-label>Are there other outside organizations within your community or area? |  Hay otras organizaciones externas dentro de su comunidad o área?</ion-label>
@@ -309,8 +327,8 @@
     </ion-item>
 
 <!--         Divider               -->
-    <ion-item-divider color="primary-light">
-      Completed Surveys
+    <ion-item-divider color="primary">
+      Submissions | Entrega
     </ion-item-divider>
 
     <ion-item *ngFor="let surveyPoint of surveyPoints">

@@ -7,8 +7,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SigninPage } from '../pages/signin/signin';
 //import { HomePage } from '../pages/home/home';
 //import { MapPage } from '../pages/map/map';
-import { Splash } from '../pages/splash/splash';
 //import { AboutPage } from '../pages/about/about';
+
+import { Splash } from '../pages/splash/splash';
 
 @Component({
   template: '<ion-nav [root]="rootPage"></ion-nav>'
@@ -28,6 +29,8 @@ export class MyApp {
       //Below hides splashScreen
       //splashScreen.hide();
 
+
+      //Creates Splashscreen
       let splash = modalCtrl.create(Splash);
       splash.present();
     });
