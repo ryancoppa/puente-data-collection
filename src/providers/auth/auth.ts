@@ -59,12 +59,13 @@ export class AuthProvider {
     });
   }
 
-  public signup(username: string, password: string, email: string): Observable<boolean> {
+  public signup(username: string, password: string, email: string, organization: string): Observable<boolean> {
     return new Observable((observer) => {
       var user = new Parse.User();
       user.set('username', username);
       user.set('password', password);
       user.set('email', email);
+      user.set('organization', organization)
 
       user.signUp(null, {
         success: (user) => {
