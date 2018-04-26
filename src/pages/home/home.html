@@ -1,11 +1,20 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Home</ion-title>
+
+    <ion-buttons start>
+      <button ion-button icon-only (click)="openModal()">
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>  
+    
+    <ion-title>PUENTE</ion-title>
+
     <ion-buttons end>
       <button ion-button icon-only (click)="signout()">
         <ion-icon name="log-out"></ion-icon>
       </button>
     </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
@@ -51,6 +60,7 @@
           <ion-option  value="single"> Single | Solter@ </ion-option>
           <ion-option  value="married"> Married | Casad@ </ion-option>
           <ion-option  value="concubine"> Concubine | Concubina </ion-option>
+          <ion-option  value="widow"> Widow | Viuda </ion-option>
       </ion-select>
     </ion-item>
 
@@ -198,8 +208,8 @@
     <ion-item>
       <ion-label>What is the quality of the clinic service? | Cual es la calidad de los servicios del hospital?</ion-label>
       <ion-select [(ngModel)]="newSurvey.qualityClinicService" interface ='popover'>
-          <ion-option text-wrap value="good"> Good | Buena  </ion-option>
-          <ion-option text-wrap value="bad"> Bad | Mala  </ion-option>
+          <ion-option text-wrap value="good"> Working | Buena  </ion-option>
+          <ion-option text-wrap value="bad"> Poor | Mala  </ion-option>
           <ion-option text-wrap value="n/a"> I don’t know | No se  </ion-option>
       </ion-select>
     </ion-item>
@@ -254,7 +264,7 @@
     <ion-item>
       <ion-label>Does anyone in your household need immediate care with the following?  | Aguien es su familia necesita de los siguientes cuidados?</ion-label>
       <ion-select  [(ngModel)]="newSurvey.immediateCare" multiple="true"  interface ='popover'>
-        <ion-option text-wrap value="cleftlip">Cleft lip repair | Reparacion de labios partidos</ion-option>
+        <ion-option value="cleftlip">Cleft lip repair | Reparacion de labios partidos</ion-option>
         <ion-option value="cleftpalate">Cleft palate repair | Reparacion de frenillo lingual</ion-option>
         <ion-option value="wart|cyst">Wart or cyst removal | Eliminacion de verrugas o quistes</ion-option>
         <ion-option value="tumor">Tumor | Tumor</ion-option>
