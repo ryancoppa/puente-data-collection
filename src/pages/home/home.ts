@@ -8,6 +8,9 @@ import { Geolocation, GeolocationOptions } from '@ionic-native/geolocation';
 
 // Pages
 import { SigninPage } from '../signin/signin';
+import { ModalController } from 'ionic-angular';
+import { ProfileModalPage } from '../profile-modal/profile-modal';
+
 
 @Component({
   selector: 'page-home',
@@ -106,7 +109,7 @@ export class HomePage {
   //Array used to Display Results from Query
   surveyPoints = []
 
-  constructor(private parseProvider: ParseProvider, private auth: AuthProvider,  private app: App, private geolocation:Geolocation) {
+  constructor(public modalCtrl: ModalController, private parseProvider: ParseProvider, private auth: AuthProvider,  private app: App, private geolocation:Geolocation) {
     this.listPoints();
   }
 
@@ -172,6 +175,15 @@ export class HomePage {
     });
     //Update User Position?
     this.getUserPosition();
+  }
+
+  /////
+  
+  openModal() {
+    let myModal = this.modalCtrl.create(ProfileModalPage);
+
+    //.present() shows modal
+    myModal.present();
   }
 
   public signout() {
