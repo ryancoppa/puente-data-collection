@@ -18,4 +18,5 @@ Build Application
 	ionic cordova build ios --release --prod
 
 Deploy Application 
+	Remember to use same build identifier but different build numbers
 	https://ionicframework.com/docs/intro/deploying/
