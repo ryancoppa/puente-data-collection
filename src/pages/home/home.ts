@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { App } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
+
 
 // Providers
 import { ParseProvider } from '../../providers/parse/parse';
@@ -109,7 +111,7 @@ export class HomePage {
   //Array used to Display Results from Query
   surveyPoints = []
 
-  constructor(public modalCtrl: ModalController, private parseProvider: ParseProvider, private auth: AuthProvider,  private app: App, private geolocation:Geolocation) {
+  constructor(private toastCtrl: ToastController, public modalCtrl: ModalController, private parseProvider: ParseProvider, private auth: AuthProvider,  private app: App, private geolocation:Geolocation) {
     this.listPoints();
   }
 
@@ -122,8 +124,10 @@ export class HomePage {
   
   }
 
-  //List
-  // This Function is for the Bottom Part of the Survey
+  /*
+    Functions
+  */
+  //Retrieves list of surveys from server
   public listPoints(): Promise<any> {
     //Creates a natural "skip" of certain results based on surveyPoints length
     let offset = this.surveyPoints.length;
@@ -142,7 +146,7 @@ export class HomePage {
     });
   }
 
-  //This function gets the coordinates of the user
+  //Retrieves coordinates of the user
   public getUserPosition() {
     this.options = {
       enableHighAccuracy : false
@@ -162,7 +166,7 @@ export class HomePage {
 
   //Adds Element to parseServer (newSurvey)
   //Then adds element to local array (surveyPoint)
-  //Then clears the Form/arrary (surveyPoint)
+  //Then clears the Form/array (surveyPoint)
   public postSurveyConfirm() {
     this.parseProvider.addSurveyResults(this.newSurvey).then((surveyPoint) => {
       this.surveyPoints.push(surveyPoint);
@@ -177,8 +181,8 @@ export class HomePage {
     this.getUserPosition();
   }
 
-  /////
-  
+  //Other Pages
+  //Opens Profile Modal Page
   openModal() {
     let myModal = this.modalCtrl.create(ProfileModalPage);
 
@@ -186,10 +190,32 @@ export class HomePage {
     myModal.present();
   }
 
+  //Authentication
   public signout() {
     this.auth.signout().subscribe(() => {
       this.app.getRootNav().setRoot(SigninPage);
     });
+  }
+
+  ///Alerts
+  presentToast() {
+    /*
+    A Toast is a subtle notification commonly used in modern applications. 
+    It can be used to provide feedback about an operation or to display a system message.
+    The toast appears on top of the app's content, and can be dismissed 
+    by the app to resume user interaction with the app.
+    */
+    let toast = this.toastCtrl.create({
+      message: 'Submitted | Entregado',
+      duration: 2500,
+      position: 'bottom'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
   }
 
 }
