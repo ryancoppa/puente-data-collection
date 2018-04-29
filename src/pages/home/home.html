@@ -1,15 +1,15 @@
 <ion-header>
   <ion-navbar color="primary">
 
-    <ion-buttons start>
+    <ion-buttons left>
       <button ion-button icon-only (click)="openProfileModal()">
         <ion-icon name="contact"></ion-icon>
       </button>
     </ion-buttons>  
     
-    <ion-title>PUENTE</ion-title>
+    <ion-title text-center>PUENTE</ion-title>
 
-    <ion-buttons end>
+    <ion-buttons right>
       <button ion-button icon-only (click)="signout()">
         <ion-icon name="log-out"></ion-icon>
       </button>
@@ -339,7 +339,7 @@
 <!--         Divider               -->
     <!-- Survey-Item Name -->
     <ion-item no-lines>
-      <button ion-button icon-left full round color="accent" large (click)="postSurveyConfirm()" (click)="presentToast()">
+      <button ion-button icon-left full round color="accent" (click)="postSurveyConfirm()" (click)="presentToast()">
         <ion-icon name="checkmark-circle"></ion-icon>
         Submit | Entrega
       </button>
