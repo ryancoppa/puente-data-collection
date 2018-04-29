@@ -25,6 +25,7 @@ import { SignupPage } from '../pages/signup/signup';
 import { Splash } from '../pages/splash/splash';
 import { MapPage } from '../pages/map/map';
 import { ProfileModalPage } from '../pages/profile-modal/profile-modal';
+import { HelpPage } from '../pages/help/help';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ProfileModalPage } from '../pages/profile-modal/profile-modal';
     SignupPage,
     Splash,
     MapPage,
-    ProfileModalPage
+    ProfileModalPage,
+    HelpPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import { ProfileModalPage } from '../pages/profile-modal/profile-modal';
     SignupPage,
     Splash,
     MapPage,
-    ProfileModalPage
+    ProfileModalPage,
+    HelpPage
   ],
   providers: [
     StatusBar,

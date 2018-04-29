@@ -2,7 +2,7 @@
   <ion-navbar color="primary">
 
     <ion-buttons start>
-      <button ion-button icon-only (click)="openModal()">
+      <button ion-button icon-only (click)="openProfileModal()">
         <ion-icon name="contact"></ion-icon>
       </button>
     </ion-buttons>  
@@ -110,6 +110,14 @@
         <ion-option text-wrap value="Iglesia">Iglesia</ion-option>
       </ion-select>
     </ion-item> 
+
+    <!--  Latitude and Longitude  -->
+    <ion-item-divider color="primary-light">
+      Location | Ubicación
+    </ion-item-divider>
+    <ion-item>
+      <button ion-button color="primary-dark" round outline block (click)='getUserPosition()'>{{newSurvey.latitude}},{{newSurvey.longitude}}</button>
+    </ion-item>
 
     <!--  Health  -->
     <ion-item-divider color="primary-light">
@@ -331,8 +339,9 @@
 <!--         Divider               -->
     <!-- Survey-Item Name -->
     <ion-item no-lines>
-      <button ion-button icon-left full round color="accent" (click)="postSurveyConfirm()" (click)="presentToast()">
-        <ion-icon name="checkmark-circle"></ion-icon>Submit
+      <button ion-button icon-left full round color="accent" large (click)="postSurveyConfirm()" (click)="presentToast()">
+        <ion-icon name="checkmark-circle"></ion-icon>
+        Submit | Entrega
       </button>
     </ion-item>
 

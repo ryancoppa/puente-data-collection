@@ -88,6 +88,7 @@ export class ParseProvider {
     surveyPoint.set('hourMostConvenient' , newSurvey.hourMostConvenient);
     surveyPoint.set('latitude' , newSurvey.latitude);
     surveyPoint.set('longitude' , newSurvey.longitude);
+    surveyPoint.set('surveyingUser', newSurvey.surveyingUser);
     surveyPoint.set('cheatMode', false);
 
 

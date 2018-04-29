@@ -1,9 +1,9 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>About</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="signout()">
-        <ion-icon name="log-out"></ion-icon>
+    <ion-buttons start>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon name="arrow-dropleft-circle"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -15,45 +15,42 @@
 
     <ion-slide>
       <ion-card>
+        <img src="assets/images/website/mission.jpeg" class="slide-image"/>
         <ion-card-content>
-          <img src="assets/images/website/mission.jpeg" class="slide-image"/>
+          <ion-card-title>Mission</ion-card-title>
+          <p>Mobilize Community and economic development by working with local interests and outside institutions </p>
         </ion-card-content>
       </ion-card>
-      <h2>Mission</h2>
-      <p>Mobilize Community and economic development by working with local interests and outside institutions </p>
+      </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <img src="assets/images/website/rural.jpg" class="slide-image"/>
+        <ion-card-content>
+          <ion-card-title>History</ion-card-title>
+          <p>Puente was founded by former Peace Corps volunteers who wanted to continue making an impact in international development. In the Dominican Republic, there are forgotten communities that don’t have their basic needs and by being bridge  between developming communities, development organizations, and data-driven solutions, we can make a difference.</p>
+        </ion-card-content>
+      </ion-card>
     </ion-slide>
 
     <ion-slide>
       <ion-card>
+        <img src="assets/images/website/coding.jpg" class="slide-image"/>
         <ion-card-content>
-          <img src="assets/images/website/rural.jpg" class="slide-image"/>
+          <ion-card-title>How Are We Addressing It?</ion-card-title>
+          <p>By building customized tech tools for international development! In order to “bridge” the gap between data and development, Puente created a proprietary data collection application as a means to create a reliable database of reliable, quantitative and qualitative data that reflects the development needs of resource-challenged communities.</p>
         </ion-card-content>
       </ion-card>
-      <h2>History</h2>
-      <p>
-        Puente was founded by three former Peace Corps volunteers who wanted to continue making an impact in international development. In the Dominican Republic, there are forgotten communities that don’t have their basic needs and by being bridge  between developming communities, development organizations, and data-driven solutions, we can make a difference.
-      </p>
     </ion-slide>
 
     <ion-slide>
       <ion-card>
-        <ion-card-content>
-          <img src="assets/images/website/coding.jpg" class="slide-image"/>
-        </ion-card-content>
-      </ion-card>
-      <h2>How Are We Addressing It?</h2>
-      <p>By building our own tools! In order to “bridge” the gap between data and development, Puente created a proprietary data collection application as a means to create a reliable database of reliable, quantitative and qualitative data that reflects the development needs of resource-challenged communities.
-      </p>
-    </ion-slide>
-
-    <ion-slide>
-      <ion-card>
+        <img src="assets/images/website/join.jpg" />
         <ion-card-content center>
-          <img src="assets/images/website/join.jpg" />
+          <ion-card-title>Let's Tackle This Together</ion-card-title>
+          <p>With your data collection, we're one step closer to empowering community development with modern computational tools! </p>
         </ion-card-content>
       </ion-card>
-      <h2>Let's Tackle This Together!</h2>
-      <p>With your data collection, we're one step closer to empowering community development with modern computational tools! </p>
     </ion-slide>
 
   </ion-slides>

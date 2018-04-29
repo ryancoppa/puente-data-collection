@@ -25,49 +25,6 @@ export class HomePage {
   options: GeolocationOptions;
   
   //Variables in Survey
-  newSurveyOld =
-  {
-    fname: null,
-    lname: null,
-    dob: null,
-    sex: null,
-    marriageStatus: null,
-    occupation: null,
-    publicPrivateInsurance: null,
-    memberProgresando: null,
-    memberOfAssociation: null,
-    nameOfAssociation: null,
-    familyHistoryDiabetes: null,
-    familyHIstoryCardiacDisease: null,
-    familyHistoryofAlcoholism: null,
-    familyHistoryofBreastCancer: null,
-    familyHistoryofProstateCancer: null,
-    familyHistoryofMentalDisease: null,
-    diabetesDiagnosis: null,
-    respiratoryproblems: null,
-    cardiacproblems: null,
-    numberofAlchoholDrinks: null,
-    sexualHealth_Diseasesaproblem: null,
-    sexualHealth_Teenagepregnancyaproblem: null,
-    waterAccess: null,
-    waterQuality: null,
-    waterAccessfrequency: null,
-    clinicAccess: null,
-    latrineAccess: null,
-    trashDisposalLocation: null,
-    numberofpeoplelivingintheHouse: null,
-    childrenUnder5LivinginHouse: null,
-    conditionofHouse_Roof: null,
-    conditionofHouse_Floor: null,
-    conditionofHouse_Walls: null,
-    biggestProblemintheCommunity: null,
-    biggestProblemintheRegion: null,
-    howCanWeFixIt: null,
-    dayConvenience: null,
-    hourConvenience:null,
-    latitude: null,
-    longitude: null
-  };
   newSurvey =
   {
     fname: null,
@@ -105,8 +62,11 @@ export class HomePage {
     otherOrganizationsYouKnow: null,
     dayMostConvenient: null,
     hourMostConvenient: null,
+
     latitude: null,
-    longitude: null
+    longitude: null,
+    
+    surveyingUser: this.auth.currentUser().name
   }
   //Array used to Display Results from Query
   surveyPoints = []
@@ -123,7 +83,6 @@ export class HomePage {
     this.getUserPosition();
   
   }
-
   /*
     Functions
   */
@@ -163,6 +122,7 @@ export class HomePage {
       console.log('Error getting location',error);
     });
   }
+ 
 
   //Adds Element to parseServer (newSurvey)
   //Then adds element to local array (surveyPoint)
@@ -181,14 +141,15 @@ export class HomePage {
     this.getUserPosition();
   }
 
-  //Other Pages
+  //Navigation
   //Opens Profile Modal Page
-  openModal() {
+  openProfileModal() {
     let myModal = this.modalCtrl.create(ProfileModalPage);
 
     //.present() shows modal
     myModal.present();
   }
+  
 
   //Authentication
   public signout() {
