@@ -14,7 +14,7 @@ import { TabsPage } from '../tabs/tabs';
 export class SignupPage {
   password: string = '';
   username: string = '';
-  verify: string = '';
+  confirm: string = '';
   email: string = '';
   organization: string = '';
 
@@ -35,6 +35,7 @@ export class SignupPage {
     let loader = this.loadCtrl.create({
       content: 'Signing up...'
     });
+    
     loader.present();
 
     this.authPvdr.signup(this.username, this.password, this.email, this.organization).subscribe((success) => {
