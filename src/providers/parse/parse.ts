@@ -62,6 +62,7 @@ export class ParseProvider {
     surveyPoint.set('occupation' , newSurvey.occupation);
     surveyPoint.set('educationLevel' , newSurvey.educationLevel);
     surveyPoint.set('telephoneNumber' , newSurvey.telephoneNumber);
+    surveyPoint.set('communityName' , newSurvey.communityname);
     surveyPoint.set('yearsLivedinthecommunity' , newSurvey.yearsLivedinthecommunity);
     surveyPoint.set('memberofthefollowingorganizations' , newSurvey.memberofthefollowingorganizations);
     surveyPoint.set('typeofHealthinsuranceDoyouHave' , newSurvey.typeofHealthinsuranceDoyouHave);

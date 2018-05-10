@@ -38,6 +38,7 @@ export class HomePage {
     occupation: null,
     educationLevel: null,
     telephoneNumber: null,
+    communityname: null,
     yearsLivedinthecommunity: null,
     memberofthefollowingorganizations: null,
     typeofHealthinsuranceDoyouHave: null,
