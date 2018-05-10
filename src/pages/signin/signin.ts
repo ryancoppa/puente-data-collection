@@ -23,7 +23,12 @@ export class SigninPage {
     console.log('Initiated Signin');
   }
 
+  trimWhitespace(str){
+    return str.replace(/^\s+/,"").replace(/\s+$/,"");
+  }
   public doSignin() {
+    
+    
     let loader = this.loadCtrl.create({
 
       content: 'Signing in...'
@@ -42,7 +47,7 @@ export class SigninPage {
       //ion_alert.present();
     }, 3000); 
 
-    this.authPvdr.signin(this.username, this.password).subscribe((success) => {
+    this.authPvdr.signin(this.trimWhitespace(this.username), this.password).subscribe((success) => {
       ion_alert.dismiss();
       this.navCtrl.setRoot(TabsPage);
       loader.dismissAll();
