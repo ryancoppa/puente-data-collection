@@ -7,7 +7,19 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Map</ion-title>
+      <ion-buttons left>
+          <button ion-button icon-only (click)="showMyLocation()">
+            <ion-icon name="compass"></ion-icon>
+          </button>
+        </ion-buttons>  
+        
+        <ion-title text-center>Map</ion-title>
+        
+        <!--ion-buttons right>
+          <button ion-button icon-only (click)="signout()">
+            <ion-icon name="log-out"></ion-icon>
+          </button>
+        </ion-buttons-->
   </ion-navbar>
 
 </ion-header>
@@ -18,62 +30,72 @@
 </ion-content>
 
 <ion-content padding="true">
+  
   <ion-fab bottom  >
     <button ion-fab mini text-wrap class="button" ><ion-icon name="add"></ion-icon></button>
     <ion-fab-list side="top"> 
-      <ion-item class="places">
-        <ion-label floating text-wrap>Human Resource Identification</ion-label>
-        <ion-input [(ngModel)]="newAssets.humanName" type="text"></ion-input>
-        <ion-select [(ngModel)]="newAssets.humanAsset" interface = 'popover' text-wrap > Option
-          <ion-option value="labor-in-kind"> Labor-in-kind</ion-option>
-          <ion-option value="food-refresh"> Food/Refreshments for Laborors </ion-option>
-          <ion-option value="transportation"> Transportation</ion-option>
-          <ion-option value="agriculture"> Background in Agriculture </ion-option>
-          <ion-option value="construction"> Background in Construction</ion-option>
-          <ion-option value="education"> Background in Education </ion-option>
-          <ion-option value="finance"> Background in Finance</ion-option>
-          <ion-option value="medical"> Background in Medical Field </ion-option>
-          <ion-option value="multiple"> Multiple Areas</ion-option>
-        </ion-select>
-      </ion-item>
+      <ion-card>
+        <ion-card-header>
+          Community Resources
+        </ion-card-header>
+        <ion-item padding class="places">
+          <ion-label stacked text-wrap>Human Resource Identification</ion-label>
+          <ion-icon name="people" item-start></ion-icon>
+          <ion-input placeholder="Name" [(ngModel)]="newAssets.humanName" type="text"></ion-input>
+          <ion-select [(ngModel)]="newAssets.humanAsset" interface = 'popover' text-wrap > Option
+            <ion-option value="labor-in-kind"> Labor-in-kind</ion-option>
+            <ion-option value="food-refresh"> Food/Refreshments for Laborors </ion-option>
+            <ion-option value="transportation"> Transportation</ion-option>
+            <ion-option value="agriculture"> Background in Agriculture </ion-option>
+            <ion-option value="construction"> Background in Construction</ion-option>
+            <ion-option value="education"> Background in Education </ion-option>
+            <ion-option value="finance"> Background in Finance</ion-option>
+            <ion-option value="medical"> Background in Medical Field </ion-option>
+            <ion-option value="multiple"> Multiple Areas</ion-option>
+          </ion-select>
+        </ion-item>
 
-      <ion-item class="places">
-        <ion-label floating text-wrap>Physical Resource Identification</ion-label>
-        <ion-input [(ngModel)]="newAssets.physicalName" text-wrap type="text" text-wrap></ion-input>
-        <ion-select [(ngModel)]="newAssets.physicalAsset" interface = 'popover'> Option
-          <ion-option value="Neighborhood"> Neighborhood</ion-option>
-          <ion-option value="Road-Main"> Main Road </ion-option>
-          <ion-option value="Park-Main"> Main Park</ion-option>
-          <ion-option value="Clinic-Public"> Public Clinic </ion-option>
-          <ion-option value="Clinic-Private"> Private Clinic</ion-option>
-          <ion-option value="Convenience-Store"> Convenience Store </ion-option>
-          <ion-option value="Place-Of-Worshop"> Place of Worshop</ion-option>
-          <ion-option value="Nightclub"> NightClub </ion-option>
-          <ion-option value='Grocery-Store'>Grocery store</ion-option>
-          <ion-option value='Cafe-Diner'>Cafe/Diner</ion-option>
-          <ion-option value='Baseball-Field'>Baseball Field</ion-option>
-          <ion-option value='Basketball-Court'>Basketball Court</ion-option>
-          <ion-option value='Cemetery'>Cemetery</ion-option>
-          <ion-option value='Water-Source-Aqueduct'>Water-Source: Aqueduct</ion-option>
-          <ion-option value='Water-Source-River'>Water-Source: River</ion-option>
-          <ion-option value='Water-Source-Other'>Water-Source: Other</ion-option>
+        <ion-item class="places">
+          <ion-label stacked text-wrap>Physical Resource Identification</ion-label>
+          <ion-icon name="cube" item-start></ion-icon>
+          <ion-input placeholder="Name" [(ngModel)]="newAssets.physicalName" text-wrap type="text" text-wrap></ion-input>
+          <ion-select [(ngModel)]="newAssets.physicalAsset" interface = 'popover'> Option
+            <ion-option value="Neighborhood"> Neighborhood</ion-option>
+            <ion-option value="Neighborhood Association"> Neighborhood</ion-option>
+            <ion-option value="Road-Main"> Main Road </ion-option>
+            <ion-option value="Park-Main"> Main Park</ion-option>
+            <ion-option value="Clinic-Public"> Public Clinic </ion-option>
+            <ion-option value="Clinic-Private"> Private Clinic</ion-option>
+            <ion-option value="Convenience-Store"> Convenience Store </ion-option>
+            <ion-option value="Place-Of-Worshop"> Place of Worshop</ion-option>
+            <ion-option value="Nightclub"> NightClub </ion-option>
+            <ion-option value='Grocery-Store'>Grocery store</ion-option>
+            <ion-option value='Cafe-Diner'>Cafe/Diner</ion-option>
+            <ion-option value='Baseball-Field'>Baseball Field</ion-option>
+            <ion-option value='Basketball-Court'>Basketball Court</ion-option>
+            <ion-option value='Cemetery'>Cemetery</ion-option>
+            <ion-option value='Water-Source-Aqueduct'>Water-Source: Aqueduct</ion-option>
+            <ion-option value='Water-Source-River'>Water-Source: River</ion-option>
+            <ion-option value='Water-Source-Other'>Water-Source: Other</ion-option>
 
-          <ion-option value='Public-Housing'>Public Housing </ion-option>
-          <ion-option value='Bridge'>Bridge </ion-option>
-          <ion-option value='City-Hall'>City Hall </ion-option>
-          <ion-option value='Hospital'>Hospital </ion-option>
-          <ion-option value='Farm'>Farm </ion-option>
-          <ion-option value='Transportation Stop'>Transportation Stop </ion-option>
-          <ion-option value='School-Elementary'>School: Elementary </ion-option>
-          <ion-option value='School-HighSchool'>School: High School </ion-option>
-          <ion-option value='School-University'>School: University  </ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-item no-lines>
-          <button ion-button icon-left full round color="accent" (click)="postAssetsConfirm()">
-            <ion-icon name="checkmark-circle"></ion-icon>Submit
-          </button>
-      </ion-item>
+            <ion-option value='Public-Housing'>Public Housing </ion-option>
+            <ion-option value='Bridge'>Bridge </ion-option>
+            <ion-option value='City-Hall'>City Hall </ion-option>
+            <ion-option value='Hospital'>Hospital </ion-option>
+            <ion-option value='Farm'>Farm </ion-option>
+            <ion-option value='Transportation Stop'>Transportation Stop </ion-option>
+            <ion-option value='School-Elementary'>School: Elementary </ion-option>
+            <ion-option value='School-HighSchool'>School: High School </ion-option>
+            <ion-option value='School-University'>School: University  </ion-option>
+          </ion-select>
+        </ion-item>
+        
+        <ion-item no-lines>
+            <button ion-button icon-left full round color="accent" (click)="postAssetsConfirm()">
+              <ion-icon name="checkmark-circle"></ion-icon>Submit
+            </button>
+        </ion-item>
+      </ion-card>
 
     </ion-fab-list>
   </ion-fab>

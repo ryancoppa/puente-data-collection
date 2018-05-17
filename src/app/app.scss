@@ -25,4 +25,78 @@
       top: 0;
       left: 0;
     }
+
+    //Adds Text-wtrap to All ion-labels and ion-select popovers
+    ion-label {
+      //white-space:normal !important;
+      white-space: pre-line;
+    }
+
+    //Backgrounds
+    .profile-bg {
+      background-image: linear-gradient(135deg, color($colors, primary-dark), color($colors, primary), color($colors, primary-light));
+    }
+
+    //Buttons configs
+    .btn-facebook {
+      background-color: #3B5999;
+    }
+
+    .btn-twitter {
+      background-color: #00ACEE;
+    }
+
+    .btn-gplus {
+      background-color: #E04006
+    }
+    //Animate CSS
+    .animated {
+      animation-duration: 1s;
+      animation-fill-mode: both;
+    }
+
+    .animated.infinite {
+      animation-iteration-count: infinite;
+    }
+
+    .animated.hinge {
+      animation-duration: 2s;
+    }
+
+    .animated.flipOutX,
+    .animated.flipOutY,
+    .animated.bounceIn,
+    .animated.bounceOut {
+      animation-duration: .75s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .fadeIn {
+      animation-name: fadeIn;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .fadeInDown {
+      animation-name: fadeInDown;
+    }
 }

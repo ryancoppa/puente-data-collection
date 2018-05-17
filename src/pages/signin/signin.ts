@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
+import { AlertController, NavController, LoadingController } from 'ionic-angular';
 
 // Providers
 import { AuthProvider } from '../../providers/auth/auth';
@@ -17,23 +17,42 @@ export class SigninPage {
   password: string = '';
   username: string = '';
 
-  constructor(public navCtrl: NavController, private loadCtrl: LoadingController, private authPvdr: AuthProvider) { }
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, private loadCtrl: LoadingController, private authPvdr: AuthProvider) { }
 
   ionViewDidLoad() {
     console.log('Initiated Signin');
   }
 
+  trimWhitespace(str){
+    return str.replace(/^\s+/,"").replace(/\s+$/,"");
+  }
   public doSignin() {
+    
+    
     let loader = this.loadCtrl.create({
+
       content: 'Signing in...'
     });
-    loader.present();
 
-    this.authPvdr.signin(this.username, this.password).subscribe((success) => {
+    let ion_alert = this.alertCtrl.create({
+      title: 'Login Timeout',
+      subTitle: 'Invalid username and/or password',
+      buttons: ['Try Again']
+    });
+    
+    loader.present();
+    
+    setTimeout(() => {
+      loader.dismiss();
+      //ion_alert.present();
+    }, 3000); 
+
+    this.authPvdr.signin(this.trimWhitespace(this.username), this.password).subscribe((success) => {
+      ion_alert.dismiss();
       this.navCtrl.setRoot(TabsPage);
       loader.dismissAll();
     }, (error) => {
-      alert('Invalid username or password');
+      //ion_alert.present();
       loader.dismissAll();
     });
   }

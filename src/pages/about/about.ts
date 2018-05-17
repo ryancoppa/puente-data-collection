@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { App } from 'ionic-angular';
+import { App, ViewController } from 'ionic-angular';
 
 // Providers
 import { AuthProvider } from '../../providers/auth/auth';
@@ -13,12 +13,16 @@ import { SigninPage } from '../signin/signin';
 })
 export class AboutPage {
 
-  constructor(private auth: AuthProvider, private app: App) { }
+  constructor(public viewCtrl: ViewController, private auth: AuthProvider, private app: App) { }
 
   ionViewCanEnter(): boolean {
     return this.auth.authenticated();
   }
 
+  closeModal() {
+    this.viewCtrl.dismiss();
+  }
+  //Legacy
   public signout() {
     this.auth.signout().subscribe(() => {
       this.app.getRootNav().setRoot(SigninPage);

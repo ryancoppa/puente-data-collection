@@ -18,7 +18,7 @@ export class User {
 export class AuthProvider {
   private parseAppId: string = ENV.parseAppId;
   private parseServerUrl: string = ENV.parseServerUrl;
-  //private parseJavascriptKey: string = ENV.parseJavascriptKey;
+  private parseJavascriptKey: string = ENV.parseJavascriptKey;
 
   constructor() {
     this.parseInitialize();
@@ -29,6 +29,8 @@ export class AuthProvider {
     return new Observable((observer) => {
       Parse.User.logIn(username, password, {
         success: function (user) {
+          // Do stuff after successful login, like a redirect.
+          console.log('User logged in successful with username: ' + user.get("username"));
           observer.next(true);
           observer.complete();
         },
@@ -41,6 +43,8 @@ export class AuthProvider {
             var username = success.toJSON().username; 
             Parse.User.logIn(username, password, {
               success: function (user) {
+                // Do stuff after successful login, like a redirect.
+                console.log('User logged in successful with email: ' + user.get("email"));
                 observer.next(true);
                 observer.complete();
               },
@@ -59,19 +63,24 @@ export class AuthProvider {
     });
   }
 
-  public signup(username: string, password: string, email: string): Observable<boolean> {
+  public signup(username: string, password: string, email: string, organization: string): Observable<boolean> {
     return new Observable((observer) => {
       var user = new Parse.User();
       user.set('username', username);
       user.set('password', password);
       user.set('email', email);
+      user.set('organization', organization)
 
       user.signUp(null, {
         success: (user) => {
+          console.log('User created successful with name: ' + user.get("username") + ' and email: ' + user.get("email"));
           observer.next(true);
           observer.complete();
         },
         error: (user, error) => {
+          // Show the error message somewhere and let the user try again.
+          // It is likely that the user is trying to sign with a username or email already taken.
+          console.log("Error: " + error.code + " " + error.message);
           observer.error(error);
           observer.complete();
         }
@@ -103,8 +112,13 @@ export class AuthProvider {
   }
 
   private parseInitialize() {
-    //Parse.initialize(this.parseAppId,this.parseJavascriptKey);
-    Parse.initialize(this.parseAppId);
+    //Back4app
+    Parse.initialize(this.parseAppId,this.parseJavascriptKey);
+    
+    //Heroku
+    //Parse.initialize(this.parseAppId);
+    
+    //Server
     Parse.serverURL = this.parseServerUrl;
   }
 

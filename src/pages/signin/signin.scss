@@ -1,5 +1,9 @@
 page-signin {
 
+    .scroll-content {
+        margin-top: 0 !important;
+    }
+
     .logo {
         text-align: center;
         display: flex;
@@ -19,7 +23,11 @@ page-signin {
     .fillin {
       background-color: black;
       .text{
-        color: #f9c55c;
+        color: map-get($colors,primary);
+      }
+      ion-label{
+        //color: #f9c55c;
+        color: map-get($colors,primary);
       }
     }
     
