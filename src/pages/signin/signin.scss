@@ -20,6 +20,14 @@ page-signin {
 
     }
 
+    .logo-subtitle{
+        color: map-get($colors, primary-black);
+        opacity: 0;
+        //transform: rotate3d(1, 1, 0, 50deg);
+        animation: 2.5s 1s ease fadeInAndSpin;
+        animation-fill-mode: forwards;
+    }
+
     .fillin {
       background-color: black;
       .text{
@@ -34,4 +42,22 @@ page-signin {
     .background {
         background-color: black;
     }
+}
+
+
+@keyframes fadeInAndSpin {
+
+    100% {
+        opacity: 1;
+        //transform: rotate3d(1, 1, 0, 0deg);
+    }
+
+}
+
+@keyframes fadeIn {
+
+    100% {
+        opacity: 1;
+    }
+
 }
