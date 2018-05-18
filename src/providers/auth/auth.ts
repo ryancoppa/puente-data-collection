@@ -12,6 +12,7 @@ export class User {
   public id: string;
   public name: string;
   public email: string;
+  public organization: string;
 }
 
 @Injectable()
@@ -102,6 +103,7 @@ export class AuthProvider {
       user.id = u.id;
       user.name = u.get('username');
       user.email = u.get('email');
+      user.organization = u.get('organization');
       return user;
     }
     return null

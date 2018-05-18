@@ -4,7 +4,7 @@ import { NavController } from 'ionic-angular';
 
 //Providers
 import { ParseProvider } from '../../providers/parse/parse';
-//import { Geolocation, GeolocationOptions } from '@ionic-native/geolocation';
+import { AuthProvider } from '../../providers/auth/auth';
 import { Geolocation } from '@ionic-native/geolocation';
 
 import leaflet from 'leaflet';
@@ -29,13 +29,17 @@ export class MapPage {
     humanAsset: null,
     
     latitude: null,
-    longitude: null
+    longitude: null,
+    surveyingUser: this.auth.currentUser().name,
+    surveyingOrganization: this.auth.currentUser().organization
   };
 
   assetPoints = []
 
-  constructor(private parseProvider: ParseProvider, public navCtrl: NavController, public geolocation: Geolocation) {
-
+  constructor(private parseProvider: ParseProvider, 
+    public navCtrl: NavController,
+    private auth: AuthProvider, 
+    public geolocation: Geolocation) {
   }
 
   ionViewWillEnter() {

@@ -19,12 +19,12 @@ export class ParseProvider {
   }
 
   //This is Retrieving Survey Results from Parse Server
-  public getSurveyPoints(offset: number = 0, limit: number = 3): Promise<any> {
+  public basicQuery(offset: number = 0, limit: number = 3, parseObject: string, parseColumn: string, parseParam: string): Promise<any> {
     //Returns the resolve (the query) and if there's an error, rejects
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         //Creates local object based on "SurveyData" Object in Parse-Server
-        const SurveyData = Parse.Object.extend('SurveyData');
+        const SurveyData = Parse.Object.extend(parseObject);
 
         //Queries the SurveyData class from Parse Server
         let query = new Parse.Query(SurveyData);
@@ -34,6 +34,9 @@ export class ParseProvider {
 
         //You can limit the number of results by setting "limit"
         query.limit(limit);
+
+        //Limiting Results based on a class
+        query.equalTo(parseColumn,parseParam);
 
         //Below searches what's in the surveyPoints array
         query.find().then((surveyPoints) => {
@@ -90,8 +93,7 @@ export class ParseProvider {
     surveyPoint.set('latitude' , newSurvey.latitude);
     surveyPoint.set('longitude' , newSurvey.longitude);
     surveyPoint.set('surveyingUser', newSurvey.surveyingUser);
-    surveyPoint.set('cheatMode', false);
-
+    surveyPoint.set('surveyingOrganization', newSurvey.surveyingOrganization);
 
     return surveyPoint.save(null, {
       success: function (surveyPoint) {
@@ -116,12 +118,14 @@ export class ParseProvider {
     
     assetPoint.set('physicalAsset', newAssets.physicalAsset);
     assetPoint.set('humanAsset', newAssets.humanAsset);
-    //Latitude and longitude?
+
+    //Latitude and longitude
     assetPoint.set('latitude', newAssets.latitude);
     assetPoint.set('longitude', newAssets.longitude);
 
-    assetPoint.set('cheatMode', false);
-
+    //Enterprise Information
+    assetPoint.set('surveyingUser', newAssets.surveyingUser);
+    assetPoint.set('surveyingOrganization', newAssets.surveyingOrganization);
 
     return assetPoint.save(null, {
       success: function (assetPoint) {

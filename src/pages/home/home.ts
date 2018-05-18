@@ -67,12 +67,18 @@ export class HomePage {
     latitude: null,
     longitude: null,
     
-    surveyingUser: this.auth.currentUser().name
+    surveyingUser: this.auth.currentUser().name,
+    surveyingOrganization: this.auth.currentUser().organization
   }
   //Array used to Display Results from Query
   surveyPoints = []
 
-  constructor(private toastCtrl: ToastController, public modalCtrl: ModalController, private parseProvider: ParseProvider, private auth: AuthProvider,  private app: App, private geolocation:Geolocation) {
+  constructor(private toastCtrl: ToastController, 
+    public modalCtrl: ModalController, 
+    private parseProvider: ParseProvider, 
+    private auth: AuthProvider,  
+    private app: App, 
+    private geolocation:Geolocation) {
     this.listPoints();
   }
 
@@ -82,6 +88,7 @@ export class HomePage {
   ionViewDidEnter() {
     //Gets User Position once user has entered homepage
     this.getUserPosition();
+    //this.listPoints();
   
   }
   /*
@@ -96,7 +103,8 @@ export class HomePage {
     let limit = 10;
 
     //Returns the query then displays those "result" by pushing into surveyPoints object
-    return this.parseProvider.getSurveyPoints(offset, limit).then((result) => {
+    //Based on Parse surveyingOrganization Column and name of organization for the User
+    return this.parseProvider.basicQuery(offset, limit, 'SurveyData', 'surveyingOrganization', this.auth.currentUser().organization).then((result) => {
       for (let i = 0; i < result.length; i++) {
         let object = result[i];
         this.surveyPoints.push(object);
@@ -178,6 +186,16 @@ export class HomePage {
     });
   
     toast.present();
+  }
+
+  doRefresh(refresher){
+    console.log('Begin async operation for refresher', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation for refresher has ended');
+      this.listPoints();
+      refresher.complete();
+    }, 2000);
   }
 
 }
