@@ -72,7 +72,12 @@ export class HomePage {
   //Array used to Display Results from Query
   surveyPoints = []
 
-  constructor(private toastCtrl: ToastController, public modalCtrl: ModalController, private parseProvider: ParseProvider, private auth: AuthProvider,  private app: App, private geolocation:Geolocation) {
+  constructor(private toastCtrl: ToastController, 
+    public modalCtrl: ModalController, 
+    private parseProvider: ParseProvider, 
+    private auth: AuthProvider,  
+    private app: App, 
+    private geolocation:Geolocation) {
     this.listPoints();
   }
 

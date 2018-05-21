@@ -1,6 +1,6 @@
 //import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Refresher } from 'ionic-angular';
 
 //Providers
 import { ParseProvider } from '../../providers/parse/parse';
@@ -56,27 +56,26 @@ export class MapPage {
 
  //This function gets the static coordinates of the user
  initializeMap() {
- 
-    let locationOptions = {timeout: 10000, enableHighAccuracy: true};
- 
-    this.geolocation.getCurrentPosition(locationOptions).then((position) => {
- 
-        let options = {
-          center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
-          zoom: 16,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
- 
-        /* Show our lcoation */
-        this.map = new google.maps.Map(document.getElementById("map_canvas"), options);
- 
-        /* We can show our location only if map was previously initialized */
-        this.showMyLocation();
- 
-    }).catch((error) => {
+  let locationOptions = {timeout: 10000, enableHighAccuracy: true};
+
+  this.geolocation.getCurrentPosition(locationOptions).then((position) => {
+
+      let options = {
+        center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+        zoom: 16,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+
+      /* Show our lcoation */
+      this.map = new google.maps.Map(document.getElementById("map_canvas"), options);
+
+      /* We can show our location only if map was previously initialized */
+      this.showMyLocation();
+
+  }).catch((error) => {
       console.log('Error getting location', error);
     });
-  }
+}
   /*
    * This function will create and show a marker representing your location
   */
@@ -166,6 +165,12 @@ export class MapPage {
   }
   public removeMap(){
     this.map.remove();
+  }
+
+  doRefresh(refresher : Refresher) {
+    setTimeout(() => {
+      refresher.complete();
+    }, 500);
   }
 
 }
