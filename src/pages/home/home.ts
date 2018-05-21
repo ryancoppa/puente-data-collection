@@ -66,6 +66,7 @@ export class HomePage {
 
     latitude: null,
     longitude: null,
+    location: null,
     
     surveyingUser: this.auth.currentUser().name,
     surveyingOrganization: this.auth.currentUser().organization
@@ -80,6 +81,7 @@ export class HomePage {
     private app: App, 
     private geolocation:Geolocation) {
     this.listPoints();
+    this.auth.authenticated();
   }
 
   ionViewCanEnter(): boolean {
@@ -117,7 +119,7 @@ export class HomePage {
   //Retrieves coordinates of the user
   public getUserPosition() {
     this.options = {
-      enableHighAccuracy : false
+      enableHighAccuracy : true
     };
     
     this.geolocation.getCurrentPosition(this.options).then((resp) => {
@@ -126,6 +128,10 @@ export class HomePage {
       
       this.newSurvey.latitude = latitude;
       this.newSurvey.longitude = longitude;
+
+      //Because I'm lazy
+      this.newSurvey.surveyingOrganization = this.auth.currentUser().name;
+      this.newSurvey.surveyingUser = this.auth.currentUser().organization;
       console.log(latitude,longitude)
     }).catch((error) => {
       console.log('Error getting location',error);

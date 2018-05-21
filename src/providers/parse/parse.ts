@@ -52,8 +52,9 @@ export class ParseProvider {
   //Creates and or Updates Parse Class
   public addSurveyResults(newSurvey): Promise<any> {
     const SurveyData = Parse.Object.extend('SurveyData');
-
     let surveyPoint = new SurveyData();
+
+
     surveyPoint.set('fname', newSurvey.fname);
     surveyPoint.set('lname' , newSurvey.lname);
     surveyPoint.set('dob' , newSurvey.dob);
@@ -90,8 +91,13 @@ export class ParseProvider {
     surveyPoint.set('otherOrganizationsYouKnow' , newSurvey.otherOrganizationsYouKnow);
     surveyPoint.set('dayMostConvenient' , newSurvey.dayMostConvenient);
     surveyPoint.set('hourMostConvenient' , newSurvey.hourMostConvenient);
+
+    //var point = new Parse.GeoPoint(30.0, -20.0);
+    var point = new Parse.GeoPoint(newSurvey.latitude,newSurvey.longitude);
     surveyPoint.set('latitude' , newSurvey.latitude);
     surveyPoint.set('longitude' , newSurvey.longitude);
+    surveyPoint.set('location', point);
+ 
     surveyPoint.set('surveyingUser', newSurvey.surveyingUser);
     surveyPoint.set('surveyingOrganization', newSurvey.surveyingOrganization);
 
@@ -150,5 +156,7 @@ export class ParseProvider {
     //Server
     Parse.serverURL = this.parseServerUrl;
   }
+
+
 
 }
