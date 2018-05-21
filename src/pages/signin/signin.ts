@@ -17,7 +17,11 @@ export class SigninPage {
   password: string = '';
   username: string = '';
 
-  constructor(public alertCtrl: AlertController, public navCtrl: NavController, private loadCtrl: LoadingController, private authPvdr: AuthProvider) { }
+  constructor(public alertCtrl: AlertController, 
+              public navCtrl: NavController, 
+              private loadCtrl: LoadingController, 
+              private authPvdr: AuthProvider) { 
+    }
 
   ionViewDidLoad() {
     console.log('Initiated Signin');

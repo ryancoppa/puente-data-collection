@@ -18,7 +18,10 @@ export class SignupPage {
   email: string = '';
   organization: string = '';
 
-  constructor(public navCtrl: NavController, private authPvdr: AuthProvider, private loadCtrl: LoadingController) { }
+  constructor(public navCtrl: NavController, 
+    private authPvdr: AuthProvider, 
+    private loadCtrl: LoadingController) { 
+  }
 
   ionViewDidLoad() {
     console.log('Initiate Signup');
