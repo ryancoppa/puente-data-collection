@@ -1,6 +1,6 @@
 //import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Component } from '@angular/core';
-import { NavController, Refresher } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 
 //Providers
 import { ParseProvider } from '../../providers/parse/parse';
@@ -49,7 +49,6 @@ export class MapPage {
   }
   ionViewDidLeave() {
   }
-
  
   public initializeMap() {
     //This function gets the static coordinates of the user
@@ -95,7 +94,7 @@ export class MapPage {
     });
 
     google.maps.event.addListener(marker, 'click', () => {
-        infoModal.open(this.map, marker);
+      infoModal.open(this.map, marker);
     });
   }
   
@@ -120,7 +119,6 @@ export class MapPage {
     });
   }
   
-
   public centerMap(latitude, longitude){ 
     this.map.setCenter(new google.maps.LatLng(latitude, longitude));
   }
