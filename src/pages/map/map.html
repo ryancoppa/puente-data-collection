@@ -8,7 +8,7 @@
 
   <ion-navbar>
       <ion-buttons left>
-          <button ion-button icon-only (click)="showMyLocation()">
+          <button ion-button icon-only (click)="getUserPosition()">
             <ion-icon name="compass"></ion-icon>
           </button>
         </ion-buttons>  
@@ -23,14 +23,6 @@
   </ion-navbar>
 
 </ion-header>
-
-
-<ion-content>
-    <ion-refresher (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content></ion-refresher-content>
-    </ion-refresher>
-    <div id="map_canvas"></div>
-</ion-content>
 
 <ion-content padding="true">
   
@@ -102,4 +94,8 @@
 
     </ion-fab-list>
   </ion-fab>
+</ion-content>
+
+<ion-content>
+  <div id="map_canvas"></div>
 </ion-content>
