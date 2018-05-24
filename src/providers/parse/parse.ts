@@ -57,7 +57,7 @@ export class ParseProvider {
         const SurveyData = Parse.Object.extend(parseClass);
 
         //Users Location by creaing geopoint
-        //var myLocation = new Parse.GeoPoint({latitude: lat, longitude: long});
+        var myLocation = new Parse.GeoPoint({latitude: lat, longitude: long});
 
         //Query
         //Queries the Class from Parse Server
@@ -65,6 +65,7 @@ export class ParseProvider {
         
         // Interested in locations (GeoPoint Column in Parse) near user.
         //query.near("location", myLocation);
+        query.withinMiles("location", myLocation, 5);
 
         //You can limit the number of results by setting "limit"
         query.limit(limit);

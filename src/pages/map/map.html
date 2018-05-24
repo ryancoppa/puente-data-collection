@@ -26,7 +26,7 @@
 </ion-header>
 
 <ion-content padding="true">
-  
+  <!-- Survey Submission-->
   <ion-fab bottom  >
     <button ion-fab mini text-wrap class="button" ><ion-icon name="add"></ion-icon></button>
     <ion-fab-list side="top"> 
@@ -94,6 +94,18 @@
       </ion-card>
 
     </ion-fab-list>
+  </ion-fab >
+
+  <!-- Map Functions-->
+  <ion-fab top right>
+    <button ion-fab mini class="button" ><ion-icon name="options"></ion-icon></button>
+    <ion-fab-list>
+        <button ion-fab (click)="showMarkers()"><ion-icon name="eye"></ion-icon></button>
+        <button ion-fab (click)="clearMarkers()"><ion-icon name="eye-off"></ion-icon></button>
+        <button ion-fab (click)="deleteMarkers()"><ion-icon name="trash"></ion-icon></button>
+        <button ion-fab (click)="restartMarkers()"><ion-icon name="refresh-circle"></ion-icon></button>
+    </ion-fab-list>
+
   </ion-fab>
 </ion-content>
 

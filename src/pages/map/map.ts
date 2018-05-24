@@ -30,6 +30,10 @@ export class MapPage {
     surveyingOrganization: this.auth.currentUser().organization
   };
 
+  pageUserLocation = {
+    latitude: null,
+    longitude: null
+  };
   assetPoints = [];
   markerArray = [];
 
@@ -44,10 +48,16 @@ export class MapPage {
   ionViewWillEnter() {
   }
   ionViewDidLoad() {
-    this.initializeMap(); 
+    this.initializeMap().then(() => {
+      this.addMultipleMarkers().then(() => {
+        this.setMarkersMapOnAll(this.map);
+      });
+    });
+     
   }
   ionViewDidEnter() {
-    this.addMultipleMarkers();
+    //this.addMultipleMarkers();
+      
   }
   ionViewDidLeave() {
   }
@@ -78,6 +88,8 @@ export class MapPage {
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
 
+        this.pageUserLocation.latitude = position.coords.latitude;
+        this.pageUserLocation.longitude = position.coords.longitude;
         loading.dismiss();
         
         /* Create Map */
@@ -121,11 +133,11 @@ export class MapPage {
   }
   
   addMultipleMarkers(){
-    this.getUserPosition();
+    //this.getUserPosition();
         
     //Acts as Users Location
-    let latitude = this.newAssets.latitude;
-    let longitude = this.newAssets.longitude;
+    let latitude = this.pageUserLocation.latitude;
+    let longitude = this.pageUserLocation.longitude;
 
     /*
       Parse
@@ -136,13 +148,13 @@ export class MapPage {
     let parseClass = 'SurveyData';
 
     //return this.parseProvider.geoQuery(latitude,longitude,limit, parseClass).then((result) => {
-    this.parseProvider.geoQuery(latitude,longitude,limit, parseClass).then((result) => {
+    return this.parseProvider.geoQuery(latitude,longitude,limit, parseClass).then((result) => {
       for (let i = 0; i < result.length; i++) {
         let object = result[i];
         //this.addMarker([object.get('latitude'),object.get('longitude')],"Local Survey Queries");
         
         //Loops and pushes each marker into markerArray
-        if (object.get(latitude) != null || object.get(longitude) != null) {
+        if (object.get('latitude') != null || object.get('longitude') != null) {
           this.addMarker(object.get('latitude'),object.get('longitude'),object.get('fname'));
         }
       }
@@ -171,6 +183,14 @@ export class MapPage {
   deleteMarkers() {
     this.clearMarkers();
     this.markerArray = [];
+    this.addMarker(this.pageUserLocation.latitude,this.pageUserLocation.longitude,'User Location');
+  }
+
+  // Reinitiate Everything
+  restartMarkers(){
+    this.addMultipleMarkers().then(() => {
+      this.setMarkersMapOnAll(this.map);
+    });
   }
   
   /*
@@ -195,6 +215,9 @@ export class MapPage {
       
       this.newAssets.latitude = latitude;
       this.newAssets.longitude = longitude;
+
+      this.pageUserLocation.latitude = latitude;
+      this.pageUserLocation.longitude = longitude;
 
       loading.dismiss();
       this.presentToast(String([latitude,longitude]),1500);
