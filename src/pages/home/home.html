@@ -100,7 +100,7 @@
 
     <ion-item>
       <ion-label>Name of Community | Nombre de Comunidad</ion-label>
-      <ion-input type="text" [(ngModel)]="newSurvey.community"></ion-input>
+      <ion-input type="text" [(ngModel)]="newSurvey.communityname"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -366,7 +366,7 @@
     <ion-item *ngFor="let surveyPoint of surveyPoints">
       <h2>{{ surveyPoint.get('fname') }}</h2>
       <p>{{ surveyPoint.get('lname') }}</p>
-      <p>{{ surveyPoint.get('community') }}</p>
+      <p>{{ surveyPoint.get('communityName') }}</p>
     </ion-item>
 
   </ion-list>

@@ -1,13 +1,11 @@
 //import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController, LoadingController } from 'ionic-angular';
 
 //Providers
 import { ParseProvider } from '../../providers/parse/parse';
 import { AuthProvider } from '../../providers/auth/auth';
 import { Geolocation, GeolocationOptions } from '@ionic-native/geolocation';
-
-//import leaflet from 'leaflet';
 
 declare var google;
 
@@ -32,12 +30,15 @@ export class MapPage {
     surveyingOrganization: this.auth.currentUser().organization
   };
 
-  assetPoints = []
+  assetPoints = [];
+  markerArray = [];
 
   constructor(private parseProvider: ParseProvider, 
     public navCtrl: NavController,
     private auth: AuthProvider, 
-    public geolocation: Geolocation) {
+    public geolocation: Geolocation,
+    private toastCtrl: ToastController,
+    public loadingCtrl: LoadingController) {
   }
 
   ionViewWillEnter() {
@@ -46,10 +47,14 @@ export class MapPage {
     this.initializeMap(); 
   }
   ionViewDidEnter() {
+    this.addMultipleMarkers();
   }
   ionViewDidLeave() {
   }
- 
+
+  /*
+    Map Creation
+  */
   public initializeMap() {
     //This function gets the static coordinates of the user
     let locationOptions = { 
@@ -57,7 +62,14 @@ export class MapPage {
       enableHighAccuracy: true
     };
 
-    this.geolocation.getCurrentPosition(locationOptions).then((position) => {
+    //Loading Controller
+    let loading = this.loadingCtrl.create({
+      content: 'Initializing Map...'
+    });
+
+    loading.present();
+
+    return this.geolocation.getCurrentPosition(locationOptions).then((position) => {
 
         let options = {
           center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
@@ -66,28 +78,34 @@ export class MapPage {
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
 
-        /* Show our lcoation */
+        loading.dismiss();
+        
+        /* Create Map */
         this.map = new google.maps.Map(document.getElementById("map_canvas"), options);
 
         /* We can show our location only if map was previously initialized */
-        this.addMarker();
+        this.addMarker(position.coords.latitude, position.coords.longitude,'<h4>UserLocation</h4>');
 
     }).catch((error) => {
         console.log('Error getting location', error);
       });
   }
   
-  addMarker(){
+  addMarker(latitude: number, longitude: number, markerInformation:string){
     /*
-    * This function will create and show a marker representing your location
+    * Adds a marker to the map and push to the array.
     */
     let marker = new google.maps.Marker({
         map: this.map,
         animation: google.maps.Animation.DROP,
-        position: this.map.getCenter()
+        position: {
+          lat: latitude,
+          lng: longitude
+        },
     });
 
-    let markerInfo = "<h4>You are here!</h4>";         
+    //let markerInfo = "<h4>You are here!</h4>";
+    let markerInfo = markerInformation;         
 
     let infoModal = new google.maps.InfoWindow({
         content: markerInfo
@@ -96,33 +114,103 @@ export class MapPage {
     google.maps.event.addListener(marker, 'click', () => {
       infoModal.open(this.map, marker);
     });
+
+    //Google's Solution
+    //Pushes marker into Array
+    this.markerArray.push(marker);
   }
   
+  addMultipleMarkers(){
+    this.getUserPosition();
+        
+    //Acts as Users Location
+    let latitude = this.newAssets.latitude;
+    let longitude = this.newAssets.longitude;
+
+    /*
+      Parse
+    */
+
+    //Limits the length of the searched results
+    let limit = 500;
+    let parseClass = 'SurveyData';
+
+    //return this.parseProvider.geoQuery(latitude,longitude,limit, parseClass).then((result) => {
+    this.parseProvider.geoQuery(latitude,longitude,limit, parseClass).then((result) => {
+      for (let i = 0; i < result.length; i++) {
+        let object = result[i];
+        //this.addMarker([object.get('latitude'),object.get('longitude')],"Local Survey Queries");
+        
+        //Loops and pushes each marker into markerArray
+        if (object.get(latitude) != null || object.get(longitude) != null) {
+          this.addMarker(object.get('latitude'),object.get('longitude'),object.get('fname'));
+        }
+      }
+    }, (error) => {
+      console.log(error);
+    });
+  }
+
+  setMarkersMapOnAll(map) {
+    // Sets the map on all markers in the array.
+    for (var i = 0; i < this.markerArray.length; i++) {
+      this.markerArray[i].setMap(map);
+    }
+  }
+
+  // Shows any markers currently in the array.
+  showMarkers() {
+    this.setMarkersMapOnAll(this.map);
+  }
+  // Removes the markers from the map, but keeps them in the array.
+  clearMarkers() {
+    this.setMarkersMapOnAll(null);
+  }
+
+  // Deletes all markers in the array by removing references to them.
+  deleteMarkers() {
+    this.clearMarkers();
+    this.markerArray = [];
+  }
+  
+  /*
+    Geolocation
+  */
   public getUserPosition() {
     //Retrieves coordinates of the user
     this.options = {
       enableHighAccuracy : true
     };
+
+    //Loading Controller
+    let loading = this.loadingCtrl.create({
+      content: 'Retrieving Location...'
+    });
+
+    loading.present();
     
-    this.geolocation.getCurrentPosition(this.options).then((resp) => {
+    return this.geolocation.getCurrentPosition(this.options).then((resp) => {
       let latitude = resp.coords.latitude;
       let longitude = resp.coords.longitude;
       
       this.newAssets.latitude = latitude;
       this.newAssets.longitude = longitude;
 
-      //this.map.setCenter(new google.maps.LatLng(latitude, longitude));
-      this.centerMap(latitude,longitude);
+      loading.dismiss();
+      this.presentToast(String([latitude,longitude]),1500);
       console.log(latitude,longitude)
     }).catch((error) => {
       console.log('Error getting location hence getting user position',error);
     });
   }
   
-  public centerMap(latitude, longitude){ 
-    this.map.setCenter(new google.maps.LatLng(latitude, longitude));
+  public centerMap(){ 
+    this.map.setCenter(new google.maps.LatLng(this.newAssets.latitude, this.newAssets.longitude));
   }
 
+  /*
+    Survey
+  */
   public postAssetsConfirm() {
     //Adds Results of Assets Forms to Parse Object
     //Pushes those results to the survey (via addAssetsResults)
@@ -131,17 +219,42 @@ export class MapPage {
     this.newAssets.surveyingOrganization = this.auth.currentUser().name;
     this.newAssets.surveyingUser = this.auth.currentUser().organization;
 
-    this.getUserPosition();
+    this.getUserPosition().then(() => {
 
-    this.parseProvider.addAssetsResults(this.newAssets).then((assetPoint) => {
-      this.assetPoints.push(assetPoint);
-      for (var key in this.newAssets){
-        this.newAssets[key] = null;
-      }
-    }, (error) => {
-      console.log(error);
-      alert('Error Confirming.');
+      this.parseProvider.addAssetsResults(this.newAssets).then((assetPoint) => {
+        this.assetPoints.push(assetPoint);
+        for (var key in this.newAssets){
+          this.newAssets[key] = null;
+        }
+        this.presentToast('Submitted | Entregado',1000);
+      }, (error) => {
+        console.log(error);
+        alert('Error Confirming.');
+      });
     });
+  }
+
+  /*
+    Controllers
+  */
+  presentToast(message:string, duration:number) {
+    /*
+    A Toast is a subtle notification commonly used in modern applications. 
+    It can be used to provide feedback about an operation or to display a system message.
+    The toast appears on top of the app's content, and can be dismissed 
+    by the app to resume user interaction with the app.
+    */
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: duration,
+      position: 'bottom'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
   }
 
 }

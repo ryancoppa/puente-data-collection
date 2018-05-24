@@ -89,24 +89,25 @@ export class HomePage {
   }
   ionViewDidEnter() {
     //Gets User Position once user has entered homepage
-    this.getUserPosition();
-    //this.listPoints();
-  
+    this.getUserPosition();  
   }
+  
   /*
     Functions
   */
-  //Retrieves list of surveys from server
+  
   public listPoints(): Promise<any> {
+    //Retrieves list of surveys from server
+
     //Creates a natural "skip" of certain results based on surveyPoints length
     let offset = this.surveyPoints.length;
-
+    //let offset = 0;
     //Limits the length of the searched results
     let limit = 10;
 
     //Returns the query then displays those "result" by pushing into surveyPoints object
     //Based on Parse surveyingOrganization Column and name of organization for the User
-    return this.parseProvider.basicQuery(offset, limit, 'SurveyData', 'surveyingOrganization', this.auth.currentUser().organization).then((result) => {
+    return this.parseProvider.basicQuery(offset, limit, 'SurveyData', 'surveyingOrganization', String(this.auth.currentUser().organization)).then((result) => {
       for (let i = 0; i < result.length; i++) {
         let object = result[i];
         this.surveyPoints.push(object);
@@ -116,8 +117,8 @@ export class HomePage {
     });
   }
 
-  //Retrieves coordinates of the user
   public getUserPosition() {
+    //Retrieves coordinates of the user
     this.options = {
       enableHighAccuracy : true
     };
@@ -138,11 +139,10 @@ export class HomePage {
     });
   }
  
-
-  //Adds Element to parseServer (newSurvey)
-  //Then adds element to local array (surveyPoint)
-  //Then clears the Form/array (surveyPoint)
   public postSurveyConfirm() {
+    //Adds Element to parseServer (newSurvey)
+    //Then adds element to local array (surveyPoint)
+    //Then clears the Form/array (surveyPoint)
     this.parseProvider.addSurveyResults(this.newSurvey).then((surveyPoint) => {
       this.surveyPoints.push(surveyPoint);
       for (var key in this.newSurvey){
@@ -156,24 +156,30 @@ export class HomePage {
     this.getUserPosition();
   }
 
-  //Navigation
-  //Opens Profile Modal Page
+  /*
+    Navigation
+  */
+  
   openProfileModal() {
+    //Opens Profile Modal Page
     let myModal = this.modalCtrl.create(ProfileModalPage);
 
     //.present() shows modal
     myModal.present();
   }
   
-
-  //Authentication
+  /*
+    Authentication
+  */
   public signout() {
     this.auth.signout().subscribe(() => {
       this.app.getRootNav().setRoot(SigninPage);
     });
   }
 
-  ///Alerts
+  /*
+    Controllers
+  */
   presentToast() {
     /*
     A Toast is a subtle notification commonly used in modern applications. 
@@ -196,10 +202,10 @@ export class HomePage {
 
   doRefresh(refresher){
     console.log('Begin async operation for refresher', refresher);
-
+    this.listPoints();
     setTimeout(() => {
       console.log('Async operation for refresher has ended');
-      this.listPoints();
+      //this.listPoints();
       refresher.complete();
     }, 2000);
   }
