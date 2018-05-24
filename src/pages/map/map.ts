@@ -16,8 +16,7 @@ declare var google;
 export class MapPage {
   map: any;
   options: GeolocationOptions;
-  newAssets =
-  {
+  newAssets = {
     physicalName: null,
     humanName: null,
 
@@ -34,8 +33,12 @@ export class MapPage {
     latitude: null,
     longitude: null
   };
+
   assetPoints = [];
   markerArray = [];
+
+  userimage = 'assets/icon/user.png';
+  queryimage = 'assets/icon/users-group.png';
 
   constructor(private parseProvider: ParseProvider, 
     public navCtrl: NavController,
@@ -96,19 +99,20 @@ export class MapPage {
         this.map = new google.maps.Map(document.getElementById("map_canvas"), options);
 
         /* We can show our location only if map was previously initialized */
-        this.addMarker(position.coords.latitude, position.coords.longitude,'<h4>UserLocation</h4>');
+        this.addMarker(position.coords.latitude, position.coords.longitude,'User Location', this.userimage);
 
     }).catch((error) => {
         console.log('Error getting location', error);
       });
   }
   
-  addMarker(latitude: number, longitude: number, markerInformation:string){
+  addMarker(latitude: number, longitude: number, markerInformation:string,image){
     /*
     * Adds a marker to the map and push to the array.
     */
     let marker = new google.maps.Marker({
         map: this.map,
+        icon: image,
         animation: google.maps.Animation.DROP,
         position: {
           lat: latitude,
@@ -155,7 +159,7 @@ export class MapPage {
         
         //Loops and pushes each marker into markerArray
         if (object.get('latitude') != null || object.get('longitude') != null) {
-          this.addMarker(object.get('latitude'),object.get('longitude'),object.get('fname'));
+          this.addMarker(object.get('latitude'),object.get('longitude'),object.get('fname'),this.queryimage);
         }
       }
     }, (error) => {
@@ -183,7 +187,7 @@ export class MapPage {
   deleteMarkers() {
     this.clearMarkers();
     this.markerArray = [];
-    this.addMarker(this.pageUserLocation.latitude,this.pageUserLocation.longitude,'User Location');
+    this.addMarker(this.pageUserLocation.latitude,this.pageUserLocation.longitude,'User Location',this.userimage);
   }
 
   // Reinitiate Everything
