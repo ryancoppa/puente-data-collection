@@ -1,0 +1,8 @@
+Instructions for the Interactive Mapping Page
+
+1) Menu Top Left - Gets Users Geolocation Coordinates
+2) Menu Top Right - Centers the page based on Users Geolocation
+3) Map Top Right -Marker controllers, 1st is to show markers, 2nd is to hide markers, 3rd is to clear your marker queue and show only user marker and 4th is to refresh
+4) Bottom Right - Zoom Controls, Street View Man
+5) Bottom Left - Survey Submission
+6) Map Top Left - Map Type Controls

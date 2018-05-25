@@ -49,7 +49,7 @@ export class ParseProvider {
   }
 
   //This is Retrieving Survey Results from Parse Server
-  public geoQuery(lat: number, long: number, limit: number , parseClass: string): Promise<any> {
+  public geoQuery(lat: number, long: number, limit: number , parseClass: string, parseColumn: string, parseParam: string): Promise<any> {
     //Returns the resolve (the query) and if there's an error, rejects
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -71,7 +71,7 @@ export class ParseProvider {
         query.limit(limit);
 
         //Limiting Results based on a specific paramater in a specific field/column
-        //query.equalTo(parseColumn, parseParam);
+        query.equalTo(parseColumn, parseParam);
 
         //Below searches what's in the surveyPoints array
         query.find().then((results) => {

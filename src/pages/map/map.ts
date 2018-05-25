@@ -150,9 +150,11 @@ export class MapPage {
     //Limits the length of the searched results
     let limit = 500;
     let parseClass = 'SurveyData';
+    let parseField = 'surveyingOrganization';
+    let parseFieldValue = String(this.auth.currentUser().organization);
 
     //return this.parseProvider.geoQuery(latitude,longitude,limit, parseClass).then((result) => {
-    return this.parseProvider.geoQuery(latitude,longitude,limit, parseClass).then((result) => {
+    return this.parseProvider.geoQuery(latitude,longitude,limit, parseClass,parseField,parseFieldValue).then((result) => {
       for (let i = 0; i < result.length; i++) {
         let object = result[i];
         //this.addMarker([object.get('latitude'),object.get('longitude')],"Local Survey Queries");
