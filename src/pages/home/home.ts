@@ -52,6 +52,8 @@ export class HomePage {
     clinicAccess: null,
     qualityClinicService: null,
     latrineAccess: null,
+    wheredoyougomedical20: null,
+    wheredoyougodental21: null,
     conditionoFloorinyourhouse: null,
     conditionoRoofinyourhouse: null,
     availableTrashManagementandDisposalServices: null,
