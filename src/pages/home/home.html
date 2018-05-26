@@ -30,8 +30,8 @@
   
     <!--Demographics -->
     <ion-card>
-        <ion-card-header color="primary-light">
-          Demographics
+        <ion-card-header class = 'card-title' color="primary-light">
+          Demographics <!--| Demográficos-->
         </ion-card-header>
         <ion-list>  
         <ion-item>
@@ -128,8 +128,8 @@
 
     <!--  Latitude and Longitude  -->
     <ion-card>
-      <ion-card-header color="primary-light">
-        Location | Ubicación
+      <ion-card-header class='card-title'>
+        Location <!--| Ubicación-->
       </ion-card-header>
       <ion-item>
         <p text-center>Press | Pulsa</p>
@@ -139,8 +139,8 @@
 
     <!--  Accessibility -->
     <ion-card>
-        <ion-card-header color="primary-light">
-          Accessibility | Acceso
+        <ion-card-header class='card-title'>
+          Accessibility <!--| Acceso -->
         </ion-card-header>
         <ion-item>
           <ion-label>14. How often do you have access to water? | Cuántas veces tiene acceso al agua? </ion-label>
@@ -165,8 +165,8 @@
         <ion-item>
             <ion-label>16. Do you have access to a latrine? | Tiene acceso a una letrina o baño? </ion-label>
             <ion-select [(ngModel)]="newSurvey.latrineAccess" interface ='popover'>
-                <ion-option text-wrap value="Yes"> Yes | Si </ion-option>
-                <ion-option text-wrap value="No"> No </ion-option>
+                <ion-option text-wrap value="Y"> Yes | Si </ion-option>
+                <ion-option text-wrap value="N"> No </ion-option>
             </ion-select>
           </ion-item>
 
@@ -182,8 +182,8 @@
           <ion-item>
               <ion-label>18. Do you have clinic access? | Tiene acceso a una clinica o un hospital?</ion-label>
               <ion-select [(ngModel)]="newSurvey.clinicAccess" interface ='popover'>
-                  <ion-option text-wrap value="Yes"> Yes | Si </ion-option>
-                  <ion-option text-wrap value="No"> No </ion-option>
+                  <ion-option text-wrap value="Y"> Yes | Si </ion-option>
+                  <ion-option text-wrap value="N"> No </ion-option>
               </ion-select>
           </ion-item>
 
@@ -200,12 +200,12 @@
 
     <!--  Medical Assessment -->
     <ion-card>
-      <ion-card-header>
-          Medical Assessment
+      <ion-card-header class='card-title'>
+          Medical Evaluacion <!--| Evaluación médica-->
       </ion-card-header>
       <ion-item-group>
-        <ion-item-divider color="primary-light">
-            Medical History
+        <ion-item-divider class='card-subtitle'>
+            Medical History | Historial médico
         </ion-item-divider>
         <ion-item>
           <ion-label floating>21. Have you had any surgeries? | Ha tenido cirugías?</ion-label>
@@ -305,7 +305,7 @@
 
 
       <ion-item-group>
-        <ion-item-divider color="primary-light">
+        <ion-item-divider class='card-subtitle'>
             Only For Women > 12 | Solo mujeres que tiene menos que 12 años
         </ion-item-divider>
         <ion-item>
@@ -387,8 +387,8 @@
       </ion-item-group>
 
       <ion-item-group>
-        <ion-item-divider color="primary-light">
-            Medical Evaluation
+        <ion-item-divider class='card-subtitle'>
+            Medical Assessment | Examen medico
         </ion-item-divider>
         <ion-item>
           <ion-label floating>37. Do you have any current medical concerns? | Tiene las  preocupaciones médicas?</ion-label>
@@ -412,36 +412,35 @@
         </ion-item>
         <ion-item>
           <ion-label floating>44. Physical Findings: | resultados físicos</ion-label>
-          <ion-input type="text" [(ngModel)]="newSurvey.physicalFindings"></ion-input>
+          <ion-textarea type="text" [(ngModel)]="newSurvey.physicalFindings"></ion-textarea>
         </ion-item>
         <ion-item>
           <ion-label floating>45. Assessment | Evaluación </ion-label>
-          <ion-input type="text" [(ngModel)]="newSurvey.AssessmentandEvaluation"></ion-input>
+          <ion-textarea type="text" [(ngModel)]="newSurvey.AssessmentandEvaluation"></ion-textarea>
         </ion-item>
         <ion-item>
           <ion-label floating>46. Plan | El plan</ion-label>
-          <ion-input type="text" [(ngModel)]="newSurvey.planOfAction"></ion-input>
+          <ion-textarea type="text" [(ngModel)]="newSurvey.planOfAction"></ion-textarea>
         </ion-item>
         <ion-item>
           <ion-label floating>47. Extra notes | Notas extras </ion-label>
-          <ion-input type="text" [(ngModel)]="newSurvey.notes"></ion-input>
+          <ion-textarea type="text" [(ngModel)]="newSurvey.notes"></ion-textarea>
         </ion-item>
       </ion-item-group>
     </ion-card>
 
     <!--  Dental Assessment  -->
     <ion-card>
-      <ion-card-header>
-        Dental Evaluation
+      <ion-card-header class='card-title'>
+        Dental Evaluation <!--| Evaluación dental -->
       </ion-card-header>
       <ion-item-group>
           <ion-item>
             <ion-label>48. Do you have a toothbrush? | Tiene un cepillo de dientes?</ion-label>
             <ion-select [(ngModel)]="newSurvey.haveToothbrush" interface ='popover'>
-              <ion-option text-wrap value="X"> X </ion-option>
-              <ion-option text-wrap value="Y"> Y </ion-option>
-              <ion-option text-wrap value="Y"> Y </ion-option>
-              <ion-option text-wrap value="Y"> Y </ion-option>
+              <ion-option text-wrap value="Y"> Yes | Si </ion-option>
+              <ion-option text-wrap value="N"> No </ion-option>
+              <ion-option text-wrap value="N/A"> Not sure | No sabe</ion-option>
             </ion-select>
           </ion-item>
           <ion-item>
@@ -492,19 +491,19 @@
             </ion-item>
             <ion-item>
                 <ion-label floating>55. General dental findings | Los resultados dentales </ion-label>
-                <ion-input type="number" [(ngModel)]="newSurvey.dentalFindings"></ion-input>
+                <ion-textarea type="number" [(ngModel)]="newSurvey.dentalFindings"></ion-textarea>
               </ion-item>
               <ion-item>
                 <ion-label floating>56. Assessment | Evaluación </ion-label>
-                <ion-input type="text" [(ngModel)]="newSurvey.AssessmentandEvaluationDental"></ion-input>
+                <ion-textarea type="text" [(ngModel)]="newSurvey.AssessmentandEvaluationDental"></ion-textarea>
               </ion-item>
               <ion-item>
                 <ion-label floating>57. Dental Plan | El plan</ion-label>
-                <ion-input type="text" [(ngModel)]="newSurvey.planOfActionDental"></ion-input>
+                <ion-textarea type="text" [(ngModel)]="newSurvey.planOfActionDental"></ion-textarea>
               </ion-item>
               <ion-item>
                 <ion-label floating>58. Extra notes | Notas extras </ion-label>
-                <ion-input type="text" [(ngModel)]="newSurvey.notesDental"></ion-input>
+                <ion-textarea type="text" [(ngModel)]="newSurvey.notesDental"></ion-textarea>
               </ion-item>  
       </ion-item-group>
     </ion-card>
