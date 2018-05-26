@@ -12,9 +12,9 @@ page-home {
     }
     */
 
-    ion-content{
-        -webkit-transform: translateZ(0) translate3d(0px, 0px, 0px);
-
+    div {
+        //border: 1px solid #E6E6E7;
+        border-radius: 0.5rem;
     }
     ion-refresher-content{
         $refresher-icon-color: map-get($colors, primary);
