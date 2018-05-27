@@ -39,6 +39,7 @@ export class HomePage {
     educationLevel: null,
     communityname: null,
     yearsLivedinthecommunity: null,
+    yearsLivedinThisHouse: null,
     memberofthefollowingorganizations: null,
 
     latitude: null,
@@ -51,7 +52,9 @@ export class HomePage {
     typeofHealthinsuranceDoyouHave: null,
     clinicAccess: null,
     medicalproblemswheredoyougo: null,
+    lastimeyouwenttodoctor: null,
     dentalproblemswheredoyougo: null,
+    lastimeyouwenttodentist: null,
 
     hadSurgery: null,
     surgeryWhatKind: null,

@@ -116,6 +116,17 @@
           </ion-item>
 
           <ion-item>
+            <ion-label>12.a Years Lived in this house | Años viviendo en este casa</ion-label>
+            <ion-select [(ngModel)]="newSurvey.yearsLivedinThisHouse" interface ='popover'>
+                <ion-option text-wrap value="lessThan1"> Less Than 1 Year | Menos que 1 año </ion-option>
+                <ion-option text-wrap value="1-2"> 1-2 Years | 1-2 años  </ion-option>
+                <ion-option text-wrap value="3-4"> 3-4 Years | 3-4 años  </ion-option>
+                <ion-option text-wrap value="5-10"> 5-10 Years | 5-10 años </ion-option>
+                <ion-option text-wrap value="moreThan10"> >10 Years | 10 años  </ion-option>
+              </ion-select>
+          </ion-item>
+
+          <ion-item>
             <ion-label>13. Are you a member of the following organizations? | Sigue alguna organización?</ion-label>
             <ion-select [(ngModel)]="newSurvey.memberofthefollowingorganizations" multiple="true">
               <ion-option text-wrap value="juntaDeVecino">Junta de Vecino</ion-option>
@@ -193,8 +204,18 @@
           </ion-item>
 
           <ion-item>
+            <ion-label floating>19.a When was the last time you went to a doctor?  | Cuándo fue la ultima vez que visitó un medico</ion-label>
+            <ion-input type="text" [(ngModel)]="newSurvey.lastimeyouwenttodoctor"></ion-input>
+          </ion-item>
+
+          <ion-item>
             <ion-label floating>20. When you have dental problems, where do you go for help? | Cuándo tiene problemas dentales, dónde va? </ion-label>
             <ion-input type="text" [(ngModel)]="newSurvey.dentalproblemswheredoyougo"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>20.a When was the last time you went to a dentist?  | Cuándo fue la ultima vez que visitó un dentista</ion-label>
+            <ion-input type="text" [(ngModel)]="newSurvey.lastimeyouwenttodentist"></ion-input>
           </ion-item>
     </ion-card>
 
@@ -506,6 +527,16 @@
                 <ion-textarea type="text" [(ngModel)]="newSurvey.notesDental"></ion-textarea>
               </ion-item>  
       </ion-item-group>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header class='card-title'>
+        Identification
+      </ion-card-header>
+      <ion-item>
+        <ion-label floating>License Number | Cedula </ion-label>
+        <ion-input type="number" [(ngModel)]="newSurvey.cedulaNumber"></ion-input>
+      </ion-item> 
     </ion-card>
     
 
