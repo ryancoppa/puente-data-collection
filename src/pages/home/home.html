@@ -144,7 +144,7 @@
       </ion-card-header>
       <ion-item>
         <p text-center>Press | Pulsa</p>
-        <button ion-button color="primary-light" round block large (click)='getUserPosition()'>{{newSurvey.latitude}}, {{newSurvey.longitude}}</button>
+        <button ion-button text-wrap color="primary-light" round block large (click)='getUserPosition()'>{{newSurvey.latitude}}, {{newSurvey.longitude}}</button>
       </ion-item>
     </ion-card>
 
@@ -558,9 +558,9 @@
     </ion-item-divider>
   
     <ion-item *ngFor="let surveyPoint of surveyPoints">
-      <h2>{{ surveyPoint.get('fname') }}</h2>
-      <p>{{ surveyPoint.get('lname') }}</p>
-      <p>{{ surveyPoint.get('communityName') }}</p>
+      <h2>{{ surveyPoint.get('lname') }}, {{ surveyPoint.get('fname') }}</h2>
+      <p>{{ surveyPoint.get('communityname') }}</p>
+      <p>{{ surveyPoint.get('cedulaNumber') }}</p>
     </ion-item>
 
   </ion-list>

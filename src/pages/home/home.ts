@@ -115,6 +115,8 @@ export class HomePage {
     AssessmentandEvaluationDental: null,
     planOfActionDental: null,
     notesDental: null,
+
+    cedulaNumber:null,
     
     surveyingUser: this.auth.currentUser().name,
     surveyingOrganization: this.auth.currentUser().organization
