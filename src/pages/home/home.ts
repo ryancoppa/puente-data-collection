@@ -181,8 +181,8 @@ export class HomePage {
       this.newSurvey.longitude = longitude;
 
       //Because I'm lazy
-      this.newSurvey.surveyingOrganization = this.auth.currentUser().name;
-      this.newSurvey.surveyingUser = this.auth.currentUser().organization;
+      this.newSurvey.surveyingOrganization = this.auth.currentUser().organization;
+      this.newSurvey.surveyingUser = this.auth.currentUser().name;
       console.log(latitude,longitude)
     }).catch((error) => {
       console.log('Error getting location',error);
@@ -193,6 +193,7 @@ export class HomePage {
     //Adds Element to parseServer (newSurvey)
     //Then adds element to local array (surveyPoint)
     //Then clears the Form/array (surveyPoint)
+    //Because I'm lazy
     this.parseProvider.addSurveyResults(this.newSurvey).then((surveyPoint) => {
       this.surveyPoints.push(surveyPoint);
       for (var key in this.newSurvey){
