@@ -1,0 +1,13 @@
+<div #expandWrapper class='expand-wrapper' [class.collapsed]="!expanded">
+  <ng-content></ng-content>
+</div>
+
+<!-- 
+  We are using content projection with <ng-content> to project whatever 
+  we add inside of the <accordion> tags into the component’s template. 
+  This means that we can display some content here inside of our component.
+
+  We also have a wrapper <div> that has a template variable of expandWrapper so 
+  that we can access it later, and the collapsed class is being applied conditionally 
+  based on the value of expanded. This is how we will toggle the collapsed styling on and off.
+-->

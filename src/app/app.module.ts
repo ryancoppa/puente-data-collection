@@ -15,6 +15,9 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { ParseProvider } from '../providers/parse/parse';
 import { AuthProvider } from '../providers/auth/auth';
 
+// Components
+import { AccordionComponent } from '../components/accordion/accordion';
+
 // Pages
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -39,7 +42,8 @@ import { HelpPage } from '../pages/help/help';
     Splash,
     MapPage,
     ProfileModalPage,
-    HelpPage
+    HelpPage,
+    AccordionComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,8 @@ import { HelpPage } from '../pages/help/help';
     Splash,
     MapPage,
     ProfileModalPage,
-    HelpPage
+    HelpPage,
+    
   ],
   providers: [
     StatusBar,

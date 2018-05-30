@@ -19,7 +19,6 @@ import { ProfileModalPage } from '../profile-modal/profile-modal';
   templateUrl: 'home.html'
 })
 
-// Declare Variables
 export class HomePage {
   //Enables Options from Geolocation Import
   options: GeolocationOptions;
@@ -121,6 +120,9 @@ export class HomePage {
     surveyingUser: this.auth.currentUser().name,
     surveyingOrganization: this.auth.currentUser().organization
   }
+
+  accordionItems: any = [];
+  
   //Array used to Display Results from Query
   surveyPoints = []
 
@@ -130,8 +132,17 @@ export class HomePage {
     private auth: AuthProvider,  
     private app: App, 
     private geolocation:Geolocation) {
+    
     this.listPoints();
     this.auth.authenticated();
+
+    this.accordionItems = [
+      {expanded: false},
+      {expanded: false},
+      {expanded: false},
+      {expanded: false},
+      {expanded: false}
+    ];
   }
 
   ionViewCanEnter(): boolean {
@@ -260,5 +271,21 @@ export class HomePage {
       refresher.complete();
     }, 2000);
   }
+
+  expandItem(item){
+ 
+    this.accordionItems.map((listItem) => {
+
+        if(item == listItem){
+            listItem.expanded = !listItem.expanded;
+        } else {
+            listItem.expanded = false;
+        }
+
+        return listItem;
+
+    });
+
+}
 
 }
