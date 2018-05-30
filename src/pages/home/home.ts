@@ -111,7 +111,7 @@ export class HomePage {
     toothPulledout: null,
     haveMouthPain: null,
     dentalFindings: null,
-    DentalAssessmentandEvaluation: null,
+    //DentalAssessmentandEvaluation: null,
     AssessmentandEvaluationDental: null,
     planOfActionDental: null,
     notesDental: null,
