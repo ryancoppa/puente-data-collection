@@ -116,6 +116,22 @@ export class HomePage {
     notesDental: null,
 
     cedulaNumber:null,
+    /*
+    waterAccess: null,
+    typeofWaterdoyoudrink: null,
+    latrineAccess: null,
+    typeofHealthinsuranceDoyouHave: null,
+    clinicAccess: null,
+    medicalproblemswheredoyougo: null,
+    lastimeyouwenttodoctor: null,
+    dentalproblemswheredoyougo: null,
+    lastimeyouwenttodentist: null,
+
+    conditionoFloorinyourhouse: null,
+    conditionoRoofinyourhouse: null,
+    availableTrashManagementandDisposalServices: null,
+    trashDisposalLocation: null,
+    */
     
     surveyingUser: this.auth.currentUser().name,
     surveyingOrganization: this.auth.currentUser().organization
