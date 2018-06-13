@@ -4,7 +4,7 @@ import { ToastController } from 'ionic-angular';
 
 
 // Providers
-import { ParseProvider } from '../../providers/parse/parse';
+import { ParseProvider } from '../../providers/parse/parse'; //TO REMOVE
 import { AuthProvider } from '../../providers/auth/auth';
 import { Geolocation, GeolocationOptions } from '@ionic-native/geolocation';
 
@@ -24,8 +24,10 @@ export class HomePage {
   options: GeolocationOptions;
   
   //Variables in Survey
+  //TO REMOVE
   newSurvey =
   {
+    
     fname: null,
     lname: null,
     dob: null,
@@ -137,21 +139,23 @@ export class HomePage {
     surveyingOrganization: this.auth.currentUser().organization
   }
 
+  //SAVE THIS SOLUTION
   accordionItems: any = [];
   
-  //Array used to Display Results from Query
+  //TO REMOVE
+  //Array used to Display Results from Pushed from Server Query
   surveyPoints = []
 
   constructor(private toastCtrl: ToastController, 
     public modalCtrl: ModalController, 
-    private parseProvider: ParseProvider, 
+    //private parseProvider: ParseProvider, //TO REMOVE
     private auth: AuthProvider,  
     private app: App, 
     private geolocation:Geolocation) {
     
-    this.listPoints();
     this.auth.authenticated();
 
+    //SAVE SOLUTION
     this.accordionItems = [
       {expanded: false},
       {expanded: false},
@@ -173,26 +177,7 @@ export class HomePage {
     Functions
   */
   
-  public listPoints(): Promise<any> {
-    //Retrieves list of surveys from server
 
-    //Creates a natural "skip" of certain results based on surveyPoints length
-    let offset = this.surveyPoints.length;
-    //let offset = 0;
-    //Limits the length of the searched results
-    let limit = 10;
-
-    //Returns the query then displays those "result" by pushing into surveyPoints object
-    //Based on Parse surveyingOrganization Column and name of organization for the User
-    return this.parseProvider.basicQuery(offset, limit, 'SurveyData', 'surveyingOrganization', String(this.auth.currentUser().organization)).then((result) => {
-      for (let i = 0; i < result.length; i++) {
-        let object = result[i];
-        this.surveyPoints.push(object);
-      }
-    }, (error) => {
-      console.log(error);
-    });
-  }
 
   public getUserPosition() {
     //Retrieves coordinates of the user
@@ -216,23 +201,6 @@ export class HomePage {
     });
   }
  
-  public postSurveyConfirm() {
-    //Adds Element to parseServer (newSurvey)
-    //Then adds element to local array (surveyPoint)
-    //Then clears the Form/array (surveyPoint)
-    //Because I'm lazy
-    this.parseProvider.addSurveyResults(this.newSurvey).then((surveyPoint) => {
-      this.surveyPoints.push(surveyPoint);
-      for (var key in this.newSurvey){
-        this.newSurvey[key] = null;
-      }
-    }, (error) => {
-      console.log(error);
-      alert('Error Confirming.');
-    });
-    //Update User Position?
-    this.getUserPosition();
-  }
 
   /*
     Navigation
@@ -280,7 +248,7 @@ export class HomePage {
 
   doRefresh(refresher){
     console.log('Begin async operation for refresher', refresher);
-    this.listPoints();
+    //this.listPoints();
     setTimeout(() => {
       console.log('Async operation for refresher has ended');
       //this.listPoints();
@@ -288,6 +256,8 @@ export class HomePage {
     }, 2000);
   }
 
+  //SAVE SOLUTION
+  //TODO, put back into accordion component
   expandItem(item){
  
     this.accordionItems.map((listItem) => {
@@ -302,6 +272,6 @@ export class HomePage {
 
     });
 
-}
+  }
 
 }

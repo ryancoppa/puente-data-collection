@@ -18,6 +18,11 @@ import { AuthProvider } from '../providers/auth/auth';
 // Components
 import { AccordionComponent } from '../components/accordion/accordion';
 
+// Forms
+import { PatientIDForm } from '../components/forms/patientid/patientid';
+import { EnvironmentalHistoryForm } from '../components/forms/environmentalhistory/environmentalhistory';
+import { MedicalHistoryForm } from '../components/forms/medicalhistory/medicalhistory';
+
 // Pages
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -29,6 +34,7 @@ import { Splash } from '../pages/splash/splash';
 import { MapPage } from '../pages/map/map';
 import { ProfileModalPage } from '../pages/profile-modal/profile-modal';
 import { HelpPage } from '../pages/help/help';
+import { QueryServiceProvider } from '../providers/query-service/query-service';
 
 @NgModule({
   declarations: [
@@ -43,7 +49,10 @@ import { HelpPage } from '../pages/help/help';
     MapPage,
     ProfileModalPage,
     HelpPage,
-    AccordionComponent
+    AccordionComponent,
+    PatientIDForm,
+    EnvironmentalHistoryForm,
+    MedicalHistoryForm
   ],
   imports: [
     BrowserModule,
@@ -70,7 +79,8 @@ import { HelpPage } from '../pages/help/help';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     ParseProvider,
     AuthProvider,
-    Geolocation
+    Geolocation,
+    QueryServiceProvider
   ]
 })
 export class AppModule { }

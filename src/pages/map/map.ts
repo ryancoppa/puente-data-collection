@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 import { NavController, ToastController, LoadingController } from 'ionic-angular';
 
 //Providers
-import { ParseProvider } from '../../providers/parse/parse';
+import { ParseProvider } from '../../providers/parse/parse'; //To Remove
+import { QueryServiceProvider } from '../../providers/query-service/query-service';
 import { AuthProvider } from '../../providers/auth/auth';
 import { Geolocation, GeolocationOptions } from '@ionic-native/geolocation';
 
@@ -41,6 +42,7 @@ export class MapPage {
   queryimage = 'assets/icon/users-group.png';
 
   constructor(private parseProvider: ParseProvider, 
+    private querySrvc: QueryServiceProvider,
     public navCtrl: NavController,
     private auth: AuthProvider, 
     public geolocation: Geolocation,
@@ -154,7 +156,7 @@ export class MapPage {
     let parseFieldValue = String(this.auth.currentUser().organization);
 
     //return this.parseProvider.geoQuery(latitude,longitude,limit, parseClass).then((result) => {
-    return this.parseProvider.geoQuery(latitude,longitude,limit, parseClass,parseField,parseFieldValue).then((result) => {
+    return this.querySrvc.geoQuery(latitude,longitude,limit, parseClass,parseField,parseFieldValue).then((result) => {
       for (let i = 0; i < result.length; i++) {
         let object = result[i];
         //this.addMarker([object.get('latitude'),object.get('longitude')],"Local Survey Queries");
