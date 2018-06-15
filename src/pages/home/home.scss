@@ -1,5 +1,6 @@
 page-home {
     /*
+    Legacy Garbage
     .alert-radio-label {
         white-space: normal!important;
     }
@@ -12,6 +13,42 @@ page-home {
     }
     */
 
+    ion-segment {
+        border-color: map-get($colors, primary) ;
+        padding: 4px 12px;
+        opacity: 0.95;
+        background-color: white;
+        //position: relative;
+        top: -50px;
+    }
+
+    ion-segment-button {
+        border-color: map-get($colors, primary) ;
+        color: map-get($colors, primary);
+    }
+
+    .card {
+        margin: 0 5px;
+        //width: calc(100% - 10px);
+        height: 20vh !important;
+        width: auto !important;
+        padding: 14px;
+        //box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.10);
+        box-shadow: 0 2px 18px 0 rgba(0, 0, 0, 0.10);
+        border-radius: 4px;
+        h1 {
+            font-weight: 400;
+            //font-size: $main-font-size;
+            font-size: 3.5rem;
+        }
+        p {
+            font-weight: 100;
+            font-size: 1.5rem;
+        }
+    }
+    
+    /*
+    //Card Details to keep
     .card-title {
         //position: absolute;
         //top: 36%;
@@ -34,5 +71,5 @@ page-home {
         $refresher-icon-color: map-get($colors, primary);
         $refresher-text-color: map-get($colors, primary);
     }
-    
+    */
 }

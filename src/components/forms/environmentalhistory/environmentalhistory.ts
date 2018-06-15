@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild, ElementRef, Renderer } from '@angular/core';
 
-import { App } from 'ionic-angular';
+import { App, ViewController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 
 
@@ -34,7 +34,8 @@ export class EnvironmentalHistoryForm {
     private app: App, 
     private geolocation:Geolocation,
     private parseProvider: ParseProvider,
-    private querySrvc: QueryServiceProvider) {
+    private querySrvc: QueryServiceProvider,
+    private viewCtrl: ViewController) {
 
     console.log('Hello EnvironmentalHistoryForm ');
     this.auth.authenticated();
@@ -61,6 +62,11 @@ export class EnvironmentalHistoryForm {
 
     //Update User Position?
     //this.getUserPosition();
+  }
+
+  //Navigation
+  close() {
+    this.viewCtrl.dismiss();
   }
 
 

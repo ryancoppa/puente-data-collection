@@ -1,0 +1,51 @@
+<ion-content >
+  <ion-card>
+    <ion-card-header class='card-title' color="primary-light" (click)="close()" text-wrap>
+      Medical Evaluation Form
+    </ion-card-header>
+
+    <ion-list>
+
+        <ion-item>
+          <ion-label floating>Assessment</ion-label>
+          <ion-input type="text" [(ngModel)]="evaluationMedical.AssessmentandEvaluation"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Plan</ion-label>
+          <ion-input type="text" [(ngModel)]="evaluationMedical.planOfAction"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Notes</ion-label>
+            <ion-input type="text" [(ngModel)]="evaluationMedical.notes"></ion-input>
+        </ion-item>
+        
+    </ion-list>
+
+  </ion-card>
+
+
+  <ion-card>
+    <ion-item no-lines>
+      <button ion-button icon-left full block large color="accent" (click)="post_n_clear()" text-wrap >
+        <ion-icon name="checkmark-circle"></ion-icon>
+        Submit Medical Evaluation
+      </button>
+    </ion-item>
+  </ion-card>
+</ion-content>
+
+
+<!--Photo Identification
+<ion-card>
+
+</ion-card>
+-->
+
+<!--ion-item no-lines>
+  <button ion-button icon-left full block large color="accent" (click)="postSurveyConfirm()" (click)="presentToast()">
+    <ion-icon name="checkmark-circle"></ion-icon>
+    Submit | Entrega
+  </button>
+</ion-item-->

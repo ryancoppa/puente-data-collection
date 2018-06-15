@@ -17,7 +17,34 @@ export class QueryServiceProvider {
     parseSrvc.parseInitialize();
   }
 
-  
+  public genericQuery(parseObject: string, parseColumn: string): Promise<any> {
+    //This is Retrieving Results from Parse Server
+    let Parse = this.parseSrvc.getParseENV();
+
+    //Returns the resolve (the query) and if there's an error, rejects
+    //Returns array of objects
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        //Creates local object based on "SurveyData" Object in Parse-Server
+        const SurveyData = Parse.Object.extend(parseObject);
+
+        //Queries the SurveyData class from Parse Server
+        let query = new Parse.Query(SurveyData);
+        
+
+        //Limiting Results based on a class
+        query.equalTo(parseColumn);
+
+        //Below searches what's in the surveyPoints array
+        query.find().then((surveyPoints) => {
+          resolve(surveyPoints);
+        }, (error) => {
+          reject(error);
+        });
+      }, 500);
+    });
+  }
+
   public basicQuery(offset: number = 0, limit: number = 3, parseObject: string, parseColumn: string, parseParam: string): Promise<any> {
     //This is Retrieving Results from Parse Server
     let Parse = this.parseSrvc.getParseENV();

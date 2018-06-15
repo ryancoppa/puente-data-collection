@@ -1,17 +1,27 @@
 import { Component } from '@angular/core';
 import { App } from 'ionic-angular';
-import { ToastController } from 'ionic-angular';
+import { ToastController, ModalController, NavController } from 'ionic-angular';
 
 
 // Providers
-import { ParseProvider } from '../../providers/parse/parse'; //TO REMOVE
+//import { ParseProvider } from '../../providers/parse/parse'; //TO REMOVE
 import { AuthProvider } from '../../providers/auth/auth';
 import { Geolocation, GeolocationOptions } from '@ionic-native/geolocation';
 
 // Pages
 import { SigninPage } from '../signin/signin';
-import { ModalController } from 'ionic-angular';
+import { VisualChartsPage } from '../visual-charts/visual-charts';
 import { ProfileModalPage } from '../profile-modal/profile-modal';
+import { MapPage } from '../map/map';
+import { FindRecordsPage } from '../find-records/find-records';
+
+// Form Components
+import { PatientIDForm } from '../../components/forms/patientid/patientid';
+import { EnvironmentalHistoryForm } from '../../components/forms/environmentalhistory/environmentalhistory';
+import { MedicalHistoryForm } from '../../components/forms/medicalhistory/medicalhistory';
+import { VitalsForm } from '../../components/forms/vitals/vitals';
+import { EvaluationMedicalForm } from '../../components/forms/evaluation-medical/evaluation-medical';
+import { EvaluationSurgicalForm } from '../../components/forms/evaluation-surgical/evaluation-surgical';
 
 
 @Component({
@@ -20,6 +30,12 @@ import { ProfileModalPage } from '../profile-modal/profile-modal';
 })
 
 export class HomePage {
+  /*
+    Template NG-MODELS
+  */
+  //Set Default NG-model
+  viewMode = 'datacollection';
+
   //Enables Options from Geolocation Import
   options: GeolocationOptions;
   
@@ -27,113 +43,10 @@ export class HomePage {
   //TO REMOVE
   newSurvey =
   {
-    
-    fname: null,
-    lname: null,
-    dob: null,
-    sex: null,
-    telephoneNumber: null,
-    marriageStatus: null,
-    numberofIndividualsLivingintheHouse: null,
-    numberofChildrenLivinginHouseUndertheAgeof5: null,
-    occupation: null,
-    educationLevel: null,
-    communityname: null,
-    yearsLivedinthecommunity: null,
-    yearsLivedinThisHouse: null,
-    memberofthefollowingorganizations: null,
-
+   
     latitude: null,
     longitude: null,
     location: null,
-
-    waterAccess: null,
-    typeofWaterdoyoudrink: null,
-    latrineAccess: null,
-    typeofHealthinsuranceDoyouHave: null,
-    clinicAccess: null,
-    medicalproblemswheredoyougo: null,
-    lastimeyouwenttodoctor: null,
-    dentalproblemswheredoyougo: null,
-    lastimeyouwenttodentist: null,
-
-    hadSurgery: null,
-    surgeryWhatKind: null,
-
-    medicalIllnesses: null,
-    whenDiagnosed: null,
-    whatDoctorDoyousee: null,
-    didDoctorRecommend: null,
-    treatment: null,
-    problemswithIllness: null,
-
-    medicalIllnesses1: null,
-    whenDiagnosed1: null,
-    whatDoctorDoyousee1: null,
-    didDoctorRecommend1: null,
-    treatment1: null,
-    problemswithIllness1: null,
-
-    medicalIllnesses2: null,
-    whenDiagnosed2: null,
-    whatDoctorDoyousee2: null,
-    didDoctorRecommend2: null,
-    treatment2: null,
-    problemswithIllness2: null,
-
-    pregnantCurrently: null,
-    takesprenatal: null,
-    reasonfornottakingprenatal: null,
-    locationtodeliverbaby: null,
-    reasonforlocationtodeliverbaby: null,
-    haveyoueverbeenpregnant: null,
-    accesstoPrenatalVitamins: null,
-    reasonfornoaccesstoprenatal: null,
-    wheredidyoudeliver: null,
-    salthaveiodine: null,
-    hadHPVVaccine: null,
-    tellmeimportanceofiodine: null,
-
-    doyouhavemedicalconcerns: null,
-    bloodPressure: null,
-    bloodSuger: null,
-    hemoglobinLevel: null,
-    height: null,
-    physicalFindings: null,
-    AssessmentandEvaluation: null,
-    planOfAction: null,
-    notes: null,
-
-    haveToothbrush: null,
-    howoftenbrushteeth: null,
-    howmanysugarydrinks: null,
-    doyouhavecavities: null,
-    haveyouhadcavities: null,
-    toothPulledout: null,
-    haveMouthPain: null,
-    dentalFindings: null,
-    //DentalAssessmentandEvaluation: null,
-    AssessmentandEvaluationDental: null,
-    planOfActionDental: null,
-    notesDental: null,
-
-    cedulaNumber:null,
-    /*
-    waterAccess: null,
-    typeofWaterdoyoudrink: null,
-    latrineAccess: null,
-    typeofHealthinsuranceDoyouHave: null,
-    clinicAccess: null,
-    medicalproblemswheredoyougo: null,
-    lastimeyouwenttodoctor: null,
-    dentalproblemswheredoyougo: null,
-    lastimeyouwenttodentist: null,
-
-    conditionoFloorinyourhouse: null,
-    conditionoRoofinyourhouse: null,
-    availableTrashManagementandDisposalServices: null,
-    trashDisposalLocation: null,
-    */
     
     surveyingUser: this.auth.currentUser().name,
     surveyingOrganization: this.auth.currentUser().organization
@@ -148,12 +61,14 @@ export class HomePage {
 
   constructor(private toastCtrl: ToastController, 
     public modalCtrl: ModalController, 
+    private navCtrl: NavController,
     //private parseProvider: ParseProvider, //TO REMOVE
     private auth: AuthProvider,  
     private app: App, 
     private geolocation:Geolocation) {
     
     this.auth.authenticated();
+    this.viewMode 
 
     //SAVE SOLUTION
     this.accordionItems = [
@@ -178,7 +93,8 @@ export class HomePage {
   */
   
 
-
+  //TO REMOVE
+  //turn into geopostion provider
   public getUserPosition() {
     //Retrieves coordinates of the user
     this.options = {
@@ -189,8 +105,8 @@ export class HomePage {
       let latitude = resp.coords.latitude;
       let longitude = resp.coords.longitude;
       
-      this.newSurvey.latitude = latitude;
-      this.newSurvey.longitude = longitude;
+      //this.newSurvey.latitude = latitude;
+      //this.newSurvey.longitude = longitude;
 
       //Because I'm lazy
       this.newSurvey.surveyingOrganization = this.auth.currentUser().organization;
@@ -201,11 +117,10 @@ export class HomePage {
     });
   }
  
-
   /*
     Navigation
   */
-  
+  //Forms
   openProfileModal() {
     //Opens Profile Modal Page
     let myModal = this.modalCtrl.create(ProfileModalPage);
@@ -213,7 +128,57 @@ export class HomePage {
     //.present() shows modal
     myModal.present();
   }
-  
+
+  openPatientID() {
+    //this.navCtrl.push(PatientIDForm);
+    let myModal = this.modalCtrl.create(PatientIDForm);
+
+    //.present() shows modal
+    myModal.present();
+  }
+
+  openEnvironmentalHistory() {
+    let myModal = this.modalCtrl.create(EnvironmentalHistoryForm);
+
+    myModal.present();
+  }
+
+  openMedicalHistory() {
+    let myModal = this.modalCtrl.create(MedicalHistoryForm);
+
+    myModal.present();
+  }
+
+  openVitals() {
+    let myModal = this.modalCtrl.create(VitalsForm);
+
+    myModal.present();
+  }
+
+  openMedicalEvaluation() {
+    let myModal = this.modalCtrl.create(EvaluationMedicalForm);
+
+    myModal.present();
+  }
+
+  openSurgicalEvaluation() {
+    let myModal = this.modalCtrl.create(EvaluationSurgicalForm);
+
+    myModal.present();
+  }
+  //Pages
+  openCharts() {
+    this.navCtrl.push(VisualChartsPage);
+  }
+
+  openMapPage() {
+    this.navCtrl.push(MapPage);
+  }
+
+  openFindRecords() {
+    this.navCtrl.push(FindRecordsPage);
+  }
+
   /*
     Authentication
   */

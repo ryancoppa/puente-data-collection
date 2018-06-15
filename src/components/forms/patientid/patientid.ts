@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { App } from 'ionic-angular';
+import { App, ViewController } from 'ionic-angular';
 //import { ToastController } from 'ionic-angular';
 
 
@@ -45,7 +45,8 @@ export class PatientIDForm {
     //private querySrvc: QueryServiceProvider, //TO RECONSIDER
     private auth: AuthProvider,  
     private app: App, 
-    private geolocation:Geolocation) {
+    private geolocation:Geolocation,
+    public viewCtrl:ViewController) {
 
     console.log('Hello PatientIDForm ');
     this.auth.authenticated();
@@ -95,6 +96,11 @@ public getUserPosition() {
 
     //Update User Position?
     //this.getUserPosition();
+  }
+
+  //Navigation
+  close() {
+    this.viewCtrl.dismiss();
   }
 
 

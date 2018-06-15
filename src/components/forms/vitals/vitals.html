@@ -1,0 +1,86 @@
+<ion-content >
+  <ion-card>
+    <ion-card-header class='card-title' color="primary-light" (click)="close()">
+      Vitals
+    </ion-card-header>
+
+    <ion-list>
+        <ion-item>
+          <ion-label floating>Height (Inches)</ion-label>
+          <ion-input type="number" [(ngModel)]="vitals.height"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Weight (Pounds)</ion-label>
+          <ion-input type="number" [(ngModel)]="vitals.weight"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Body Mass Index</ion-label>
+            <ion-input type="number" [(ngModel)]="vitals.bmi"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Body Temperature (Celsius)</ion-label>
+            <ion-input type="number" [(ngModel)]="vitals.temp"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Pulse</ion-label>
+            <ion-input type="number" [(ngModel)]="vitals.pulse"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Respiratory Rate (Beats Per Minute)</ion-label>
+            <ion-input type="number" [(ngModel)]="vitals.respRate"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Blood Pressure</ion-label>
+            <ion-input type="text" [(ngModel)]="vitals.bloodPressure"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Body Mass Index</ion-label>
+            <ion-input type="number" [(ngModel)]="vitals.bloodOxygen"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Blood Sugar Levels (mg/dL)</ion-label>
+            <ion-input type="number" [(ngModel)]="vitals.bloodSugar"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Pain</ion-label>
+            <ion-input type="number" [(ngModel)]="vitals.painLevels"></ion-input>
+        </ion-item>
+
+        
+    </ion-list>
+
+  </ion-card>
+
+
+  <ion-card>
+    <ion-item no-lines>
+      <button ion-button icon-left full block large color="accent" (click)="post_n_clear()" >
+        <ion-icon name="checkmark-circle"></ion-icon>
+        Submit Vitals
+      </button>
+    </ion-item>
+  </ion-card>
+</ion-content>
+
+
+<!--Photo Identification
+<ion-card>
+
+</ion-card>
+-->
+
+<!--ion-item no-lines>
+  <button ion-button icon-left full block large color="accent" (click)="postSurveyConfirm()" (click)="presentToast()">
+    <ion-icon name="checkmark-circle"></ion-icon>
+    Submit | Entrega
+  </button>
+</ion-item-->

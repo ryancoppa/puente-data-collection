@@ -1,129 +1,130 @@
-<ion-card>
-  <ion-card-header class='card-title' color="primary-light">
-    Registration
-  </ion-card-header>
+<ion-content >
+  <ion-card>
+    <ion-card-header class='card-title' color="primary-light" (click)="close()">
+      Registration
+    </ion-card-header>
 
-  <ion-list>
+    <ion-list>
+        <ion-item>
+          <ion-label floating>First Name | Nombre</ion-label>
+          <ion-input type="text" [(ngModel)]="patientID.fname"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Last Name | Apellido</ion-label>
+          <ion-input type="text" [(ngModel)]="patientID.lname"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Nickname | Apodo</ion-label>
+          <ion-input type="text" [(ngModel)]="patientID.nickname"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Date of Birth | Fecha de Nacimiento</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="patientID.dob"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Sex | Sexo</ion-label>
+          <ion-select [(ngModel)]="patientID.sex" interface ='popover'>
+              <ion-option value="Male"> Male | Varon </ion-option>
+              <ion-option value="Female"> Female | Hembra </ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Telephone Number | Numero de telefono</ion-label>
+          <ion-input type="tel" [(ngModel)]="patientID.telephoneNumber"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label >Marriage Status | Estado civil</ion-label>
+          <ion-select  [(ngModel)]="patientID.marriageStatus" interface ='popover'>
+              <ion-option  value="single"> Single | Solter@ </ion-option>
+              <ion-option  value="married"> Married | Casad@ </ion-option>
+              <ion-option  value="concubine"> Concubine | Concubina </ion-option>
+              <ion-option  value="widow"> Widow | Viuda </ion-option>
+          </ion-select>
+        </ion-item>
+        <!--
+        <ion-item>
+          <ion-label floating>Family Relationships</ion-label>
+          <ion-input type="text" [(ngModel)]="patientID.familyRelationships"></ion-input>
+        </ion-item>
+        -->
+        <ion-item>
+          <ion-label floating>Occupation</ion-label>
+          <ion-input type="text" [(ngModel)]="patientID.occupation"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Education Level | Nivel de educacion</ion-label>
+          <ion-select text-wrap [(ngModel)]="patientID.educationLevel" interface ='popover'>
+              <ion-option text-wrap value="lessThanprimary"> Less than Primary | Primaria no terminada</ion-option>
+              <ion-option text-wrap value="primary"> Primary | Primaria  </ion-option>
+              <ion-option text-wrap value="someHighSchool"> Some High School | Liceo sin terminar</ion-option>
+              <ion-option text-wrap value="highschool"> High School | Bachiller</ion-option>
+              <ion-option text-wrap value="someCollege"> Some College | Otra educacion superior</ion-option>
+              <ion-option text-wrap value="college"> College | Universidad</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Name of Community | Nombre de Comunidad</ion-label>
+          <ion-input type="text" [(ngModel)]="patientID.communityname"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Name of City | Nombre de Ciudad</ion-label>
+          <ion-input type="text" [(ngModel)]="patientID.city"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Name of Province | Nombre de Provincia</ion-label>
+          <ion-input type="text" [(ngModel)]="patientID.province"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Insurance Number</ion-label>
+          <ion-input type="number" [(ngModel)]="patientID.insuranceNumber"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Insurance Provider</ion-label>
+          <ion-input type="number" [(ngModel)]="patientID.insuranceProvider"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>License Number | Cedula </ion-label>
+          <ion-input type="number" [(ngModel)]="patientID.cedulaNumber"></ion-input>
+        </ion-item> 
+        
+    </ion-list>
+
+  </ion-card>
+
+  <!--  Latitude and Longitude  -->
+  <ion-card>
+    <ion-card-header class='card-title'>
+      Location <!--| Ubicación-->
+    </ion-card-header>
+
       <ion-item>
-        <ion-label floating>First Name | Nombre</ion-label>
-        <ion-input type="text" [(ngModel)]="patientID.fname"></ion-input>
+        <p text-center>Press</p>
+        <button ion-button text-wrap color="primary-light" round block large (click)='getUserPosition()'>{{patientID.latitude}}, {{patientID.longitude}}</button>
       </ion-item>
+  </ion-card>
 
-      <ion-item>
-        <ion-label floating>Last Name | Apellido</ion-label>
-        <ion-input type="text" [(ngModel)]="patientID.lname"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label floating>Nickname | Apodo</ion-label>
-        <ion-input type="text" [(ngModel)]="patientID.nickname"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Date of Birth | Fecha de Nacimiento</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="patientID.dob"></ion-datetime>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Sex | Sexo</ion-label>
-        <ion-select [(ngModel)]="patientID.sex" interface ='popover'>
-            <ion-option value="Male"> Male | Varon </ion-option>
-            <ion-option value="Female"> Female | Hembra </ion-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item>
-        <ion-label floating>Telephone Number | Numero de telefono</ion-label>
-        <ion-input type="tel" [(ngModel)]="patientID.telephoneNumber"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label >Marriage Status | Estado civil</ion-label>
-        <ion-select  [(ngModel)]="patientID.marriageStatus" interface ='popover'>
-            <ion-option  value="single"> Single | Solter@ </ion-option>
-            <ion-option  value="married"> Married | Casad@ </ion-option>
-            <ion-option  value="concubine"> Concubine | Concubina </ion-option>
-            <ion-option  value="widow"> Widow | Viuda </ion-option>
-        </ion-select>
-      </ion-item>
-      <!--
-      <ion-item>
-        <ion-label floating>Family Relationships</ion-label>
-        <ion-input type="text" [(ngModel)]="patientID.familyRelationships"></ion-input>
-      </ion-item>
-      -->
-      <ion-item>
-        <ion-label floating>Occupation</ion-label>
-        <ion-input type="text" [(ngModel)]="patientID.occupation"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Education Level | Nivel de educacion</ion-label>
-        <ion-select text-wrap [(ngModel)]="patientID.educationLevel" interface ='popover'>
-            <ion-option text-wrap value="lessThanprimary"> Less than Primary | Primaria no terminada</ion-option>
-            <ion-option text-wrap value="primary"> Primary | Primaria  </ion-option>
-            <ion-option text-wrap value="someHighSchool"> Some High School | Liceo sin terminar</ion-option>
-            <ion-option text-wrap value="highschool"> High School | Bachiller</ion-option>
-            <ion-option text-wrap value="someCollege"> Some College | Otra educacion superior</ion-option>
-            <ion-option text-wrap value="college"> College | Universidad</ion-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Name of Community | Nombre de Comunidad</ion-label>
-        <ion-input type="text" [(ngModel)]="patientID.communityname"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Name of City | Nombre de Ciudad</ion-label>
-        <ion-input type="text" [(ngModel)]="patientID.city"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Name of Province | Nombre de Provincia</ion-label>
-        <ion-input type="text" [(ngModel)]="patientID.province"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label floating>Insurance Number</ion-label>
-        <ion-input type="number" [(ngModel)]="patientID.insuranceNumber"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label floating>Insurance Provider</ion-label>
-        <ion-input type="number" [(ngModel)]="patientID.insuranceProvider"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label floating>License Number | Cedula </ion-label>
-        <ion-input type="number" [(ngModel)]="patientID.cedulaNumber"></ion-input>
-      </ion-item> 
-      
-  </ion-list>
-
-</ion-card>
-
-<!--  Latitude and Longitude  -->
-<ion-card>
-  <ion-card-header class='card-title'>
-    Location <!--| Ubicación-->
-  </ion-card-header>
-
-    <ion-item>
-      <p text-center>Press</p>
-      <button ion-button text-wrap color="primary-light" round block large (click)='getUserPosition()'>{{patientID.latitude}}, {{patientID.longitude}}</button>
+  <ion-card>
+    <ion-item no-lines>
+      <button ion-button icon-left full block large color="accent" (click)="post_n_clear()" >
+        <ion-icon name="checkmark-circle"></ion-icon>
+        Submit Registration
+      </button>
     </ion-item>
-</ion-card>
-
-<ion-card>
-  <ion-item no-lines>
-    <button ion-button icon-left full block large color="accent" (click)="post_n_clear()" >
-      <ion-icon name="checkmark-circle"></ion-icon>
-      Submit Registration
-    </button>
-  </ion-item>
-</ion-card>
-
+  </ion-card>
+</ion-content>
 
 
 <!--Photo Identification

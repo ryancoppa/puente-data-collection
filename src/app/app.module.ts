@@ -14,14 +14,19 @@ import { Geolocation } from '@ionic-native/geolocation';
 // Providers
 import { ParseProvider } from '../providers/parse/parse';
 import { AuthProvider } from '../providers/auth/auth';
+import { QueryServiceProvider } from '../providers/query-service/query-service';
 
 // Components
 import { AccordionComponent } from '../components/accordion/accordion';
+import { CardFlippingComponent } from '../components/card-flipping/card-flipping';
 
 // Forms
 import { PatientIDForm } from '../components/forms/patientid/patientid';
 import { EnvironmentalHistoryForm } from '../components/forms/environmentalhistory/environmentalhistory';
 import { MedicalHistoryForm } from '../components/forms/medicalhistory/medicalhistory';
+import { VitalsForm } from '../components/forms/vitals/vitals';
+import { EvaluationMedicalForm } from '../components/forms/evaluation-medical/evaluation-medical';
+import { EvaluationSurgicalForm } from '../components/forms/evaluation-surgical/evaluation-surgical';
 
 // Pages
 import { AboutPage } from '../pages/about/about';
@@ -34,7 +39,10 @@ import { Splash } from '../pages/splash/splash';
 import { MapPage } from '../pages/map/map';
 import { ProfileModalPage } from '../pages/profile-modal/profile-modal';
 import { HelpPage } from '../pages/help/help';
-import { QueryServiceProvider } from '../providers/query-service/query-service';
+import { VisualChartsPage } from '../pages/visual-charts/visual-charts';
+import { FindRecordsPage } from '../pages/find-records/find-records';
+import { ChartsProvider } from '../providers/charts/charts';
+
 
 @NgModule({
   declarations: [
@@ -49,10 +57,16 @@ import { QueryServiceProvider } from '../providers/query-service/query-service';
     MapPage,
     ProfileModalPage,
     HelpPage,
+    VisualChartsPage,
+    FindRecordsPage,
     AccordionComponent,
+    CardFlippingComponent,
     PatientIDForm,
     EnvironmentalHistoryForm,
-    MedicalHistoryForm
+    MedicalHistoryForm,
+    VitalsForm,
+    EvaluationMedicalForm,
+    EvaluationSurgicalForm
   ],
   imports: [
     BrowserModule,
@@ -71,6 +85,14 @@ import { QueryServiceProvider } from '../providers/query-service/query-service';
     MapPage,
     ProfileModalPage,
     HelpPage,
+    VisualChartsPage,
+    FindRecordsPage,
+    PatientIDForm,
+    EnvironmentalHistoryForm,
+    MedicalHistoryForm,
+    VitalsForm,
+    EvaluationMedicalForm,
+    EvaluationSurgicalForm
     
   ],
   providers: [
@@ -80,7 +102,8 @@ import { QueryServiceProvider } from '../providers/query-service/query-service';
     ParseProvider,
     AuthProvider,
     Geolocation,
-    QueryServiceProvider
+    QueryServiceProvider,
+    ChartsProvider
   ]
 })
 export class AppModule { }

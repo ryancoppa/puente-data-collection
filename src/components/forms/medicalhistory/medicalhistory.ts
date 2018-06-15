@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { App } from 'ionic-angular';
+import { App, ViewController } from 'ionic-angular';
 //import { ToastController } from 'ionic-angular';
 
 // Providers
@@ -16,13 +16,25 @@ import { Geolocation, GeolocationOptions } from '@ionic-native/geolocation';
 })
 export class MedicalHistoryForm {
 
-  medicalHistory = {};
+  medicalHistory = {
+    majorEvents: null,
+    surgeryWhatKind: null,
+    medicalIllnesses:null,
+    whenDiagnosed: null,
+    whatDoctorDoyousee: null,
+    treatment: null,
+    familyhistory: null,
+    preventativeCare: null,
+    //socialHistory: null,
+    //nutritionHistory: null
+  };
 
   constructor(private parseProvider: ParseProvider,
     //private querySrvc: QueryServiceProvider, //TO RECONSIDER
     private auth: AuthProvider,  
     private app: App, 
-    private geolocation:Geolocation) {
+    private geolocation:Geolocation,
+    private viewCtrl: ViewController) {
 
     console.log('Hello MedicalHistoryForm ');
     this.auth.authenticated();
@@ -49,6 +61,11 @@ export class MedicalHistoryForm {
 
     //Update User Position?
     //this.getUserPosition();
+  }
+
+  //Navigation
+  close() {
+    this.viewCtrl.dismiss();
   }
 
 
