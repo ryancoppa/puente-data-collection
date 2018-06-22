@@ -54,6 +54,8 @@ export class HomePage {
 
   //SAVE THIS SOLUTION
   accordionItems: any = [];
+
+  drawerOptions: any;
   
   //TO REMOVE
   //Array used to Display Results from Pushed from Server Query
@@ -78,6 +80,14 @@ export class HomePage {
       {expanded: false},
       {expanded: false}
     ];
+    
+    //Content-Drawer Design Options
+    this.drawerOptions = {
+      handleHeight: 50,
+      thresholdFromBottom: 200,
+      thresholdFromTop: 200,
+      bounceBack: true
+  };
   }
 
   ionViewCanEnter(): boolean {

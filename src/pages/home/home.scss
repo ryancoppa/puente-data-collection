@@ -46,6 +46,17 @@ page-home {
             font-size: 1.5rem;
         }
     }
+
+
+    //Content Draw Contents for Customization
+    content-drawer {
+        //background-color: #34495e !important;
+        background-color: map-get($colors, primary);
+    }
+
+    content-drawer .content {
+        padding: 20px;
+    }
     
     /*
     //Card Details to keep

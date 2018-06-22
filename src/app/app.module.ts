@@ -19,6 +19,7 @@ import { QueryServiceProvider } from '../providers/query-service/query-service';
 // Components
 import { AccordionComponent } from '../components/accordion/accordion';
 import { CardFlippingComponent } from '../components/card-flipping/card-flipping';
+import { ContentDrawerComponent } from '../components/content-drawer/content-drawer';
 
 // Forms
 import { PatientIDForm } from '../components/forms/patientid/patientid';
@@ -61,6 +62,7 @@ import { ChartsProvider } from '../providers/charts/charts';
     FindRecordsPage,
     AccordionComponent,
     CardFlippingComponent,
+    ContentDrawerComponent,
     PatientIDForm,
     EnvironmentalHistoryForm,
     MedicalHistoryForm,
