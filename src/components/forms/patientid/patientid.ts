@@ -6,9 +6,9 @@ import { App, ViewController } from 'ionic-angular';
 
 // Providers
 import { ParseProvider } from '../../../providers/parse/parse';
-//import { QueryServiceProvider } from '../../../providers/query-service/query-service'; //TO RECONSIDER
 import { AuthProvider } from '../../../providers/auth/auth';
-import { Geolocation, GeolocationOptions } from '@ionic-native/geolocation';
+import { UserpositionProvider } from '../../../providers/userposition/userposition';
+
 
 @Component({
   selector: 'patientid',
@@ -44,36 +44,25 @@ export class PatientIDForm {
   constructor(private parseProvider: ParseProvider,
     //private querySrvc: QueryServiceProvider, //TO RECONSIDER
     private auth: AuthProvider,  
-    private app: App, 
-    private geolocation:Geolocation,
-    public viewCtrl:ViewController) {
+    public viewCtrl:ViewController,
+    private userPositn:UserpositionProvider) {
 
     console.log('Hello PatientIDForm ');
     this.auth.authenticated();
   }
 
- /*
-public getUserPosition() {
-  //Retrieves coordinates of the user
-  this.options = {
-    enableHighAccuracy : true
-  };
-  
-  this.geolocation.getCurrentPosition(this.options).then((resp) => {
-    let latitude = resp.coords.latitude;
-    let longitude = resp.coords.longitude;
-    
-    this.newSurvey.latitude = latitude;
-    this.newSurvey.longitude = longitude;
+  ionViewDidEnter() {
+    this.recordCoordinates();
+  }
 
-    //Because I'm lazy
-    this.newSurvey.surveyingOrganization = this.auth.currentUser().organization;
-    this.newSurvey.surveyingUser = this.auth.currentUser().name;
-    console.log(latitude,longitude)
-  }).catch((error) => {
-    console.log('Error getting location',error);
-  });
-} */
+  public recordCoordinates() {
+    this.userPositn.getUserPosition().then((resp) => {
+      this.patientID.latitude = resp.coords.latitude;
+      this.patientID.longitude = resp.coords.longitude;
+    }).catch((error) => {
+      console.log('Error getting location',error);
+    });
+  } 
 
   public post_n_clear() {
     //Posts an object to parse server and clears the local form array
@@ -102,7 +91,4 @@ public getUserPosition() {
   close() {
     this.viewCtrl.dismiss();
   }
-
-
-
 }

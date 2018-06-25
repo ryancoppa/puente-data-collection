@@ -7,6 +7,7 @@ import { ToastController, ModalController, NavController } from 'ionic-angular';
 //import { ParseProvider } from '../../providers/parse/parse'; //TO REMOVE
 import { AuthProvider } from '../../providers/auth/auth';
 import { Geolocation, GeolocationOptions } from '@ionic-native/geolocation';
+import { UserpositionProvider } from '../../providers/userposition/userposition';
 
 // Pages
 import { SigninPage } from '../signin/signin';
@@ -36,9 +37,6 @@ export class HomePage {
   //Set Default NG-model
   viewMode = 'datacollection';
 
-  //Enables Options from Geolocation Import
-  options: GeolocationOptions;
-  
   //Variables in Survey
   //TO REMOVE
   newSurvey =
@@ -66,8 +64,8 @@ export class HomePage {
     private navCtrl: NavController,
     //private parseProvider: ParseProvider, //TO REMOVE
     private auth: AuthProvider,  
-    private app: App, 
-    private geolocation:Geolocation) {
+    private app: App,
+    private userPosition:UserpositionProvider) {
     
     this.auth.authenticated();
     this.viewMode 
@@ -94,38 +92,13 @@ export class HomePage {
     return this.auth.authenticated();
   }
   ionViewDidEnter() {
-    //Gets User Position once user has entered homepage
-    this.getUserPosition();  
+    
   }
   
   /*
     Functions
   */
-  
 
-  //TO REMOVE
-  //turn into geopostion provider
-  public getUserPosition() {
-    //Retrieves coordinates of the user
-    this.options = {
-      enableHighAccuracy : true
-    };
-    
-    this.geolocation.getCurrentPosition(this.options).then((resp) => {
-      let latitude = resp.coords.latitude;
-      let longitude = resp.coords.longitude;
-      
-      //this.newSurvey.latitude = latitude;
-      //this.newSurvey.longitude = longitude;
-
-      //Because I'm lazy
-      this.newSurvey.surveyingOrganization = this.auth.currentUser().organization;
-      this.newSurvey.surveyingUser = this.auth.currentUser().name;
-      console.log(latitude,longitude)
-    }).catch((error) => {
-      console.log('Error getting location',error);
-    });
-  }
  
   /*
     Navigation
