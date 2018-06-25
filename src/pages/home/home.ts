@@ -37,6 +37,8 @@ export class HomePage {
   //Set Default NG-model
   viewMode = 'datacollection';
 
+  objectID: any;
+
   //Variables in Survey
   //TO REMOVE
   newSurvey =
@@ -98,6 +100,11 @@ export class HomePage {
   /*
     Functions
   */
+ inputObjectIDfromComponent(selectedItem) {
+   //retrieves selectedItem emitted from child class
+   //make sure it's listening to event from child class
+   console.log(selectedItem);
+ }
 
  
   /*

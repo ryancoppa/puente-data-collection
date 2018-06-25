@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import 'rxjs/add/operator/debounceTime';
 
@@ -13,10 +13,12 @@ import 'rxjs/add/operator/debounceTime';
   templateUrl: 'searchbar-object-id.html'
 })
 export class SearchbarObjectIdComponent {
+  @Output() emitObjectIDfromComponent = new EventEmitter();
 
   searchTerm: string = '';
   allItems: any;
   filteredItems:any;
+  selectedItem:any;
 
   constructor(public navCtrl: NavController) {
     this.allItems = [
@@ -27,13 +29,22 @@ export class SearchbarObjectIdComponent {
       {title: 'five'},
       {title: 'six'}
     ]
-    
   }
 
   ionViewDidLoad() {
   }
+
   ionViewDidEnter(){
     this.filteredItems = this.allItems;
+  }
+
+  setItem(item){
+    //Sets item selected from list to selectedItem to be emitted.
+    this.selectedItem = item;
+
+    //Emits selectedItem to the parent class
+    this.emitObjectIDfromComponent.emit(this.selectedItem);
+    console.log(this.selectedItem.title);
   }
 
   filterItems(){
