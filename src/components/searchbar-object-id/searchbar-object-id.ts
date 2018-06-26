@@ -21,6 +21,7 @@ export class SearchbarObjectIdComponent {
   selectedItem:any;
 
   constructor(public navCtrl: NavController) {
+    //Compile list of objects
     this.allItems = [
       {title: 'one'},
       {title: 'two'},
@@ -39,7 +40,10 @@ export class SearchbarObjectIdComponent {
   }
 
   setItem(item){
-    //Sets item selected from list to selectedItem to be emitted.
+    /*
+    Sets item selected from list to selectedItem to be emitted.
+    For List of Buttons
+    */
     this.selectedItem = item;
 
     //Emits selectedItem to the parent class
@@ -49,9 +53,8 @@ export class SearchbarObjectIdComponent {
 
   filterItems(){
     /*
-    return this.items.filter((item) => {
-      return item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
-    });    */
+    For Searchbar
+    */
 
     this.filteredItems = this.allItems.filter((location) => {
       return location.title.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
