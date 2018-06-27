@@ -35,8 +35,6 @@ export class HomePage {
   //Design Element: Segment
   viewMode = 'datacollection';
 
-  objectID: any;
-
   ////Design Element: Content Drawer
   drawerOptions: any;
 
@@ -50,15 +48,6 @@ export class HomePage {
 
     //Design Element: Segment
     this.viewMode;
-
-    
-    //Design Element: Content Drawer
-    this.drawerOptions = {
-      handleHeight: 50,
-      thresholdFromBottom: 200,
-      thresholdFromTop: 200,
-      bounceBack: true
-  };
   }
 
   ionViewCanEnter(): boolean {
@@ -71,11 +60,6 @@ export class HomePage {
   /*
     Functions
   */
- inputObjectIDfromComponent(selectedItem) {
-   //retrieves selectedItem emitted from child class component
-   //make sure it's listening to event from child class in view
-   console.log(selectedItem);
- }
 
   /*
     Navigation

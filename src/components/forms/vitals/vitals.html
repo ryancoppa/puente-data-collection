@@ -1,6 +1,13 @@
 <ion-content >
   <ion-card>
-    <ion-card-header class='card-title' color="primary-light" (click)="close()">
+
+    <ion-item color='primary-dark' (click)="close()">
+      Client
+      <ion-label>{{clientFname}} {{clientLname}}</ion-label>
+      <ion-icon name="person" item-start></ion-icon>
+    </ion-item>
+    
+    <ion-card-header class='card-title' color="primary-light">
       Vitals
     </ion-card-header>
 
@@ -70,6 +77,10 @@
     </ion-item>
   </ion-card>
 </ion-content>
+
+<content-drawer [options]="drawerOptions">
+    <searchbar-object-id (emitObjectIDfromComponent)='inputObjectIDfromComponent($event)'></searchbar-object-id>
+</content-drawer>
 
 
 <!--Photo Identification

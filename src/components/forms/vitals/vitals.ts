@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 
-import { App, ViewController } from 'ionic-angular';
+import { ViewController } from 'ionic-angular';
 //import { ToastController } from 'ionic-angular';
 
 
 // Providers
 import { ParseProvider } from '../../../providers/parse/parse';
-//import { QueryServiceProvider } from '../../../providers/query-service/query-service'; //TO RECONSIDER
 import { AuthProvider } from '../../../providers/auth/auth';
 
 @Component({
@@ -15,7 +14,11 @@ import { AuthProvider } from '../../../providers/auth/auth';
 })
 export class VitalsForm {
 
+  clientFname: any;
+  clientLname:any;
+
   vitals = {
+    objectID: null,
     height: null,
     weight: null,
     bmi: null,
@@ -31,20 +34,28 @@ export class VitalsForm {
     surveyingOrganization: this.auth.currentUser().organization
 
   }
+
+  //Design Element: Content Drawer
+  drawerOptions: any;
   
   constructor(private parseProvider: ParseProvider,
-    //private querySrvc: QueryServiceProvider, //TO RECONSIDER
     private auth: AuthProvider,  
-    private app: App, 
     public viewCtrl:ViewController) {
 
     console.log('Hello VitalsForm');
     this.auth.authenticated();
+
+    //Design Element: Content Drawer
+    this.drawerOptions = {
+      handleHeight: 50,
+      thresholdFromBottom: 200,
+      thresholdFromTop: 200,
+      bounceBack: true
+    };
   }
 
 
-  public post_n_clear() {
-
+  post_n_clear() {
     //TODO, change how this is posted to reflect new database design
     this.parseProvider.postObjectsToClass(this.vitals,'SurveyData').then((/*surveyPoint*/) => {
       for (var key in this.vitals){
@@ -56,11 +67,19 @@ export class VitalsForm {
     });
   }
 
-  //Navigation
   close() {
     this.viewCtrl.dismiss();
   }
 
+  inputObjectIDfromComponent(selectedItem) {
+    //retrieves selectedItem emitted from child class component
+    //make sure it's listening to event from child class in view
+    //console.log(selectedItem);
+    this.vitals.objectID = selectedItem.id; //Retrieve RESERVED Parse-Server Object ID Value
+    this.clientFname = selectedItem.get('fname');
+    this.clientLname = selectedItem.get('lname');
+    console.log(this.vitals.objectID);
+  }
 
 
 }

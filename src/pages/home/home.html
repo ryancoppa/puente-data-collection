@@ -35,7 +35,7 @@
           <ion-col>
             <ion-card (click) = 'openPatientID()'>
               <h1 ion-text color="orange">ID</h1>
-              <p text-wrap>Client Identification and Registration</p>
+              <p ion-text text-wrap>Client Identification and Registration</p>
             </ion-card>
           </ion-col>
 
@@ -141,7 +141,3 @@
 
 
 </ion-content>
-
-<content-drawer [options]="drawerOptions">
-  <searchbar-object-id (emitObjectIDfromComponent)='inputObjectIDfromComponent($event)'></searchbar-object-id>
-</content-drawer>

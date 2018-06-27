@@ -1,9 +1,17 @@
 <ion-content>
   <!--Environmental Health -->
   <ion-card>
-    <ion-card-header ion-text text-wrap class='card-title' (click)="close()">
+    
+    <ion-item color='primary-dark' (click)="close()">
+      Client
+      <ion-label>{{clientFname}} {{clientLname}}</ion-label>
+      <ion-icon name="person" item-start></ion-icon>
+    </ion-item>
+
+    <ion-card-header ion-text text-wrap class='card-title'>
       Context Within Community
     </ion-card-header>
+
     <ion-item-group>
       <!--Context Within Community-->
       <ion-item>
@@ -124,3 +132,7 @@
     </ion-item>
   </ion-card>
 </ion-content>
+
+<content-drawer [options]="drawerOptions">
+  <searchbar-object-id (emitObjectIDfromComponent)='inputObjectIDfromComponent($event)'></searchbar-object-id>
+</content-drawer>

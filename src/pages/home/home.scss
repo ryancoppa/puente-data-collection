@@ -34,19 +34,6 @@ page-home {
         }
     }
 
-
-    //Content Draw Contents for Customization
-    content-drawer {
-        //background-color: #34495e !important;
-        background-color: map-get($colors, primary);
-    }
-
-    content-drawer .content {
-        padding: 20px;
-    }
-    searchbar-object-id {
-        color: black;
-    }
     
     /*
     //Card Details to keep

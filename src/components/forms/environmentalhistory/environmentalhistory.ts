@@ -17,7 +17,11 @@ import { Geolocation, GeolocationOptions } from '@ionic-native/geolocation';
 })
 export class EnvironmentalHistoryForm {
 
+  clientFname: any;
+  clientLname:any;
+
   environmentalHealth = {
+    objectID: null,
     yearsLivedinthecommunity: null,
     yearsLivedinThisHouse: null,
     waterAccess: null,
@@ -32,11 +36,12 @@ export class EnvironmentalHistoryForm {
 
   //Design Element
   accordionItems: any = [];
+
+  //Design Element: Content Drawer
+  drawerOptions: any;
+
   constructor(private auth: AuthProvider,  
-    private app: App, 
-    private geolocation:Geolocation,
     private parseProvider: ParseProvider,
-    private querySrvc: QueryServiceProvider,
     private viewCtrl: ViewController) {
 
     console.log('Hello EnvironmentalHistoryForm ');
@@ -48,6 +53,14 @@ export class EnvironmentalHistoryForm {
       {expanded: false},
       {expanded: false},
     ];
+
+    //Design Element: Content Drawer
+    this.drawerOptions = {
+      handleHeight: 50,
+      thresholdFromBottom: 200,
+      thresholdFromTop: 200,
+      bounceBack: true
+    };
   }
 
   public post_n_clear() {
@@ -90,6 +103,16 @@ export class EnvironmentalHistoryForm {
 
     });
 
+  }
+
+  inputObjectIDfromComponent(selectedItem) {
+    //retrieves selectedItem emitted from child class component
+    //make sure it's listening to event from child class in view
+    //console.log(selectedItem);
+    this.environmentalHealth.objectID = selectedItem.id; //Retrieve RESERVED Parse-Server Object ID Value
+    this.clientFname = selectedItem.get('fname');
+    this.clientLname = selectedItem.get('lname');
+    console.log(this.environmentalHealth.objectID);
   }
 
 

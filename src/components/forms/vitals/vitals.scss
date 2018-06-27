@@ -11,12 +11,25 @@ vitals {
         color: map-get($colors, primary-dark);
       }
     
-      .card-subtitle {
-        background-color: map-get($colors, primary-dark);
-        font-size: 1.25em;
-        //position: absolute;
-        //top: 52%;
-        width: 100%;
-        color: white;
-      }
+    .card-subtitle {
+      background-color: map-get($colors, primary-dark);
+      font-size: 1.25em;
+      //position: absolute;
+      //top: 52%;
+      width: 100%;
+      color: white;
+    }
+
+    //Content Draw Contents for Customization
+    content-drawer {
+      //background-color: #34495e !important;
+      background-color: map-get($colors, primary-light);
+    }
+
+    content-drawer .content {
+      padding: 20px;
+    }
+    searchbar-object-id {
+      color: black;
+    }
 }
