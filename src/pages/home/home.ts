@@ -4,10 +4,7 @@ import { ToastController, ModalController, NavController } from 'ionic-angular';
 
 
 // Providers
-//import { ParseProvider } from '../../providers/parse/parse'; //TO REMOVE
 import { AuthProvider } from '../../providers/auth/auth';
-import { Geolocation, GeolocationOptions } from '@ionic-native/geolocation';
-import { UserpositionProvider } from '../../providers/userposition/userposition';
 
 // Pages
 import { SigninPage } from '../signin/signin';
@@ -39,38 +36,19 @@ export class HomePage {
 
   objectID: any;
 
-  //Variables in Survey
-  //TO REMOVE
-  newSurvey =
-  {
-   
-    latitude: null,
-    longitude: null,
-    location: null,
-    
-    surveyingUser: this.auth.currentUser().name,
-    surveyingOrganization: this.auth.currentUser().organization
-  }
-
   //SAVE THIS SOLUTION
   accordionItems: any = [];
 
   drawerOptions: any;
-  
-  //TO REMOVE
-  //Array used to Display Results from Pushed from Server Query
-  surveyPoints = []
 
   constructor(private toastCtrl: ToastController, 
     public modalCtrl: ModalController, 
     private navCtrl: NavController,
-    //private parseProvider: ParseProvider, //TO REMOVE
     private auth: AuthProvider,  
-    private app: App,
-    private userPosition:UserpositionProvider) {
+    private app: App) {
     
     this.auth.authenticated();
-    this.viewMode 
+    this.viewMode;
 
     //SAVE SOLUTION
     this.accordionItems = [
@@ -91,22 +69,21 @@ export class HomePage {
   }
 
   ionViewCanEnter(): boolean {
+    //Authenticates Page
     return this.auth.authenticated();
   }
-  ionViewDidEnter() {
-    
+  ionViewDidEnter() { 
   }
   
   /*
     Functions
   */
  inputObjectIDfromComponent(selectedItem) {
-   //retrieves selectedItem emitted from child class
-   //make sure it's listening to event from child class
+   //retrieves selectedItem emitted from child class component
+   //make sure it's listening to event from child class in view
    console.log(selectedItem);
  }
 
- 
   /*
     Navigation
   */

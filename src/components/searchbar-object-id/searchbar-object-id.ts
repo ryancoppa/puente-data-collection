@@ -2,26 +2,35 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import 'rxjs/add/operator/debounceTime';
 
-/**
- * Generated class for the SearchbarObjectIdComponent component.
- *
- * See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
- * for more info on Angular Components.
- */
+import { QueryServiceProvider } from '../../providers/query-service/query-service';
+import { AuthProvider } from '../../providers/auth/auth';
+
 @Component({
   selector: 'searchbar-object-id',
   templateUrl: 'searchbar-object-id.html'
 })
+
 export class SearchbarObjectIdComponent {
   @Output() emitObjectIDfromComponent = new EventEmitter();
 
   searchTerm: string = '';
-  allItems: any;
+  //allItems: any;
+  allItems = [];
   filteredItems:any;
   selectedItem:any;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+    private querySrvc:QueryServiceProvider,
+    private auth:AuthProvider) {
+
+      this.auth.authenticated();
+      this.listItems();
+      this.filteredItems = this.allItems; 
+    
+      
     //Compile list of objects
+    /*
+    //Test
     this.allItems = [
       {title: 'one'},
       {title: 'two'},
@@ -29,14 +38,24 @@ export class SearchbarObjectIdComponent {
       {title: 'four'},
       {title: 'five'},
       {title: 'six'}
-    ]
+    ] */
+    
+    
   }
 
   ionViewDidLoad() {
   }
 
   ionViewDidEnter(){
-    this.filteredItems = this.allItems;
+    //this.filteredItems = this.allItems; 
+
+    /*
+    this.listItems();
+    this.filteredItems = this.allItems; 
+    this.listItems().then(()=>{
+      this.filteredItems = this.allItems;
+    });
+    */
   }
 
   setItem(item){
@@ -48,18 +67,44 @@ export class SearchbarObjectIdComponent {
 
     //Emits selectedItem to the parent class
     this.emitObjectIDfromComponent.emit(this.selectedItem);
-    console.log(this.selectedItem.title);
+    //console.log(this.selectedItem.get('fname'));
   }
 
   filterItems(){
     /*
     For Searchbar
-    */
+    
 
-    this.filteredItems = this.allItems.filter((location) => {
-      return location.title.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+    this.filteredItems = this.allItems.filter((result) => {
+      return result.title.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+    }); */
+
+    this.filteredItems = this.allItems.filter((result) => {
+      return result.get('fname').toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
     });
 
+  }
+
+  listItems(): Promise<any> {
+    //Retrieves list of records from server
+
+    //Creates a natural "skip" of certain results based on surveyPoints length
+    //let offset = this.allItems.length;
+    //let offset = 0;
+
+    //Limits the length of the searched results
+    let limit = 1000;
+
+    //Returns the query then displays those "result" by pushing into surveyPoints object
+    //Based on Parse surveyingOrganization Column and name of organization for the User
+    return this.querySrvc.basicQuery(0, limit, 'SurveyData', 'surveyingOrganization', String(this.auth.currentUser().organization)).then((result) => {
+      for (let i = 0; i < result.length; i++) {
+        let object = result[i];
+        this.allItems.push(object);
+      }
+    }, (error) => {
+      console.log(error);
+    });
   }
 
 }

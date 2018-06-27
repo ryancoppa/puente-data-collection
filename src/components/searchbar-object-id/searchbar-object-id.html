@@ -7,15 +7,25 @@
     </div-->
     
     <ion-list>
-        <ion-item *ngFor="let item of filteredItems" (click)='setItem(item)'>
-            <!--
-            <button ion-button icon-start outline full (click)='setItem(item)'>
-                {{item.title}}
-                <ion-icon name="star"></ion-icon>
-            </button>
-            -->
-            {{item.title}}
-        </ion-item>
+        <ion-item-group>
+            <ion-item *ngFor="let item of filteredItems" (click)='setItem(item)'>
+                <!--
+                <button ion-button icon-start outline full (click)='setItem(item)'>
+                    {{item.title}}
+                    <ion-icon name="star"></ion-icon>
+                </button> 
+                <h2>{{ item.get('fname') }}</h2>
+                <p>{{ item.get('lname') }}</p>
+                <p>{{ item.get('communityName') }}</p> -->
+                <ion-label>
+                        {{ item.get('fname') }}
+                        {{ item.get('lname') }}
+                </ion-label>
+                <div item-content>
+                        {{ item.get('communityname') }}
+                </div>
+            </ion-item>
+        </ion-item-group>        
     </ion-list>
      
 </ion-content>
