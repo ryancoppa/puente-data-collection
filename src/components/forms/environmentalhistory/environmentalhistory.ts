@@ -28,8 +28,10 @@ export class EnvironmentalHistoryForm {
     conditionoRoofinyourhouse: null,
     medicalproblemswheredoyougo: null,
     dentalproblemswheredoyougo:null
-
   }
+
+  //Design Element
+  accordionItems: any = [];
   constructor(private auth: AuthProvider,  
     private app: App, 
     private geolocation:Geolocation,
@@ -39,6 +41,13 @@ export class EnvironmentalHistoryForm {
 
     console.log('Hello EnvironmentalHistoryForm ');
     this.auth.authenticated();
+    
+    //Design Element: Accordion
+    this.accordionItems = [
+      {expanded: false},
+      {expanded: false},
+      {expanded: false},
+    ];
   }
 
   public post_n_clear() {
@@ -59,14 +68,28 @@ export class EnvironmentalHistoryForm {
       console.log(error);
       alert('Error Confirming.');
     });
-
-    //Update User Position?
-    //this.getUserPosition();
   }
 
   //Navigation
   close() {
     this.viewCtrl.dismiss();
+  }
+
+  //Design Element: Accordion
+  expandItem(item){
+ 
+    this.accordionItems.map((listItem) => {
+
+        if(item == listItem){
+            listItem.expanded = !listItem.expanded;
+        } else {
+            listItem.expanded = false;
+        }
+
+        return listItem;
+
+    });
+
   }
 
 

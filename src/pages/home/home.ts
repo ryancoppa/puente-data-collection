@@ -32,13 +32,12 @@ export class HomePage {
     Template NG-MODELS
   */
   //Set Default NG-model
+  //Design Element: Segment
   viewMode = 'datacollection';
 
   objectID: any;
 
-  //SAVE THIS SOLUTION
-  accordionItems: any = [];
-
+  ////Design Element: Content Drawer
   drawerOptions: any;
 
   constructor(private toastCtrl: ToastController, 
@@ -48,18 +47,12 @@ export class HomePage {
     private app: App) {
     
     this.auth.authenticated();
+
+    //Design Element: Segment
     this.viewMode;
 
-    //SAVE SOLUTION
-    this.accordionItems = [
-      {expanded: false},
-      {expanded: false},
-      {expanded: false},
-      {expanded: false},
-      {expanded: false}
-    ];
     
-    //Content-Drawer Design Options
+    //Design Element: Content Drawer
     this.drawerOptions = {
       handleHeight: 50,
       thresholdFromBottom: 200,
@@ -186,24 +179,6 @@ export class HomePage {
       //this.listPoints();
       refresher.complete();
     }, 2000);
-  }
-
-  //SAVE SOLUTION
-  //TODO, put back into accordion component
-  expandItem(item){
- 
-    this.accordionItems.map((listItem) => {
-
-        if(item == listItem){
-            listItem.expanded = !listItem.expanded;
-        } else {
-            listItem.expanded = false;
-        }
-
-        return listItem;
-
-    });
-
   }
 
 }
