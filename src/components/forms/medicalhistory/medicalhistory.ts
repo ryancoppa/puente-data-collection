@@ -1,22 +1,21 @@
 import { Component } from '@angular/core';
 
 import { App, ViewController } from 'ionic-angular';
-//import { ToastController } from 'ionic-angular';
 
 // Providers
 import { ParseProvider } from '../../../providers/parse/parse';
-//import { QueryServiceProvider } from '../../../providers/query-service/query-service'; //TO RECONSIDER
 import { AuthProvider } from '../../../providers/auth/auth';
-import { Geolocation, GeolocationOptions } from '@ionic-native/geolocation';
-
 
 @Component({
   selector: 'medicalhistory',
   templateUrl: 'medicalhistory.html'
 })
 export class MedicalHistoryForm {
+  clientFname: any;
+  clientLname: any;
 
   medicalHistory = {
+    objectId: null,
     majorEvents: null,
     surgeryWhatKind: null,
     medicalIllnesses:null,
@@ -28,19 +27,25 @@ export class MedicalHistoryForm {
     //socialHistory: null,
     //nutritionHistory: null
   };
-
+  //Design Element: Content Drawer
+  drawerOptions: any;
+  
   constructor(private parseProvider: ParseProvider,
-    //private querySrvc: QueryServiceProvider, //TO RECONSIDER
     private auth: AuthProvider,  
-    private app: App, 
-    private geolocation:Geolocation,
     private viewCtrl: ViewController) {
 
     console.log('Hello MedicalHistoryForm ');
     this.auth.authenticated();
+
+    this.drawerOptions = {
+      handleHeight: 50,
+      thresholdFromBottom: 200,
+      thresholdFromTop: 200,
+      bounceBack: true
+    };
   }
 
-  public post_n_clear() {
+  post_n_clear() {
     //Posts an object to parse server and clears the local form array
 
     //Adds array to parseServer (newSurvey)
@@ -54,19 +59,29 @@ export class MedicalHistoryForm {
       for (var key in this.medicalHistory){
         this.medicalHistory[key] = null;
       }
+      this.clientFname = null;
+      this.clientLname = null;
     }, (error) => {
       console.log(error);
       alert('Error Confirming.');
     });
-
-    //Update User Position?
-    //this.getUserPosition();
   }
 
   //Navigation
   close() {
     this.viewCtrl.dismiss();
   }
+
+  inputObjectIDfromComponent(selectedItem) {
+    //retrieves selectedItem emitted from child class component
+    //make sure it's listening to event from child class in view
+    //console.log(selectedItem);
+    this.medicalHistory.objectId = selectedItem.id; //Retrieve RESERVED Parse-Server Object ID Value
+    this.clientFname = selectedItem.get('fname');
+    this.clientLname = selectedItem.get('lname');
+    console.log(this.medicalHistory.objectId);
+  }
+
 
 
 

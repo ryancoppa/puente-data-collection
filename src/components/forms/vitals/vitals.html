@@ -11,7 +11,8 @@
       Vitals
     </ion-card-header>
 
-    <ion-list>
+    <!--ion-list-->
+      <ion-item-group>
         <ion-item>
           <ion-label floating>Height (Inches)</ion-label>
           <ion-input type="number" [(ngModel)]="vitals.height"></ion-input>
@@ -61,9 +62,8 @@
             <ion-label floating>Pain</ion-label>
             <ion-input type="number" [(ngModel)]="vitals.painLevels"></ion-input>
         </ion-item>
-
-        
-    </ion-list>
+      </ion-item-group>
+    <!--/ion-list-->
 
   </ion-card>
 

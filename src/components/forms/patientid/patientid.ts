@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
-import { App, ViewController } from 'ionic-angular';
-//import { ToastController } from 'ionic-angular';
+import { ViewController } from 'ionic-angular';
 
 
 // Providers
@@ -42,7 +41,6 @@ export class PatientIDForm {
   }
   
   constructor(private parseProvider: ParseProvider,
-    //private querySrvc: QueryServiceProvider, //TO RECONSIDER
     private auth: AuthProvider,  
     public viewCtrl:ViewController,
     private userPositn:UserpositionProvider) {

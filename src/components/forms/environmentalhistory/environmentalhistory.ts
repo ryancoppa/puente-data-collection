@@ -1,15 +1,9 @@
-import { Component, Input, ViewChild, ElementRef, Renderer } from '@angular/core';
-
-import { App, ViewController } from 'ionic-angular';
-import { ToastController } from 'ionic-angular';
-
+import { Component } from '@angular/core';
+import { ViewController } from 'ionic-angular';
 
 // Providers
 import { ParseProvider } from '../../../providers/parse/parse';
-import { QueryServiceProvider } from '../../../providers/query-service/query-service';
-
 import { AuthProvider } from '../../../providers/auth/auth';
-import { Geolocation, GeolocationOptions } from '@ionic-native/geolocation';
 
 @Component({
   selector: 'environmentalhistory',
@@ -18,10 +12,10 @@ import { Geolocation, GeolocationOptions } from '@ionic-native/geolocation';
 export class EnvironmentalHistoryForm {
 
   clientFname: any;
-  clientLname:any;
+  clientLname: any;
 
   environmentalHealth = {
-    objectID: null,
+    objectId: null,
     yearsLivedinthecommunity: null,
     yearsLivedinThisHouse: null,
     waterAccess: null,
@@ -77,6 +71,8 @@ export class EnvironmentalHistoryForm {
       for (var key in this.environmentalHealth){
         this.environmentalHealth[key] = null;
       }
+      this.clientFname=null; 
+      this.clientLname=null;
     }, (error) => {
       console.log(error);
       alert('Error Confirming.');
@@ -109,10 +105,10 @@ export class EnvironmentalHistoryForm {
     //retrieves selectedItem emitted from child class component
     //make sure it's listening to event from child class in view
     //console.log(selectedItem);
-    this.environmentalHealth.objectID = selectedItem.id; //Retrieve RESERVED Parse-Server Object ID Value
+    this.environmentalHealth.objectId = selectedItem.id; //Retrieve RESERVED Parse-Server Object ID Value
     this.clientFname = selectedItem.get('fname');
     this.clientLname = selectedItem.get('lname');
-    console.log(this.environmentalHealth.objectID);
+    console.log(this.environmentalHealth.objectId);
   }
 
 
