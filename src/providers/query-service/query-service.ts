@@ -14,6 +14,8 @@ export class QueryServiceProvider {
 
   constructor(private parseSrvc: ParseProvider) {
     console.log('Hello QueryServiceProvider Provider');
+
+    
     parseSrvc.parseInitialize();
   }
 
@@ -77,7 +79,6 @@ export class QueryServiceProvider {
       }, 500);
     });
   }
-
   
   public geoQuery(lat: number, long: number, limit: number , parseClass: string, parseColumn: string, parseParam: string): Promise<any> {
     let Parse = this.parseSrvc.getParseENV();

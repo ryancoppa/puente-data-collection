@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
-
-import { App, ViewController } from 'ionic-angular';
-//import { ToastController } from 'ionic-angular';
-
+import { ViewController } from 'ionic-angular';
 
 // Providers
 import { ParseProvider } from '../../../providers/parse/parse';
-//import { QueryServiceProvider } from '../../../providers/query-service/query-service'; //TO RECONSIDER
 import { AuthProvider } from '../../../providers/auth/auth';
 
 @Component({
@@ -15,7 +11,11 @@ import { AuthProvider } from '../../../providers/auth/auth';
 })
 export class VitalsForm {
 
+  clientFname: any;
+  clientLname:any;
+
   vitals = {
+    objectId: null,
     height: null,
     weight: null,
     bmi: null,
@@ -25,42 +25,55 @@ export class VitalsForm {
     bloodPressure: null,
     bloodOxygen: null,
     bloodSugar:null,
-    painLevels:null,
-    
-    surveyingUser: this.auth.currentUser().name,
-    surveyingOrganization: this.auth.currentUser().organization
-
+    painLevels:null
   }
+
+  //Design Element: Content Drawer
+  drawerOptions: any;
   
   constructor(private parseProvider: ParseProvider,
-    //private querySrvc: QueryServiceProvider, //TO RECONSIDER
     private auth: AuthProvider,  
-    private app: App, 
     public viewCtrl:ViewController) {
 
     console.log('Hello VitalsForm');
     this.auth.authenticated();
+
+    //Design Element: Content Drawer
+    this.drawerOptions = {
+      handleHeight: 50,
+      thresholdFromBottom: 200,
+      thresholdFromTop: 200,
+      bounceBack: true
+    };
   }
 
 
-  public post_n_clear() {
-
+  post_n_clear() {
     //TODO, change how this is posted to reflect new database design
     this.parseProvider.postObjectsToClass(this.vitals,'SurveyData').then((/*surveyPoint*/) => {
       for (var key in this.vitals){
         this.vitals[key] = null;
       }
+      this.clientFname=null; 
+      this.clientLname=null;
     }, (error) => {
       console.log(error);
       alert('Error Confirming.');
     });
   }
 
-  //Navigation
   close() {
     this.viewCtrl.dismiss();
   }
 
-
+  inputObjectIDfromComponent(selectedItem) {
+    //retrieves selectedItem emitted from child class component
+    //make sure it's listening to event from child class in view
+    //console.log(selectedItem);
+    this.vitals.objectId = selectedItem.id; //Retrieve RESERVED Parse-Server Object ID Value
+    this.clientFname = selectedItem.get('fname');
+    this.clientLname = selectedItem.get('lname');
+    console.log(this.vitals.objectId);
+  }
 
 }

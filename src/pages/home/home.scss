@@ -1,17 +1,4 @@
 page-home {
-    /*
-    Legacy Garbage
-    .alert-radio-label {
-        white-space: normal!important;
-    }
-
-    .alert-ios .alert-radio-label{
-        white-space: pre-line;
-    }
-    ion-refresher-content{
-        color: map-get($colors, primary);
-    }
-    */
 
     ion-segment {
         border-color: map-get($colors, primary) ;
@@ -47,16 +34,6 @@ page-home {
         }
     }
 
-
-    //Content Draw Contents for Customization
-    content-drawer {
-        //background-color: #34495e !important;
-        background-color: map-get($colors, primary);
-    }
-
-    content-drawer .content {
-        padding: 20px;
-    }
     
     /*
     //Card Details to keep

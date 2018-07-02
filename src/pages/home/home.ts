@@ -4,9 +4,7 @@ import { ToastController, ModalController, NavController } from 'ionic-angular';
 
 
 // Providers
-//import { ParseProvider } from '../../providers/parse/parse'; //TO REMOVE
 import { AuthProvider } from '../../providers/auth/auth';
-import { Geolocation, GeolocationOptions } from '@ionic-native/geolocation';
 
 // Pages
 import { SigninPage } from '../signin/signin';
@@ -34,99 +32,35 @@ export class HomePage {
     Template NG-MODELS
   */
   //Set Default NG-model
+  //Design Element: Segment
   viewMode = 'datacollection';
 
-  //Enables Options from Geolocation Import
-  options: GeolocationOptions;
-  
-  //Variables in Survey
-  //TO REMOVE
-  newSurvey =
-  {
-   
-    latitude: null,
-    longitude: null,
-    location: null,
-    
-    surveyingUser: this.auth.currentUser().name,
-    surveyingOrganization: this.auth.currentUser().organization
-  }
-
-  //SAVE THIS SOLUTION
-  accordionItems: any = [];
-
+  ////Design Element: Content Drawer
   drawerOptions: any;
-  
-  //TO REMOVE
-  //Array used to Display Results from Pushed from Server Query
-  surveyPoints = []
 
   constructor(private toastCtrl: ToastController, 
     public modalCtrl: ModalController, 
     private navCtrl: NavController,
-    //private parseProvider: ParseProvider, //TO REMOVE
     private auth: AuthProvider,  
-    private app: App, 
-    private geolocation:Geolocation) {
+    private app: App) {
     
     this.auth.authenticated();
-    this.viewMode 
 
-    //SAVE SOLUTION
-    this.accordionItems = [
-      {expanded: false},
-      {expanded: false},
-      {expanded: false},
-      {expanded: false},
-      {expanded: false}
-    ];
-    
-    //Content-Drawer Design Options
-    this.drawerOptions = {
-      handleHeight: 50,
-      thresholdFromBottom: 200,
-      thresholdFromTop: 200,
-      bounceBack: true
-  };
+    //Design Element: Segment
+    this.viewMode;
   }
 
   ionViewCanEnter(): boolean {
+    //Authenticates Page
     return this.auth.authenticated();
   }
-  ionViewDidEnter() {
-    //Gets User Position once user has entered homepage
-    this.getUserPosition();  
+  ionViewDidEnter() { 
   }
   
   /*
     Functions
   */
-  
 
-  //TO REMOVE
-  //turn into geopostion provider
-  public getUserPosition() {
-    //Retrieves coordinates of the user
-    this.options = {
-      enableHighAccuracy : true
-    };
-    
-    this.geolocation.getCurrentPosition(this.options).then((resp) => {
-      let latitude = resp.coords.latitude;
-      let longitude = resp.coords.longitude;
-      
-      //this.newSurvey.latitude = latitude;
-      //this.newSurvey.longitude = longitude;
-
-      //Because I'm lazy
-      this.newSurvey.surveyingOrganization = this.auth.currentUser().organization;
-      this.newSurvey.surveyingUser = this.auth.currentUser().name;
-      console.log(latitude,longitude)
-    }).catch((error) => {
-      console.log('Error getting location',error);
-    });
-  }
- 
   /*
     Navigation
   */
@@ -229,24 +163,6 @@ export class HomePage {
       //this.listPoints();
       refresher.complete();
     }, 2000);
-  }
-
-  //SAVE SOLUTION
-  //TODO, put back into accordion component
-  expandItem(item){
- 
-    this.accordionItems.map((listItem) => {
-
-        if(item == listItem){
-            listItem.expanded = !listItem.expanded;
-        } else {
-            listItem.expanded = false;
-        }
-
-        return listItem;
-
-    });
-
   }
 
 }

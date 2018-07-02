@@ -1,0 +1,25 @@
+
+<ion-content>
+
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterItems()"></ion-searchbar>
+    
+    <!--div *ngIf="searching" class="spinner-container">
+        <ion-spinner></ion-spinner>
+    </div-->
+    
+    <ion-list>
+        <ion-item no-lines *ngFor="let item of filteredItems" (click)='setItem(item)'>
+            <ion-label>
+                {{ item.get('fname') }}
+                {{ item.get('lname') }}
+            </ion-label>
+            <div item-right>
+                {{ item.get('communityname') }}
+            </div> 
+            <div item-left>
+                <img height="100 px" width="100 px" src='../../assets/images/placeholder.png'>
+            </div> 
+        </ion-item>      
+    </ion-list>
+     
+</ion-content>

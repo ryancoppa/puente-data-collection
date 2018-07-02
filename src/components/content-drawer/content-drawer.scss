@@ -4,4 +4,16 @@ content-drawer {
     position: absolute;
     z-index: 10 !important;
     box-shadow: 0px -4px 22px -8px rgba(0,0,0,0.75);
+
+
+    ion-content {
+        //messes with blankspace between ion-content and ion-header
+        background-color: map-get($colors , primary);
+
+        .scroll-content {
+            margin-top: 0px;
+        }
+    }
+
+    
 }

@@ -1,10 +1,18 @@
 <ion-content >
   <ion-card>
-    <ion-card-header class='card-title' color="primary-light" (click)="close()">
+
+    <ion-item color='primary-dark' (click)="close()">
+      Client
+      <ion-label>{{clientFname}} {{clientLname}}</ion-label>
+      <ion-icon name="person" item-start></ion-icon>
+    </ion-item>
+    
+    <ion-card-header class='card-title' color="primary-light">
       Vitals
     </ion-card-header>
 
-    <ion-list>
+    <!--ion-list-->
+      <ion-item-group>
         <ion-item>
           <ion-label floating>Height (Inches)</ion-label>
           <ion-input type="number" [(ngModel)]="vitals.height"></ion-input>
@@ -54,9 +62,8 @@
             <ion-label floating>Pain</ion-label>
             <ion-input type="number" [(ngModel)]="vitals.painLevels"></ion-input>
         </ion-item>
-
-        
-    </ion-list>
+      </ion-item-group>
+    <!--/ion-list-->
 
   </ion-card>
 
@@ -70,6 +77,10 @@
     </ion-item>
   </ion-card>
 </ion-content>
+
+<content-drawer [options]="drawerOptions">
+    <searchbar-object-id (emitObjectIDfromComponent)='inputObjectIDfromComponent($event)'></searchbar-object-id>
+</content-drawer>
 
 
 <!--Photo Identification

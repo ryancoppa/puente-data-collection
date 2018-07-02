@@ -15,11 +15,14 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { ParseProvider } from '../providers/parse/parse';
 import { AuthProvider } from '../providers/auth/auth';
 import { QueryServiceProvider } from '../providers/query-service/query-service';
+import { ChartsProvider } from '../providers/charts/charts';
+import { UserpositionProvider } from '../providers/userposition/userposition';
 
 // Components
 import { AccordionComponent } from '../components/accordion/accordion';
 import { CardFlippingComponent } from '../components/card-flipping/card-flipping';
 import { ContentDrawerComponent } from '../components/content-drawer/content-drawer';
+import { SearchbarObjectIdComponent } from '../components/searchbar-object-id/searchbar-object-id';
 
 // Forms
 import { PatientIDForm } from '../components/forms/patientid/patientid';
@@ -42,7 +45,6 @@ import { ProfileModalPage } from '../pages/profile-modal/profile-modal';
 import { HelpPage } from '../pages/help/help';
 import { VisualChartsPage } from '../pages/visual-charts/visual-charts';
 import { FindRecordsPage } from '../pages/find-records/find-records';
-import { ChartsProvider } from '../providers/charts/charts';
 
 
 @NgModule({
@@ -63,6 +65,7 @@ import { ChartsProvider } from '../providers/charts/charts';
     AccordionComponent,
     CardFlippingComponent,
     ContentDrawerComponent,
+    SearchbarObjectIdComponent,
     PatientIDForm,
     EnvironmentalHistoryForm,
     MedicalHistoryForm,
@@ -105,7 +108,8 @@ import { ChartsProvider } from '../providers/charts/charts';
     AuthProvider,
     Geolocation,
     QueryServiceProvider,
-    ChartsProvider
+    ChartsProvider,
+    UserpositionProvider,
   ]
 })
 export class AppModule { }

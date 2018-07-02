@@ -28,25 +28,6 @@
 </ion-header>
 
 <ion-content fullscreen class="home-content">
-    <!--ion-refresher (ionRefresh)="doRefresh($event)">
-      <ion-refresher-content 
-        pullingIcon="arrow-dropdown"
-        pullingText="Pull to Refresh Survey Results"
-        refreshingSpinner="circles"
-        refreshingText="Refreshing...">
-      </ion-refresher-content>
-    </ion-refresher-->
-    
-    <!-- Patient Registration
-    <patientid></patientid> -->
-    <!--  Environmental Health History 
-    <environmentalhistory></environmentalhistory> -->
-    <!--  Capture Vitals -->
-    <!--  Medical History 
-    <medicalhistory></medicalhistory> -->
-    
-    
-
     <!--Data Collection-->
     <ng-template [ngIf]="viewMode === 'datacollection'">
       <ion-grid>
@@ -54,7 +35,7 @@
           <ion-col>
             <ion-card (click) = 'openPatientID()'>
               <h1 ion-text color="orange">ID</h1>
-              <p text-wrap>Client Identification and Registration</p>
+              <p ion-text text-wrap>Client Identification and Registration</p>
             </ion-card>
           </ion-col>
 
@@ -160,47 +141,3 @@
 
 
 </ion-content>
-
-<content-drawer [options]="drawerOptions">
-    <div class="content">
-      The world is your oyster.
-      <p>
-        If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-      </p>
-    </div>
-</content-drawer>
-
-
-<!--Formats
-    Input
-    <ion-item>
-      <ion-label floating>Item</ion-label>
-      <ion-input type="text" [(ngModel)]="newSurvey.item"></ion-input>
-    </ion-item>
-
-    Checkbox
-    <ion-item>
-      <ion-label>Item</ion-label>
-      <ion-select [(ngModel)]="newSurvey.item" multiple="true">
-        <ion-option text-wrap value=""></ion-option>
-        <ion-option text-wrap value=""></ion-option>
-        <ion-option text-wrap value=""></ion-option>
-        <ion-option text-wrap value=""></ion-option>
-      </ion-select>
-    </ion-item>
-
-    Multiple Choice
-    <ion-item>
-      <ion-label>item</ion-label>
-      <ion-select [(ngModel)]="newSurvey.item" interface ='popover'>
-          <ion-option text-wrap value="X"> X </ion-option>
-          <ion-option text-wrap value="Y"> Y </ion-option>
-          <ion-option text-wrap value="Y"> Y </ion-option>
-          <ion-option text-wrap value="Y"> Y </ion-option>
-      </ion-select>
-    </ion-item>
-
-
-
-
--->

@@ -38,8 +38,11 @@ export class ContentDrawerComponent {
  
     this.renderer.setElementStyle(this.element.nativeElement, 'top', this.platform.height() - this.handleHeight + 'px');
     this.renderer.setElementStyle(this.element.nativeElement, 'padding-top', this.handleHeight + 'px');
- 
-    let hammer = new window['Hammer'](this.element.nativeElement);
+    //Original
+    //let hammer = new window['Hammer'](this.element.nativeElement);
+    //New: allows pan event to be tied to ion-header
+    let hammer = new window['Hammer'](this.element.nativeElement.children[0]);
+
     hammer.get('pan').set({ direction: window['Hammer'].DIRECTION_VERTICAL });
  
     hammer.on('pan', (ev) => {
@@ -99,3 +102,7 @@ export class ContentDrawerComponent {
   }
  
 }
+
+/*
+https://www.joshmorony.com/how-to-create-a-sliding-drawer-component-for-ionic-2/
+*/
