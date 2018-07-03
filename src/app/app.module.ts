@@ -1,4 +1,5 @@
 import { NgModule, ErrorHandler } from '@angular/core';
+import { ChartsModule } from 'ng2-charts';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 
@@ -23,6 +24,9 @@ import { AccordionComponent } from '../components/accordion/accordion';
 import { CardFlippingComponent } from '../components/card-flipping/card-flipping';
 import { ContentDrawerComponent } from '../components/content-drawer/content-drawer';
 import { SearchbarObjectIdComponent } from '../components/searchbar-object-id/searchbar-object-id';
+
+//Charts
+import { BarchartComponent } from '../components/charts/barchart/barchart';
 
 // Forms
 import { PatientIDForm } from '../components/forms/patientid/patientid';
@@ -66,6 +70,7 @@ import { FindRecordsPage } from '../pages/find-records/find-records';
     CardFlippingComponent,
     ContentDrawerComponent,
     SearchbarObjectIdComponent,
+    BarchartComponent,
     PatientIDForm,
     EnvironmentalHistoryForm,
     MedicalHistoryForm,
@@ -75,7 +80,8 @@ import { FindRecordsPage } from '../pages/find-records/find-records';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
