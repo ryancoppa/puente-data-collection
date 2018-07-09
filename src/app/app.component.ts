@@ -7,7 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SigninPage } from '../pages/signin/signin';
 //import { HomePage } from '../pages/home/home';
 //import { MapPage } from '../pages/map/map';
-//import { AboutPage } from '../pages/about/about';
+import { VisualChartsPage } from '../pages/visual-charts/visual-charts';
 
 import { Splash } from '../pages/splash/splash';
 
@@ -15,10 +15,11 @@ import { Splash } from '../pages/splash/splash';
   template: '<ion-nav [root]="rootPage"></ion-nav>'
 })
 export class MyApp {
+  //Correct One
   rootPage: any = SigninPage;
-  //rootPage: any = HomePage;
-  //rootPage: any = AboutPage;
-  //rootPage: any = MapPage;
+
+  //Test Page
+  //rootPage: any = VisualChartsPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, modalCtrl: ModalController) {
     platform.ready().then(() => {
@@ -32,7 +33,7 @@ export class MyApp {
 
       //Creates Splashscreen
       let splash = modalCtrl.create(Splash);
-      splash.present();
+      //splash.present();
     });
   }
 

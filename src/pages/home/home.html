@@ -93,50 +93,52 @@
     </ng-template>
 
     <!--Dashboard-->
-    <ng-template [ngIf]="viewMode === 'dashboard'">
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <ion-card (click)='openCharts()'>
-              <h1 ion-text color="blue">Analysis</h1>
-              <p>Interactive Charts</p>
-            </ion-card>
-          </ion-col>
+    <ng-template [ngIf]="viewMode === 'dashboard'" >
+      <ion-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-card (click)='openCharts()'>
+                <h1 ion-text color="blue">Analysis</h1>
+                <p>Interactive Charts</p>
+              </ion-card>
+            </ion-col>
 
-          <ion-col>
-            <ion-card (click)="openFindRecords()">
-              <h1 ion-text color="orange">Find Records</h1>
-              <p>Search through pre-identified clients</p>
-            </ion-card>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-card (click) = 'openMapPage()'>
-              <h1 ion-text color="red">Mapping</h1>
-              <p>Interactive Mapping of pre-identified clients</p>
-            </ion-card>
-          </ion-col>
+            <ion-col>
+              <ion-card (click)="openFindRecords()">
+                <h1 ion-text color="orange">Find Records</h1>
+                <p>Search through pre-identified clients</p>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-card (click) = 'openMapPage()'>
+                <h1 ion-text color="red">Mapping</h1>
+                <p>Interactive Mapping of pre-identified clients</p>
+              </ion-card>
+            </ion-col>
 
-          <ion-col>
-            <ion-card>
-              <h1 ion-text color="green">Calendar</h1>
-              <p>View Appointments</p>
-            </ion-card>
-          </ion-col>
-        </ion-row>
+            <ion-col>
+              <ion-card>
+                <h1 ion-text color="green">Calendar</h1>
+                <p>View Appointments</p>
+              </ion-card>
+            </ion-col>
+          </ion-row>
 
-        <!--ion-row>
-          <ion-col>
-            <ion-card>
-              <h1 green>Data Management</h1>
-              <p>Form Creation and Data Export</p>
-              <p>(Coming Soon!)</p>
-            </ion-card>
-          </ion-col>
-        </ion-row-->
-      
-      </ion-grid>
+          <!--ion-row>
+            <ion-col>
+              <ion-card>
+                <h1 green>Data Management</h1>
+                <p>Form Creation and Data Export</p>
+                <p>(Coming Soon!)</p>
+              </ion-card>
+            </ion-col>
+          </ion-row-->
+        
+        </ion-grid>
+      </ion-content>
     </ng-template>
 
 

@@ -24,9 +24,11 @@ import { AccordionComponent } from '../components/accordion/accordion';
 import { CardFlippingComponent } from '../components/card-flipping/card-flipping';
 import { ContentDrawerComponent } from '../components/content-drawer/content-drawer';
 import { SearchbarObjectIdComponent } from '../components/searchbar-object-id/searchbar-object-id';
+import { CircleDecorationComponent } from '../components/circle-decoration/circle-decoration';
 
 //Charts
 import { BarchartComponent } from '../components/charts/barchart/barchart';
+import { DoughnutComponent } from '../components/charts/doughnut/doughnut';
 
 // Forms
 import { PatientIDForm } from '../components/forms/patientid/patientid';
@@ -70,7 +72,9 @@ import { FindRecordsPage } from '../pages/find-records/find-records';
     CardFlippingComponent,
     ContentDrawerComponent,
     SearchbarObjectIdComponent,
+    CircleDecorationComponent,
     BarchartComponent,
+    DoughnutComponent,
     PatientIDForm,
     EnvironmentalHistoryForm,
     MedicalHistoryForm,

@@ -1,24 +1,30 @@
 page-visual-charts {
 
-    .dashboard-header{
-		color: goldenrod
-	}
 	.dashboard-content{
-		background-color: #333333;
-		color: goldenrod
+		background: #4D4D4D;
+		barchart div {
+			background: #4D4D4D;
+		}
+		doughnut div {
+			background: #4D4D4D;
+		}
+		
 	}
 
-	.scroll-content {
-        background-color: map-get($colors, primary);
-    }
+	.items{
+		border-color: rgba(0, 0, 0, 0);
+		background-color: rgba(0, 0, 0, 0);
+		color: white; 
+	}
  
-    ion-card-header {
-        font-weight: bold;
-    }
-    .card-header{
-    	color: goldenrod;
-    	background-color: map-get($colors, primary-black);
-    	padding: true;
+	.info {
+        color: #555;
+        text-align: center;
+
+		//font: bold 40px/80px Helvetica, Verdana, Tahoma;
+		font: bold 8vh/28vw Helvetica, Verdana, Tahoma;
+        padding: 4px 3px 0 3px;
+        
     }
 	
 	/**
@@ -32,6 +38,15 @@ page-visual-charts {
 	* IPAD and up (796px)
 	*/
 	@media (min-width: map-get($grid-breakpoints, md)) {
+		.info {
+			color: #555;
+			text-align: center;
+	
+			//font: bold 40px/80px Helvetica, Verdana, Tahoma;
+			font: bold 12vh/28vw Helvetica, Verdana, Tahoma;
+			padding: 4px 3px 0 3px;
+			
+		}
 
 	}
 

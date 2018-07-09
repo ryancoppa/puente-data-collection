@@ -2,55 +2,91 @@
   Generated template for the VisualChartsPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>visual-charts</ion-title>
-  </ion-navbar>
-
+  Ionic pages and navigation. -->
+<ion-header no-border >
+	<ion-navbar color="dashboard-dark" >
+			<ion-title text-center >ANALYTICS</ion-title>
+	</ion-navbar>
+	<ion-segment [(ngModel)]="viewMode">
+			<ion-segment-button value="Demographics">
+				Demographics
+			</ion-segment-button>
+		<ion-segment-button value="Medical">
+				Medical
+		</ion-segment-button>
+		<ion-segment-button value="Environmental">
+				Environmental
+		</ion-segment-button>
+  </ion-segment>
 </ion-header>
 
 
-<ion-content>
-	<ion-item padding class="dashboard-content">
-		<h3>This Would Be the Main Page</h3>
-		<h3>Holds Basic Data Visualizations, Survey Collection Tracker, and Calendar</h3>
-	</ion-item>
-	<!--
-	<ion-item class="dashboard-content">
-	    <ion-card>
-	      <ion-card-header class="card-header">
-	        # of Residents with Diabetes Diagnosis Bar Chart
-	      </ion-card-header>
-	      <ion-card-content>
-	        <canvas #barCanvas></canvas>
-	      </ion-card-content>
-	    </ion-card>
-	 
-	    <ion-card>
-	      <ion-card-header class="card-header">
-	        Available Water Frequency Doughnut Chart
-	      </ion-card-header>
-	      <ion-card-content>
-	        <canvas #doughnutCanvas></canvas>
-	      </ion-card-content>
-	    </ion-card>
-	 
-	    <ion-card>
-	      <ion-card-header class="card-header">
-	        Time Progression of Zika Cases Line Chart
-	      </ion-card-header>
-	      <ion-card-content>
-	        <canvas #lineCanvas></canvas>
-	      </ion-card-content>
-	    </ion-card>
-	</ion-item> 
-	-->
-	<ion-item padding class="dashboard-content">
-		<barchart>
+<ion-content [ngSwitch]="viewMode" class="dashboard-content">
+	<div *ngSwitchCase="'Demographics'">
+		<barchart></barchart>
+		<ion-row>
+			<ion-col>
+					<circle-decoration class="info">100</circle-decoration>
+			</ion-col>
+			<ion-col>
+					<circle-decoration></circle-decoration>
+			</ion-col>
+			<ion-col>
+					<circle-decoration></circle-decoration>
+			</ion-col>
+		</ion-row>
 
-		</barchart>
-	</ion-item>
+		<ion-row>
+			<ion-item padding class="items">
+				Stuff
+			</ion-item>
+		</ion-row>
+
+		<ion-row>
+			<ion-item padding class="items">
+				Stuff
+			</ion-item>
+		</ion-row>
+
+		<ion-row>
+			<ion-item padding class="items">
+				Stuff
+			</ion-item>
+		</ion-row>
+	</div>
+
+	<div *ngSwitchCase="'Medical'">
+		<doughnut></doughnut>
+		<ion-row>
+			<ion-col>
+					<circle-decoration class="info">100</circle-decoration>
+			</ion-col>
+			<ion-col>
+					<circle-decoration class="info">200</circle-decoration>
+			</ion-col>
+			<ion-col>
+					<circle-decoration class="info"></circle-decoration>
+			</ion-col>
+		</ion-row>
+
+		<ion-row>
+			<ion-item padding class="items">
+				Stuff
+			</ion-item>
+		</ion-row>
+
+		<ion-row>
+			<ion-item padding class="items">
+				Stuff
+			</ion-item>
+		</ion-row>
+
+		<ion-row>
+			<ion-item padding class="items">
+				Stuff
+			</ion-item>
+		</ion-row>
+	</div>
+
+	<div *ngSwitchCase="'Environmental'"></div>
 </ion-content>

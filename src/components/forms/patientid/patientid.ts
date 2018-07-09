@@ -31,6 +31,7 @@ export class PatientIDForm {
     province: null,
     insuranceNumber: null,
     insuranceProvider: null,
+    clinicProvider: null,
     cedulaNumber: null,
     latitude: null,
     longitude: null,

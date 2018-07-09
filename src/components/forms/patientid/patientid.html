@@ -92,7 +92,12 @@
 
         <ion-item>
           <ion-label floating>Insurance Provider</ion-label>
-          <ion-input type="number" [(ngModel)]="patientID.insuranceProvider"></ion-input>
+          <ion-input type="text" [(ngModel)]="patientID.insuranceProvider"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Closest UNAP Provider</ion-label>
+          <ion-input type="text" [(ngModel)]="patientID.clinicProvider"></ion-input>
         </ion-item>
 
         <ion-item>
