@@ -2,64 +2,64 @@
   <ion-card>
 
     <ion-item color='primary-dark' (click)="close()">
-      Client
+        {{ 'CLIENT' | translate }}
       <ion-label>{{clientFname}} {{clientLname}}</ion-label>
       <ion-icon name="person" item-start></ion-icon>
     </ion-item>
     
     <ion-card-header class='card-title' color="primary-light">
-      Vitals
+        {{ 'VITALS' | translate }}
     </ion-card-header>
 
     <!--ion-list-->
       <ion-item-group>
         <ion-item>
-          <ion-label floating>Height (Inches)</ion-label>
+          <ion-label floating>{{ 'HEIGHT' | translate }}</ion-label>
           <ion-input type="number" [(ngModel)]="vitals.height"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label floating>Weight (Pounds)</ion-label>
+          <ion-label floating>{{ 'WEIGHT' | translate }}</ion-label>
           <ion-input type="number" [(ngModel)]="vitals.weight"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label floating>Body Mass Index</ion-label>
+            <ion-label floating>{{ 'BODYMASSINDEX' | translate }}</ion-label>
             <ion-input type="number" [(ngModel)]="vitals.bmi"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label floating>Body Temperature (Celsius)</ion-label>
+            <ion-label floating>{{ 'TEMPERATURE' | translate }}</ion-label>
             <ion-input type="number" [(ngModel)]="vitals.temp"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label floating>Pulse</ion-label>
+            <ion-label floating>{{ 'PULSE' | translate }}</ion-label>
             <ion-input type="number" [(ngModel)]="vitals.pulse"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label floating>Respiratory Rate (Beats Per Minute)</ion-label>
+            <ion-label floating>{{ 'RESPIRATORYRATE' | translate }}</ion-label>
             <ion-input type="number" [(ngModel)]="vitals.respRate"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label floating>Blood Pressure</ion-label>
+            <ion-label floating>{{ 'BLOODPRESSURE' | translate }}</ion-label>
             <ion-input type="text" [(ngModel)]="vitals.bloodPressure"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label floating>Body Mass Index</ion-label>
+            <ion-label floating>{{ 'BLOODOXYGEN' | translate }}</ion-label>
             <ion-input type="number" [(ngModel)]="vitals.bloodOxygen"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label floating>Blood Sugar Levels (mg/dL)</ion-label>
+            <ion-label floating>{{ 'BLOODSUGAR' | translate }}</ion-label>
             <ion-input type="number" [(ngModel)]="vitals.bloodSugar"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label floating>Pain</ion-label>
+            <ion-label floating>{{ 'PAIN' | translate }}</ion-label>
             <ion-input type="number" [(ngModel)]="vitals.painLevels"></ion-input>
         </ion-item>
       </ion-item-group>
@@ -72,7 +72,7 @@
     <ion-item no-lines>
       <button ion-button icon-left full block large color="accent" (click)="post_n_clear()" >
         <ion-icon name="checkmark-circle"></ion-icon>
-        Submit Vitals
+        {{ 'SUBMIT' | translate }} {{ 'VITALS' | translate }}
       </button>
     </ion-item>
   </ion-card>
