@@ -6,9 +6,9 @@ import { AuthProvider } from '../../providers/auth/auth';
 
 // Pages
 import { SignupPage } from '../signup/signup';
-//import { TabsPage } from '../tabs/tabs'; //TO REMOVE, LEGACY
+import { TabsPage } from '../tabs/tabs'; 
 import { SettingsPage } from '../settings/settings';
-import { HomePage } from '../home/home';
+//import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-signin',
@@ -56,8 +56,8 @@ export class SigninPage {
 
     this.authPvdr.signin(this.trimWhitespace(this.username), this.password).subscribe((success) => {
       ion_alert.dismiss();
-      //this.navCtrl.setRoot(TabsPage);
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot(TabsPage);
+      //this.navCtrl.setRoot(HomePage);
       loader.dismissAll();
     }, (error) => {
       //ion_alert.present();

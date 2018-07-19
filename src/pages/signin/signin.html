@@ -1,43 +1,39 @@
-<ion-content>
-  <ion-content padding class="background">
-    <p class="logo">
-      <!-- <img src="http://placehold.it/300x200"/> -->
-      <img src="assets/images/puente.png" />
-    </p>
+<ion-content padding class="background">
+  <p class="logo">
+    <!-- <img src="http://placehold.it/300x200"/> -->
+    <img src="assets/images/puente.png" />
+  </p>
 
-    <h2 class="logo-subtitle" text-center>Data Collection</h2>
-
-    <form (submit)="doSignin()">
-      <ion-list inset padding>
-
-        <ion-item class="fillin">
-          <ion-label floating>{{ 'USERNAME' | translate }}</ion-label>
-          <ion-input class='text' type="text" [(ngModel)]="username" name="username"></ion-input>
+  <form (submit)="doSignin()">
+    <ion-list inset padding>
+      <div padding>
+        <ion-item>
+          <ion-label floating color="primary">{{ 'USERNAME' | translate }}</ion-label>
+          <ion-input class='text' type="text" [(ngModel)]="username" name="username" color="primary"></ion-input>
         </ion-item>
 
-        <ion-item class="fillin">
-          <ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
-          <ion-input class='text' type="password" [(ngModel)]="password" name="password"></ion-input>
+        <ion-item>
+          <ion-label floating color="primary">{{ 'PASSWORD' | translate }}</ion-label>
+          <ion-input class='text' type="password" [(ngModel)]="password" name="password" color="primary"></ion-input>
         </ion-item>
 
         <div padding>
           <button ion-button color="primary" round block>{{ 'LOGIN' | translate }}</button>
-          <p></p>
+            <p></p>
           <button ion-button color="primary-dark" [navPush]="registerPage" round block outline>{{ 'SIGNUP' | translate }}</button>
-        </div>
+        </div>>
+      </div>
 
-      </ion-list>
-      </form>
-    </ion-content>
-
+    </ion-list>
+  </form>
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar color="black">
+<ion-footer >
+  <ion-navbar transparent>
     <ion-buttons right>
       <button ion-button icon-only (click)="presentSettingsModal()" color="primary">
         <ion-icon name="cog"></ion-icon>
       </button>
     </ion-buttons>
-  </ion-toolbar>
-  </ion-footer>
+  </ion-navbar>
+</ion-footer>

@@ -7,10 +7,12 @@
 <ion-header>
 
   <ion-navbar>
+    <ion-buttons left>
       <button ion-button (click)="close()" >
           <ion-icon name="home"></ion-icon>
       </button>
-    <ion-title>settings</ion-title>
+    </ion-buttons>
+    <ion-title>{{ 'SETTINGS' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,7 +21,7 @@
 <ion-content padding>
     <ion-list>
       <ion-item-group radio-group (ionChange)="applyLanguage()" [(ngModel)]="selectedLanguage">
-        <ion-item-divider color="light">Languages</ion-item-divider>
+        <ion-item-divider color="light">{{ 'LANGUAGES' | translate }}</ion-item-divider>
         <ion-item *ngFor="let lang of languages">
           <ion-label>{{lang.name}}</ion-label>
           <ion-radio [value]="lang.code"></ion-radio>
@@ -27,13 +29,13 @@
       </ion-item-group>
   
       <ion-item-group>
-        <ion-item-divider color="light">Translations</ion-item-divider>
+        <ion-item-divider color="light">{{ 'TRANSLATIONS' | translate }}</ion-item-divider>
         <ion-item>
-          <h2>Simple translation string</h2>
+          <h2>Simple translation </h2>
           <p>{{ 'HELLO' | translate }}</p>
         </ion-item>
         <ion-item>
-          <h2>Simple translation string again</h2>
+          <h2>Simple translation again</h2>
           <p>{{ 'LOGIN' | translate }}</p>
         </ion-item>
         <!--ion-item>
