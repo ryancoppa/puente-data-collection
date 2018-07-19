@@ -18,10 +18,10 @@
   </ion-navbar>
   <ion-segment [(ngModel)]="viewMode">
       <ion-segment-button value="datacollection">
-          Data Collection
+          {{ 'DATACOLLECTION' | translate }}
       </ion-segment-button>
       <ion-segment-button value="dashboard">
-          Dashboard
+          {{ 'DASHBOARD' | translate }}
       </ion-segment-button>
   </ion-segment>
   
@@ -35,13 +35,13 @@
           <ion-col>
             <ion-card (click) = 'openPatientID()'>
               <h1 ion-text color="orange">ID</h1>
-              <p ion-text text-wrap>Identification and Registration</p>
+              <p ion-text text-wrap>{{ 'IDANDREGISTRATION' | translate }}</p>
             </ion-card>
           </ion-col>
 
           <ion-col>
             <ion-card (click) = "openVitals()">
-              <h1 ion-text color="red">Vitals</h1>
+              <h1 ion-text color="red">{{ 'VITALS' | translate }}</h1>
               <p>Medical Snapshot</p>
             </ion-card>
           </ion-col>
@@ -49,14 +49,14 @@
         <ion-row>
           <ion-col>
             <ion-card (click)='openEnvironmentalHistory()'>
-              <h1 ion-text color="green">History</h1>
+              <h1 ion-text color="green">{{ 'HISTORY' | translate }}</h1>
               <p>Environmental Health and Accessibility</p>
             </ion-card>
           </ion-col>
 
           <ion-col>
             <ion-card (click)='openMedicalHistory()'>
-              <h1 ion-text color="purple">History</h1>
+              <h1 ion-text color="purple">{{ 'HISTORY' | translate }}</h1>
               <p>Medical</p>
             </ion-card>
           </ion-col>
@@ -66,7 +66,7 @@
             <ion-card>
               <ion-row>
                 <ion-col>
-                  <h1 ion-text color='blue'>Evaluation</h1>
+                  <h1 ion-text color='blue'>{{ 'EVALUATION' | translate }}</h1>
                 </ion-col>
               </ion-row>
               <ion-grid>
@@ -74,13 +74,13 @@
                   <ion-col>
                     <button ion-button icon-left small full (click) = 'openMedicalEvaluation()'>
                       <ion-icon name="medkit"></ion-icon>
-                      <div>Medical</div>
+                      <div>{{ 'MEDICAL' | translate }}</div>
                     </button>
                   </ion-col>
                   <ion-col>
                     <button ion-button icon-left small full (click) = 'openSurgicalEvaluation()' >
                       <ion-icon name="cut"></ion-icon>
-                      <div>Surgical</div>
+                      <div>{{ 'SURGICAL' | translate }}</div>
                     </button>
                   </ion-col>
                 </ion-row>
@@ -99,14 +99,14 @@
           <ion-row>
             <ion-col>
               <ion-card (click)='openCharts()'>
-                <h1 ion-text color="blue">Analysis</h1>
+                <h1 ion-text color="blue">{{ 'ANALYSIS' | translate }}</h1>
                 <p>Interactive Charts</p>
               </ion-card>
             </ion-col>
 
             <ion-col>
               <ion-card (click)="openFindRecords()">
-                <h1 ion-text color="orange">Find Records</h1>
+                <h1 ion-text color="orange">{{ 'FINDRECORDS' | translate }}</h1>
                 <p>Search through pre-identified clients</p>
               </ion-card>
             </ion-col>
@@ -114,14 +114,14 @@
           <ion-row>
             <ion-col>
               <ion-card (click) = 'openMapPage()'>
-                <h1 ion-text color="red">Mapping</h1>
+                <h1 ion-text color="red">{{ 'MAPPING' | translate }}</h1>
                 <p>Interactive Mapping of pre-identified clients</p>
               </ion-card>
             </ion-col>
 
             <ion-col>
               <ion-card>
-                <h1 ion-text color="green">Calendar</h1>
+                <h1 ion-text color="green">{{ 'CALENDAR' | translate }}</h1>
                 <p>View Appointments</p>
               </ion-card>
             </ion-col>

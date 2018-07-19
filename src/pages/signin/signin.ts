@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { AlertController, NavController, LoadingController } from 'ionic-angular';
+import { AlertController, NavController, LoadingController,ModalController } from 'ionic-angular';
 
 // Providers
 import { AuthProvider } from '../../providers/auth/auth';
 
 // Pages
 import { SignupPage } from '../signup/signup';
-import { TabsPage } from '../tabs/tabs'; //TO REMOVE, LEGACY
+//import { TabsPage } from '../tabs/tabs'; //TO REMOVE, LEGACY
+import { SettingsPage } from '../settings/settings';
 import { HomePage } from '../home/home';
 
 @Component({
@@ -19,10 +20,11 @@ export class SigninPage {
   username: string = '';
 
   constructor(public alertCtrl: AlertController, 
-              public navCtrl: NavController, 
-              private loadCtrl: LoadingController, 
-              private authPvdr: AuthProvider) { 
-    }
+    public navCtrl: NavController, 
+    private loadCtrl: LoadingController, 
+    private authPvdr: AuthProvider,
+    private modalCtrl: ModalController) { 
+  }
 
   ionViewDidLoad() {
     console.log('Initiated Signin');
@@ -61,6 +63,14 @@ export class SigninPage {
       //ion_alert.present();
       loader.dismissAll();
     });
+  }
+
+  presentSettingsModal(){
+    //Opens Profile Modal Page
+    let myModal = this.modalCtrl.create(SettingsPage);
+
+    //.present() shows modal
+    myModal.present();
   }
 
 }

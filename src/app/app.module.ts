@@ -1,5 +1,8 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
+import { TranslateModule } from 'ng2-translate/ng2-translate';
+import { TranslateLoader, TranslateStaticLoader } from 'ng2-translate/src/translate.service';
+import { Http } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 
@@ -51,6 +54,11 @@ import { ProfileModalPage } from '../pages/profile-modal/profile-modal';
 import { HelpPage } from '../pages/help/help';
 import { VisualChartsPage } from '../pages/visual-charts/visual-charts';
 import { FindRecordsPage } from '../pages/find-records/find-records';
+import { SettingsPageModule } from '../pages/settings/settings.module'
+
+export function createTranslateLoader(http: Http) {
+	return new TranslateStaticLoader(http, 'assets/i18n', '.json');
+}
 
 
 @NgModule({
@@ -85,7 +93,13 @@ import { FindRecordsPage } from '../pages/find-records/find-records';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    ChartsModule
+    TranslateModule.forRoot({
+			provide: TranslateLoader,
+			useFactory: (createTranslateLoader),
+			deps: [Http]
+		}),
+    ChartsModule,
+    SettingsPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
