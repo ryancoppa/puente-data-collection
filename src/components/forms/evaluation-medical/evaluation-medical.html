@@ -1,7 +1,7 @@
 <ion-content >
   <ion-card>
       <ion-item color='primary-dark' (click)="close()">
-          Client
+        {{ 'CLIENT' | translate }}
           <ion-label>{{clientFname}} {{clientLname}}</ion-label>
           <ion-icon name="person" item-start></ion-icon>
       </ion-item>
@@ -12,17 +12,17 @@
     <ion-list>
 
         <ion-item>
-          <ion-label floating>Assessment</ion-label>
+          <ion-label floating>{{ 'ASSESSMENT' | translate }}</ion-label>
           <ion-input type="text" [(ngModel)]="evaluationMedical.AssessmentandEvaluation"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label floating>Plan</ion-label>
+          <ion-label floating>{{ 'PLAN_GENERAL' | translate }}</ion-label>
           <ion-input type="text" [(ngModel)]="evaluationMedical.planOfAction"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label floating>Notes</ion-label>
+            <ion-label floating>{{ 'NOTES_GENERAL' | translate }}</ion-label>
             <ion-input type="text" [(ngModel)]="evaluationMedical.notes"></ion-input>
         </ion-item>
         
@@ -35,7 +35,7 @@
     <ion-item no-lines>
       <button ion-button icon-left full block large color="accent" (click)="post_n_clear()" text-wrap >
         <ion-icon name="checkmark-circle"></ion-icon>
-        Submit Medical Evaluation
+        {{ 'SUBMIT' | translate }} {{ 'ASSESSMENT' | translate }}
       </button>
     </ion-item>
   </ion-card>

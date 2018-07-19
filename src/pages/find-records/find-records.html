@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>Search Records</ion-title>
+    <ion-title>{{ 'FINDRECORDS' | translate }}</ion-title>
   </ion-navbar>
   <!--
   <ion-searchbar
@@ -30,12 +30,12 @@
                 <div class="flash-card-front">
                   <h1>{{ communityRecord.lname }}, {{ communityRecord.fname }}</h1>
                   <h4>{{ communityRecord.dob }}, {{ communityRecord.sex }}</h4>
-                  <h4>License Number: {{ communityRecord.cedulaNumber }}</h4>
+                  <h4>{{ 'LICENSENUM' | translate }}: {{ communityRecord.cedulaNumber }}</h4>
                   <h6>{{ communityRecord.communityname }}</h6>
                 </div>
               
                 <div class="flash-card-back">
-                  <h4>General Medical Notes</h4>
+                  <h4>{{ 'NOTES_GENERAL' | translate }}</h4>
                   <p>Assessment: {{ communityRecord.AssessmentandEvaluation }}</p>
                   <p>Plan of Action: {{ communityRecord.planOfAction }}</p>
                   <p>Notes: {{ communityRecord.notes }}</p>

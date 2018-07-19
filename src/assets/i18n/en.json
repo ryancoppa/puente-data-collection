@@ -22,6 +22,7 @@
     "PROVINCE":"",
     "INSURANCENUM":"Insurance Number",
     "INSURANCEPROV":"Insurance Provider",
+    "CLINICPROV":"Clinic Provider",
     "LICENSENUM":"License Number",
     "LATITUDE":"Latitude",
     "LONGITUDE":"Longitude",

@@ -22,6 +22,7 @@
     "PROVINCE":"Provincia",
     "INSURANCENUM":"Número de Seguro",
     "INSURANCEPROV":"Proveerdor de Seguro",
+    "CLINICPROV":"Proveerdor de Clinica",
     "LICENSENUM":"Número de Cedula",
     "LATITUDE":"Latitud",
     "LONGITUDE":"Longitud",
