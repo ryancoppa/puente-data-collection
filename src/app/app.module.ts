@@ -55,6 +55,7 @@ import { HelpPage } from '../pages/help/help';
 import { VisualChartsPage } from '../pages/visual-charts/visual-charts';
 import { FindRecordsPage } from '../pages/find-records/find-records';
 import { SettingsPageModule } from '../pages/settings/settings.module'
+import { UiUxProvider } from '../providers/ui-ux/ui-ux';
 
 export function createTranslateLoader(http: Http) {
 	return new TranslateStaticLoader(http, 'assets/i18n', '.json');
@@ -134,6 +135,7 @@ export function createTranslateLoader(http: Http) {
     QueryServiceProvider,
     ChartsProvider,
     UserpositionProvider,
+    UiUxProvider,
   ]
 })
 export class AppModule { }
