@@ -7,6 +7,7 @@
     "STRING_WITH_PARAMS": "String with a parameter: {{value}}",
     "INNER_CONTENT": "Inner content with a param: {{value}}",
     "IDANDREGISTRATION":"Identification and Registration",
+    "REGISTRATION":"Registration",
     "FIRSTNAME": "First Name",
     "LASTNAME":"Last Name",
     "NICKNAME":"Nickname",
@@ -84,5 +85,7 @@
     "CLIENT": "Client",
     "MEDICALSNAPSHOT": "Medical Snapshot",
     "FORMS":"Forms",
-    "VIEWAPPS":"View Appointments"
+    "VIEWAPPS":"View Appointments",
+    "PRESS":"Press",
+    "MAP":"Map"
 }

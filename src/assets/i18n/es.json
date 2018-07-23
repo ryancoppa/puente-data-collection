@@ -6,6 +6,7 @@
     "PASSWORD": "Contraseña",
     "STRING_WITH_PARAMS": "Cuerda con un parámetro: {{value}}",
     "INNER_CONTENT": "El contenido interno con un param: {{value}}",
+    "REGISTRATION":"Registro",
     "IDANDREGISTRATION":"Identificación y registro",
     "FIRSTNAME": "Nombre de pila",
     "LASTNAME":"Apellido",
@@ -83,5 +84,7 @@
     "CLIENT": "Cliente",
     "MEDICALSNAPSHOT": "Breve Vista Médico",
     "FORMS":"Formas",
-    "VIEWAPPS":"Ver Citas"
+    "VIEWAPPS":"Ver Citas",
+    "PRESS":"Pulsa",
+    "MAP":"Mapa"
 }
