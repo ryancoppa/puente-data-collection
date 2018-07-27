@@ -4,21 +4,50 @@ page-home {
         background: -webkit-linear-gradient(to bottom, #FFFFFF, rgb(245, 243, 241));  /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to bottom, #FFFFFF, rgb(245, 243, 241)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
+
+    .home-dashboard-content{
+        background: #000000;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #181818, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #181818, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
     
 
-    ion-segment {
-        border-color: map-get($colors, primary) ;
-        padding: 4px 12px;
-        opacity: 0.95;
-        background-color: white;
-        //position: relative;
-        top: -50px;
+    //REFACTOR STYLE TO CHANGE THEME BASED ON TABS (use ngClass)
+    .lightsegmentStyles {
+        .segment {
+            border-color: map-get($colors, primary) ;
+            padding: 4px 12px;
+            opacity: 0.95;
+            background-color: white;
+            //position: relative;
+            top: -50px;
+        }
+    
+        .segment-button {
+            border-color: map-get($colors, primary) ;
+            color: map-get($colors, primary);
+        }
+
     }
 
-    ion-segment-button {
-        border-color: map-get($colors, primary) ;
-        color: map-get($colors, primary);
+    .darksegmentStyles {
+        .segment {
+            border-color: map-get($colors, primary) ;
+            padding: 4px 12px;
+            opacity: 0.95;
+            background-color: black;
+            //position: relative;
+            top: -50px;
+        }
+    
+        .segment-button {
+            background: black;
+            border-color: map-get($colors, primary) ;
+            color: map-get($colors, primary);
+        }
+
     }
+    
 
     .card {
         margin: 0 5px;
@@ -38,6 +67,12 @@ page-home {
             font-weight: 100;
             font-size: 1.5rem;
         }
+    }
+
+    .darkCard{
+        background: #151515;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #434343, #0c0c0c);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #434343, #0c0c0c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
     
     /*
