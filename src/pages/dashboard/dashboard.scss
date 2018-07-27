@@ -1,0 +1,70 @@
+page-dashboard {
+
+	.dashboard-content{
+		background: #4D4D4D;
+		barchart div {
+			background: #4D4D4D;
+		}
+		doughnut div {
+			background: #4D4D4D;
+		}
+		
+	}
+
+	.items{
+		border-color: rgba(0, 0, 0, 0);
+		background-color: rgba(0, 0, 0, 0);
+		color: white; 
+	}
+ 
+	.info {
+		//color: #555;
+		//text-shadow: 0 0 3px map-get($colors, primary);
+		color: map-get($colors, primary);
+		text-shadow: 2px 2px 3px #555;
+        text-align: center;
+
+		//font: bold 40px/80px Helvetica, Verdana, Tahoma;
+		font: bold 8vh/28vw Helvetica, Verdana, Tahoma;
+		padding: 4px 3px 0 3px;
+		
+		animation-name: colorchange;
+		animation-duration: .005s;
+		
+        
+    }
+	
+	/**
+	* LAPTOP and up (992px)
+	*/
+	@media (min-width: map-get($grid-breakpoints, lg)) {
+
+	}
+	
+	/**
+	* IPAD and up (796px)
+	*/
+	@media (min-width: map-get($grid-breakpoints, md)) {
+		.info {
+			color: #555;
+			text-align: center;
+	
+			//font: bold 40px/80px Helvetica, Verdana, Tahoma;
+			font: bold 12vh/28vw Helvetica, Verdana, Tahoma;
+			padding: 4px 3px 0 3px;
+			
+			
+		}
+
+	}
+
+	/* The animation code */
+	@keyframes colorchange {
+		from {
+			color: map-get($colors, primary-dark);
+		}
+		
+
+	}
+
+}
