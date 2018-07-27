@@ -5,6 +5,9 @@ import { NavController, NavParams } from 'ionic-angular';
 import { QueryServiceProvider } from '../../providers/query-service/query-service';
 import { AuthProvider } from '../../providers/auth/auth';
 
+//Pages
+import { ConsumerEnviroEvalPage } from '../consumer-enviro-eval/consumer-enviro-eval';
+
 @Component({
   selector: 'page-find-records',
   templateUrl: 'find-records.html',
@@ -44,6 +47,11 @@ export class FindRecordsPage {
     }, (error) => {
       console.log(error);
     });
+  }
+
+  //Navigation
+  openConsumerEnviroEval(){
+    this.navCtrl.push(ConsumerEnviroEvalPage)
   }
 
 }
