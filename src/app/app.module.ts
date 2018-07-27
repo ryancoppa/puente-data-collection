@@ -32,6 +32,7 @@ import { CircleDecorationComponent } from '../components/circle-decoration/circl
 //Charts
 import { BarchartComponent } from '../components/charts/barchart/barchart';
 import { DoughnutComponent } from '../components/charts/doughnut/doughnut';
+import { RadarComponent } from '../components/charts/radar/radar';
 
 // Forms
 import { PatientIDForm } from '../components/forms/patientid/patientid';
@@ -51,10 +52,13 @@ import { SignupPage } from '../pages/signup/signup';
 import { Splash } from '../pages/splash/splash';
 import { MapPage } from '../pages/map/map';
 import { ProfileModalPage } from '../pages/profile-modal/profile-modal';
+import { ConsumerEnviroEvalPage } from '../pages/consumer-enviro-eval/consumer-enviro-eval';
 import { HelpPage } from '../pages/help/help';
-import { VisualChartsPage } from '../pages/visual-charts/visual-charts';
+import { DashboardPage } from '../pages/dashboard/dashboard';
 import { FindRecordsPage } from '../pages/find-records/find-records';
 import { SettingsPageModule } from '../pages/settings/settings.module'
+
+
 import { UiUxProvider } from '../providers/ui-ux/ui-ux';
 
 export function createTranslateLoader(http: Http) {
@@ -75,8 +79,9 @@ export function createTranslateLoader(http: Http) {
     MapPage,
     ProfileModalPage,
     HelpPage,
-    VisualChartsPage,
+    DashboardPage,
     FindRecordsPage,
+    ConsumerEnviroEvalPage,
     AccordionComponent,
     CardFlippingComponent,
     ContentDrawerComponent,
@@ -84,6 +89,7 @@ export function createTranslateLoader(http: Http) {
     CircleDecorationComponent,
     BarchartComponent,
     DoughnutComponent,
+    RadarComponent,
     PatientIDForm,
     EnvironmentalHistoryForm,
     MedicalHistoryForm,
@@ -115,8 +121,9 @@ export function createTranslateLoader(http: Http) {
     MapPage,
     ProfileModalPage,
     HelpPage,
-    VisualChartsPage,
+    DashboardPage,
     FindRecordsPage,
+    ConsumerEnviroEvalPage,
     PatientIDForm,
     EnvironmentalHistoryForm,
     MedicalHistoryForm,
