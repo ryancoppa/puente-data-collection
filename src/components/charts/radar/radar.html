@@ -1,0 +1,10 @@
+    <div style="display: block">
+      <canvas baseChart
+        [data]="radarData"
+        [labels]="radarLabels"
+        [chartType]="radarChartType"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)">
+      </canvas>
+    </div>
+    <!--button (click)="randomize()">Update</button-->
