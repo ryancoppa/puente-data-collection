@@ -115,10 +115,23 @@
       {{'LOCATION' | translate }} <!--| Ubicación-->
     </ion-card-header>
 
-      <ion-item>
-        <p text-center>{{'PRESS' | translate }}</p>
-        <button ion-button text-wrap color="primary-light" round block large (click)='recordCoordinates()'>{{patientID.latitude}}, {{patientID.longitude}}</button>
-      </ion-item>
+    <ion-item>
+      <p text-center>{{'PRESS' | translate }}</p>
+      <button ion-button text-wrap color="primary-light" round block large (click)='recordCoordinates()'>{{patientID.latitude}}, {{patientID.longitude}}</button>
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header class='card-title'>
+        {{'PHOTO' | translate }}
+    </ion-card-header>
+
+    <ion-item>
+      <img [src]="Imgsrc" *ngIf="Imgsrc" />
+      <button ion-button text-wrap color="primary-light" round block large (click)="takePhoto()">
+        <ion-icon name="camera"></ion-icon>
+      </button>
+    </ion-item>
   </ion-card>
 
   <ion-card>

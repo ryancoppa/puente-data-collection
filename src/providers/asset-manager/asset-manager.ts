@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import { ParseProvider } from '../parse/parse';
 import 'rxjs/add/operator/map';
 
@@ -11,14 +10,11 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class AssetManagerProvider {
+  public base64Image: string;
 
-  constructor(public http: Http,
-    private parseSrvc:ParseProvider) {
-      parseSrvc.parseInitialize();
-  }
 
-  takePhoto () {
-    
+  constructor(private parseSrvc:ParseProvider) {
+    parseSrvc.parseInitialize();
   }
 
 

@@ -88,6 +88,12 @@
     <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
         <string>need location access to find things nearby</string>
     </edit-config>
+    <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
+        <string>need camera access to take pictures</string>
+    </edit-config>
+    <edit-config target="NSPhotoLibraryAddUsageDescription" file="*-Info.plist" mode="merge">
+        <string>need photo library access to save pictures there</string>
+    </edit-config>
     <plugin name="cordova-plugin-console" spec="^1.1.0" />
     <plugin name="cordova-plugin-device" spec="^1.1.7" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.1.0" />
@@ -100,4 +106,5 @@
     <plugin name="cordova-plugin-globalization" spec="^1.11.0" />
     <engine name="browser" spec="^4.1.0" />
     <engine name="android" spec="7.0.0" />
+    <plugin name="cordova-plugin-camera" spec="^4.0.3" />
 </widget>

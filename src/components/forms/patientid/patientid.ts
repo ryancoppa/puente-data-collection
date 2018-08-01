@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 
 import { ViewController } from 'ionic-angular';
-
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 // Providers
 import { ParseProvider } from '../../../providers/parse/parse';
 import { AuthProvider } from '../../../providers/auth/auth';
 import { UserpositionProvider } from '../../../providers/userposition/userposition';
+import { AssetManagerProvider } from '../../../providers/asset-manager/asset-manager';
 
 
 @Component({
@@ -14,6 +15,9 @@ import { UserpositionProvider } from '../../../providers/userposition/userpositi
   templateUrl: 'patientid.html'
 })
 export class PatientIDForm {
+
+  //images: Array<{src: String}>;
+  Imgsrc: String;
 
   patientID = {
     fname: null,
@@ -40,15 +44,21 @@ export class PatientIDForm {
     //photoIdentificaiton
 
   }
+
+  
   
   constructor(private parseProvider: ParseProvider,
     private auth: AuthProvider,  
     public viewCtrl:ViewController,
-    private userPositn:UserpositionProvider) {
+    private userPositn:UserpositionProvider,
+    public assetsMngr: AssetManagerProvider,
+    private camera:Camera) {
 
     console.log('Hello PatientIDForm ');
     this.auth.authenticated();
   }
+
+  
 
   ionViewDidEnter() {
     this.recordCoordinates();
@@ -64,16 +74,7 @@ export class PatientIDForm {
   } 
 
   public post_n_clear() {
-    //Posts an object to parse server and clears the local form array
-
-    //Adds array to parseServer (newSurvey)
-    //Then adds element to local array (surveyPoint)
-    //Then clears the Form/array (surveyPoint)
-
-    //TODO, change how this is posted to reflect new database design
     this.parseProvider.postObjectsToClass(this.patientID,'SurveyData').then((/*surveyPoint*/) => {
-      //This is for the list of results
-    //this.submittedList.push(surveyPoint);
       for (var key in this.patientID){
         this.patientID[key] = null;
       }
@@ -81,9 +82,23 @@ export class PatientIDForm {
       console.log(error);
       alert('Error Confirming.');
     });
+  }
 
-    //Update User Position?
-    //this.getUserPosition();
+  takePhoto () {
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      saveToPhotoAlbum: false
+    }
+
+    this.camera.getPicture(options).then((imageData) => {
+      this.Imgsrc = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+      console.log(err);
+    });
+
   }
 
   //Navigation
