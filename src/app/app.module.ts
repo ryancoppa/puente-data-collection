@@ -13,6 +13,7 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Geolocation } from '@ionic-native/geolocation';
+import { Camera } from '@ionic-native/camera';
 
 
 // Providers
@@ -60,6 +61,7 @@ import { SettingsPageModule } from '../pages/settings/settings.module'
 
 
 import { UiUxProvider } from '../providers/ui-ux/ui-ux';
+import { AssetManagerProvider } from '../providers/asset-manager/asset-manager';
 
 export function createTranslateLoader(http: Http) {
 	return new TranslateStaticLoader(http, 'assets/i18n', '.json');
@@ -135,6 +137,7 @@ export function createTranslateLoader(http: Http) {
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     ParseProvider,
     AuthProvider,
@@ -143,6 +146,7 @@ export function createTranslateLoader(http: Http) {
     ChartsProvider,
     UserpositionProvider,
     UiUxProvider,
+    AssetManagerProvider,
   ]
 })
 export class AppModule { }
