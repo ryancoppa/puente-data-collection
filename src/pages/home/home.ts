@@ -8,7 +8,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 
 // Pages
 import { SigninPage } from '../signin/signin';
-import { VisualChartsPage } from '../visual-charts/visual-charts';
+import { DashboardPage } from '../dashboard/dashboard';
 import { ProfileModalPage } from '../profile-modal/profile-modal';
 import { MapPage } from '../map/map';
 import { FindRecordsPage } from '../find-records/find-records';
@@ -34,7 +34,7 @@ export class HomePage {
   //Set Default NG-model
   //Design Element: Segment
   viewMode = 'datacollection';
-
+ 
   ////Design Element: Content Drawer
   drawerOptions: any;
 
@@ -112,7 +112,7 @@ export class HomePage {
   }
   //Pages
   openCharts() {
-    this.navCtrl.push(VisualChartsPage);
+    this.navCtrl.push(DashboardPage);
   }
 
   openMapPage() {
@@ -164,5 +164,8 @@ export class HomePage {
       refresher.complete();
     }, 2000);
   }
+
+
+  
 
 }

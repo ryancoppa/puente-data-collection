@@ -40,10 +40,26 @@
                   <p>Plan of Action: {{ communityRecord.planOfAction }}</p>
                   <p>Notes: {{ communityRecord.notes }}</p>
 
-                  <h4>General Dental Notes</h4>
+                  <!--h4>General Dental Notes</h4>
                   <p>Assessment: {{ communityRecord.AssessmentandEvaluationDental }}</p>
                   <p>Plan of Action: {{ communityRecord.planOfActionDental }}</p>
-                  <p>Notes: {{ communityRecord.notesDental }}</p>
+                  <p>Notes: {{ communityRecord.notesDental }}</p-->
+                  <ion-grid>
+                      <ion-row>
+                        <ion-col>
+                          <button ion-button icon-left small full (click)="openConsumerEnviroEval()">
+                            <ion-icon name="medkit"></ion-icon>
+                            <div>{{ 'CONSUMERENVIROEVAL' | translate }}</div>
+                          </button>
+                        </ion-col>
+                        <ion-col>
+                          <button ion-button icon-left small full >
+                            <ion-icon name="cut"></ion-icon>
+                            <div>{{ 'CONSUMERMEDICALEVAL' | translate }}</div>
+                          </button>
+                        </ion-col>
+                      </ion-row>
+                  </ion-grid>
                 </div>
             </card-flipping>
           </ion-col>

@@ -8,17 +8,17 @@ import { NavController } from 'ionic-angular';
  * on Ionic pages and navigation.
  */
 @Component({
-    selector: 'page-visual-charts',
-    templateUrl: 'visual-charts.html',
+    selector: 'page-dashboard',
+    templateUrl: 'dashboard.html',
 })
-export class VisualChartsPage {
+export class DashboardPage {
 
 
     constructor(public navCtrl: NavController) {
     }
 
     ionViewDidLoad() {
-        console.log('ionViewDidLoad VisualChartsPage');
+        console.log('ionViewDidLoad Dashboard');
     }
 
 }
