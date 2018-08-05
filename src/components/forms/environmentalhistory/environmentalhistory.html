@@ -3,19 +3,19 @@
   <ion-card>
     
     <ion-item color='primary-dark' (click)="close()">
-      Client
+      {{ 'CLIENT' | translate }}
       <ion-label>{{client.fname}} {{client.fname}}</ion-label>
       <ion-icon name="person" item-start></ion-icon>
     </ion-item>
 
     <ion-card-header ion-text text-wrap class='card-title'>
-      Context Within Community
+      {{ 'CONTEXTWITHINCOMMUNITY' | translate }}
     </ion-card-header>
 
     <ion-item-group>
       <!--Context Within Community-->
       <ion-item>
-        <ion-label>Years Lived in the community | Años viviendo en la comunidad</ion-label>
+        <ion-label>{{ 'YEARSLIVEDINCOMM' | translate }}</ion-label>
         <ion-select [(ngModel)]="environmentalHealth.yearsLivedinthecommunity" interface ='popover'>
             <ion-option text-wrap value="lessThan1"> Less Than 1 Year | Menos que 1 año </ion-option>
             <ion-option text-wrap value="1-2"> 1-2 Years | 1-2 años  </ion-option>
@@ -26,7 +26,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-label>Years Lived in this house | Años viviendo en este casa</ion-label>
+        <ion-label>{{ 'YEARSLIVEDINTHISHOUSE' | translate }}</ion-label>
         <ion-select [(ngModel)]="environmentalHealth.yearsLivedinThisHouse" interface ='popover'>
             <ion-option text-wrap value="lessThan1"> Less Than 1 Year | Menos que 1 año </ion-option>
             <ion-option text-wrap value="1-2"> 1-2 Years | 1-2 años  </ion-option>
@@ -41,12 +41,12 @@
   <!--Accessibility-->
   <ion-card>
       <ion-card-header class='card-title' (click)="expandItem(accordionItems[0])">
-        Accessibility
+        {{ 'ACCESSIBILITY' | translate }}
       </ion-card-header>
     <ion-item-group>
       <accordion [expanded]="accordionItems[0].expanded">
         <ion-item>
-          <ion-label>How often do you have access to water? | Cuántas veces tiene acceso al agua? </ion-label>
+          <ion-label>{{ 'OFTENACCESSWATER' | translate }} </ion-label>
           <ion-select [(ngModel)]="environmentalHealth.waterAccess" interface ='popover'>
               <ion-option text-wrap value="everyday"> Everyday | Todos los dias  </ion-option>
               <ion-option text-wrap value="4-6AWeek"> 4-6 days a week | 4-6 dias a la semana  </ion-option>
@@ -58,7 +58,7 @@
         </ion-item>
 
         <ion-item>
-          <ion-label>What type of water do you drink? | Que tipo de agua toma?</ion-label>
+          <ion-label>{{ 'TYPEOFWATER' | translate }} </ion-label>
           <ion-select [(ngModel)]="environmentalHealth.typeofWaterdoyoudrink" interface ='popover'>
               <ion-option text-wrap value="bottled"> Bottled | Botellon </ion-option>
               <ion-option text-wrap value="tap"> Tap | Llave  </ion-option>
@@ -66,7 +66,7 @@
         </ion-item>
 
         <ion-item>
-          <ion-label>Do you have access to a latrine? | Tiene acceso a una letrina o baño? </ion-label>
+          <ion-label>{{ 'ACCESSTOLATRINE' | translate }}  </ion-label>
           <ion-select [(ngModel)]="environmentalHealth.latrineAccess" interface ='popover'>
               <ion-option text-wrap value="Y"> Yes | Si </ion-option>
               <ion-option text-wrap value="N"> No </ion-option>
@@ -74,7 +74,7 @@
         </ion-item>
 
         <ion-item>
-            <ion-label>Do you have clinic access? | Tiene acceso a una clinica o un hospital?</ion-label>
+            <ion-label>{{ 'ACCESSTOCLINIC' | translate }} </ion-label>
             <ion-select [(ngModel)]="environmentalHealth.clinicAccess" interface ='popover'>
                 <ion-option text-wrap value="Y"> Yes | Si </ion-option>
                 <ion-option text-wrap value="N"> No </ion-option>
@@ -82,12 +82,12 @@
         </ion-item>
         
         <ion-item>
-            <ion-label floating>When you have medical problems, where do you go for help? | Cuándo tiene problemas médicos, dónde va?</ion-label>
+            <ion-label floating>{{ 'WHEREDOYOUGOFORMEDICALPROBLEMS' | translate }} </ion-label>
             <ion-input type="text" [(ngModel)]="environmentalHealth.medicalproblemswheredoyougo"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label floating>When you have dental problems, where do you go for help? | Cuándo tiene problemas dentales, dónde va? </ion-label>
+          <ion-label floating>{{ 'WHEREDOYOUGOFORDENTALPROBLEMS'| translate}}</ion-label>
           <ion-input type="text" [(ngModel)]="environmentalHealth.dentalproblemswheredoyougo"></ion-input>
         </ion-item>
       </accordion>
@@ -97,12 +97,12 @@
   <!--Housing Conditions-->
   <ion-card>
     <ion-card-header class='card-title' (click)="expandItem(accordionItems[1])">
-      Housing Conditions
+      {{ 'HOUSINGCONDITIONS'| translate}}
     </ion-card-header>
     <ion-item-group>
       <accordion [expanded]="accordionItems[1].expanded">
         <ion-item>
-          <ion-label>What is the condition of the floor in your house? | Cual es la condición del piso  de su casa?</ion-label>
+          <ion-label>{{ 'CONDITIONOFFLOOR'| translate}}</ion-label>
           <ion-select [(ngModel)]="environmentalHealth.conditionoFloorinyourhouse" interface ='popover'>
               <ion-option text-wrap value="dirtPoor"> Dirt Floor and Poor Condition | Tierra y mala condicion  </ion-option>
               <ion-option text-wrap value="dirtWorking"> Dirt Floor and Working Condition | Tierra regular  </ion-option>
@@ -112,7 +112,7 @@
         </ion-item>
 
         <ion-item>
-          <ion-label>What is the condition of the roof in your house? | Cual es la condición de su techo?</ion-label>
+          <ion-label>{{'CONDITIONOFROOF'| translate}} </ion-label>
           <ion-select [(ngModel)]="environmentalHealth.conditionoRoofinyourhouse" interface ='popover'>
               <ion-option text-wrap value="poor"> Poor Condition | Mala  </ion-option>
               <ion-option text-wrap value="working"> Working Condition | Regular  </ion-option>
@@ -127,7 +127,7 @@
     <ion-item no-lines>
       <button ion-button icon-left full block large color="accent" (click)="post_n_clear()" [disabled]="!isenabled" >
         <ion-icon name="checkmark-circle"></ion-icon>
-        Submit Development History
+        {{'SUBMIT'| translate}}
       </button>
     </ion-item>
   </ion-card>

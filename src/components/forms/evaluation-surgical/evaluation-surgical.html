@@ -1,28 +1,28 @@
 <ion-content >
   <ion-card>
     <ion-item color='primary-dark' (click)="close()">
-      Client
+      {{ 'CLIENT' | translate }}
       <ion-label>{{client.fname}} {{client.lname}}</ion-label>
       <ion-icon name="person" item-start></ion-icon>
     </ion-item>
-    <ion-card-header class='card-title' color="primary-light" text-wrap>
-      Surgical Evaluation Form
+    <ion-card-header class='card-title' color="primary-light">
+      {{ 'SURGICALEVALUATION' | translate }}
     </ion-card-header>
 
     <ion-list>
 
         <ion-item>
-          <ion-label floating>Assessment</ion-label>
+          <ion-label floating>{{ 'ASSESSMENT' | translate }}</ion-label>
           <ion-input type="text" [(ngModel)]="evaluationSurgical.AssessmentandEvaluationSurgical"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label floating>Plan</ion-label>
+          <ion-label floating>{{ 'PLAN_GENERAL' | translate }}</ion-label>
           <ion-input type="text" [(ngModel)]="evaluationSurgical.planOfActionSurgical"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label floating>Notes</ion-label>
+            <ion-label floating>{{ 'NOTES_GENERAL' | translate }}</ion-label>
             <ion-input type="text" [(ngModel)]="evaluationSurgical.notesSurgical"></ion-input>
         </ion-item>
         
@@ -35,7 +35,7 @@
     <ion-item no-lines>
       <button ion-button icon-left full block large color="accent" (click)="post_n_clear()" text-wrap [disabled]="!isenabled">
         <ion-icon name="checkmark-circle"></ion-icon>
-        Submit Surgical Evaluation 
+        {{ 'SUBMIT' | translate }} {{ 'SURGICALEVALUATION' | translate }}
       </button>
     </ion-item>
   </ion-card>

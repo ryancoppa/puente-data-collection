@@ -1,60 +1,55 @@
 <ion-content>
   <ion-card >
     <ion-item color='primary-dark' (click)="close()">
-        Client
+        {{ 'CLIENT' | translate }}
         <ion-label>{{client.fname}} {{client.lname}}</ion-label>
         <ion-icon name="person" item-start></ion-icon>
     </ion-item>
-    <ion-card-header class='card-title'>
-      Medical History
+    <ion-card-header class='card-title' text-wrap>
+        {{ 'MEDICALHISTORY' | translate }}
     </ion-card-header>
     <ion-list>
         <ion-item>
-          <ion-label floating>Major Events</ion-label>
-          <p>"Like crashes, accidents, traumas"</p>
+          <ion-label floating>{{ 'MAJOREVENTS' | translate }}</ion-label>
+          <p>{{ 'MAJOREVENTS_DESCRIP' | translate }}</p>
           <ion-textarea [(ngModel)]="medicalHistory.majorEvents"></ion-textarea>
         </ion-item>
         <ion-item>
-            <ion-label floating>What Kind of Surgeries Have you Had?</ion-label>
+            <ion-label floating>{{ 'WHATKINDOFSURGERIES' | translate }}</ion-label>
             <ion-textarea [(ngModel)]="medicalHistory.surgeryWhatKind"></ion-textarea>
         </ion-item>
         <ion-item>
-            <ion-label floating>Ongoing Medical Problems</ion-label>
+            <ion-label floating>{{ 'ONGOINGMEDICALPROBLEMS' | translate }}</ion-label>
             <ion-textarea [(ngModel)]="medicalHistory.medicalIllnesses"></ion-textarea>
         </ion-item>
         <ion-item>
-            <ion-label floating>When were you diagnosed?</ion-label>
+            <ion-label floating>{{ 'WHENWERETHESEDIAGNOSED' | translate }}</ion-label>
             <ion-textarea [(ngModel)]="medicalHistory.whenDiagnosed"></ion-textarea>
         </ion-item>
         <ion-item>
-            <ion-label floating>What doctor do you see about your illness?</ion-label>
+            <ion-label floating>{{ 'WHATDOCTORDOYOUSEE' | translate }}</ion-label>
             <ion-textarea [(ngModel)]="medicalHistory.whatDoctorDoyousee"></ion-textarea>
         </ion-item>
         <ion-item>
-            <ion-label floating>What did you doctor recommend for treatment?</ion-label>
+            <ion-label floating>{{ 'WHATDIDDOCTORRECOMMEND' | translate }}</ion-label>
             <ion-textarea [(ngModel)]="medicalHistory.treatment"></ion-textarea>
         </ion-item>
         <ion-item>
-            <ion-label floating>Family Health History</ion-label>
+            <ion-label floating>{{ 'FAMILYHEALTHHISTORY' | translate }}</ion-label>
             <ion-textarea [(ngModel)]="medicalHistory.familyhistory"></ion-textarea>
         </ion-item>
         <ion-item>
-            <ion-label floating>Preventative Care Attempts</ion-label>
+            <ion-label floating>{{ 'PREVENTATIVECAREATTEMPTS' | translate }}</ion-label>
             <ion-textarea [(ngModel)]="medicalHistory.preventativeCare"></ion-textarea>
-        </ion-item>
-
-        <ion-item>
-            <ion-label floating>{{ 'ALLERGIES' | translate }}</ion-label>
-            <ion-textarea type="text" [(ngModel)]="medicalHistory.allergies"></ion-textarea>
         </ion-item>
         
     </ion-list>
 
 
     <ion-item no-lines>
-      <button ion-button icon-left full block large color="accent" (click)="post_n_clear()" [disabled]="!isenabled">
+      <button ion-button icon-left full block large text-wrap color="accent" (click)="post_n_clear()" [disabled]="!isenabled">
         <ion-icon name="checkmark-circle"></ion-icon>
-        Submit Medical History
+        {{ 'SUBMIT' | translate }} {{ 'MEDICALHISTORY' | translate }}
       </button>
     </ion-item>
   </ion-card>

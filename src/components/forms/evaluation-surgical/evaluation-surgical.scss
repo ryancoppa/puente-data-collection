@@ -9,6 +9,7 @@ evaluation-surgical {
         width: 100%;
         font-weight: bold;
         color: map-get($colors, primary-dark);
+        white-space: normal;
       }
     
       .card-subtitle {
