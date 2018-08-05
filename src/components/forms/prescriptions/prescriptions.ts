@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
-
 import { ViewController } from 'ionic-angular';
-
 
 // Providers
 import { ParseProvider } from '../../../providers/parse/parse';
 import { AuthProvider } from '../../../providers/auth/auth';
 
 @Component({
-  selector: 'evaluation-medical',
-  templateUrl: 'evaluation-medical.html'
+  selector: 'prescriptions',
+  templateUrl: 'prescriptions.html'
 })
-export class EvaluationMedicalForm {
+export class PrescriptionsForm {
+
   isenabled:boolean=false;
   
   client = {
@@ -20,25 +19,23 @@ export class EvaluationMedicalForm {
     lname: null
   }
 
-  evaluationMedical = {
-    AssessmentandEvaluation: null,
-    planOfAction: null,
-    notes: null,
-    
-    surveyingUser: this.auth.currentUser().name,
-    surveyingOrganization: this.auth.currentUser().organization
-
+  prescriptions = {
+    name: null
   }
 
+  
+
+  //Design Element: Content Drawer
   drawerOptions: any;
   
   constructor(private parseProvider: ParseProvider,
     private auth: AuthProvider,  
     public viewCtrl:ViewController) {
 
-    console.log('Hello EvaluationMedicalForm');
+    console.log('Hello PrescriptionsForm');
     this.auth.authenticated();
 
+    //Design Element: Content Drawer
     this.drawerOptions = {
       handleHeight: 50,
       thresholdFromBottom: 200,
@@ -47,11 +44,10 @@ export class EvaluationMedicalForm {
     };
   }
 
-
   post_n_clear(){
-    this.parseProvider.postObjectsToClassWithRelation(this.evaluationMedical,'EvaluationMedical','SurveyData',this.client.objectID).then(()=> {
-      for (var key in this.evaluationMedical){
-        this.evaluationMedical[key] = null;
+    this.parseProvider.postObjectsToClassWithRelation(this.prescriptions,'Prescriptions','SurveyData',this.client.objectID).then(()=> {
+      for (var key in this.prescriptions){
+        this.prescriptions[key] = null;
       }
       this.client.fname=null; 
       this.client.lname=null;
@@ -62,10 +58,9 @@ export class EvaluationMedicalForm {
     });
   }
 
-  //Navigation
   close() {
     this.viewCtrl.dismiss();
-    this.isenabled=false;
+    this.isenabled = false;
   }
 
   inputObjectIDfromComponent(selectedItem) {
@@ -75,8 +70,5 @@ export class EvaluationMedicalForm {
     this.client.lname = selectedItem.get('lname');
     console.log(this.client.objectID);
   }
-
-
-
 
 }

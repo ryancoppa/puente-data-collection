@@ -6,7 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 // Initial page
 import { SigninPage } from '../pages/signin/signin';
 import { HomePage } from '../pages/home/home';
-//import { MapPage } from '../pages/map/map';
+import { MapPage } from '../pages/map/map';
 import { VisualChartsPage } from '../pages/visual-charts/visual-charts';
 
 import { Splash } from '../pages/splash/splash';
@@ -20,6 +20,7 @@ export class MyApp {
 
   //Test Page
   //rootPage: any = HomePage;
+  //rootPage: any = MapPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, modalCtrl: ModalController) {
     platform.ready().then(() => {

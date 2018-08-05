@@ -11,11 +11,15 @@ import { AuthProvider } from '../../../providers/auth/auth';
 })
 export class EnvironmentalHistoryForm {
 
-  clientFname: any;
-  clientLname: any;
+  isenabled:boolean=false;
+  
+  client = {
+    objectID: null,
+    fname: null,
+    lname: null
+  }
 
   environmentalHealth = {
-    objectId: null,
     yearsLivedinthecommunity: null,
     yearsLivedinThisHouse: null,
     waterAccess: null,
@@ -57,22 +61,14 @@ export class EnvironmentalHistoryForm {
     };
   }
 
-  public post_n_clear() {
-    //Posts an object to parse server and clears the local form array
-
-    //Adds array to parseServer (newSurvey)
-    //Then adds element to local array (surveyPoint)
-    //Then clears the Form/array (surveyPoint)
-
-    //TODO, change how this is posted to reflect new database design
-    this.parseProvider.postObjectsToClass(this.environmentalHealth,'SurveyData').then((/*surveyPoint*/) => {
-      //This is for the list of results
-    //this.submittedList.push(surveyPoint);
+  post_n_clear(){
+    this.parseProvider.postObjectsToClassWithRelation(this.environmentalHealth,'HistoryEnvironmentalHealth','SurveyData',this.client.objectID).then(()=> {
       for (var key in this.environmentalHealth){
         this.environmentalHealth[key] = null;
       }
-      this.clientFname=null; 
-      this.clientLname=null;
+      this.client.fname=null; 
+      this.client.lname=null;
+      this.isenabled=false;
     }, (error) => {
       console.log(error);
       alert('Error Confirming.');
@@ -102,13 +98,11 @@ export class EnvironmentalHistoryForm {
   }
 
   inputObjectIDfromComponent(selectedItem) {
-    //retrieves selectedItem emitted from child class component
-    //make sure it's listening to event from child class in view
-    //console.log(selectedItem);
-    this.environmentalHealth.objectId = selectedItem.id; //Retrieve RESERVED Parse-Server Object ID Value
-    this.clientFname = selectedItem.get('fname');
-    this.clientLname = selectedItem.get('lname');
-    console.log(this.environmentalHealth.objectId);
+    this.isenabled=true;
+    this.client.objectID= selectedItem.id; //Retrieve RESERVED Parse-Server Object ID Value
+    this.client.fname = selectedItem.get('fname');
+    this.client.lname = selectedItem.get('lname');
+    console.log(this.client.objectID);
   }
 
 

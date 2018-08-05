@@ -3,7 +3,7 @@
 
     <ion-item color='primary-dark' (click)="close()">
         {{ 'CLIENT' | translate }}
-      <ion-label>{{clientFname}} {{clientLname}}</ion-label>
+      <ion-label>{{client.fname}} {{client.lname}}</ion-label>
       <ion-icon name="person" item-start></ion-icon>
     </ion-item>
     
@@ -59,9 +59,15 @@
         </ion-item>
 
         <ion-item>
+          <ion-label floating>{{ 'HEMOGLOBINLEVELS' | translate }}</ion-label>
+          <ion-input type="number" [(ngModel)]="vitals.hemoglobinLevels"></ion-input>
+        </ion-item>
+
+        <ion-item>
             <ion-label floating>{{ 'PAIN' | translate }}</ion-label>
             <ion-input type="number" [(ngModel)]="vitals.painLevels"></ion-input>
         </ion-item>
+        
       </ion-item-group>
     <!--/ion-list-->
 
@@ -70,7 +76,7 @@
 
   <ion-card>
     <ion-item no-lines>
-      <button ion-button icon-left full block large color="accent" (click)="post_n_clear()" >
+      <button ion-button icon-left full block large color="accent" (click)="post_n_clear()" [disabled]="!isenabled">
         <ion-icon name="checkmark-circle"></ion-icon>
         {{ 'SUBMIT' | translate }} {{ 'VITALS' | translate }}
       </button>

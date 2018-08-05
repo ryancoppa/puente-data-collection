@@ -29,6 +29,7 @@ import { CardFlippingComponent } from '../components/card-flipping/card-flipping
 import { ContentDrawerComponent } from '../components/content-drawer/content-drawer';
 import { SearchbarObjectIdComponent } from '../components/searchbar-object-id/searchbar-object-id';
 import { CircleDecorationComponent } from '../components/circle-decoration/circle-decoration';
+import { AnimatedCirclesComponent } from '../components/animated-circles/animated-circles';
 
 //Charts
 import { BarchartComponent } from '../components/charts/barchart/barchart';
@@ -42,6 +43,7 @@ import { MedicalHistoryForm } from '../components/forms/medicalhistory/medicalhi
 import { VitalsForm } from '../components/forms/vitals/vitals';
 import { EvaluationMedicalForm } from '../components/forms/evaluation-medical/evaluation-medical';
 import { EvaluationSurgicalForm } from '../components/forms/evaluation-surgical/evaluation-surgical';
+import { PrescriptionsForm } from '../components/forms/prescriptions/prescriptions';
 
 // Pages
 import { AboutPage } from '../pages/about/about';
@@ -62,6 +64,7 @@ import { SettingsPageModule } from '../pages/settings/settings.module'
 
 import { UiUxProvider } from '../providers/ui-ux/ui-ux';
 import { AssetManagerProvider } from '../providers/asset-manager/asset-manager';
+import { MapControlsProvider } from '../providers/map-controls/map-controls';
 
 export function createTranslateLoader(http: Http) {
 	return new TranslateStaticLoader(http, 'assets/i18n', '.json');
@@ -89,6 +92,7 @@ export function createTranslateLoader(http: Http) {
     ContentDrawerComponent,
     SearchbarObjectIdComponent,
     CircleDecorationComponent,
+    AnimatedCirclesComponent,
     BarchartComponent,
     DoughnutComponent,
     RadarComponent,
@@ -97,7 +101,8 @@ export function createTranslateLoader(http: Http) {
     MedicalHistoryForm,
     VitalsForm,
     EvaluationMedicalForm,
-    EvaluationSurgicalForm
+    EvaluationSurgicalForm,
+    PrescriptionsForm
   ],
   imports: [
     BrowserModule,
@@ -120,6 +125,7 @@ export function createTranslateLoader(http: Http) {
     SigninPage,
     SignupPage,
     Splash,
+    AnimatedCirclesComponent,
     MapPage,
     ProfileModalPage,
     HelpPage,
@@ -131,7 +137,8 @@ export function createTranslateLoader(http: Http) {
     MedicalHistoryForm,
     VitalsForm,
     EvaluationMedicalForm,
-    EvaluationSurgicalForm
+    EvaluationSurgicalForm,
+    PrescriptionsForm
     
   ],
   providers: [
@@ -147,6 +154,7 @@ export function createTranslateLoader(http: Http) {
     UserpositionProvider,
     UiUxProvider,
     AssetManagerProvider,
+    MapControlsProvider,
   ]
 })
 export class AppModule { }

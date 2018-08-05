@@ -1,26 +1,6 @@
-<!--
-  Generated template for the MapPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-      <ion-buttons left>
-          <button ion-button icon-only (click)="getUserPosition()">
-            <ion-icon name="compass"></ion-icon>
-          </button>
-        </ion-buttons>  
-        
-        <!--ion-title text-center (click)="addMultipleMarkers()">Map</ion-title-->
-        <ion-title text-center>{{ 'MAP' | translate }}</ion-title>
-        
-        <ion-buttons right>
-          <button ion-button icon-only (click)="centerMap()">
-            <ion-icon name="locate"></ion-icon>
-          </button>
-        </ion-buttons>
+  <ion-navbar> 
+    <ion-title text-center>{{ 'MAP' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -32,63 +12,63 @@
     <ion-fab-list side="top"> 
       <ion-card>
         <ion-card-header>
-          Community Resources
+            {{ 'COMMUNITYRESOURCES' | translate }}
         </ion-card-header>
         <ion-item padding class="places">
-          <ion-label stacked text-wrap>Human Resource Identification</ion-label>
+          <ion-label stacked text-wrap>{{ 'HUMANRESOURCESID' | translate }}</ion-label>
           <ion-icon name="people" item-start></ion-icon>
           <ion-input placeholder="Name" [(ngModel)]="newAssets.humanName" type="text"></ion-input>
           <ion-select [(ngModel)]="newAssets.humanAsset" interface = 'popover' text-wrap > Option
-            <ion-option value="labor-in-kind"> Labor-in-kind</ion-option>
-            <ion-option value="food-refresh"> Food/Refreshments for Laborors </ion-option>
-            <ion-option value="transportation"> Transportation</ion-option>
-            <ion-option value="agriculture"> Background in Agriculture </ion-option>
-            <ion-option value="construction"> Background in Construction</ion-option>
-            <ion-option value="education"> Background in Education </ion-option>
-            <ion-option value="finance"> Background in Finance</ion-option>
-            <ion-option value="medical"> Background in Medical Field </ion-option>
-            <ion-option value="multiple"> Multiple Areas</ion-option>
+            <ion-option value="labor-in-kind"> {{ 'LABORINKIND' | translate }}</ion-option>
+            <ion-option value="food-refresh"> {{ 'FOODANDREFRESH' | translate }} </ion-option>
+            <ion-option value="transportation"> {{ 'TRANSPORTATION' | translate }}</ion-option>
+            <ion-option value="agriculture"> {{ 'BGINAGRI' | translate }} </ion-option>
+            <ion-option value="construction"> {{ 'BGINCONTRUCTION' | translate }}</ion-option>
+            <ion-option value="education"> {{ 'BGINED' | translate }} </ion-option>
+            <ion-option value="finance"> {{ 'BGINFIN' | translate }}</ion-option>
+            <ion-option value="medical"> {{ 'BGINMED' | translate }} </ion-option>
+            <ion-option value="multiple"> {{ 'BGINMA' | translate }}</ion-option>
           </ion-select>
         </ion-item>
 
         <ion-item class="places">
-          <ion-label stacked text-wrap>Physical Resource Identification</ion-label>
+          <ion-label stacked text-wrap>{{ 'PHYSICALRESOURCEID' | translate }}</ion-label>
           <ion-icon name="cube" item-start></ion-icon>
           <ion-input placeholder="Name" [(ngModel)]="newAssets.physicalName" text-wrap type="text" text-wrap></ion-input>
           <ion-select [(ngModel)]="newAssets.physicalAsset" interface = 'popover'> Option
-            <ion-option value="Neighborhood"> Neighborhood</ion-option>
-            <ion-option value="Neighborhood Association"> Neighborhood Association</ion-option>
-            <ion-option value="Road-Main"> Main Road </ion-option>
-            <ion-option value="Park-Main"> Main Park</ion-option>
-            <ion-option value="Clinic-Public"> Public Clinic </ion-option>
-            <ion-option value="Clinic-Private"> Private Clinic</ion-option>
-            <ion-option value="Convenience-Store"> Convenience Store </ion-option>
-            <ion-option value="Place-Of-Worshop"> Place of Worshop</ion-option>
-            <ion-option value="Nightclub"> NightClub </ion-option>
-            <ion-option value='Grocery-Store'>Grocery store</ion-option>
-            <ion-option value='Cafe-Diner'>Cafe/Diner</ion-option>
-            <ion-option value='Baseball-Field'>Baseball Field</ion-option>
-            <ion-option value='Basketball-Court'>Basketball Court</ion-option>
-            <ion-option value='Cemetery'>Cemetery</ion-option>
-            <ion-option value='Water-Source-Aqueduct'>Water-Source: Aqueduct</ion-option>
-            <ion-option value='Water-Source-River'>Water-Source: River</ion-option>
-            <ion-option value='Water-Source-Other'>Water-Source: Other</ion-option>
+            <ion-option value="Neighborhood"> {{ 'NEIGHBORHOOD' | translate }}</ion-option>
+            <ion-option value="Neighborhood Association"> {{ 'NEIGHBORHOODASSOCIATION' | translate }}</ion-option>
+            <ion-option value="Road-Main"> {{ 'MAINROAD' | translate }} </ion-option>
+            <ion-option value="Park-Main"> {{ 'MAINPARK' | translate }}</ion-option>
+            <ion-option value="Clinic-Public"> {{ 'PUBLICCLINIC' | translate }} </ion-option>
+            <ion-option value="Clinic-Private"> {{ 'PRIVATECLINIC' | translate }}</ion-option>
+            <ion-option value="Convenience-Store"> {{ 'CONVENIENCESTORE' | translate }} </ion-option>
+            <ion-option value="Place-Of-Worshop"> {{ 'PLACEOFWORSHIP' | translate }}</ion-option>
+            <ion-option value="Nightclub"> {{ 'NIGHTCLUB' | translate }} </ion-option>
+            <ion-option value='Grocery-Store'>{{ 'GROCERYSTORE' | translate }}</ion-option>
+            <ion-option value='Cafe-Diner'>{{ 'CAFEDINER' | translate }}</ion-option>
+            <ion-option value='Baseball-Field'>{{ 'BASEBALLFIELD' | translate }}</ion-option>
+            <ion-option value='Basketball-Court'>{{ 'BASKETBALLCOURT' | translate }}</ion-option>
+            <ion-option value='Cemetery'>{{ 'CEMETERY' | translate }}</ion-option>
+            <ion-option value='Water-Source-Aqueduct'>{{ 'WSAQUEDUCT' | translate }}</ion-option>
+            <ion-option value='Water-Source-River'>{{ 'WSRIVER' | translate }}</ion-option>
+            <ion-option value='Water-Source-Other'>{{ 'WSOTHER' | translate }}</ion-option>
 
-            <ion-option value='Public-Housing'>Public Housing </ion-option>
-            <ion-option value='Bridge'>Bridge </ion-option>
-            <ion-option value='City-Hall'>City Hall </ion-option>
-            <ion-option value='Hospital'>Hospital </ion-option>
-            <ion-option value='Farm'>Farm </ion-option>
-            <ion-option value='Transportation Stop'>Transportation Stop </ion-option>
-            <ion-option value='School-Elementary'>School: Elementary </ion-option>
-            <ion-option value='School-HighSchool'>School: High School </ion-option>
-            <ion-option value='School-University'>School: University  </ion-option>
+            <ion-option value='Public-Housing'>{{ 'PUBLICHOUSING' | translate }} </ion-option>
+            <ion-option value='Bridge'>{{ 'BRIDGE' | translate }} </ion-option>
+            <ion-option value='City-Hall'>{{ 'CITYHALL' | translate }} </ion-option>
+            <ion-option value='Hospital'>{{ 'HOSPITAL' | translate }} </ion-option>
+            <ion-option value='Farm'>{{ 'FARM' | translate }} </ion-option>
+            <ion-option value='Transportation Stop'>{{ 'TRANSPORTATIONSTOP' | translate }}</ion-option>
+            <ion-option value='School-Elementary'>{{ 'ELEMENTARYSCHOOL' | translate }} </ion-option>
+            <ion-option value='School-HighSchool'>{{ 'HIGHSCHOOL' | translate }} </ion-option>
+            <ion-option value='School-University'>{{ 'UNIVERSITY' | translate }}</ion-option>
           </ion-select>
         </ion-item>
         
         <ion-item no-lines>
             <button ion-button icon-left full round color="accent" (click)="postAssetsConfirm()">
-              <ion-icon name="checkmark-circle"></ion-icon>Submit
+              <ion-icon name="checkmark-circle"></ion-icon>{{ 'SUBMIT' | translate }}
             </button>
         </ion-item>
       </ion-card>
@@ -112,3 +92,19 @@
 <ion-content>
   <div id="map_canvas"></div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+      <ion-buttons left>
+        <button ion-button (click)="getUserPosition()">
+          <ion-icon name="compass"></ion-icon>
+        </button>
+      </ion-buttons> 
+   
+    <ion-buttons right>
+        <button ion-button (click)="centerMap()">
+          <ion-icon name="locate"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

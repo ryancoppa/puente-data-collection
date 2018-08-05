@@ -20,6 +20,7 @@ import { MedicalHistoryForm } from '../../components/forms/medicalhistory/medica
 import { VitalsForm } from '../../components/forms/vitals/vitals';
 import { EvaluationMedicalForm } from '../../components/forms/evaluation-medical/evaluation-medical';
 import { EvaluationSurgicalForm } from '../../components/forms/evaluation-surgical/evaluation-surgical';
+import { PrescriptionsForm } from '../../components/forms/prescriptions/prescriptions';
 
 
 @Component({
@@ -64,6 +65,7 @@ export class HomePage {
   /*
     Navigation
   */
+
   //Forms
   openProfileModal() {
     //Opens Profile Modal Page
@@ -107,6 +109,12 @@ export class HomePage {
 
   openSurgicalEvaluation() {
     let myModal = this.modalCtrl.create(EvaluationSurgicalForm);
+
+    myModal.present();
+  }
+
+  openPrescriptions(){
+    let myModal = this.modalCtrl.create(PrescriptionsForm);
 
     myModal.present();
   }

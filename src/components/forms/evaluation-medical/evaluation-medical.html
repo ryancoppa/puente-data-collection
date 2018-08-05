@@ -2,11 +2,11 @@
   <ion-card>
       <ion-item color='primary-dark' (click)="close()">
         {{ 'CLIENT' | translate }}
-          <ion-label>{{clientFname}} {{clientLname}}</ion-label>
+          <ion-label>{{client.fname}} {{client.lname}}</ion-label>
           <ion-icon name="person" item-start></ion-icon>
       </ion-item>
     <ion-card-header class='card-title' color="primary-light" text-wrap>
-      Medical Evaluation Form
+      {{ 'MEDICALEVALUATION' | translate }}
     </ion-card-header>
 
     <ion-list>
@@ -33,7 +33,7 @@
 
   <ion-card>
     <ion-item no-lines>
-      <button ion-button icon-left full block large color="accent" (click)="post_n_clear()" text-wrap >
+      <button ion-button icon-left full block large color="accent" (click)="post_n_clear()" text-wrap [disabled]="!isenabled">
         <ion-icon name="checkmark-circle"></ion-icon>
         {{ 'SUBMIT' | translate }} {{ 'ASSESSMENT' | translate }}
       </button>
