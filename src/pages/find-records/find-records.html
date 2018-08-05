@@ -28,22 +28,14 @@
           <ion-col *ngFor="let communityRecord of communityRecords" col-12 >
             <card-flipping class='record-card'>
                 <div class="flash-card-front">
+                  <h4>{{ 'LICENSENUM' | translate }}: {{ communityRecord.cedulaNumber }}</h4>
                   <h1>{{ communityRecord.lname }}, {{ communityRecord.fname }}</h1>
                   <h4>{{ communityRecord.dob }}, {{ communityRecord.sex }}</h4>
-                  <h4>{{ 'LICENSENUM' | translate }}: {{ communityRecord.cedulaNumber }}</h4>
-                  <h6>{{ communityRecord.communityname }}</h6>
+                  <h6>{{ communityRecord.communityname }}{{ communityRecord.city }}</h6>
+                  <h6>{{ communityRecord.province }}</h6>
                 </div>
               
                 <div class="flash-card-back">
-                  <h4>{{ 'NOTES_GENERAL' | translate }}</h4>
-                  <p>Assessment: {{ communityRecord.AssessmentandEvaluation }}</p>
-                  <p>Plan of Action: {{ communityRecord.planOfAction }}</p>
-                  <p>Notes: {{ communityRecord.notes }}</p>
-
-                  <!--h4>General Dental Notes</h4>
-                  <p>Assessment: {{ communityRecord.AssessmentandEvaluationDental }}</p>
-                  <p>Plan of Action: {{ communityRecord.planOfActionDental }}</p>
-                  <p>Notes: {{ communityRecord.notesDental }}</p-->
                   <ion-grid>
                       <ion-row>
                         <ion-col>
