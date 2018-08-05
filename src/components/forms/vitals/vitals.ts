@@ -29,7 +29,8 @@ export class VitalsForm {
     bloodPressure: null,
     bloodOxygen: null,
     bloodSugar:null,
-    painLevels:null
+    painLevels:null,
+    hemoglobinLevels:null
   }
 
   //Design Element: Content Drawer

@@ -59,9 +59,15 @@
         </ion-item>
 
         <ion-item>
+          <ion-label floating>{{ 'HEMOGLOBINLEVELS' | translate }}</ion-label>
+          <ion-input type="number" [(ngModel)]="vitals.hemoglobinLevels"></ion-input>
+        </ion-item>
+
+        <ion-item>
             <ion-label floating>{{ 'PAIN' | translate }}</ion-label>
             <ion-input type="number" [(ngModel)]="vitals.painLevels"></ion-input>
         </ion-item>
+        
       </ion-item-group>
     <!--/ion-list-->
 
