@@ -31,8 +31,8 @@
     "WEIGHT":"Weight",
     "BODYMASSINDEX":"Body Mass Index",
     "TEMPERATURE":" Body Temperature(Celsius)",
-    "PULSE":"Pulse",
-    "RESPIRATORYRATE":"Respiratory Rate (Beats Per Minute)",
+    "PULSE":"Pulse (Beats Per Minute)",
+    "RESPIRATORYRATE":"Respiratory Rate (Breaths Per Minute)",
     "BLOODPRESSURE":"Blood Pressure",
     "BLOODOXYGEN":"Blood Oxygen",
     "BLOODSUGAR":"Blood Sugar (mg/dL)",
@@ -110,5 +110,6 @@
     "WHATDOCTORDOYOUSEE":"What doctor do you see about your illness?",
     "WHATDIDDOCTORRECOMMEND":"What did you doctor recommend for treatment?",
     "FAMILYHEALTHHISTORY":"Family Health History",
-    "PREVENTATIVECAREATTEMPTS":"Preventative Care"
+    "PREVENTATIVECAREATTEMPTS":"Preventative Care",
+    "HEMOGLOBINLEVELS":"Hemoglobin Levels (g/dL)"
 }

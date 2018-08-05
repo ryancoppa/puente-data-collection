@@ -31,8 +31,8 @@
     "WEIGHT":"Peso (Libras)",
     "BODYMASSINDEX":"Indice de masa corporal",
     "TEMPERATURE":"Temperatura",
-    "PULSE":"Pulso",
-    "RESPIRATORYRATE":"Frecuencia respiratoria ",
+    "PULSE":"Pulso (Latidos por minuto)",
+    "RESPIRATORYRATE":"Frecuencia respiratoria (Respiras por minuto) ",
     "BLOODPRESSURE":"Presion sanguinia",
     "BLOODOXYGEN":"Saturacion de oxígeno en la sangre ",
     "BLOODSUGAR":"Nivel de azucar ",
@@ -109,5 +109,6 @@
     "WHATDOCTORDOYOUSEE":"Qué doctor usted vio que le dijo de su enfermedad?",
     "WHATDIDDOCTORRECOMMEND":"Qué tratamiento le recomendo el doctor?",
     "FAMILYHEALTHHISTORY":"Historia familiar de salud",
-    "PREVENTATIVECAREATTEMPTS":"Intentos del Cuidado preventivo"
+    "PREVENTATIVECAREATTEMPTS":"Intentos del Cuidado preventivo",
+    "HEMOGLOBINLEVELS":"Niveles de hemoglobina (g/dL)"
 }
