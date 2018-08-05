@@ -12,11 +12,15 @@ import { AuthProvider } from '../../../providers/auth/auth';
 })
 export class EvaluationSurgicalForm {
 
-  clientFname: any;
-  clientLname: any;
+  isenabled:boolean=false;
+  
+  client = {
+    objectID: null,
+    fname: null,
+    lname: null
+  }
 
   evaluationSurgical = {
-    objectId: null,
     AssessmentandEvaluationSurgical: null,
     planOfActionSurgical: null,
     notesSurgical: null,
@@ -45,15 +49,14 @@ export class EvaluationSurgicalForm {
   }
 
 
-  post_n_clear() {
-
-    //TODO, change how this is posted to reflect new database design
-    this.parseProvider.postObjectsToClass(this.evaluationSurgical,'SurveyData').then((/*surveyPoint*/) => {
+  post_n_clear(){
+    this.parseProvider.postObjectsToClassWithRelation(this.evaluationSurgical,'EvaluationSurgical','SurveyData',this.client.objectID).then(()=> {
       for (var key in this.evaluationSurgical){
         this.evaluationSurgical[key] = null;
       }
-      this.clientFname = null;
-      this.clientLname = null;
+      this.client.fname=null; 
+      this.client.lname=null;
+      this.isenabled=false;
     }, (error) => {
       console.log(error);
       alert('Error Confirming.');
@@ -63,18 +66,16 @@ export class EvaluationSurgicalForm {
   //Navigation
   close() {
     this.viewCtrl.dismiss();
+    this.isenabled=false;
   }
 
   inputObjectIDfromComponent(selectedItem) {
-    //retrieves selectedItem emitted from child class component
-    //make sure it's listening to event from child class in view
-    //console.log(selectedItem);
-    this.evaluationSurgical.objectId = selectedItem.id; //Retrieve RESERVED Parse-Server Object ID Value
-    this.clientFname = selectedItem.get('fname');
-    this.clientLname = selectedItem.get('lname');
-    console.log(this.evaluationSurgical.objectId);
+    this.isenabled=true;
+    this.client.objectID= selectedItem.id; //Retrieve RESERVED Parse-Server Object ID Value
+    this.client.fname = selectedItem.get('fname');
+    this.client.lname = selectedItem.get('lname');
+    console.log(this.client.objectID);
   }
-
 
 
 

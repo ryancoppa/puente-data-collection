@@ -11,6 +11,8 @@ import { AuthProvider } from '../../../providers/auth/auth';
 })
 export class PrescriptionsForm {
 
+  isenabled:boolean=false;
+  
   client = {
     objectID: null,
     fname: null,
@@ -21,7 +23,7 @@ export class PrescriptionsForm {
     name: null
   }
 
-  isenabled:boolean=false;
+  
 
   //Design Element: Content Drawer
   drawerOptions: any;
@@ -58,6 +60,7 @@ export class PrescriptionsForm {
 
   close() {
     this.viewCtrl.dismiss();
+    this.isenabled = false;
   }
 
   inputObjectIDfromComponent(selectedItem) {

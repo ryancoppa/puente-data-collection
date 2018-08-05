@@ -11,11 +11,15 @@ import { AuthProvider } from '../../../providers/auth/auth';
 })
 export class VitalsForm {
 
-  clientFname: any;
-  clientLname:any;
+  isenabled:boolean=false;
+  
+  client = {
+    objectID: null,
+    fname: null,
+    lname: null
+  }
 
   vitals = {
-    objectId: null,
     height: null,
     weight: null,
     bmi: null,
@@ -48,14 +52,14 @@ export class VitalsForm {
   }
 
 
-  post_n_clear() {
-    //TODO, change how this is posted to reflect new database design
-    this.parseProvider.postObjectsToClass(this.vitals,'SurveyData').then((/*surveyPoint*/) => {
+  post_n_clear(){
+    this.parseProvider.postObjectsToClassWithRelation(this.vitals,'Vitals','SurveyData',this.client.objectID).then(()=> {
       for (var key in this.vitals){
         this.vitals[key] = null;
       }
-      this.clientFname=null; 
-      this.clientLname=null;
+      this.client.fname=null; 
+      this.client.lname=null;
+      this.isenabled=false;
     }, (error) => {
       console.log(error);
       alert('Error Confirming.');
@@ -64,16 +68,16 @@ export class VitalsForm {
 
   close() {
     this.viewCtrl.dismiss();
+    this.isenabled = false;
   }
 
   inputObjectIDfromComponent(selectedItem) {
-    //retrieves selectedItem emitted from child class component
-    //make sure it's listening to event from child class in view
-    //console.log(selectedItem);
-    this.vitals.objectId = selectedItem.id; //Retrieve RESERVED Parse-Server Object ID Value
-    this.clientFname = selectedItem.get('fname');
-    this.clientLname = selectedItem.get('lname');
-    console.log(this.vitals.objectId);
+    this.isenabled=true;
+    this.client.objectID= selectedItem.id; //Retrieve RESERVED Parse-Server Object ID Value
+    this.client.fname = selectedItem.get('fname');
+    this.client.lname = selectedItem.get('lname');
+    console.log(this.client.objectID);
   }
+
 
 }

@@ -4,7 +4,7 @@
     
     <ion-item color='primary-dark' (click)="close()">
       Client
-      <ion-label>{{clientFname}} {{clientLname}}</ion-label>
+      <ion-label>{{client.fname}} {{client.fname}}</ion-label>
       <ion-icon name="person" item-start></ion-icon>
     </ion-item>
 
@@ -125,7 +125,7 @@
   <!--Submission-->
   <ion-card>
     <ion-item no-lines>
-      <button ion-button icon-left full block large color="accent" (click)="post_n_clear()" >
+      <button ion-button icon-left full block large color="accent" (click)="post_n_clear()" [disabled]="!isenabled" >
         <ion-icon name="checkmark-circle"></ion-icon>
         Submit Development History
       </button>
