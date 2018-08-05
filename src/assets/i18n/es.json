@@ -56,6 +56,7 @@
     "DASHBOARD":"Tabla de Control ",
     "LOADING":"Cargando…",
     "MAPPING":"Cartografía",
+    "MAPPING_SUB":"Cartografía interactiva de clientes previamente identificados",
     "MAPPINGTOOL":"Herramienta del mapa",
     "INITIALIZINGMAP":"Iniciando mapa…",
     "RETRIEVINGLOCATION":"Recuperando ubicacion…",
