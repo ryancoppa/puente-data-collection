@@ -24,9 +24,11 @@ export class MedicalHistoryForm {
     treatment: null,
     familyhistory: null,
     preventativeCare: null,
+    allergies:null
     //socialHistory: null,
     //nutritionHistory: null
   };
+  
   //Design Element: Content Drawer
   drawerOptions: any;
   

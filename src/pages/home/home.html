@@ -46,6 +46,7 @@
                 <p>{{ 'MEDICALSNAPSHOT' | translate }}</p>
               </ion-card>
             </ion-col>
+
           </ion-row>
           <ion-row>
             <ion-col>
@@ -62,6 +63,7 @@
               </ion-card>
             </ion-col>
           </ion-row>
+
           <ion-row>
             <ion-col>
               <ion-card>
@@ -86,6 +88,14 @@
                     </ion-col>
                   </ion-row>
                 </ion-grid>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-card (click) = "openPrescriptions()">
+                <h1 ion-text color="green">{{ 'PRESCRIPTIONS' | translate }}</h1>
               </ion-card>
             </ion-col>
           </ion-row>

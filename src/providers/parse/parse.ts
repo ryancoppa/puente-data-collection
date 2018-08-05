@@ -18,20 +18,23 @@ export class ParseProvider {
     console.log('Initiated Parse');
   }
 
+  /*
+    Takes in local array and posts
+  */
   
-  public postObjectsToClass(parseObject, parseClass:string): Promise<any> {
+  public postObjectsToClass(localObject, parseClass:string): Promise<any> {
     //Creates and or Updates Parse Class
     //const SurveyData = Parse.Object.extend('SurveyData');
     const SurveyData = Parse.Object.extend(parseClass);
     let surveyPoint = new SurveyData();
 
-    for (var key in parseObject) {
-      var obj = parseObject[key];
+    for (var key in localObject) {
+      var obj = localObject[key];
       surveyPoint.set(String(key),obj);
     }
 
 
-    var point = new Parse.GeoPoint(parseObject.latitude,parseObject.longitude);
+    var point = new Parse.GeoPoint(localObject.latitude,localObject.longitude);
     surveyPoint.set('location', point);
 
     return surveyPoint.save(null, {
@@ -40,6 +43,39 @@ export class ParseProvider {
         return surveyPoint;
       },
       error: function (surveyPoint, error) {
+        console.log(error);
+        return error;
+      }
+    });
+  }
+
+  public postObjectsToClassWithRelation(localObject, parseClass:string,parseParentClass:string,parseParentClassID): Promise<any> {
+    //Declare the types.
+    const ChildClass = Parse.Object.extend(parseClass);
+    const ParentClass = Parse.Object.extend(parseParentClass);
+
+    let child = new ChildClass();
+    let parent = new ParentClass();
+
+    //Create child points
+    for (var key in localObject) {
+      var obj = localObject[key];
+      child.set(String(key),obj);
+    }
+
+    var point = new Parse.GeoPoint(localObject.latitude,localObject.longitude);
+    child.set('location', point);
+
+    // Add the parent as a value in the child
+    parent.id = String(parseParentClassID);
+    child.set('client', parent);
+
+    return child.save(null, {
+      success: function (child) {
+        console.log(child);
+        return child;
+      },
+      error: function (child, error) {
         console.log(error);
         return error;
       }

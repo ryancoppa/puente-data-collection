@@ -42,11 +42,15 @@
             <ion-label floating>Preventative Care Attempts</ion-label>
             <ion-textarea [(ngModel)]="medicalHistory.preventativeCare"></ion-textarea>
         </ion-item>
-        
 
-
+        <ion-item>
+            <ion-label floating>{{ 'ALLERGIES' | translate }}</ion-label>
+            <ion-textarea type="text" [(ngModel)]="medicalHistory.allergies"></ion-textarea>
+        </ion-item>
         
     </ion-list>
+
+
     <ion-item no-lines>
       <button ion-button icon-left full block large color="accent" (click)="post_n_clear()" >
         <ion-icon name="checkmark-circle"></ion-icon>
