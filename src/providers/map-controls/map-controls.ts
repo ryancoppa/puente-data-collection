@@ -54,15 +54,16 @@ export class MapControlsProvider {
     localMarkerArray.push(marker);
   }
 
-  public addMultipleMarkers(map, refLatitude,refLongitude,refOrganization, multipleMarkersImages, localMarkerArray){
-            let latitude = refLatitude;
+  public addMultipleMarkers(map, refLatitude,refLongitude,refOrganization, multipleMarkersImages, markerParseName:string, parseClassName:string, localMarkerArray){
+    let latitude = refLatitude;
     let longitude = refLongitude;
 
     /*
       Parse
     */
     let limit = 500;
-    let parseClass = 'SurveyData';
+    //let parseClass = 'SurveyData';
+    let parseClass = parseClassName;
     let parseField = 'surveyingOrganization';
     let parseFieldValue = String(refOrganization);
 
@@ -71,7 +72,7 @@ export class MapControlsProvider {
         let object = result[i];        
         //Loops and pushes each marker into markerArray
         if (object.get('latitude') != null || object.get('longitude') != null) {
-          this.addMarker(map,object.get('latitude'),object.get('longitude'),object.get('fname'),multipleMarkersImages,localMarkerArray);
+          this.addMarker(map,object.get('latitude'),object.get('longitude'),object.get(markerParseName),multipleMarkersImages,localMarkerArray);
         }
       }
     }, (error) => {

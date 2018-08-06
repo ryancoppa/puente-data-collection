@@ -18,23 +18,31 @@ export class MapPage {
   map: any;
   options: any;
 
-  newAssets = {
-    physicalName: null,
-    humanName: null,
-
-    physicalAsset: null,
-    humanAsset: null,
-    
-    latitude: null,
-    longitude: null,
+  userInfo = {
     surveyingUser: this.auth.currentUser().name,
-    surveyingOrganization: this.auth.currentUser().organization
-  };
-
-  pageUserLocation = {
+    surveyingOrganization: this.auth.currentUser().organization,
     latitude: null,
     longitude: null
+  }
+
+  humanAssets = {
+    name: null,
+    humanAsset: null,
+    latitude: null,
+    longitude: null,
+    surveyingUser: null,
+    surveyingOrganization: null
   };
+
+  physicalAssets = {
+    name: null,
+    physicalAsset: null,
+    latitude: null,
+    longitude: null,
+    surveyingUser: null,
+    surveyingOrganization: null
+  }
+
 
   assetPoints = [];
   markerArray = [];
@@ -47,10 +55,11 @@ export class MapPage {
     private auth: AuthProvider, 
     public loadingCtrl: LoadingController,
     private mapCtrl: MapControlsProvider,
-    private themeCtrl:UiUxProvider,
-    private userPst:UserpositionProvider) {
+    private themeCtrl: UiUxProvider,
+    private userPst: UserpositionProvider) {
+
       this.options = this.userPst.options;
-      this.newAssets.surveyingOrganization;
+      this.userInfo;
   }
 
   ionViewWillEnter() {
@@ -60,16 +69,21 @@ export class MapPage {
     this.initializeMap().then(() => {
       this.mapCtrl.addMultipleMarkers(
         this.map,
-        this.pageUserLocation.latitude,
-        this.pageUserLocation.longitude,
-        this.newAssets.surveyingOrganization,
-        this.queryimage,this.markerArray)
+        this.userInfo.latitude,
+        this.userInfo.longitude,
+        this.userInfo.surveyingOrganization,
+        this.queryimage,
+        'fname',
+        'SurveyData',
+        this.markerArray)
         .then(() => { 
           this.setMarkersMapOnAll(this.map);
+          this.getUserPosition();
       });
     }); 
+
   }
-  ionViewDidEnter() {      
+  ionViewDidEnter() {    
   }
   ionViewDidLeave() {
   }
@@ -87,8 +101,8 @@ export class MapPage {
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
 
-        this.pageUserLocation.latitude = position.coords.latitude;
-        this.pageUserLocation.longitude = position.coords.longitude;
+        this.userInfo.latitude = position.coords.latitude;
+        this.userInfo.longitude = position.coords.longitude;
 
         //loading.dismiss();
         
@@ -129,11 +143,11 @@ export class MapPage {
   
   deleteMarkers() {
     /*
-    Deletes all markers in the array by removing references to them.
+      Deletes all markers in the array by removing references to them.
     */
     this.clearMarkers();
     this.markerArray = [];
-    this.mapCtrl.addMarker(this.map,this.pageUserLocation.latitude,this.pageUserLocation.longitude,'User Location',this.userimage,this.markerArray);
+    this.mapCtrl.addMarker(this.map,this.userInfo.latitude,this.userInfo.longitude,'User Location',this.userimage,this.markerArray);
   }
 
 
@@ -141,9 +155,13 @@ export class MapPage {
     /*
       Reinitiate Everything
     */
-    this.mapCtrl.addMultipleMarkers(this.map,this.pageUserLocation.latitude,this.pageUserLocation.longitude,this.newAssets.surveyingOrganization,this.queryimage,this.markerArray).then(() => {
+    this.mapCtrl.addMultipleMarkers(this.map,this.userInfo.latitude,this.userInfo.longitude,this.userInfo.surveyingOrganization,this.queryimage,'fname','SurveyData',this.markerArray).then(() => {
       this.setMarkersMapOnAll(this.map);
     });
+  }
+
+  public centerMap(){
+    this.map.setCenter(new google.maps.LatLng(this.userInfo.latitude, this.userInfo.longitude));
   }
   
   /*
@@ -162,11 +180,11 @@ export class MapPage {
       let latitude = resp.coords.latitude;
       let longitude = resp.coords.longitude;
       
-      this.newAssets.latitude = latitude;
-      this.newAssets.longitude = longitude;
+      this.humanAssets.latitude = this.physicalAssets.latitude = latitude;
+      this.humanAssets.longitude = this.physicalAssets.longitude = longitude;
 
-      this.pageUserLocation.latitude = latitude;
-      this.pageUserLocation.longitude = longitude;
+      this.userInfo.latitude = latitude;
+      this.userInfo.longitude = longitude;
 
       loading.dismiss();
 
@@ -179,38 +197,22 @@ export class MapPage {
     });
   }
   
-  public centerMap(){
-    //this.userPst.getUserPosition().then((resp) => {
-      this.map.setCenter(new google.maps.LatLng(this.pageUserLocation.latitude, this.pageUserLocation.longitude));
-    //}) 
-    
-  }
-
   /*
     Survey
   */
-  public postAssetsConfirm() {
-    //Adds Results of Assets Forms to Parse Object
-    //Pushes those results to the survey (via addAssetsResults)
-    //Clears Survey
-    //Because I'm lazy
-    this.newAssets.surveyingOrganization = this.auth.currentUser().name;
-    this.newAssets.surveyingUser = this.auth.currentUser().organization;
+  public postAssetsConfirm(localAssetsArray) {
+    this.physicalAssets.surveyingOrganization = this.humanAssets.surveyingOrganization = this.userInfo.surveyingOrganization;
+    this.physicalAssets.surveyingUser = this.physicalAssets.surveyingUser = this.userInfo.surveyingUser;
 
-    this.getUserPosition().then(() => {
-
-      this.parseProvider.addAssetsResults(this.newAssets).then((assetPoint) => {
-        this.assetPoints.push(assetPoint);
-        for (var key in this.newAssets){
-          this.newAssets[key] = null;
-        }
-        //this.presentToast('Submitted | Entregado',1000);
-        this.themeCtrl.toasting('Submitted | Entregado', 'bottom');
-      }, (error) => {
-        console.log(error);
-        alert('Error Confirming.');
-      });
-    });
-  }
+    this.parseProvider.postObjectsToClass(localAssetsArray,'AssetData').then(() => {
+      for (var key in localAssetsArray){
+        localAssetsArray[key] = null;
+      }
+      this.themeCtrl.toasting('Submitted | Entregado', 'bottom');
+    }, (error) => {
+      console.log(error);
+      alert('Error Confirming.');
+    }); 
+  } 
 
 }
