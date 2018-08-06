@@ -43,12 +43,11 @@ export class MapPage {
     surveyingOrganization: null
   }
 
-
-  assetPoints = [];
   markerArray = [];
 
   userimage = 'assets/icon/user.png';
   queryimage = 'assets/icon/users-group.png';
+  assetsimage ='';
 
   constructor(private parseProvider: ParseProvider, 
     public navCtrl: NavController,
@@ -67,6 +66,19 @@ export class MapPage {
   ionViewDidLoad() {
     this.themeCtrl.customLoading();
     this.initializeMap().then(() => {
+      this.mapCtrl.addMultipleMarkers(
+        this.map,
+        this.userInfo.latitude,
+        this.userInfo.longitude,
+        this.userInfo.surveyingOrganization,
+        this.assetsimage,
+        'name',
+        'AssetData',
+        this.markerArray)
+        .then(()=> {
+          this.setMarkersMapOnAll(this.map);
+        })
+
       this.mapCtrl.addMultipleMarkers(
         this.map,
         this.userInfo.latitude,
@@ -156,6 +168,10 @@ export class MapPage {
       Reinitiate Everything
     */
     this.mapCtrl.addMultipleMarkers(this.map,this.userInfo.latitude,this.userInfo.longitude,this.userInfo.surveyingOrganization,this.queryimage,'fname','SurveyData',this.markerArray).then(() => {
+      this.setMarkersMapOnAll(this.map);
+    });
+
+    this.mapCtrl.addMultipleMarkers(this.map,this.userInfo.latitude,this.userInfo.longitude,this.userInfo.surveyingOrganization,this.assetsimage,'name','AssetData',this.markerArray).then(() => {
       this.setMarkersMapOnAll(this.map);
     });
   }
