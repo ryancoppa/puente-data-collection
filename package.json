@@ -4,7 +4,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "website:build": "ionic cordova build browser --prod",
-    "android:build": "ionic cordova platform remove android && ionic cordova platform add android && ionic cordova build android",
+    "android:build": "ionic cordova platform remove android && ionic cordova platform add android && ionic cordova build android --prod --release",
     "ios:build": "ionic cordova platform remove ios && ionic cordova platform add ios && ionic cordova build ios --prod --release"
   },
   "dependencies": {
@@ -68,8 +68,8 @@
     },
     "platforms": [
       "browser",
-      "android",
-      "ios"
+      "ios",
+      "android"
     ]
   },
   "cordovaPlugins": [],
