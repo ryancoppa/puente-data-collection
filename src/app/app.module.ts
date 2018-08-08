@@ -22,6 +22,9 @@ import { AuthProvider } from '../providers/auth/auth';
 import { QueryServiceProvider } from '../providers/query-service/query-service';
 import { ChartsProvider } from '../providers/charts/charts';
 import { UserpositionProvider } from '../providers/userposition/userposition';
+import { UiUxProvider } from '../providers/ui-ux/ui-ux';
+import { AssetManagerProvider } from '../providers/asset-manager/asset-manager';
+import { MapControlsProvider } from '../providers/map-controls/map-controls';
 
 // Components
 import { AccordionComponent } from '../components/accordion/accordion';
@@ -56,15 +59,14 @@ import { Splash } from '../pages/splash/splash';
 import { MapPage } from '../pages/map/map';
 import { ProfileModalPage } from '../pages/profile-modal/profile-modal';
 import { ConsumerEnviroEvalPage } from '../pages/consumer-enviro-eval/consumer-enviro-eval';
+import { ConsumerMedicalEvalPage } from '../pages/consumer-medical-eval/consumer-medical-eval';
 import { HelpPage } from '../pages/help/help';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { FindRecordsPage } from '../pages/find-records/find-records';
 import { SettingsPageModule } from '../pages/settings/settings.module'
 
 
-import { UiUxProvider } from '../providers/ui-ux/ui-ux';
-import { AssetManagerProvider } from '../providers/asset-manager/asset-manager';
-import { MapControlsProvider } from '../providers/map-controls/map-controls';
+
 
 export function createTranslateLoader(http: Http) {
 	return new TranslateStaticLoader(http, 'assets/i18n', '.json');
@@ -87,6 +89,7 @@ export function createTranslateLoader(http: Http) {
     DashboardPage,
     FindRecordsPage,
     ConsumerEnviroEvalPage,
+    ConsumerMedicalEvalPage,
     AccordionComponent,
     CardFlippingComponent,
     ContentDrawerComponent,
@@ -132,6 +135,7 @@ export function createTranslateLoader(http: Http) {
     DashboardPage,
     FindRecordsPage,
     ConsumerEnviroEvalPage,
+    ConsumerMedicalEvalPage,
     PatientIDForm,
     EnvironmentalHistoryForm,
     MedicalHistoryForm,

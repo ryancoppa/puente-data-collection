@@ -28,17 +28,17 @@
           <ion-col *ngFor="let communityRecord of communityRecords" col-12 >
             <card-flipping class='record-card'>
                 <div class="flash-card-front">
-                  <h4>{{ 'LICENSENUM' | translate }}: {{ communityRecord.cedulaNumber }}</h4>
-                  <h1>{{ communityRecord.lname }}, {{ communityRecord.fname }}</h1>
-                  <h4>{{ communityRecord.dob }}, {{ communityRecord.sex }}</h4>
-                  <h6>{{ communityRecord.communityname }}, {{ communityRecord.city }}</h6>
-                  <h6>{{ communityRecord.province }}</h6>
+                  <h4>{{ 'LICENSENUM' | translate }}: {{ communityRecord.get('cedulaNumber') }}</h4>
+                  <h1>{{ communityRecord.get('lname') }}, {{ communityRecord.get('fname') }}</h1>
+                  <h4>{{ communityRecord.get('dob') }}, {{ communityRecord.get('sex') }}</h4>
+                  <h6>{{ communityRecord.get('communityname') }}, {{ communityRecord.get('city') }}</h6>
+                  <h6>{{ communityRecord.get('province') }}</h6>
                 </div>
               
                 <div class="flash-card-back">
                   <ion-grid>
                       <ion-row>
-                        <ion-col>
+                        <!--ion-col>
                           <button ion-button icon-left small full (click)="openConsumerEnviroEval()">
                             <ion-icon name="medkit"></ion-icon>
                             <div>{{ 'CONSUMERENVIROEVAL' | translate }}</div>
@@ -48,6 +48,12 @@
                           <button ion-button icon-left small full >
                             <ion-icon name="cut"></ion-icon>
                             <div>{{ 'CONSUMERMEDICALEVAL' | translate }}</div>
+                          </button>
+                        </ion-col-->
+                        <ion-col>
+                          <button ion-button icon-left small full (click)="openConsumerMedicalEval(communityRecord)">
+                            <ion-icon name="information-circle"></ion-icon>
+                            <div>{{ 'PATIENTDEMOGRAPHICS' | translate }}</div>
                           </button>
                         </ion-col>
                       </ion-row>

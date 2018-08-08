@@ -28,8 +28,8 @@
         <ion-item>
           <ion-label>{{'SEX' | translate }}</ion-label>
           <ion-select [(ngModel)]="patientID.sex" interface ='popover'>
-              <ion-option value="Male"> Male | Varon </ion-option>
-              <ion-option value="Female"> Female | Hembra </ion-option>
+            <ion-option value="Male"> {{'MALE' | translate }} </ion-option>
+            <ion-option value="Female"> {{'FEMALE' | translate }} </ion-option>
           </ion-select>
         </ion-item>
 
@@ -41,10 +41,10 @@
         <ion-item>
           <ion-label>{{'MARRIAGESTATUS' | translate }}</ion-label>
           <ion-select  [(ngModel)]="patientID.marriageStatus" interface ='popover'>
-              <ion-option  value="single"> Single | Solter@ </ion-option>
-              <ion-option  value="married"> Married | Casad@ </ion-option>
-              <ion-option  value="concubine"> Concubine | Concubina </ion-option>
-              <ion-option  value="widow"> Widow | Viuda </ion-option>
+            <ion-option  value="single"> {{'SINGLE' | translate }} </ion-option>
+            <ion-option  value="married"> {{'MARRIED' | translate }} </ion-option>
+            <ion-option  value="concubine"> {{'CONCUBINE' | translate }} </ion-option>
+            <ion-option  value="widow"> {{'WIDOW' | translate }} </ion-option>
           </ion-select>
         </ion-item>
         <!--
@@ -61,12 +61,12 @@
         <ion-item>
           <ion-label>{{'EDUCATION' | translate }}</ion-label>
           <ion-select text-wrap [(ngModel)]="patientID.educationLevel" interface ='popover'>
-              <ion-option text-wrap value="lessThanprimary"> Less than Primary | Primaria no terminada</ion-option>
-              <ion-option text-wrap value="primary"> Primary | Primaria  </ion-option>
-              <ion-option text-wrap value="someHighSchool"> Some High School | Liceo sin terminar</ion-option>
-              <ion-option text-wrap value="highschool"> High School | Bachiller</ion-option>
-              <ion-option text-wrap value="someCollege"> Some College | Otra educacion superior</ion-option>
-              <ion-option text-wrap value="college"> College | Universidad</ion-option>
+            <ion-option text-wrap value="lessThanprimary">{{'LESSTHANPRIMARY' | translate }}</ion-option>
+            <ion-option text-wrap value="primary"> {{'PRIMARY' | translate }}</ion-option>
+            <ion-option text-wrap value="someHighSchool">{{'SOMEHIGHSCHOOL' | translate }}</ion-option>
+            <ion-option text-wrap value="highschool">{{'HIGHSCHOOL' | translate }}</ion-option>
+            <ion-option text-wrap value="someCollege">{{'SOMECOLLEGE' | translate }}</ion-option>
+            <ion-option text-wrap value="college"> {{'COLLEGE' | translate }}</ion-option>
           </ion-select>
         </ion-item>
 

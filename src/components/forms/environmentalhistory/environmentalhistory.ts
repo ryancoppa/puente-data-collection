@@ -29,7 +29,10 @@ export class EnvironmentalHistoryForm {
     conditionoFloorinyourhouse: null,
     conditionoRoofinyourhouse: null,
     medicalproblemswheredoyougo: null,
-    dentalproblemswheredoyougo:null
+    dentalproblemswheredoyougo:null,
+    biggestproblemofcommunity:null,
+    timesperweektrashcollected:null,
+    wheretrashleftbetweenpickups:null
   }
 
   //Design Element

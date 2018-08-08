@@ -7,6 +7,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 
 //Pages
 import { ConsumerEnviroEvalPage } from '../consumer-enviro-eval/consumer-enviro-eval';
+import { ConsumerMedicalEvalPage } from '../consumer-medical-eval/consumer-medical-eval';
 
 @Component({
   selector: 'page-find-records',
@@ -37,12 +38,9 @@ export class FindRecordsPage {
     return this.querySrvc.basicQuery(offset,limit,'SurveyData','surveyingOrganization',String(this.auth.currentUser().organization)).then((result) =>{
       for (let i = 0; i < result.length; i++) {
         let object = result[i];
-        
-        if (object.attributes != null) {
-          this.communityRecords.push(object.attributes);
-        }
+        //console.log(object);
+        this.communityRecords.push(object);
       }
-      //console.log(this.communityRecords);
 
     }, (error) => {
       console.log(error);
@@ -52,6 +50,13 @@ export class FindRecordsPage {
   //Navigation
   openConsumerEnviroEval(){
     this.navCtrl.push(ConsumerEnviroEvalPage)
+  }
+
+  openConsumerMedicalEval(patient){
+    //this.navCtrl.push(ConsumerMedicalEvalPage);
+    this.navCtrl.push(ConsumerMedicalEvalPage,{
+      patient:patient
+    });
   }
 
 }

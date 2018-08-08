@@ -33,9 +33,11 @@ export class ParseProvider {
       surveyPoint.set(String(key),obj);
     }
 
-
+    
     var point = new Parse.GeoPoint(localObject.latitude,localObject.longitude);
     surveyPoint.set('location', point);
+  
+    
 
     return surveyPoint.save(null, {
       success: function (surveyPoint) {
@@ -84,7 +86,7 @@ export class ParseProvider {
   
   //Sets up a New Assets
   //Creates and or Updates Parse Class
-  //TO REFACTOR and/or remove
+  //TO  remove
   public addAssetsResults(newAssets): Promise<any> {
     const AssetData = Parse.Object.extend('AssetData');
 

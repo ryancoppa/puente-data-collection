@@ -15,6 +15,17 @@
     "SEX":"Sexo",
     "TELNUM":"Número de Teléfono",
     "MARRIAGESTATUS":"Estado Civil",
+    "MALE":"Varon",
+    "FEMALE":"Hembra",
+    "SINGLE":"Soltera",
+    "MARRIED":"Casado",
+    "CONCUBINE":"Concubina",
+    "WIDOW":"Viuda",
+    "LESSTHANPRIMARY":"Primaria no terminada",
+    "PRIMARY":"Primaria",
+    "SOMEHIGHSCHOOL":"Liceo sin terminar",
+    "SOMECOLLEGE":"Otra educacion superior",
+    "COLLEGE":"Universidad",
     "RELATIONSHIPS":"Relaciones Familiares ", 
     "OCCUPATION":"Ocupación",
     "EDUCATION":"Nivel de Eduación",
@@ -51,6 +62,7 @@
     "DENTALEVALUATION":"Evaluación dental",
     "SURGICALEVALUATION":"Evaluación quirúrgica",
     "SUBMIT":"Enviar",
+    "UPDATE":"Actualizar",
     "SUBMISSIONS":"Entregadas ",
     "DATACOLLECTION":"Colección de Data ",
     "DASHBOARD":"Tabla de Control ",
@@ -149,6 +161,10 @@
     "TRANSPORTATIONSTOP":"Una parada",
     "ELEMENTARYSCHOOL":"La escuela",
     "HIGHSCHOOL":"El liceo",
-    "UNIVERSITY":"La universidad"
+    "UNIVERSITY":"La universidad",
+    "PATIENTDEMOGRAPHICS": "Datos demográficos",
+    "BIGGESTPROBLEMOFCOMMUNITY": "El mayor problema en esta comunidad",
+    "TIMESTRASHISCOLLECTED":"Cuántas veces se recoge la basura (por semana)",
+    "WHEREISTRASHLEFT":"¿Dónde dejas tu basura entre las recoleccións?"
     
 }
