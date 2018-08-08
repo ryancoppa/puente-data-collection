@@ -15,30 +15,33 @@
 
 <ion-content padding class="content">
   <div class='card'>
-    <ion-list>
+    <ion-item>
+      <!--img [src]='patientID.picture'-->
+    </ion-item>
+    <form (ngSubmit)="post_n_update()">
       <ion-item>
         <ion-label floating>{{'FIRSTNAME' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="patientID.fname"></ion-input>
+        <ion-input type="text" [(ngModel)]="patientID.fname" name="fname"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label floating>{{'LASTNAME' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="patientID.lname"></ion-input>
+        <ion-input type="text" [(ngModel)]="patientID.lname" name="lname"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label floating>{{'NICKNAME' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="patientID.nickname"></ion-input>
+        <ion-input type="text" [(ngModel)]="patientID.nickname" name="nickname"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>{{'DOB' | translate }}</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="patientID.dob"></ion-datetime>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="patientID.dob" name="dob"></ion-datetime>
       </ion-item>
 
       <ion-item>
         <ion-label>{{'SEX' | translate }}</ion-label>
-        <ion-select [(ngModel)]="patientID.sex" interface ='popover'>
+        <ion-select [(ngModel)]="patientID.sex" name="sex" interface ='popover'>
             <ion-option value="Male"> {{'MALE' | translate }} </ion-option>
             <ion-option value="Female"> {{'FEMALE' | translate }} </ion-option>
         </ion-select>
@@ -46,12 +49,12 @@
 
       <ion-item>
         <ion-label floating>{{'TELNUM' | translate }}</ion-label>
-        <ion-input type="tel" [(ngModel)]="patientID.telephoneNumber"></ion-input>
+        <ion-input type="tel" [(ngModel)]="patientID.telephoneNumber" name="telephoneNumber"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>{{'MARRIAGESTATUS' | translate }}</ion-label>
-        <ion-select  [(ngModel)]="patientID.marriageStatus" interface ='popover'>
+        <ion-select  [(ngModel)]="patientID.marriageStatus" name="marriageStatus"interface ='popover'>
             <ion-option  value="single"> {{'SINGLE' | translate }} </ion-option>
             <ion-option  value="married"> {{'MARRIED' | translate }} </ion-option>
             <ion-option  value="concubine"> {{'CONCUBINE' | translate }} </ion-option>
@@ -61,12 +64,12 @@
     
       <ion-item>
         <ion-label floating>{{'OCCUPATION' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="patientID.occupation"></ion-input>
+        <ion-input type="text" [(ngModel)]="patientID.occupation" name="occupation"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>{{'EDUCATION' | translate }}</ion-label>
-        <ion-select text-wrap [(ngModel)]="patientID.educationLevel" interface ='popover'>
+        <ion-select text-wrap [(ngModel)]="patientID.educationLevel" name="educationLevel" interface ='popover'>
             <ion-option text-wrap value="lessThanprimary">{{'LESSTHANPRIMARY' | translate }}</ion-option>
             <ion-option text-wrap value="primary"> {{'PRIMARY' | translate }}</ion-option>
             <ion-option text-wrap value="someHighSchool">{{'SOMEHIGHSCHOOL' | translate }}</ion-option>
@@ -78,48 +81,48 @@
 
       <ion-item>
         <ion-label>{{'COMMUNITY' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="patientID.communityname"></ion-input>
+        <ion-input type="text" [(ngModel)]="patientID.communityname" name="communityname"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>{{'CITY' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="patientID.city"></ion-input>
+        <ion-input type="text" [(ngModel)]="patientID.city" name="city"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>{{'PROVINCE' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="patientID.province"></ion-input>
+        <ion-input type="text" [(ngModel)]="patientID.province" name="province"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label floating>{{'INSURANCENUM' | translate }}</ion-label>
-        <ion-input type="number" [(ngModel)]="patientID.insuranceNumber"></ion-input>
+        <ion-input type="number" [(ngModel)]="patientID.insuranceNumber" name="insuranceNumber"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label floating>{{'INSURANCEPROV' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="patientID.insuranceProvider"></ion-input>
+        <ion-input type="text" [(ngModel)]="patientID.insuranceProvider" name="insuranceProvider"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label floating>{{'CLINICPROV' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="patientID.clinicProvider"></ion-input>
+        <ion-input type="text" [(ngModel)]="patientID.clinicProvider" name="clinicProvider"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label floating>{{'LICENSENUM' | translate }}</ion-label>
-        <ion-input type="number" [(ngModel)]="patientID.cedulaNumber"></ion-input>
+        <ion-input type="number" [(ngModel)]="patientID.cedulaNumber" name="cedulaNumber"></ion-input>
       </ion-item> 
 
       
       <ion-item>
-        <button ion-button icon-left full block large color="primary-dark" (click)="post_n_update()" >
+        <button ion-button icon-left full block large color="primary-dark" type="submit">
           <ion-icon name="checkmark-circle"></ion-icon>
           {{'UPDATE' | translate }}
         </button>
       </ion-item>
         
-    </ion-list>
+    </form>
   </div>
 
 </ion-content>

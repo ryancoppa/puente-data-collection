@@ -40,41 +40,37 @@ export class ConsumerMedicalEvalPage {
     private parsePrvdr:ParseProvider,
     private themeSrvc:UiUxProvider) {
     this.patient = navParams.get('patient');
-
-    this.popsFields();
-    
-    //this.populateFields();
+    this.populateFields();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ConsumerMedicalEvalPage');
   }
+  
 
   popView(){
     this.navCtrl.pop();
   }
 
   populateFields(){ 
-    //Unused Function
     /*
-    for (var property in this.patient) {
+      Pulls object from other page and puts the attributes in localObject
+    */
+    
+    for (var property in this.patient.attributes) {
       if (this.patientID.hasOwnProperty(property)) {
-        this.patientID[property] = this.patient[property];
-        console.log(this.patientID[property]);
+        this.patientID[property] = this.patient.attributes[property];
       }
 
-    }*/
-    for (var prop in this.patient) this.patientID[prop] = this.patient[prop];
-  }
+    }
 
-  popsFields(){
-    //this.patientID = this.patient.attributes;
-    this.patientID = Object.create(this.patient.attributes);
-    console.log(this.patientID);
+    //Updates Forms!
+    //for (var prop in this.patient.attributes) this.patientID[prop] = this.patient.attributes[prop];
   }
 
   public post_n_update() {
     this.patientID.id = this.patient.id;
+    console.log(this.patientID.fname);
 
     this.parsePrvdr.postObjectsToClass(this.patientID,'SurveyData').then(() => {
       this.themeSrvc.toasting('Saved | Guardado', 'top');
