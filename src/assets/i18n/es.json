@@ -165,6 +165,25 @@
     "PATIENTDEMOGRAPHICS": "Datos demográficos",
     "BIGGESTPROBLEMOFCOMMUNITY": "El mayor problema en esta comunidad",
     "TIMESTRASHISCOLLECTED":"Cuántas veces se recoge la basura (por semana)",
-    "WHEREISTRASHLEFT":"¿Dónde dejas tu basura entre las recoleccións?"
+    "WHEREISTRASHLEFT":"¿Dónde dejas tu basura entre las recoleccións?",
+    "LESSTHAN1YEAR":"Menos que 1 año",
+    "1-2":"1-2 años",
+    "3-4":"3-4 años",
+    "5-10":"5-10 años",
+    "10+":"10+ años",
+    "EVERYDAY":"Todos los dias",
+    "4-6DAYSAWEEK":"4-6 dias a la semana",
+    "2-3DAYSAWEEK":"2-3 dias a la semana",
+    "LESSTHAN1DAYAWEEK":"1 dia a la semana",
+    "1DAYAMONTH":"1 dia al mes",
+    "NEVER":"Nunca",
+    "BOTTLED":"Botellon",
+    "TAP":"Llave",
+    "YES":"Si",
+    "NO":"No",
+    "DIRTFLOOR":"Tierra",
+    "CEMENTFLOOR":"Cemento",
+    "POORCONDITION":"Mala condicion ",
+    "WORKINGCONDITON":"Condicion regular"
     
 }
