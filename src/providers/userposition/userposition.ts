@@ -20,8 +20,9 @@ export class UserpositionProvider {
   public getUserPosition() {
     //Retrieves coordinates of the user
     this.options = {
-      enableHighAccuracy : true,
-      timeout: 10000
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
     };
     
     return this.geolocation.getCurrentPosition(this.options)
