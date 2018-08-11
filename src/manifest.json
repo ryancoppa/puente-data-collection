@@ -1,13 +1,13 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "Puente - Data Collection",
+  "short_name": "Puente",
   "start_url": "index.html",
-  "display": "standalone",
+  "display": "fullscreen",
   "icons": [{
-    "src": "assets/imgs/logo.png",
+    "src": "assets/images/puente.png",
     "sizes": "512x512",
     "type": "image/png"
   }],
-  "background_color": "#4e8ef7",
-  "theme_color": "#4e8ef7"
+  "background_color": "#212121",
+  "theme_color": "#f8af1e"
 }
