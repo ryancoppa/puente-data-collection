@@ -43,7 +43,7 @@
             <ion-col>
               <ion-card (click) = "openVitals()">
                 <h1 ion-text color="red">{{ 'VITALS' | translate }}</h1>
-                <p>{{ 'MEDICALSNAPSHOT' | translate }}</p>
+                <p ion-text text-wrap>{{ 'MEDICALSNAPSHOT' | translate }}</p>
               </ion-card>
             </ion-col>
 
@@ -52,14 +52,14 @@
             <ion-col>
               <ion-card (click)='openEnvironmentalHistory()'>
                 <h1 ion-text color="green">{{ 'HISTORY' | translate }}</h1>
-                <p>{{ 'ENVIRONMENTALHEALTHHISTORY' | translate }}</p>
+                <p ion-text text-wrap>{{ 'ENVIRONMENTALHEALTHHISTORY' | translate }}</p>
               </ion-card>
             </ion-col>
 
             <ion-col>
               <ion-card (click)='openMedicalHistory()'>
                 <h1 ion-text color="purple">{{ 'HISTORY' | translate }}</h1>
-                <p>{{ 'MEDICALHISTORY' | translate }}</p>
+                <p ion-text text-wrap>{{ 'MEDICALHISTORY' | translate }}</p>
               </ion-card>
             </ion-col>
           </ion-row>
@@ -124,7 +124,7 @@
             <ion-col>
               <ion-card (click)="openFindRecords()" class="darkCard">
                 <h1 ion-text color="orange">{{ 'FINDRECORDS' | translate }}</h1>
-                <p ion-text color="primary">{{ 'FINDRECORDS_SUB' | translate }}</p>
+                <p ion-text text-wrap color="primary">{{ 'FINDRECORDS_SUB' | translate }}</p>
               </ion-card>
             </ion-col>
           </ion-row>
@@ -132,7 +132,7 @@
             <ion-col>
               <ion-card (click) = 'openMapPage()' class="darkCard">
                 <h1 ion-text color="red">{{ 'MAPPING' | translate }}</h1>
-                <p ion-text color="primary">Interactive Mapping of pre-identified clients</p>
+                <p ion-text text-wrap color="primary">{{ 'MAPPING_SUB' | translate }}</p>
               </ion-card>
             </ion-col>
 
