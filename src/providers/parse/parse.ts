@@ -84,39 +84,21 @@ export class ParseProvider {
     });
   }
   
-  //Sets up a New Assets
-  //Creates and or Updates Parse Class
-  //TO  remove
-  public addAssetsResults(newAssets): Promise<any> {
-    const AssetData = Parse.Object.extend('AssetData');
+  public removeObjectsinClass(objectIDinparseClass:string, parseClass:string):Promise<any>{
 
-    let assetPoint = new AssetData();
-    assetPoint.set('physicalName', newAssets.physicalName);
-    assetPoint.set('physicalName', newAssets.humanName);
-    
-    assetPoint.set('physicalAsset', newAssets.physicalAsset);
-    assetPoint.set('humanAsset', newAssets.humanAsset);
+    var yourClass = Parse.Object.extend(parseClass);
+    var query = new Parse.Query(yourClass);
 
-    //Latitude and longitude
-    var point = new Parse.GeoPoint(newAssets.latitude,newAssets.longitude);
-    assetPoint.set('latitude', newAssets.latitude);
-    assetPoint.set('longitude', newAssets.longitude);
-    assetPoint.set('location', point);
-
-    //Enterprise Information
-    assetPoint.set('surveyingUser', newAssets.surveyingUser);
-    assetPoint.set('surveyingOrganization', newAssets.surveyingOrganization);
-
-    return assetPoint.save(null, {
-      success: function (assetPoint) {
-        console.log(assetPoint);
-        return assetPoint;
+    return query.get(objectIDinparseClass, {
+      success: function(yourObj) {
+        // The object was retrieved successfully.
+        yourObj.destroy({});
       },
-      error: function (assetPoint, error) {
-        console.log(error);
-        return error;
-      }
-    });
+    error: function(object, error) {
+      // The object was not retrieved successfully.
+      // error is a Parse.Error with an error code and description.
+    }
+    }); 
   }
 
   getParseENV () {
