@@ -14,8 +14,11 @@ import { ConsumerMedicalEvalPage } from '../consumer-medical-eval/consumer-medic
   templateUrl: 'find-records.html',
 })
 export class FindRecordsPage {
-
+  searchTerm: string = '';
   communityRecords: any[] = [];
+
+  
+  filteredCommunityRecords:any;
 
 
   constructor(public navCtrl: NavController, 
@@ -23,6 +26,7 @@ export class FindRecordsPage {
     public navParams: NavParams,
     private querySrvc: QueryServiceProvider) {
       this.aggregateRecords();
+      this.filteredCommunityRecords = this.communityRecords;
   }
 
   ionViewDidLoad() {
@@ -38,7 +42,6 @@ export class FindRecordsPage {
     return this.querySrvc.basicQuery(offset,limit,'SurveyData','surveyingOrganization',String(this.auth.currentUser().organization)).then((result) =>{
       for (let i = 0; i < result.length; i++) {
         let object = result[i];
-        //console.log(object);
         this.communityRecords.push(object);
       }
 
@@ -57,6 +60,14 @@ export class FindRecordsPage {
     this.navCtrl.push(ConsumerMedicalEvalPage,{
       patient:patient
     });
+  }
+
+  //Searchbar
+  filterItems(){
+    this.filteredCommunityRecords = this.communityRecords.filter((result) => {
+      return result.get('fname').toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+    });
+
   }
 
 }

@@ -17,6 +17,7 @@
     (ionCancel)="onCancel($event)">
   </ion-searchbar>
   -->
+  <ion-searchbar [(ngModel)]="searchTerm" [showCancelButton]="shouldShowCancel" (ionInput)="filterItems()"></ion-searchbar>
 </ion-header>
 
 
@@ -25,7 +26,8 @@
   <ion-list>
       <ion-grid fixed>
         <ion-row>
-          <ion-col *ngFor="let communityRecord of communityRecords" col-12 >
+          <!--ion-col *ngFor="let communityRecord of communityRecords" col-12 -->
+          <ion-col *ngFor="let communityRecord of filteredCommunityRecords" col-12 >
             <card-flipping class='record-card'>
                 <div class="flash-card-front">
                   <h4>{{ 'LICENSENUM' | translate }}: {{ communityRecord.get('cedulaNumber') }}</h4>

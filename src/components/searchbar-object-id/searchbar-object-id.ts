@@ -27,35 +27,12 @@ export class SearchbarObjectIdComponent {
       this.listItems();
       this.filteredItems = this.allItems; 
     
-      
-    //Compile list of objects
-    /*
-    //Test
-    this.allItems = [
-      {title: 'one'},
-      {title: 'two'},
-      {title: 'three'},
-      {title: 'four'},
-      {title: 'five'},
-      {title: 'six'}
-    ] */
-    
-    
   }
 
   ionViewDidLoad() {
   }
 
   ionViewDidEnter(){
-    //this.filteredItems = this.allItems; 
-
-    /*
-    this.listItems();
-    this.filteredItems = this.allItems; 
-    this.listItems().then(()=>{
-      this.filteredItems = this.allItems;
-    });
-    */
   }
 
   setItem(item){
