@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ActionSheetController } from 'ionic-angular';
 
 //Providers
+import { ParseProvider } from '../../providers/parse/parse';
 import { QueryServiceProvider } from '../../providers/query-service/query-service';
 import { AuthProvider } from '../../providers/auth/auth';
+import { UiUxProvider } from '../../providers/ui-ux/ui-ux';
 
 //Pages
 import { ConsumerEnviroEvalPage } from '../consumer-enviro-eval/consumer-enviro-eval';
@@ -24,7 +26,10 @@ export class FindRecordsPage {
   constructor(public navCtrl: NavController, 
     public auth: AuthProvider,
     public navParams: NavParams,
-    private querySrvc: QueryServiceProvider) {
+    private parseSrvc: ParseProvider,
+    private querySrvc: QueryServiceProvider,
+    public actionSheetCtrl: ActionSheetController,
+    private themeCtrl: UiUxProvider) {
       this.aggregateRecords();
       this.filteredCommunityRecords = this.communityRecords;
   }
@@ -67,7 +72,38 @@ export class FindRecordsPage {
     this.filteredCommunityRecords = this.communityRecords.filter((result) => {
       return result.get('fname').toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
     });
-
   }
+
+  presentActionSheet(objectID) {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Are you sure?',
+      subTitle:'This action is unreversible',
+      buttons: [
+        {
+          text: 'Destroy',
+          role: 'destructive',
+          handler: () => {
+            this.parseSrvc.removeObjectsinClass(objectID,'SurveyData');
+            this.communityRecords = [];
+            this.aggregateRecords().then(()=>{
+              this.filteredCommunityRecords = this.communityRecords;
+            })
+            this.themeCtrl.toasting("Deleted",'bottom');
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+ 
+    actionSheet.present();
+  }
+
+
 
 }

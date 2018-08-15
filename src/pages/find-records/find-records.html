@@ -35,6 +35,7 @@
                   <h4>{{ communityRecord.get('dob') }}, {{ communityRecord.get('sex') }}</h4>
                   <h6>{{ communityRecord.get('communityname') }}, {{ communityRecord.get('city') }}</h6>
                   <h6>{{ communityRecord.get('province') }}</h6>
+                  <p color="grey">Submitted by: {{ communityRecord.get('surveyingUser') }}</p>
                 </div>
               
                 <div class="flash-card-back">
@@ -52,10 +53,19 @@
                             <div>{{ 'CONSUMERMEDICALEVAL' | translate }}</div>
                           </button>
                         </ion-col-->
+                        
                         <ion-col>
                           <button ion-button icon-left small full (click)="openConsumerMedicalEval(communityRecord)">
                             <ion-icon name="information-circle"></ion-icon>
                             <div>{{ 'PATIENTDEMOGRAPHICS' | translate }}</div>
+                          </button>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                        <ion-col>
+                          <button color="red" ion-button icon-left small full (click)="presentActionSheet(communityRecord.id)">
+                            <ion-icon name="trash"></ion-icon>
+                            <div>{{ 'DESTROY' | translate }}</div>
                           </button>
                         </ion-col>
                       </ion-row>
