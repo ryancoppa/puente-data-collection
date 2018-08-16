@@ -96,6 +96,17 @@ export class AuthProvider {
     });
   }
 
+  public forgotPassword(email:string) {
+    Parse.User.requestPasswordReset(email, {
+      success: function() {
+          console.log("Password reset request was sent successfully");
+      },
+      error: function(error) {
+          console.log("The login failed with error: " + error.code + " " + error.message);
+      }
+  });
+  }
+
   public currentUser(): User {
     let u = Parse.User.current();
     if (u) {
