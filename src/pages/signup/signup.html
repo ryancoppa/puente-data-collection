@@ -10,6 +10,14 @@
     <ion-list padding inset scroll="false">
 
       <ion-item>
+        <ion-label stacked>{{ 'FIRSTNAME' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="firstname" name="firstname"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label stacked>{{ 'LASTNAME' | translate }}</ion-label>
+          <ion-input type="text" [(ngModel)]="lastname" name="lastname"></ion-input>
+        </ion-item>
+      <ion-item>
         <ion-label stacked>{{ 'USERNAME' | translate }}</ion-label>
         <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
       </ion-item>
@@ -21,10 +29,20 @@
         <ion-label stacked>Verify Password</ion-label>
         <ion-input type="password" [(ngModel)]="confirm" name="confirm"></ion-input>
       </ion-item-->
+      <!--ion-item>
+        <ion-label stacked>{{'ORG' | translate }}</ion-label>
+        <ion-select  [(ngModel)]="organization" name="organization" interface ='popover'>
+            <ion-option value="Puente"> Puente </ion-option>
+            <ion-option value="WOF"> World Outreach Foundation </ion-option>
+        </ion-select>
+      </ion-item-->
+
       <ion-item>
         <ion-label stacked>{{ 'ORG' | translate }}</ion-label>
         <ion-input type="text" [(ngModel)]="organization" name="organization"></ion-input>
       </ion-item>
+
+      
       <ion-item>
         <ion-label stacked>{{ 'EMAIL' | translate }}</ion-label>
         <ion-input type="email" [(ngModel)]="email" name="email"></ion-input>

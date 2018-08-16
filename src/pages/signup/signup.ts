@@ -13,6 +13,8 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class SignupPage {
   password: string = '';
+  firstname: string = '';
+  lastname: string = '';
   username: string = '';
   confirm: string = '';
   email: string = '';
