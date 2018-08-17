@@ -21,7 +21,7 @@ import { VitalsForm } from '../../components/forms/vitals/vitals';
 import { EvaluationMedicalForm } from '../../components/forms/evaluation-medical/evaluation-medical';
 import { EvaluationSurgicalForm } from '../../components/forms/evaluation-surgical/evaluation-surgical';
 import { PrescriptionsForm } from '../../components/forms/prescriptions/prescriptions';
-
+import { AllergiesForm} from '../../components/forms/allergies/allergies';
 
 @Component({
   selector: 'page-home',
@@ -115,6 +115,12 @@ export class HomePage {
 
   openPrescriptions(){
     let myModal = this.modalCtrl.create(PrescriptionsForm);
+
+    myModal.present();
+  }
+
+  openAllergies(){
+    let myModal = this.modalCtrl.create(AllergiesForm);
 
     myModal.present();
   }

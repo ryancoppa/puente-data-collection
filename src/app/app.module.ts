@@ -47,6 +47,7 @@ import { VitalsForm } from '../components/forms/vitals/vitals';
 import { EvaluationMedicalForm } from '../components/forms/evaluation-medical/evaluation-medical';
 import { EvaluationSurgicalForm } from '../components/forms/evaluation-surgical/evaluation-surgical';
 import { PrescriptionsForm } from '../components/forms/prescriptions/prescriptions';
+import { AllergiesForm } from '../components/forms/allergies/allergies';
 
 // Pages
 import { AboutPage } from '../pages/about/about';
@@ -107,7 +108,8 @@ export function createTranslateLoader(http: Http) {
     VitalsForm,
     EvaluationMedicalForm,
     EvaluationSurgicalForm,
-    PrescriptionsForm
+    PrescriptionsForm,
+    AllergiesForm
   ],
   imports: [
     BrowserModule,
@@ -145,7 +147,8 @@ export function createTranslateLoader(http: Http) {
     VitalsForm,
     EvaluationMedicalForm,
     EvaluationSurgicalForm,
-    PrescriptionsForm
+    PrescriptionsForm,
+    AllergiesForm
     
   ],
   providers: [

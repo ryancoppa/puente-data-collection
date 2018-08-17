@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { ViewController } from 'ionic-angular';
 
 // Providers
@@ -8,10 +7,10 @@ import { AuthProvider } from '../../../providers/auth/auth';
 import { UiUxProvider} from '../../../providers/ui-ux/ui-ux';
 
 @Component({
-  selector: 'evaluation-surgical',
-  templateUrl: 'evaluation-surgical.html'
+  selector: 'allergies',
+  templateUrl: 'allergies.html'
 })
-export class EvaluationSurgicalForm {
+export class AllergiesForm {
 
   isenabled:boolean=false;
   
@@ -21,14 +20,15 @@ export class EvaluationSurgicalForm {
     lname: null
   }
 
-  evaluationSurgical = {
-    AssessmentandEvaluationSurgical: null,
-    planOfActionSurgical: null,
-    notesSurgical: null,
+  allergies = {
+    substance:null,
+    reaction: null,
+    category: null,
+    severity: null,
+    informationsource: null,
+    onset: null,
+    comments:null
     
-    surveyingUser: this.auth.currentUser().name,
-    surveyingOrganization: this.auth.currentUser().organization
-
   }
 
   //Design Element: Content Drawer
@@ -39,9 +39,10 @@ export class EvaluationSurgicalForm {
     public viewCtrl:ViewController,
     public themeCtrl:UiUxProvider) {
 
-    console.log('Hello EvaluationSurgicalForm');
+    console.log('Hello AllergiesForm');
     this.auth.authenticated();
 
+    //Design Element: Content Drawer
     this.drawerOptions = {
       handleHeight: 50,
       thresholdFromBottom: 200,
@@ -52,9 +53,9 @@ export class EvaluationSurgicalForm {
 
 
   post_n_clear(){
-    this.parseProvider.postObjectsToClassWithRelation(this.evaluationSurgical,'EvaluationSurgical','SurveyData',this.client.objectID).then(()=> {
-      for (var key in this.evaluationSurgical){
-        this.evaluationSurgical[key] = null;
+    this.parseProvider.postObjectsToClassWithRelation(this.allergies,'Allergies','SurveyData',this.client.objectID).then(()=> {
+      for (var key in this.allergies){
+        this.allergies[key] = null;
       }
       this.client.fname=null; 
       this.client.lname=null;
@@ -66,10 +67,9 @@ export class EvaluationSurgicalForm {
     });
   }
 
-  //Navigation
   close() {
     this.viewCtrl.dismiss();
-    this.isenabled=false;
+    this.isenabled = false;
   }
 
   inputObjectIDfromComponent(selectedItem) {
@@ -80,6 +80,9 @@ export class EvaluationSurgicalForm {
     console.log(this.client.objectID);
   }
 
+  set(value:string){
+    this.allergies.severity = value;
+  }
 
 
 }

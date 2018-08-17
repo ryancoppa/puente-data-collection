@@ -8,6 +8,7 @@ import { ParseProvider } from '../../../providers/parse/parse';
 import { AuthProvider } from '../../../providers/auth/auth';
 import { UserpositionProvider } from '../../../providers/userposition/userposition';
 import { AssetManagerProvider } from '../../../providers/asset-manager/asset-manager';
+import { UiUxProvider} from '../../../providers/ui-ux/ui-ux';
 
 
 @Component({
@@ -52,7 +53,8 @@ export class PatientIDForm {
     public viewCtrl:ViewController,
     private userPositn:UserpositionProvider,
     public assetsMngr: AssetManagerProvider,
-    private camera:Camera) {
+    private camera:Camera,
+    public themeCtrl:UiUxProvider) {
 
     console.log('Hello PatientIDForm ');
     this.auth.authenticated();
@@ -78,6 +80,7 @@ export class PatientIDForm {
       for (var key in this.patientID){
         this.patientID[key] = null;
       }
+      this.themeCtrl.toasting('Submitted | Entregado', "bottom");
     }, (error) => {
       console.log(error);
       alert('Error Confirming.');

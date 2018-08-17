@@ -4,6 +4,7 @@ import { ViewController } from 'ionic-angular';
 // Providers
 import { ParseProvider } from '../../../providers/parse/parse';
 import { AuthProvider } from '../../../providers/auth/auth';
+import { UiUxProvider} from '../../../providers/ui-ux/ui-ux';
 
 @Component({
   selector: 'vitals',
@@ -38,7 +39,8 @@ export class VitalsForm {
   
   constructor(private parseProvider: ParseProvider,
     private auth: AuthProvider,  
-    public viewCtrl:ViewController) {
+    public viewCtrl:ViewController,
+    public themeCtrl:UiUxProvider) {
 
     console.log('Hello VitalsForm');
     this.auth.authenticated();
@@ -61,6 +63,7 @@ export class VitalsForm {
       this.client.fname=null; 
       this.client.lname=null;
       this.isenabled=false;
+      this.themeCtrl.toasting('Submitted | Entregado', "bottom");
     }, (error) => {
       console.log(error);
       alert('Error Confirming.');

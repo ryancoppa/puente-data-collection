@@ -1,5 +1,22 @@
 <ion-header >
-  <ion-navbar color="primary"></ion-navbar>
+  <ion-navbar padding color="primary">
+    <ion-buttons left>
+      <button ion-button icon-only>
+        <ion-icon name="arrow-dropup"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>
+      <h1 text-center color="primary-dark">{{ 'PULLUPTOSELECTPATIENT' | translate }}</h1>
+    </ion-title>
+    
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="arrow-dropup"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
 </ion-header>
 <ion-content class="scroll-content">
   <ng-content></ng-content>

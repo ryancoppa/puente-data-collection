@@ -4,6 +4,7 @@ import { ViewController } from 'ionic-angular';
 // Providers
 import { ParseProvider } from '../../../providers/parse/parse';
 import { AuthProvider } from '../../../providers/auth/auth';
+import { UiUxProvider} from '../../../providers/ui-ux/ui-ux';
 
 @Component({
   selector: 'environmentalhistory',
@@ -43,7 +44,8 @@ export class EnvironmentalHistoryForm {
 
   constructor(private auth: AuthProvider,  
     private parseProvider: ParseProvider,
-    private viewCtrl: ViewController) {
+    private viewCtrl: ViewController,
+    private themeCtrl:UiUxProvider) {
 
     console.log('Hello EnvironmentalHistoryForm ');
     this.auth.authenticated();
@@ -72,6 +74,7 @@ export class EnvironmentalHistoryForm {
       this.client.fname=null; 
       this.client.lname=null;
       this.isenabled=false;
+      this.themeCtrl.toasting('Submitted| Entregado', "bottom");
     }, (error) => {
       console.log(error);
       alert('Error Confirming.');

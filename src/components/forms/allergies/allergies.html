@@ -1,0 +1,96 @@
+<ion-content >
+  <ion-card>
+
+    <ion-item color='primary-dark' (click)="close()">
+        {{ 'CLIENT' | translate }}
+      <ion-label>{{client.fname}} {{client.lname}}</ion-label>
+      <ion-icon name="person" item-start></ion-icon>
+    </ion-item>
+    
+    <ion-card-header class='card-title' color="primary-light">
+        {{ 'ALLERGIES' | translate }}
+    </ion-card-header>
+
+    <!--ion-list-->
+      <ion-item-group>
+        <ion-item>
+          <ion-label stacked>{{ 'SUBSTANCE' | translate }}</ion-label>
+          <ion-input type="text" [(ngModel)]="allergies.substance" placeholder="{{ 'SUBSTANCESUB' | translate }}"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>{{ 'REACTION' | translate }}</ion-label>
+          <ion-input type="text" [(ngModel)]="allergies.reaction" placeholder="{{ 'REACTIONSUB' | translate }}"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>{{ 'CATEGORY' | translate }}</ion-label>
+          <ion-select [(ngModel)]="allergies.category" interface ='popover'>
+            <ion-option value="allergy"> {{'ALLERGIES' | translate }} </ion-option>
+            <ion-option value="sideffect"> {{'SIDEEFFECTS' | translate }} </ion-option>
+            <ion-option value="patientcomplaint"> {{'PATIENTCOMPLAINT' | translate }} </ion-option>
+          </ion-select>
+        </ion-item>
+
+        <!--How severe was the reaction PUT BOTTONS-->
+        <ion-buttons padding>
+          <ion-label>{{ 'SEVERITY' | translate }}</ion-label>
+          <button ion-button left small color="grey" (click)="set('mild')" >
+            {{ 'MILD' | translate }}
+          </button>
+          <button ion-button small color="orange" (click)="set('moderate')">
+            {{ 'MODERATE' | translate }}
+          </button>
+          <button ion-button right small color="red" (click)="set('severe')">
+            {{ 'SEVERE' | translate }}
+          </button>
+        </ion-buttons>
+
+        <ion-item color="gray">
+            <ion-label stacked>{{ 'INFORMATIONSOURCE' | translate }}</ion-label>
+            <ion-input type="text" [(ngModel)]="allergies.informationsource" placeholder="{{ 'INFORMATIONSOURCESUB' | translate }}"></ion-input>
+        </ion-item>
+
+        <ion-item color="gray">
+            <ion-label stacked>{{ 'ONSET' | translate }}</ion-label>
+            <ion-input type="text" [(ngModel)]="allergies.onset" placeholder="{{ 'ONSETSUB' | translate }}"></ion-input>
+        </ion-item>
+
+        <ion-item color="gray">
+            <ion-label floating>{{ 'COMMENTS' | translate }}</ion-label>
+            <ion-textarea type="text" [(ngModel)]="allergies.comments"></ion-textarea>
+        </ion-item>
+        
+      </ion-item-group>
+    <!--/ion-list-->
+
+  </ion-card>
+
+
+  <ion-card>
+    <ion-item no-lines>
+      <button ion-button icon-left full block large color="accent" (click)="post_n_clear()" [disabled]="!isenabled">
+        <ion-icon name="checkmark-circle"></ion-icon>
+        {{ 'SUBMIT' | translate }} {{ 'ALLERGIES' | translate }}
+      </button>
+    </ion-item>
+  </ion-card>
+</ion-content>
+
+<content-drawer [options]="drawerOptions">
+    <searchbar-object-id (emitObjectIDfromComponent)='inputObjectIDfromComponent($event)'></searchbar-object-id>
+</content-drawer>
+
+
+<!--Photo Identification
+<ion-card>
+
+</ion-card>
+-->
+
+<!--ion-item no-lines>
+  <button ion-button icon-left full block large color="accent" (click)="postSurveyConfirm()" (click)="presentToast()">
+    <ion-icon name="checkmark-circle"></ion-icon>
+    Submit | Entrega
+  </button>
+</ion-item-->

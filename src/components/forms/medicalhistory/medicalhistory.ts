@@ -5,6 +5,7 @@ import { App, ViewController } from 'ionic-angular';
 // Providers
 import { ParseProvider } from '../../../providers/parse/parse';
 import { AuthProvider } from '../../../providers/auth/auth';
+import { UiUxProvider} from '../../../providers/ui-ux/ui-ux';
 
 @Component({
   selector: 'medicalhistory',
@@ -38,7 +39,8 @@ export class MedicalHistoryForm {
   
   constructor(private parseProvider: ParseProvider,
     private auth: AuthProvider,  
-    private viewCtrl: ViewController) {
+    private viewCtrl: ViewController,
+    public themeCtrl:UiUxProvider) {
 
     console.log('Hello MedicalHistoryForm ');
     this.auth.authenticated();
@@ -59,6 +61,7 @@ export class MedicalHistoryForm {
       this.client.fname=null; 
       this.client.lname=null;
       this.isenabled=false;
+      this.themeCtrl.toasting('Submitted | Entregado', "bottom");
     }, (error) => {
       console.log(error);
       alert('Error Confirming.');
