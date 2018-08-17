@@ -4,6 +4,7 @@
     "LOGIN": "Login", 
     "SIGNUP": "Signup", 
     "PASSWORD": "Password",
+    "FORGOTPASSWORD": "Forgot Password",
     "STRING_WITH_PARAMS": "String with a parameter: {{value}}",
     "INNER_CONTENT": "Inner content with a param: {{value}}",
     "IDANDREGISTRATION":"Identification and Registration",

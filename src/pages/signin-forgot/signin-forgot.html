@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{ 'PASSWORDRESET' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form (submit)="doForgotpassword()">
+    <ion-item>
+      <ion-label stacked>{{ 'EMAIL' | translate }}</ion-label>
+      <ion-input type="text" [(ngModel)]="email" name="email"></ion-input>
+    </ion-item>
+
+    <div padding>
+      <button ion-button color="accent" block [disabled]="email.length == '0'" type="submit">
+          {{ 'SUBMIT' | translate }}
+      </button>
+    </div>
+  </form>
+</ion-content>

@@ -4,6 +4,7 @@
     "LOGIN": "Iniciar sesion", 
     "SIGNUP": "Registrarte", 
     "PASSWORD": "Contraseña",
+    "FORGOTPASSWORD": "Se olvidó la contraseña",
     "STRING_WITH_PARAMS": "Cuerda con un parámetro: {{value}}",
     "INNER_CONTENT": "El contenido interno con un param: {{value}}",
     "REGISTRATION":"Registro",

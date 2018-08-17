@@ -55,6 +55,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
+import { SigninForgotPage } from '../pages/signin-forgot/signin-forgot';
 import { Splash } from '../pages/splash/splash';
 import { MapPage } from '../pages/map/map';
 import { ProfileModalPage } from '../pages/profile-modal/profile-modal';
@@ -82,6 +83,7 @@ export function createTranslateLoader(http: Http) {
     TabsPage,
     SigninPage,
     SignupPage,
+    SigninForgotPage,
     Splash,
     MapPage,
     ProfileModalPage,
@@ -127,6 +129,7 @@ export function createTranslateLoader(http: Http) {
     TabsPage,
     SigninPage,
     SignupPage,
+    SigninForgotPage,
     Splash,
     AnimatedCirclesComponent,
     MapPage,

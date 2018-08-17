@@ -97,7 +97,7 @@ export class AuthProvider {
   }
 
   public forgotPassword(email:string) {
-    Parse.User.requestPasswordReset(email, {
+    return Parse.User.requestPasswordReset(email, {
       success: function() {
           console.log("Password reset request was sent successfully");
       },

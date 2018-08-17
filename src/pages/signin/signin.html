@@ -18,10 +18,12 @@
         </ion-item>
 
         <div padding>
-          <button ion-button color="primary" round block>{{ 'LOGIN' | translate }}</button>
+          <button type="submit" ion-button color="primary" round block>{{ 'LOGIN' | translate }}</button>
             <p></p>
           <button ion-button color="primary-dark" [navPush]="registerPage" round block outline>{{ 'SIGNUP' | translate }}</button>
-        </div>>
+            <p></p>
+          <button ion-button color="primary-dark" [navPush]="forgotPage" round block outline>{{ 'FORGOTPASSWORD' | translate }}</button>
+        </div>
       </div>
 
     </ion-list>

@@ -9,6 +9,7 @@ import { SignupPage } from '../signup/signup';
 import { TabsPage } from '../tabs/tabs'; 
 import { SettingsPage } from '../settings/settings';
 import { HomePage } from '../home/home';
+import { SigninForgotPage } from '../signin-forgot/signin-forgot';
 
 @Component({
   selector: 'page-signin',
@@ -16,6 +17,7 @@ import { HomePage } from '../home/home';
 })
 export class SigninPage {
   registerPage = SignupPage;
+  forgotPage = SigninForgotPage;
   password: string = '';
   username: string = '';
 
