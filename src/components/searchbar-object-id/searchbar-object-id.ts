@@ -62,6 +62,15 @@ export class SearchbarObjectIdComponent {
 
   }
 
+  filterItems1(){
+    this.filteredItems = this.allItems.filter((result) => {
+      let fname = result.get('fname').toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+      let lname = result.get('lname').toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+      //console.log(fname);
+      return fname || lname;
+    });
+  }
+
   listItems(): Promise<any> {
     //Retrieves list of records from server
 

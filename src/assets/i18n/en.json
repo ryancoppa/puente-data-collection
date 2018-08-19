@@ -207,5 +207,6 @@
     "MODERATE":"Moderate",
     "SEVERE":"Severe",
     "PRESCRIPTIONS":"Prescriptions",
-    "NAME":"Name"
+    "NAME":"Name",
+    "SUBMITTEDBY":"Submitted By"
 }

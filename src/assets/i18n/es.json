@@ -206,6 +206,7 @@
     "MODERATE":"Moderado",
     "SEVERE":"Grave",
     "PRESCRIPTIONS":"Receta médica",
-    "NAME":"Nombre"
+    "NAME":"Nombre",
+    "SUBMITTEDBY": "Entregado Por"
     
 }

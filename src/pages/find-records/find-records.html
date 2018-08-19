@@ -35,7 +35,7 @@
                   <h4>{{ communityRecord.get('dob') }}, {{ communityRecord.get('sex') }}</h4>
                   <h6>{{ communityRecord.get('communityname') }}, {{ communityRecord.get('city') }}</h6>
                   <h6>{{ communityRecord.get('province') }}</h6>
-                  <p color="grey">Submitted by: {{ communityRecord.get('surveyingUser') }}</p>
+                  <p color="grey">{{ 'SUBMITTEDBY' | translate }}: {{ communityRecord.get('surveyingUser') }}</p>
                 </div>
               
                 <div class="flash-card-back">

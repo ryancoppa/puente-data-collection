@@ -70,7 +70,10 @@ export class FindRecordsPage {
   //Searchbar
   filterItems(){
     this.filteredCommunityRecords = this.communityRecords.filter((result) => {
-      return result.get('fname').toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+      let fname =  result.get('fname').toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+      let lname =  result.get('lname').toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+      let dataCollector =  result.get('surveyingUser').toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+      return fname || lname || dataCollector;
     });
   }
 
