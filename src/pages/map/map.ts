@@ -45,9 +45,10 @@ export class MapPage {
 
   markerArray = [];
 
-  userimage = 'assets/icon/user.png';
+  userimage = 'assets/icon/userNew.png';
   queryimage = 'assets/icon/users-group.png';
-  assetsimage ='';
+  assetsimage ='assets/icon/physicalAsset.png';
+  assetsHumanimage = 'assets/icon/humanAsset.png';
 
   constructor(private parseProvider: ParseProvider, 
     public navCtrl: NavController,
