@@ -208,5 +208,8 @@
     "SEVERE":"Severe",
     "PRESCRIPTIONS":"Prescriptions",
     "NAME":"Name",
-    "SUBMITTEDBY":"Submitted By"
+    "SUBMITTEDBY":"Submitted By",
+    "SEARCH":"Search",
+    "SEARCHBYFIRSTNAMELASTNAME":"Search by first name, last name",
+    "SEARCHBYFIRSTNAMELASTNAMEUSER":"Search by first name, last name, or who submitted"
 }

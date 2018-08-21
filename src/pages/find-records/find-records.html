@@ -17,7 +17,7 @@
     (ionCancel)="onCancel($event)">
   </ion-searchbar>
   -->
-  <ion-searchbar [(ngModel)]="searchTerm" [showCancelButton]="shouldShowCancel" (ionInput)="filterItems()"></ion-searchbar>
+  <ion-searchbar [(ngModel)]="searchTerm" [showCancelButton]="shouldShowCancel" (ionInput)="filterItems()" placeholder="{{ 'SEARCHBYFIRSTNAMELASTNAMEUSER' | translate }}"></ion-searchbar>
 </ion-header>
 
 

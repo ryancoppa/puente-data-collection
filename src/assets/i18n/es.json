@@ -207,6 +207,9 @@
     "SEVERE":"Grave",
     "PRESCRIPTIONS":"Receta médica",
     "NAME":"Nombre",
-    "SUBMITTEDBY": "Entregado Por"
+    "SUBMITTEDBY": "Entregado Por",
+    "SEARCH":"Búsqueda",
+    "SEARCHBYFIRSTNAMELASTNAME":"Búsqueda por nombre o apellido",
+    "SEARCHBYFIRSTNAMELASTNAMEUSER":"Búsqueda por nombre, apellido o quien envió"
     
 }

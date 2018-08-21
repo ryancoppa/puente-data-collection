@@ -1,7 +1,7 @@
 
 <ion-content>
 
-    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterItems1()"></ion-searchbar>
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterItems1()" placeholder="{{ 'SEARCHBYFIRSTNAMELASTNAME' | translate }}"></ion-searchbar>
     
     <!--div *ngIf="searching" class="spinner-container">
         <ion-spinner></ion-spinner>
