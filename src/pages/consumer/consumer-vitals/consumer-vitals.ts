@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 //Providers
-import { ParseProvider } from '../../providers/parse/parse';
-import { UiUxProvider} from '../../providers/ui-ux/ui-ux';
+import { ParseProvider } from '../../../providers/parse/parse';
+import { UiUxProvider} from '../../../providers/ui-ux/ui-ux';
 
 @Component({
-  selector: 'page-consumer-medical-eval',
-  templateUrl: 'consumer-medical-eval.html',
+  selector: 'page-consumer-vitals',
+  templateUrl: 'consumer-vitals.html',
 })
-export class ConsumerMedicalEvalPage {
+export class ConsumerVitalsPage {
   //we need to push patientsID into this page and retrieve
   patient : any;
   

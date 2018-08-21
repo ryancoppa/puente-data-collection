@@ -211,5 +211,6 @@
     "SUBMITTEDBY":"Submitted By",
     "SEARCH":"Search",
     "SEARCHBYFIRSTNAMELASTNAME":"Search by first name, last name",
-    "SEARCHBYFIRSTNAMELASTNAMEUSER":"Search by first name, last name, or who submitted"
+    "SEARCHBYFIRSTNAMELASTNAMEUSER":"Search by first name, last name, or user",
+    "PASSWORDRESET":"Password Reset"
 }

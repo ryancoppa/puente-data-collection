@@ -8,8 +8,8 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { UiUxProvider } from '../../providers/ui-ux/ui-ux';
 
 //Pages
-import { ConsumerEnviroEvalPage } from '../consumer-enviro-eval/consumer-enviro-eval';
-import { ConsumerMedicalEvalPage } from '../consumer-medical-eval/consumer-medical-eval';
+import { ConsumerEnviroEvalPage } from "../consumer/consumer-enviro-eval/consumer-enviro-eval";
+import { ConsumerMedicalEvalPage } from '../consumer/consumer-medical-eval/consumer-medical-eval';
 
 @Component({
   selector: 'page-find-records',
