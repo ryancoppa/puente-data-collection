@@ -16,6 +16,14 @@
             <ion-label floating>{{ 'NAME' | translate }}</ion-label>
             <ion-input type="text" [(ngModel)]="prescriptions.name"></ion-input>
         </ion-item>
+
+        <ion-item>
+          <ion-label>{{'FREQUENCY' | translate }}</ion-label>
+          <ion-select  [(ngModel)]="prescriptions.frequency" interface ='popover'>
+            <ion-option  value="daily"> {{'DAILY' | translate }} </ion-option>
+            <ion-option  value="weekly"> {{'WEEKLY' | translate }} </ion-option>
+          </ion-select>
+        </ion-item>
       </ion-item-group>
 
   </ion-card>

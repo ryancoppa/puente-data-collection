@@ -21,7 +21,19 @@ export class PrescriptionsForm {
   }
 
   prescriptions = {
-    name: null
+    name: null,
+    dose:null,
+    administerRoute:null,
+    frequency:null,
+    quantity:null,
+    provider:null,
+    refill:null,
+    startdatePrescription:null,
+    enddatePrescription:null,
+    dateDispense:null,
+    type:null,
+    instructions:null
+
   }
 
   

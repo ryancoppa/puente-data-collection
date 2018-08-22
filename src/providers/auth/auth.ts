@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { LoadingController, AlertController } from "ionic-angular";
+import { TranslateService} from 'ng2-translate';
 import 'rxjs/add/operator/map';
 
 // Parse
@@ -21,22 +23,41 @@ export class AuthProvider {
   private parseServerUrl: string = ENV.parseServerUrl;
   private parseJavascriptKey: string = ENV.parseJavascriptKey;
 
-  constructor() {
+  constructor(private loadCtrl:LoadingController, 
+    private alertCtrl:AlertController,
+    private translate:TranslateService) {
     this.parseInitialize();
     console.log('Initiated Auth');
   }
 
   public signin(username: string, password: string): Observable<boolean> {
     return new Observable((observer) => {
+      //REFACTOR LATER
+      let loader = this.loadCtrl.create({
+
+        content: 'Signing in...'
+      });
+
+      let alerter = this.alertCtrl.create({
+        title: 'Login Error',
+        subTitle: 'Invalid username and/or password',
+        buttons: ['Try Again']
+      });
+
+      loader.present();
+
       Parse.User.logIn(username, password, {
         success: function (user) {
           // Do stuff after successful login, like a redirect.
+          loader.dismiss();
           console.log('User logged in successful with username: ' + user.get("username"));
           observer.next(true);
           observer.complete();
         },
         error: function (user, error) {
           // If the user inputs the email instead of the username
+          //console.log(error);
+          console.log("Trying to use email instead of Username");
           var userQuery = new Parse.Query(Parse.User);
 
           userQuery.equalTo('email', username);
@@ -45,20 +66,34 @@ export class AuthProvider {
             Parse.User.logIn(username, password, {
               success: function (user) {
                 // Do stuff after successful login, like a redirect.
+                loader.dismiss();
                 console.log('User logged in successful with email: ' + user.get("email"));
                 observer.next(true);
                 observer.complete();
               },
               error: function (user, error) {
+                loader.dismiss().then(()=>{
+                  alerter.present();
+                })
+                alerter.dismiss();
+                console.log(error);
                 observer.error(error);
                 observer.complete();
               }
             });
           }, function (error) {
+            loader.dismiss().then(()=>{
+              alerter.present();
+            })
+            alerter.dismiss();
+            console.log(error);
             observer.error(error);
             observer.complete();
           });
-          
+          loader.dismiss().then(()=>{
+            alerter.present();
+          })
+          alerter.dismiss();
         }
       });
     });

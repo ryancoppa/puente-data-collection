@@ -37,7 +37,7 @@ export class SigninPage {
   }
   public doSignin() {
     
-    
+    /*
     let loader = this.loadCtrl.create({
 
       content: 'Signing in...'
@@ -54,16 +54,16 @@ export class SigninPage {
     setTimeout(() => {
       loader.dismiss();
       //ion_alert.present();
-    }, 3000); 
+    }, 3000);  */
 
     this.authPvdr.signin(this.trimWhitespace(this.username), this.password).subscribe((success) => {
-      ion_alert.dismiss();
+      //ion_alert.dismiss();
       //this.navCtrl.setRoot(TabsPage);
       this.navCtrl.setRoot(HomePage);
-      loader.dismissAll();
+      //loader.dismissAll();
     }, (error) => {
       //ion_alert.present();
-      loader.dismissAll();
+      //loader.dismissAll();
     });
   }
 
