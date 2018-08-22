@@ -1,0 +1,23 @@
+<ion-content class="content">
+  <ion-card>
+    <ion-card-header (click)='closeModal()' class="card-title">
+      {{ 'VITALS' | translate }}
+    </ion-card-header>
+    <ion-list>
+      <ion-item *ngFor="let vitals of vitalsList">
+        <h4>{{ 'BODYMASSINDEX' | translate }}: {{ vitals.get('bmi') }}</h4>
+        <h3>{{ 'HEIGHT' | translate }}: {{ vitals.get('height') }}</h3>
+        <h3>{{ 'WEIGHT' | translate }}: {{ vitals.get('weight') }}</h3>
+        <h3>{{ 'TEMPERATURE' | translate }}: {{ vitals.get('temp') }}</h3>
+        <h3>{{ 'PULSE' | translate }}: {{ vitals.get('pulse') }}</h3>
+        <h3>{{ 'RESPIRATORYRATE' | translate }}: {{ vitals.get('respRate') }}</h3>
+        <h3>{{ 'BLOODPRESSURE' | translate }}: {{ vitals.get('bloodPressure') }}</h3>
+        <h3>{{ 'BLOODOXYGEN' | translate }}: {{ vitals.get('bloodOxygen') }}</h3>
+        <h3>{{ 'BLOODSUGAR' | translate }}: {{ vitals.get('bloodSugar') }}</h3>
+        <h3>{{ 'HEMOGLOBINLEVELS' | translate }}: {{ vitals.get('hemoglobinLevels') }}</h3>
+        <h3>{{ 'PAIN' | translate }}: {{ vitals.get('painLevels') }}</h3>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+      
+</ion-content>

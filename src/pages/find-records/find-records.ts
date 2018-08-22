@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ActionSheetController } from 'ionic-angular';
+import { NavController, NavParams, ActionSheetController,ModalController } from 'ionic-angular';
 
 //Providers
 import { ParseProvider } from '../../providers/parse/parse';
@@ -10,6 +10,9 @@ import { UiUxProvider } from '../../providers/ui-ux/ui-ux';
 //Pages
 import { ConsumerEnviroEvalPage } from "../consumer/consumer-enviro-eval/consumer-enviro-eval";
 import { ConsumerMedicalEvalPage } from '../consumer/consumer-medical-eval/consumer-medical-eval';
+
+//Components
+import { ListofvitalsComponent } from '../../components/lists/listofvitals/listofvitals';
 
 @Component({
   selector: 'page-find-records',
@@ -29,6 +32,7 @@ export class FindRecordsPage {
     private parseSrvc: ParseProvider,
     private querySrvc: QueryServiceProvider,
     public actionSheetCtrl: ActionSheetController,
+    private modalCtrl:ModalController,
     private themeCtrl: UiUxProvider) {
       this.aggregateRecords();
       this.filteredCommunityRecords = this.communityRecords;
@@ -60,11 +64,18 @@ export class FindRecordsPage {
     this.navCtrl.push(ConsumerEnviroEvalPage)
   }
 
-  openConsumerMedicalEval(patient){
+  openConsumerDemographicsEval(patient){
     //this.navCtrl.push(ConsumerMedicalEvalPage);
     this.navCtrl.push(ConsumerMedicalEvalPage,{
       patient:patient
     });
+  }
+
+  openConsumerVitalsList(patient){
+    let vitalsModal = this.modalCtrl.create(ListofvitalsComponent,{
+      patient:patient
+    });
+    vitalsModal.present();
   }
 
   //Searchbar

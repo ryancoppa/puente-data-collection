@@ -55,9 +55,15 @@
                         </ion-col-->
                         
                         <ion-col>
-                          <button ion-button icon-left small full (click)="openConsumerMedicalEval(communityRecord)">
+                          <button ion-button icon-left small full (click)="openConsumerDemographicsEval(communityRecord)">
                             <ion-icon name="information-circle"></ion-icon>
                             <div>{{ 'PATIENTDEMOGRAPHICS' | translate }}</div>
+                          </button>
+                        </ion-col>
+                        <ion-col>
+                          <button ion-button icon-left small full (click)="openConsumerVitalsList(communityRecord)">
+                            <ion-icon name="information-circle"></ion-icon>
+                            <div>{{ 'VITALS' | translate }}</div>
                           </button>
                         </ion-col>
                       </ion-row>
