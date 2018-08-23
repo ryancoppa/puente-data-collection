@@ -100,6 +100,16 @@ export class ContentDrawerComponent {
     }
  
   }
+
+  openDrawer(){
+    this.renderer.setElementStyle(this.element.nativeElement, 'transition', 'top 0.5s');
+    this.renderer.setElementStyle(this.element.nativeElement, 'top', '0px');
+  }
+
+  closeDrawer(){
+    this.renderer.setElementStyle(this.element.nativeElement, 'transition', 'top 0.5s');
+    this.renderer.setElementStyle(this.element.nativeElement, 'top', this.platform.height() - this.handleHeight + 'px');
+  }
  
 }
 

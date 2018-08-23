@@ -1,16 +1,16 @@
 <ion-header >
   <ion-navbar padding color="primary">
-    <ion-buttons left>
+    <ion-buttons left (click)="closeDrawer()">
       <button ion-button icon-only>
-        <ion-icon name="arrow-dropup"></ion-icon>
+        <ion-icon name="arrow-dropdown"></ion-icon>
       </button>
     </ion-buttons>
 
-    <ion-title>
+    <!--ion-title>
       <h1 text-center color="primary-dark">{{ 'PULLUPTOSELECTPATIENT' | translate }}</h1>
-    </ion-title>
+    </ion-title-->
     
-    <ion-buttons right>
+    <ion-buttons right (click)="openDrawer()">
       <button ion-button icon-only>
         <ion-icon name="arrow-dropup"></ion-icon>
       </button>
