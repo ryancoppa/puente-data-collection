@@ -35,21 +35,29 @@ export class FindRecordsPage {
     public actionSheetCtrl: ActionSheetController,
     private modalCtrl:ModalController,
     private themeCtrl: UiUxProvider) {
-      this.aggregateRecords();
-      this.filteredCommunityRecords = this.communityRecords;
+
+      this.themeCtrl.coolLoadz.present();
+      
+      this.aggregateRecords().then(()=>{
+        this.themeCtrl.coolLoadz.dismiss();
+        this.filteredCommunityRecords = this.communityRecords;
+      })
+      
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FindRecordsPage');
   }
+  ionViewWillEnter(){
+  }
 
   //Function that constructs an Array of Community Records
   public aggregateRecords(){
-    let offset = this.communityRecords.length;
-    let limit = 1000;
+    //let offset = this.communityRecords.length;
+    let limit = 10000;
 
 
-    return this.querySrvc.basicQuery(offset,limit,'SurveyData','surveyingOrganization',String(this.auth.currentUser().organization)).then((result) =>{
+    return this.querySrvc.basicQuery(0,limit,'SurveyData','surveyingOrganization',String(this.auth.currentUser().organization)).then((result) =>{
       for (let i = 0; i < result.length; i++) {
         let object = result[i];
         this.communityRecords.push(object);
@@ -89,9 +97,16 @@ export class FindRecordsPage {
   //Searchbar
   filterItems(){
     this.filteredCommunityRecords = this.communityRecords.filter((result) => {
-      let fname =  result.get('fname').toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
-      let lname =  result.get('lname').toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
-      let dataCollector =  result.get('surveyingUser').toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+      if (result.get('fname')){
+        var fname =  result.get('fname').toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+      }
+      if (result.get('lname')){
+        var lname =  result.get('lname').toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+      }
+      if (result.get('surveyingUser')){
+        var dataCollector =  result.get('surveyingUser').toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+      }
+      
       return fname || lname || dataCollector;
     });
   }
