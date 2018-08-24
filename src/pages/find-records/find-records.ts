@@ -13,6 +13,7 @@ import { ConsumerMedicalEvalPage } from '../consumer/consumer-medical-eval/consu
 
 //Components
 import { ListofvitalsComponent } from '../../components/lists/listofvitals/listofvitals';
+import { ListofEnviroComponent } from '../../components/lists/listofenv/listofenv';
 
 @Component({
   selector: 'page-find-records',
@@ -76,6 +77,13 @@ export class FindRecordsPage {
       patient:patient
     });
     vitalsModal.present();
+  }
+
+  openConsumerEnvHistoryList(patient){
+    let envModal = this.modalCtrl.create(ListofEnviroComponent,{
+      patient:patient
+    });
+    envModal.present();
   }
 
   //Searchbar

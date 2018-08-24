@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title text-center>{{ 'FINDRECORDS' | translate }}</ion-title>
+    <ion-title ion-text text-center text-wrap>{{ 'FINDRECORDS' | translate }}</ion-title>
   </ion-navbar>
   <!--
   <ion-searchbar
@@ -40,41 +40,41 @@
               
                 <div class="flash-card-back">
                   <ion-grid>
-                      <ion-row>
-                        <!--ion-col>
-                          <button ion-button icon-left small full (click)="openConsumerEnviroEval()">
-                            <ion-icon name="medkit"></ion-icon>
-                            <div>{{ 'CONSUMERENVIROEVAL' | translate }}</div>
-                          </button>
-                        </ion-col>
-                        <ion-col>
-                          <button ion-button icon-left small full >
-                            <ion-icon name="cut"></ion-icon>
-                            <div>{{ 'CONSUMERMEDICALEVAL' | translate }}</div>
-                          </button>
-                        </ion-col-->
-                        
-                        <ion-col>
-                          <button ion-button icon-left small full (click)="openConsumerDemographicsEval(communityRecord)">
-                            <ion-icon name="information-circle"></ion-icon>
-                            <div>{{ 'PATIENTDEMOGRAPHICS' | translate }}</div>
-                          </button>
-                        </ion-col>
-                        <ion-col>
-                          <button ion-button icon-left small full (click)="openConsumerVitalsList(communityRecord)">
-                            <ion-icon name="information-circle"></ion-icon>
-                            <div>{{ 'VITALS' | translate }}</div>
-                          </button>
-                        </ion-col>
-                      </ion-row>
-                      <ion-row>
-                        <ion-col>
-                          <button color="red" ion-button icon-left small full (click)="presentActionSheet(communityRecord.id)">
-                            <ion-icon name="trash"></ion-icon>
-                            <div>{{ 'DESTROY' | translate }}</div>
-                          </button>
-                        </ion-col>
-                      </ion-row>
+
+                    <ion-row>
+                      <ion-col>
+                        <button ion-button icon-left small full (click)="openConsumerDemographicsEval(communityRecord)">
+                          <ion-icon name="information-circle"></ion-icon>
+                          <div ion-text text-wrap>{{ 'PATIENTDEMOGRAPHICS' | translate }}</div>
+                        </button>
+                      </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                      <ion-col>
+                        <button ion-button icon-left small full (click)="openConsumerVitalsList(communityRecord)">
+                          <ion-icon name="information-circle"></ion-icon>
+                          <div ion-text text-wrap>{{ 'VITALS' | translate }}</div>
+                        </button>
+                      </ion-col>
+
+                      <ion-col>
+                        <button ion-button icon-left small full (click)="openConsumerEnvHistoryList(communityRecord)">
+                          <ion-icon name="information-circle"></ion-icon>
+                          <div ion-text text-wrap>{{ 'ENVIRONMENTAL' | translate }}</div>
+                        </button>
+                      </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                      <ion-col>
+                        <button color="red" ion-button icon-left small full (click)="presentActionSheet(communityRecord.id)">
+                          <ion-icon name="trash"></ion-icon>
+                          <div>{{ 'DESTROY' | translate }}</div>
+                        </button>
+                      </ion-col>
+                    </ion-row>
+
                   </ion-grid>
                 </div>
             </card-flipping>

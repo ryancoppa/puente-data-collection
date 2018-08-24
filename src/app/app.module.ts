@@ -49,6 +49,7 @@ import { EvaluationSurgicalForm } from '../components/forms/evaluation-surgical/
 import { PrescriptionsForm } from '../components/forms/prescriptions/prescriptions';
 import { AllergiesForm } from '../components/forms/allergies/allergies';
 import { ListofvitalsComponent } from '../components/lists/listofvitals/listofvitals';
+import { ListofEnviroComponent } from '../components/lists/listofenv/listofenv';
 
 // Pages
 import { AboutPage } from '../pages/about/about';
@@ -104,6 +105,7 @@ export function createTranslateLoader(http: Http) {
     DoughnutComponent,
     RadarComponent,
     ListofvitalsComponent,
+    ListofEnviroComponent,
     PatientIDForm,
     EnvironmentalHistoryForm,
     MedicalHistoryForm,
@@ -137,6 +139,7 @@ export function createTranslateLoader(http: Http) {
     Splash,
     AnimatedCirclesComponent,
     ListofvitalsComponent,
+    ListofEnviroComponent,
     MapPage,
     ProfileModalPage,
     HelpPage,
