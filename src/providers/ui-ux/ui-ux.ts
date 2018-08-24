@@ -19,6 +19,8 @@ export class UiUxProvider {
     console.log('Hello UiUxProvider Provider');
   }
   duration : number = 2000;
+
+  coolLoadz = this.modalCtrl.create(AnimatedCirclesComponent);
   //position : string = 'bottom';
 
   /*

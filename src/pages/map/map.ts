@@ -65,7 +65,7 @@ export class MapPage {
   ionViewWillEnter() {
   }
   ionViewDidLoad() {
-    this.themeCtrl.customLoading();
+    this.themeCtrl.coolLoadz.present();
     this.initializeMap().then(() => {
       this.mapCtrl.addMultipleMarkers(
         this.map,
@@ -92,6 +92,7 @@ export class MapPage {
         .then(() => { 
           this.setMarkersMapOnAll(this.map);
           this.getUserPosition();
+          this.themeCtrl.coolLoadz.dismiss();
       });
     }); 
 

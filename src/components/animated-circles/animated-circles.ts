@@ -20,10 +20,10 @@ export class AnimatedCirclesComponent {
   }
 
   ionViewDidEnter() {
-
+    /*
     setTimeout(() => {
       this.viewCtrl.dismiss();
-    }, 3500);
+    }, 3500); */
 
   }
 
