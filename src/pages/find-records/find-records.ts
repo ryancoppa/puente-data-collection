@@ -35,24 +35,16 @@ export class FindRecordsPage {
     public actionSheetCtrl: ActionSheetController,
     private modalCtrl:ModalController,
     private themeCtrl: UiUxProvider) {
+      console.log('ionViewDidLoad FindRecordsPage');
+      this.themeCtrl.coolLoadz.present().then(()=>{
+        this.aggregateRecords().then(()=>{
+          this.filteredCommunityRecords = this.communityRecords;
+          this.themeCtrl.coolLoadz.dismiss();
+        });        
+      });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FindRecordsPage');
-    //Comment Out for PWA
-    this.themeCtrl.presentCustomLoading();
-    this.aggregateRecords().then(()=>{
-      this.filteredCommunityRecords = this.communityRecords;
-      this.themeCtrl.dismissCustomLoading();
-    })
-  }
 
-  ionViewWillEnter(){
-    console.log('ionViewWillEnter FindRecordsPage');
-    if(this.filteredCommunityRecords === !undefined || this.filteredCommunityRecords === !null){
-      this.themeCtrl.dismissCustomLoading();
-    }
-  }
 
 
   //Function that constructs an Array of Community Records
@@ -79,9 +71,14 @@ export class FindRecordsPage {
 
   openConsumerDemographicsEval(patient){
     //this.navCtrl.push(ConsumerMedicalEvalPage);
-    this.navCtrl.push(ConsumerMedicalEvalPage,{
+    let demographicsModal = this.modalCtrl.create(ConsumerMedicalEvalPage,{
       patient:patient
     });
+    demographicsModal.present()
+    /*
+    this.navCtrl.push(ConsumerMedicalEvalPage,{
+      patient:patient
+    });*/
   }
 
   openConsumerVitalsList(patient){

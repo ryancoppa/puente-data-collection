@@ -4,7 +4,7 @@
   "start_url": "index.html",
   "display": "fullscreen",
   "icons": [{
-    "src": "assets/images/puente.png",
+    "src": "assets/images/icon-pwa.png",
     "sizes": "512x512",
     "type": "image/png"
   }],
