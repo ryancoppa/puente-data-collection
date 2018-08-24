@@ -65,36 +65,41 @@ export class MapPage {
   ionViewWillEnter() {
   }
   ionViewDidLoad() {
-    this.themeCtrl.coolLoadz.present();
-    this.initializeMap().then(() => {
-      this.mapCtrl.addMultipleMarkers(
-        this.map,
-        this.userInfo.latitude,
-        this.userInfo.longitude,
-        this.userInfo.surveyingOrganization,
-        this.assetsimage,
-        'name',
-        'AssetData',
-        this.markerArray)
-        .then(()=> {
-          this.setMarkersMapOnAll(this.map);
-        })
-
-      this.mapCtrl.addMultipleMarkers(
-        this.map,
-        this.userInfo.latitude,
-        this.userInfo.longitude,
-        this.userInfo.surveyingOrganization,
-        this.queryimage,
-        'fname',
-        'SurveyData',
-        this.markerArray)
-        .then(() => { 
-          this.setMarkersMapOnAll(this.map);
-          this.getUserPosition();
-      });
-      this.themeCtrl.coolLoadz.dismiss();
-    }); 
+    this.themeCtrl.coolLoadz.present()
+    //.then(()=>{
+      this.initializeMap().then(() => {
+        this.mapCtrl.addMultipleMarkers(
+          this.map,
+          this.userInfo.latitude,
+          this.userInfo.longitude,
+          this.userInfo.surveyingOrganization,
+          this.assetsimage,
+          'name',
+          'AssetData',
+          this.markerArray)
+          .then(()=> {
+            this.setMarkersMapOnAll(this.map);
+          })
+  
+        this.mapCtrl.addMultipleMarkers(
+          this.map,
+          this.userInfo.latitude,
+          this.userInfo.longitude,
+          this.userInfo.surveyingOrganization,
+          this.queryimage,
+          'fname',
+          'SurveyData',
+          this.markerArray)
+          .then(() => { 
+            this.setMarkersMapOnAll(this.map);
+            this.getUserPosition();
+            
+        });
+        this.themeCtrl.coolLoadz.dismiss();
+      }); 
+      
+    //});
+    
 
   }
   ionViewDidEnter() {    
