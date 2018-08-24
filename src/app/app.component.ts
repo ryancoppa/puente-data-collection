@@ -34,7 +34,7 @@ export class MyApp {
 
       //Creates Splashscreen
       let splash = modalCtrl.create(Splash);
-      //splash.present();
+      splash.present();
 
     });
   }
