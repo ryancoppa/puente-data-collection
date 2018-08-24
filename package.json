@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "website:build": "ionic cordova platform remove browser && ionic cordova platform add browser && ionic cordova build browser --prod",
+    "website:build": "ionic cordova platform remove browser && ionic cordova platform add browser && ionic cordova build browser --prod --release",
     "android:build": "ionic cordova platform remove android && ionic cordova platform add android && ionic cordova build android --prod --release",
     "ios:build": "ionic cordova platform remove ios && ionic cordova platform add ios && ionic cordova build ios --prod --release"
   },
