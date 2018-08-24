@@ -24,9 +24,9 @@ export class SearchbarObjectIdComponent {
     private auth:AuthProvider) {
 
       this.auth.authenticated();
-      this.listItems();
-      this.filteredItems = this.allItems; 
-    
+      this.listItems().then(()=>{
+        this.filteredItems = this.allItems; 
+      })
   }
 
   ionViewDidLoad() {
@@ -64,9 +64,12 @@ export class SearchbarObjectIdComponent {
 
   filterItems1(){
     this.filteredItems = this.allItems.filter((result) => {
-      let fname = result.get('fname').toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
-      let lname = result.get('lname').toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
-      //console.log(fname);
+      if (result.get('fname')){
+        var fname =  result.get('fname').toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+      }
+      if (result.get('lname')){
+        var lname =  result.get('lname').toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+      }
       return fname || lname;
     });
   }
