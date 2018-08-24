@@ -35,29 +35,33 @@ export class FindRecordsPage {
     public actionSheetCtrl: ActionSheetController,
     private modalCtrl:ModalController,
     private themeCtrl: UiUxProvider) {
-
-      this.themeCtrl.coolLoadz.present();
-      
-      this.aggregateRecords().then(()=>{
-        this.themeCtrl.coolLoadz.dismiss();
-        this.filteredCommunityRecords = this.communityRecords;
-      })
-      
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FindRecordsPage');
+    //Comment Out for PWA
+    this.themeCtrl.presentCustomLoading();
+    this.aggregateRecords().then(()=>{
+      this.filteredCommunityRecords = this.communityRecords;
+      this.themeCtrl.dismissCustomLoading();
+    })
   }
+
   ionViewWillEnter(){
+    console.log('ionViewWillEnter FindRecordsPage');
+    if(this.filteredCommunityRecords === !undefined || this.filteredCommunityRecords === !null){
+      this.themeCtrl.dismissCustomLoading();
+    }
   }
+
 
   //Function that constructs an Array of Community Records
   public aggregateRecords(){
-    //let offset = this.communityRecords.length;
+    let offset = this.communityRecords.length;
     let limit = 10000;
 
 
-    return this.querySrvc.basicQuery(0,limit,'SurveyData','surveyingOrganization',String(this.auth.currentUser().organization)).then((result) =>{
+    return this.querySrvc.basicQuery(offset,limit,'SurveyData','surveyingOrganization',String(this.auth.currentUser().organization)).then((result) =>{
       for (let i = 0; i < result.length; i++) {
         let object = result[i];
         this.communityRecords.push(object);

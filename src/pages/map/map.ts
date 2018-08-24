@@ -92,8 +92,8 @@ export class MapPage {
         .then(() => { 
           this.setMarkersMapOnAll(this.map);
           this.getUserPosition();
-          this.themeCtrl.coolLoadz.dismiss();
       });
+      this.themeCtrl.coolLoadz.dismiss();
     }); 
 
   }

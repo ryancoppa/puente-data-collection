@@ -13,17 +13,17 @@ import { ViewController } from 'ionic-angular';
 })
 export class AnimatedCirclesComponent {
 
-  text: string;
+  //text: string;
 
   constructor(private viewCtrl:ViewController) {
     console.log('Hello AnimatedCirclesComponent Component');
   }
 
   ionViewDidEnter() {
-    /*
+    
     setTimeout(() => {
       this.viewCtrl.dismiss();
-    }, 3500); */
+    }, 2500); 
 
   }
 

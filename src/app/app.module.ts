@@ -64,6 +64,7 @@ import { MapPage } from '../pages/map/map';
 import { ProfileModalPage } from '../pages/profile-modal/profile-modal';
 import { ConsumerEnviroEvalPage } from '../pages/consumer/consumer-enviro-eval/consumer-enviro-eval';
 import { ConsumerMedicalEvalPage } from '../pages/consumer/consumer-medical-eval/consumer-medical-eval';
+import { ConsumerVitalsPage } from '../pages/consumer/consumer-vitals/consumer-vitals';
 import { HelpPage } from '../pages/help/help';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { FindRecordsPage } from '../pages/find-records/find-records';
@@ -95,6 +96,7 @@ export function createTranslateLoader(http: Http) {
     FindRecordsPage,
     ConsumerEnviroEvalPage,
     ConsumerMedicalEvalPage,
+    ConsumerVitalsPage,
     AccordionComponent,
     CardFlippingComponent,
     ContentDrawerComponent,
@@ -147,6 +149,7 @@ export function createTranslateLoader(http: Http) {
     FindRecordsPage,
     ConsumerEnviroEvalPage,
     ConsumerMedicalEvalPage,
+    ConsumerVitalsPage,
     PatientIDForm,
     EnvironmentalHistoryForm,
     MedicalHistoryForm,

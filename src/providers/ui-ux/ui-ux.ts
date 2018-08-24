@@ -52,10 +52,13 @@ export class UiUxProvider {
     return loader;
   }
 
-  customLoading(){
-    let loadz = this.modalCtrl.create(AnimatedCirclesComponent);
-    loadz.present();
+  presentCustomLoading(){
+    this.coolLoadz.present();
   }
+  dismissCustomLoading(){
+    this.coolLoadz.dismiss();
+  }
+
 
 
 }
