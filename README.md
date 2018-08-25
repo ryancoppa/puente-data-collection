@@ -10,7 +10,7 @@
 
 # About this Program
 
-This is a Surveying Mobile Application that integrates Ionic 3, Angular 2+ and Parse Server. It's being used for community development data collection and assessment in the Dominican Republic.
+This is a Community Health Records Data Collection Application that integrates Ionic 3, Angular 2+ and Parse Server. It's being used for community development data collection and assessment in the Dominican Republic.
 
 # Key Libraries
 
@@ -32,8 +32,8 @@ puente-data-collection/
 ├── resources/
 │
 ├── src/
-│   ├── app/
-│   │   ├── app.constant.ts
+│   ├── app/                      *Holds main logic for application
+│   │   ├── app.constant.ts       
 │   │   ├── app.component.ts
 │   │   ├── app.module.ts
 │   │   ├── app.template.html
@@ -43,41 +43,12 @@ puente-data-collection/
 │   │   └── icon/
 │   │       └── favicon.ico
 │   │
-│   ├── pages/
-│   │   ├── about/
-│   │   │   ├── about.html
-│   │   │   ├── about.ts
-│   │   │   └── about.scss
-│   │   │── home/
-│   │   │   ├── home.html
-│   │   │   ├── home.ts
-│   │   │   └── home.scss
-│   │   │── map/
-│   │   │   ├── map.html
-│   │   │   ├── map.ts
-│   │   │   └── map.scss
-│   │   │── signin/
-│   │   │   ├── signin.html
-│   │   │   ├── signin.ts
-│   │   │   └── signin.scss
-│   │   │
-│   │   ├── signup/
-│   │   │   ├── signup.html
-│   │   │   └── signup.ts
-│   │   │
-│   │   └── tabs/
-│   │       ├── tabs.html
-│   │       └── tabs.ts
+│   ├── pages/                    * Holds Model, View, and Controller for each page of the application
 │   │
-│   ├── providers/
-│   │   │── auth/
-│   │   │   └── auth.ts
-│   │   │
-│   │   └── parse/
-│   │       └── parse.ts
+│   ├── providers/                * Provides "services" or functions to be used/re-used throughout application
 │   │
 │   ├── theme/
-│   │   └── variables.scss
+│   │   └── variables.scss        * Defines CSS scheme for application
 │   │
 │   └── index.html
 │
@@ -111,9 +82,9 @@ Some of its advantages are:
 
 ## Parse Server
 
-**Parse Server** is an open source version of the Parse backend that can be deployed to any infrastructure that can run `Node.js`. It works with the Express web application framework and can be added to existing web applications, or run by itself. Its repository on [Github](https://github.com/parse-community/parse-server) is very active with ~165 contributors and ~14K stars so even if you didn't use the hosted Parse platform before, its open source version is a wise choice if you need to build a backend for you mobile app or your clients apps.
+**Parse Server** is an open source version of the Parse backend that can be deployed to any infrastructure that can run `Node.js`. It works with the Express web application framework and can be added to existing web applications, or run by itself. Its repository is on [Github](https://github.com/parse-community/parse-server).
 
-Parse offer a backend to store data, push notifications, social media integration for your app etc. The features provided tend to be helpful in prototyping quickly.
+Parse offer a backend to store data, push notifications, social media integration for our app etc. The features provided tend to be helpful in prototyping quickly.
 
 - **General Purpose**: Open Source
 - **Hosting**: Self-hosting or Parse Server Hosting providers. Supports local testing and development
@@ -124,11 +95,12 @@ Parse offer a backend to store data, push notifications, social media integratio
 - **Ideal for**: General purpose applications
 
 # Known Issues
-- Geolocation only works with cellular data and cannot be used with a Wifi connection. Issue seems to be with the apache cordova geolocation module
+- Android Production has geolocation issues
+- Performance Issues on older/slower devices
 
 # Contribution
 
 - Report issues
 - Open pull request with improvements
 - Spread the word
-- Reach out to me directly at <hpbala@umich.edu>
+- Reach out to me directly at <tech@puente-dr.com>
