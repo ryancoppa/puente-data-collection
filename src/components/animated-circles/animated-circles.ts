@@ -20,10 +20,12 @@ export class AnimatedCirclesComponent {
   }
 
   ionViewDidEnter() {
-    
+    /*
+    When in place, might create race condition problem. This component isn't a loader thus isn't
+    asynchronous 
     setTimeout(() => {
       this.viewCtrl.dismiss();
-    }, 2500); 
+    }, 5000); */
 
   }
 

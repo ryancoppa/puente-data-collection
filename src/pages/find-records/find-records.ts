@@ -26,7 +26,6 @@ export class FindRecordsPage {
   
   filteredCommunityRecords:any;
 
-
   constructor(public navCtrl: NavController, 
     public auth: AuthProvider,
     public navParams: NavParams,
@@ -36,12 +35,11 @@ export class FindRecordsPage {
     private modalCtrl:ModalController,
     private themeCtrl: UiUxProvider) {
       console.log('ionViewDidLoad FindRecordsPage');
-      this.themeCtrl.coolLoadz.present().then(()=>{
-        this.aggregateRecords().then(()=>{
-          this.filteredCommunityRecords = this.communityRecords;
-          this.themeCtrl.coolLoadz.dismiss();
-        });        
-      });
+      this.themeCtrl.presentCustomLoading();
+      this.aggregateRecords().then(()=>{
+        this.filteredCommunityRecords = this.communityRecords;
+        this.themeCtrl.dismissCustomLoading();  
+    })
   }
 
 
@@ -141,7 +139,6 @@ export class FindRecordsPage {
  
     actionSheet.present();
   }
-
 
 
 }

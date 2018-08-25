@@ -13,23 +13,25 @@ import { AnimatedCirclesComponent } from '../../components/animated-circles/anim
 @Injectable()
 export class UiUxProvider {
 
+  loader;
+
   constructor(private toastCtrl:ToastController,
     private loadCtrl: LoadingController,
     private modalCtrl: ModalController) {
     console.log('Hello UiUxProvider Provider');
   }
-  duration : number = 2000;
 
   coolLoadz = this.modalCtrl.create(AnimatedCirclesComponent);
-  //position : string = 'bottom';
 
-  /*
+  
+  toasting(message : string, position: string = 'bottom', duration : number = 2000) {
+    /*
     A Toast is a subtle notification commonly used in modern applications. 
     It can be used to provide feedback about an operation or to display a system message.
     The toast appears on top of the app's content, and can be dismissed 
     by the app to resume user interaction with the app.
-  */
-  toasting(message : string, position: string, duration : number = this.duration) {
+    */
+
     let toast = this.toastCtrl.create({
       message: message,
       duration: duration,
@@ -53,10 +55,18 @@ export class UiUxProvider {
   }
 
   presentCustomLoading(){
-    this.coolLoadz.present();
+    //Not like a normal loader, not asynchronous 
+    if(!this.loader){
+      this.loader = this.coolLoadz;
+      this.loader.present();
+    }
   }
+
   dismissCustomLoading(){
-    this.coolLoadz.dismiss();
+    if(this.loader){
+      this.loader.dismiss();
+      this.loader = null;
+    }
   }
 
 
