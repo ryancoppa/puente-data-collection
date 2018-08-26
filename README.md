@@ -14,7 +14,7 @@ This is a Community Health Records Data Collection Application that integrates I
 
 # Key Libraries
 
-Uses ionic-native geolocation and google sdk
+Google Maps Javascript SDK
 
 
 ## Some older screenshots
